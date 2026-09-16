@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "profile": "par-sync-inbox-local-0033",
+  "status": "LOCAL_CANDIDATE",
+  "max_records": 64,
+  "max_record_bytes": 8388608,
+  "evidence_reserve_records": 1,
+  "evidence_reserve_bytes": 819200,
+  "staging_orphans_max_records": 64,
+  "staging_orphans_max_bytes": 8388608,
+  "max_dependencies": 128,
+  "max_causal_bytes": 4194304,
+  "ack": "PENDING_BYTES_ONLY",
+  "durable_crdt_apply": false,
+  "real_core_executed": false,
+  "network_transport": false,
+  "application_store_mutated": false,
+  "automatic_fetch": false,
+  "automatic_eviction": false,
+  "single_scope": true,
+  "owner": "COOPERATING_POSIX_PID_THREAD",
+  "independent_review": "NOT_RUN"
+}

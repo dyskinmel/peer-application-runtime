@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scope": "AUTH_STORE_LOCAL_ONLY",
+  "case_ids": [
+    "test_schema_and_restore.SchemaRestoreTests.test_empty_legacy_store_migrates_atomically",
+    "test_schema_and_restore.SchemaRestoreTests.test_extra_trigger_rejected_at_open",
+    "test_schema_and_restore.SchemaRestoreTests.test_invalid_authority_snapshot_never_publishes_destination",
+    "test_schema_and_restore.SchemaRestoreTests.test_migration_failure_rolls_back_schema",
+    "test_schema_and_restore.SchemaRestoreTests.test_new_store_requires_explicit_migration",
+    "test_schema_and_restore.SchemaRestoreTests.test_nonempty_legacy_is_not_silently_trusted",
+    "test_schema_and_restore.SchemaRestoreTests.test_old_store_does_not_open_auth_schema",
+    "test_schema_and_restore.SchemaRestoreTests.test_restore_does_not_forget_epoch_key_history",
+    "test_schema_and_restore.SchemaRestoreTests.test_snapshot_restore_remains_readonly",
+    "test_schema_and_restore.SchemaRestoreTests.test_update_failure_leaves_memory_and_db_consistent",
+    "test_schema_and_restore.SchemaRestoreTests.test_update_response_loss_makes_outcome_unknown",
+    "test_schema_and_restore.SchemaRestoreTests.test_v2_schema_has_separate_user_version"
+  ]
+}

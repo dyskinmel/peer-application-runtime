@@ -1,0 +1,17 @@
+# ADR-JOB-SCHEDULER-0022 — 実接続に結び付く管理safe point
+
+Status: LOCAL_CANDIDATE / 00.22.00。既存protocolを変更しない追加host。
+
+採用: 同じ所有threadに限定し、取得/upload selectorのlistener登録を外して新規受付をpause。接続辞書とselector集合を毎tick照合。認証前のhello/未完要求もactiveとして数え、Keeper pinsを別途確認する。QUEUE/VALIDATED/PREPAREDを段階化しeffectはゼロ活動のsafe pointだけ。最大1 job、最大1stage/tick。
+
+非採用: 固定0のactivity callback、threadへの無検証なSQLite移送、listenerを毎回unlink/rebind、OS backlogを処理済みと数える方式、途中不明の自動再実行、認可cache、管理RPCの同時公開。
+
+効果: サービスprocessを生かしたまま選択済み管理jobが安全点で進む。接続しているだけのclientも期限までdrainを妨げるが、安全側に保留する。effectの同期停止時間は残り、live controlは別課題。
+
+レビュー修正: queued jobへの不適切なreconcileがlistenerをpauseする副作用を、入力状態の先行確認で除去。cancel後にproviderが差し替わった状態で受付resumeする問題を、resume前の実体確認で拒否。失敗ログと負例を保存。
+
+戻し方: 新hostを使わず旧keeper_verified_hostを使用可能。新hostのjob journalを捨てて未知effectを忘れる戻し方は禁止。既存data protocol/library/DB schemaは変更なし。
+
+外部検証: Linux以外のOS、実機、public network、patched crypto/SQLite、独立レビュー。ローカル成果は元の製品Gateを昇格させない。
+
+全体検証で正常送信の試験側にbackpressureの扱い漏れを検出。受信側が読まずに送信完了だけ待っており、選択されたobjectが大きい場合は正しくPREPAREDで止まっていた。最大objectと小さいSO_SNDBUFを固定してREDを再現し、受信側を実際に読み進める試験へ修正。読み始める前はeffect=0/pin保持を検査し、読み始めて署名付き応答を最後まで確認した後にjob完了を検査する。製品コード・socket期限・管理guardは変更しない。20反復の後、最終全レーンを新sourceで再実行する。

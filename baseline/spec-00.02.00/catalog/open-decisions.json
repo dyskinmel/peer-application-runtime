@@ -1,0 +1,112 @@
+[
+  {
+    "id": "OD-01",
+    "gate": "G0",
+    "title": "PAR-C1実装の組合せとstrictness",
+    "owner_role": "crypto lead",
+    "experiment": "HPKE/Ed25519/XChaCha/KDF/canonical CBORのlibrary候補を固定し、正/負組合せvectorsを二経路で照合",
+    "exit_criteria": "suite/domain/AAD/nonce/recipient不一致のrejectまで一致。依存lockとfeature flagsをcommit",
+    "fallback": "suite変更はprofile digest更新、silent downgrade禁止",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-02",
+    "gate": "G0",
+    "title": "CDDLと全wire codecの独立適合",
+    "owner_role": "protocol lead",
+    "experiment": "CDDL parserとproduction予定codecとは別のcodecで全26messageとcross-field corpusを実行",
+    "exit_criteria": "CDDL syntax/正例/負例/未知field/境界状態が一致し0未分類差分",
+    "fallback": "仕様修正またはcodec変更、候補版をfreezeしない",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-03",
+    "gate": "G0",
+    "title": "Automerge内側検証/overflow/seed",
+    "owner_role": "data lead",
+    "experiment": "実際のRust libraryでactor/seq/deps/hashを抽出し改造入力、int64境界、epoch seedを検証",
+    "exit_criteria": "inner/outer対応、causal validity、text encoding、counter overflowの結果が公開契約と一致",
+    "fallback": "adapter/型契約を修正しexact profile更新。検証省略しない",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-04",
+    "gate": "G0",
+    "title": "production storage形状とhost ports",
+    "owner_role": "storage lead",
+    "experiment": "最小DDLを全操作に対応付け、control初期化、idempotency、blob原子性、nonce発行台帳を実装probe",
+    "exit_criteria": "全公開writeの原子単位が決まり、DDL/constraintが実装順と一致",
+    "fallback": "最小DDLを拡張。DDL構文成功をdurability完了としない",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-05",
+    "gate": "G3",
+    "title": "lease rebootとGCのbounded運用",
+    "owner_role": "replication lead",
+    "experiment": "clock不明・長期offline・満杯・強制退出を状態モデル/実storeで試験",
+    "exit_criteria": "保護rootの不当evictなし、quota永久拘束の解除経路とUXを実証",
+    "fallback": "受理容量/profile/保守方針を変更、保証を黙って弱めない",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-06",
+    "gate": "G5",
+    "title": "browser/native接続matrix",
+    "owner_role": "network lead",
+    "experiment": "選択libp2p/JS adapterの実versionを固定しdirect/relay/WSS/権限を試験",
+    "exit_criteria": "default空peerで無外部接続、指定経路のみ稼働、失敗理由一致",
+    "fallback": "browserを限定profileに保ちnativeを継続",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-07",
+    "gate": "G6",
+    "title": "OS最低版/鍵保護/FFI/cancel",
+    "owner_role": "platform lead",
+    "experiment": "対象OS/architecture/toolchain一覧を実機で測定し保護classとlifecycleを記録",
+    "exit_criteria": "対応と表示する組合せに実機証拠。export/cancel/Unicodeの意味一致",
+    "fallback": "未合格組合せはexperimental、対応済みと表示しない",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-08",
+    "gate": "G7",
+    "title": "独立暗号/認可/復旧レビュー",
+    "owner_role": "security owner",
+    "experiment": "外部reviewerへsource/spec/fixture固定でレビューを依頼し再現・修正・retest",
+    "exit_criteria": "Critical/High/未分類0、scope漏れなし、独立再試験",
+    "fallback": "該当profileのstable停止",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-09",
+    "gate": "G8",
+    "title": "性能/規模/電池/soak予算",
+    "owner_role": "performance lead",
+    "experiment": "spec21のworkloadと実hardwareを固定して分布/増幅率/失敗集合を測定",
+    "exit_criteria": "安全性を保ったqualified envelopeとpublic targetsを決定",
+    "fallback": "scope/profile/アルゴリズムを調整し結果を公開",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-10",
+    "gate": "G6",
+    "title": "UI可用性とPolish実証",
+    "owner_role": "design lead",
+    "experiment": "24state galleryと実flowを実装しkeyboard/screen reader/初心者理解を試験",
+    "exit_criteria": "利用者がlocal/remote/current-availableを区別し危険操作を理解、テーマ差分で意味不変",
+    "fallback": "VM/component/microcopyを改善、mockをbackend証拠にしない",
+    "state": "OPEN"
+  },
+  {
+    "id": "OD-11",
+    "gate": "G10",
+    "title": "OSS運営と英語仕様・配布",
+    "owner_role": "maintainers",
+    "experiment": "独立release reviewer/security窓口/support体制、英語protocol要約、signed artifactsを整備",
+    "exit_criteria": "clean install/報告受領/update鍵演習/配布readbackが完了",
+    "fallback": "source previewとして公開する選択肢、stableを名乗らない",
+    "state": "OPEN"
+  }
+]

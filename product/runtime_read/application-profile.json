@@ -1,0 +1,16 @@
+{
+  "profile": "par-application-observation-local-0036",
+  "status": "CANDIDATE_IMPLEMENTED_REAL_CORE_NOT_EXECUTED",
+  "schema_version": 4,
+  "candidate_note_exposed": false,
+  "reexecute_pinned_core_before_note": true,
+  "application_event_is_edit_commit": false,
+  "mutations": false,
+  "new_network_listener": false,
+  "json_is_proof": false,
+  "real_core_executed": false,
+  "positive_core_contract_uses_explicit_simulated_port": true,
+  "renderer_reexecuted": false,
+  "freshness": "KNOWN_OWNER_STATE_ONLY",
+  "production_ready": false
+}

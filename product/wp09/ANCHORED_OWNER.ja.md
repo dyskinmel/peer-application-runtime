@@ -1,0 +1,22 @@
+# Anchor付き所有者操作 — 00.52 local experiment
+
+## 接続と認可
+`ApplicationOwner(AnchoredApplication(...), local_experiment=True)` と `attach(allow_apply=True)` の両方の明示指定が必要です。通常のattachはobserve/inquire/closeだけです。独立して保護されたOS providerの認定がないため、製品profileのapplyはBLOCKEDのままです。profileは`par-owner-application-0052`で、0049の取得profileにapplyを追加しません。
+`serve_application_connected`はembeddingが渡す私有AF_UNIX接続だけを受け、既存Event framingへ委譲します。ネットワークlistener、鍵発行、任意provider/path/target指定はありません。journal/PinStore/controllerの寿命と単一所有者はembedding責務です。一channel、一worker、1要求50〜120000ms、clientは50〜60000msです。同期fsync/SQLiteにremote cancelが割り込む保証はありません。
+
+## 対象・順序・結果
+contextは既存document pin全体、journal metadata digest、binding digest、別profileです。操作はobserve/prepare/dispatch/inquire/retire/abandon/close。現在の認可・接続世代・観測revision・元operation ID/期待適用revision・intent digestを照合します。detachすると古い観測を無効にし、再attachは新observeを必要とします。チャネルは所有者へのアクセス境界であり、JSONでsourceを名乗るだけの認証ではありません。
+prepareは元ID/期待revision/対象digestを固定。dispatchは既存AnchoredApplicationにだけ委譲し、journal DISPATCHと外部pinの同期保存前にapplyを呼びません。失敗/不在/期限/取消しは自動再実行の許可ではありません。prepare応答喪失の場合のみ、intentDigestを知らなくても元IDと期待revisionでinquireできます。新IDによる既存DISPATCHの迂回は拒否します。成功応答の直前も期限と現在の条件を確認します。
+
+## 呼出側の永続意図
+`ApplicationOwnerClient`はCallerIntentStoreのload/save/markDispatchを必須にします。prepareの送信前に元ID/targets/期待revision/ownerKeyを保存・再読込し、dispatch送信前には一度きりのmarkerを同期保存・再読込します。保存の失敗は送信しませんが、保存済みで応答だけ失われた可能性を消しません。再起動後は明示restore→observe→元ID inquire、restoreだけで送信しません。
+ownerKeyはprocess固有のstreamIdだけを除外し、scope、authority、世代、対象、journal、bindingを固定します。他の世代に自動移行する機能ではありません。
+LocalCallerIntentは所有者の0700ディレクトリと0600の原意図/dispatch markerをcreate-onlyで保存、file/directory fsync後に成功します。symlink、別UID、権限不一致、過大/部分ファイル、内容差替えを拒否し、自動修復/削除しません。元IDのslotは一つです。退役後の新slot選択もembeddingの明示操作が必要です。closeやretireでcaller原意図を削除しません。
+
+## 制限と可用性上のコスト
+両POSIX storeとも暗号化されない識別metadataです。OS鍵保管、同じUIDの悪意コードの隔離、hardware counter、全体巻戻し防止ではありません。storeとjournalの全体巻戻しは検出保証しません。独立保護providerは後続です。caller storeは単一協調所有者が使い、非協力providerをsandbox化しません。restoreのloadはtrusted cooperative providerです。
+callerのdispatch marker保存後に送信できなかった場合やCORE_BLOCKEDでも、そのslotは照会専用となります。安全側の拒否であり、必ず進行できる保証ではありません。記録なしを根拠にmarkerを消して再送しません。ownerのDISPATCH前に止まる可能性と、ownerに記録が残った可能性を区別して診断してください。
+
+## 表示と検証範囲
+TypeScriptの状態とJA/EN presenterまでです。既存DOM/画面への適用ボタン統合、ブラウザー実行はこの版では未実施。文書receiptは既存ローカル記録であり、複製/ACK/現在の遠隔可用性の証拠ではありません。Nodeの入力/応答検査と実Node→Python ownerプロセス試験を分離します。
+正の適用は公開合成materializerを明示した実SQLite transaction契約です。実Automerge/coreは専用probeで別判定し、合成identityを実coreに昇格しません。SIGKILLは物理電源断の検証ではありません。本番/全G0–G11/独立レビューの認定ではありません。

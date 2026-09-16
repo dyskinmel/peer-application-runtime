@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "soak.providers.local_caller_roundtrip",
+    "soak.providers.marker_ack_without_data_detected",
+    "soak.providers.missing_provider_blocked",
+    "soak.providers.provider_offline_not_expected_rejection",
+    "soak.providers.save_ack_without_data_detected",
+    "soak.providers.volatile_provider_reopen_detected"
+  ]
+}

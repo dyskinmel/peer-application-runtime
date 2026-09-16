@@ -1,0 +1,15 @@
+.harness/
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+target/
+dist/
+.env
+.env.*
+# Distribution outputs; source and baseline are tracked separately.
+release/evidence/
+release/archives/
+release/STATUS.json
+release/MANIFEST.json
+release/MANIFEST.sha256

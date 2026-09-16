@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "name": "keeper-repair-local-v1",
+  "artifact_version": "00.14.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "test_counts": {
+    "contract": 25,
+    "lifecycle": 25,
+    "audit": 28,
+    "faults": 49
+  },
+  "sigkill_scenarios": 38,
+  "keeper_schema_version": 3,
+  "eligibility": "SEALED_UNRELEASED_EXPLICIT_PUT_OWNER_SCOPE",
+  "max_targets": 128,
+  "max_jobs": 256,
+  "max_staging_bytes": 33554432,
+  "observation": "HISTORICAL_BYTES_NOT_CURRENT_HEALTH",
+  "automatic_repair": false,
+  "network_verified": false,
+  "crdt_validated": false,
+  "physical_power_loss_tested": false,
+  "product_qualified": false,
+  "retention_extension": false,
+  "independent_review": "NOT_RUN",
+  "pinned_inputs": [
+    {
+      "path": "experiments/keeper-repair/schema.sql",
+      "sha256": "3df84ff6ef9effb4474ce4bfb5bcaab6e71132eaaa08073e8cf2dabb2f7b89f1"
+    },
+    {
+      "path": "experiments/keeper-repair/tables.sql",
+      "sha256": "20be67c3bb08889634a9d2e47fc82e89f5cde60b8364ce3296d9c25a47566631"
+    },
+    {
+      "path": "experiments/keeper-repair/par_keeper_repair/contract.py",
+      "sha256": "063d065fa0013fde5d1c68413c43989701094424d27c2f0fc4429d3947c7bddf"
+    },
+    {
+      "path": "experiments/keeper-repair/par_keeper_repair/filesystem.py",
+      "sha256": "a6444c9addd1b8b70bcbfb5fc801079b551681e30938a0d25c7999481713e010"
+    },
+    {
+      "path": "experiments/keeper-repair/par_keeper_repair/store.py",
+      "sha256": "db842c17eb1ae42e7848a7bce55b8a694feb129f5c5a3684130422a759d8c5c4"
+    },
+    {
+      "path": "experiments/keeper-gc/par_keeper_gc/store.py",
+      "sha256": "eb4c738e9e22069355ddbeb6511761fdb34f12eacc665671ddd15de36f2cab1e"
+    },
+    {
+      "path": "experiments/keeper-retention/par_keeper/store.py",
+      "sha256": "fe9b8d24e32a56b051e6729b89336c72f1e0dec4bdab8a7b8fc08d458ecbf317"
+    },
+    {
+      "path": "policy/crypto-provider.json",
+      "sha256": "62cac014fb4a67145eab5462e1d7840e2d01ffef271fa793ce17a0d7a29af63c"
+    }
+  ]
+}

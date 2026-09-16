@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_inbox.DependencyTests.test_all_delivery_orders_have_same_readiness",
+    "test_inbox.DependencyTests.test_author_fork_quarantines_scope",
+    "test_inbox.DependencyTests.test_contract_double_never_promotes_semantics",
+    "test_inbox.DependencyTests.test_core_change_during_validation_rejected",
+    "test_inbox.DependencyTests.test_core_double_requires_explicit_option",
+    "test_inbox.DependencyTests.test_cycle_never_becomes_ready",
+    "test_inbox.DependencyTests.test_dependency_from_actual_local_store",
+    "test_inbox.DependencyTests.test_dependency_wait_does_not_call_core",
+    "test_inbox.DependencyTests.test_equivocation_evidence_reserved_when_full",
+    "test_inbox.DependencyTests.test_need_set_is_exact_and_bounded",
+    "test_inbox.DependencyTests.test_previous_link_must_be_in_causal_closure",
+    "test_inbox.DependencyTests.test_resource_blocked_is_retryable_not_invalid",
+    "test_inbox.DependencyTests.test_third_fork_does_not_unbound_evidence",
+    "test_inbox.DependencyTests.test_unknown_previous_is_requested_as_envelope_id",
+    "test_inbox.DependencyTests.test_wrong_report_stays_unapplied"
+  ]
+}

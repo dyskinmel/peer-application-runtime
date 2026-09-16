@@ -1,0 +1,13 @@
+# ADR-AUTH-STORE-0002 — 観測失敗時の停止と再起動
+
+## 不具合からの変更
+正しく署名された新しいcontrolの永続化が失敗した後に、古いACTIVE状態でwriteできる負例を再現した。修正後は当該Spaceをメモリー上の `AUTH_PERSISTENCE_UNCERTAIN` にし、必要なreplay digestを記録、active key cacheを破棄する。同じ更新が保存されたと確認するまでwrite/古いcandidateのcommitを拒否する。無関係な古いcontrolの再送では解除しない。COMMIT後に応答のみ失われた場合は、必要digestとの一致を照合して再送から回復できる。
+
+## 保証境界
+**永続化成功前にprocessが消えた未確認の観測を、再起動後も必ず記憶する保証はない。** ストレージ書込み失敗時の情報をそのストレージへ必ず残すとは主張しない。呼出側は成功を得ていないcontrolを再送する。成功応答したcontrol、membership、fork、鍵履歴はSQLiteへ保存され、署名から再検証する。古いDBへの全体rollbackには別保管のknown-head/pinが必要で、hardware antirollbackはない。
+
+## 再起動と鍵
+open時は署名履歴・table関係を検査し、ACTIVEを再activation待ちへ戻す。秘密鍵はDBに平文保存しない。保存するのは公開署名履歴、端末証明書、HPKE package、暗号化seed、material hash、epoch key fingerprint。recipient secretを再注入し、材料を検証してからwrite可とする。共有鍵・seed本文はメモリーだけに保持し、Pythonの確実なzeroizationは保証しない。
+
+## restore
+snapshotは構造だけでなく認可履歴をstaging内で検証してからdestinationを公開する。バックアップにローカルなhashを含めるだけでは悪意ある全体置換への真正性証明にはならない。復元Storeはread-onlyのまま。新しいkey/actor/fenceによる再活性化は後続作業。単なる再起動とバックアップからの巻戻しを同じwrite再開経路にしない。

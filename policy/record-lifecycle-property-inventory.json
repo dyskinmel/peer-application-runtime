@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_lifecycle_properties.PropertyTests.test_allocation_estimates_are_not_deletion_authority",
+    "test_lifecycle_properties.PropertyTests.test_checkpoint_prefixes_resolve_same_records",
+    "test_lifecycle_properties.PropertyTests.test_generated_bad_orders_are_atomic",
+    "test_lifecycle_properties.PropertyTests.test_generated_closed_generation_replays",
+    "test_lifecycle_properties.PropertyTests.test_generated_proof_mutations_change_digest",
+    "test_lifecycle_properties.PropertyTests.test_input_permutations_normalize_only_explicitly",
+    "test_lifecycle_properties.PropertyTests.test_model_checkpoint_new_process",
+    "test_lifecycle_properties.PropertyTests.test_registered_submission_wrong_job_digest_rejected",
+    "test_lifecycle_properties.PropertyTests.test_same_generation_check_is_not_signature_verification",
+    "test_lifecycle_properties.PropertyTests.test_succeeded_without_proof_reference_rejected",
+    "test_lifecycle_properties.PropertyTests.test_unknown_record_enum_fails_closed"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "profile": "par-intent-anchor-local-0051",
+  "version": "00.51.00",
+  "python_min": "3.11",
+  "platform": "POSIX_PRIVATE_SINGLE_WRITER",
+  "registered_cases": 45,
+  "actual_sigkill_boundaries": 6,
+  "apply_wire_exposed": false,
+  "metadata_encrypted": false,
+  "hardware_rollback_protected": false,
+  "real_core_executed": false,
+  "product_qualified": false,
+  "independent_review": "NOT_RUN",
+  "scope": "LOCAL_DURABILITY_NOT_EXTERNAL_TRUST_ATTESTATION",
+  "provider_trust": "OWNER_PROVIDED_PORT; LOCAL_POSIX_IS_NOT_OS_SAFE_KEY_STORAGE"
+}

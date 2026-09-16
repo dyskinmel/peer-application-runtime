@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_crypto_interop.InteropTests.test_ed25519_invalid_cases_rejected",
+    "test_crypto_interop.InteropTests.test_generated_ed25519_64_domain_signatures",
+    "test_crypto_interop.InteropTests.test_generated_hpke_64_cases_both_directions",
+    "test_crypto_interop.InteropTests.test_hkdf_native_comparison",
+    "test_crypto_interop.InteropTests.test_hpke_modified_ciphertexts_rejected",
+    "test_crypto_interop.InteropTests.test_oracle_malformed_hex_rejected",
+    "test_crypto_interop.InteropTests.test_oracle_unknown_operation_rejected",
+    "test_crypto_interop.InteropTests.test_provider_identity",
+    "test_crypto_interop.InteropTests.test_rfc_hpke_node_expected_ciphertext",
+    "test_crypto_interop.InteropTests.test_rfc_hpke_node_open"
+  ]
+}

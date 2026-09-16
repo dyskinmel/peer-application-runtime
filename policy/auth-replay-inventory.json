@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_auth_replay.ReplayTests.test_active_secrets_not_serialized",
+    "test_auth_replay.ReplayTests.test_body_corruption_rejected",
+    "test_auth_replay.ReplayTests.test_export_is_deterministic",
+    "test_auth_replay.ReplayTests.test_fork_evidence_survives_replay",
+    "test_auth_replay.ReplayTests.test_invalid_authority_policy_survives_replay",
+    "test_auth_replay.ReplayTests.test_missing_member_event_restores_pending_not_ready",
+    "test_auth_replay.ReplayTests.test_replay_can_reactivate_after_material_revalidation",
+    "test_auth_replay.ReplayTests.test_replay_does_not_grant_authority_secret",
+    "test_auth_replay.ReplayTests.test_replay_signature_not_replaced_by_digest",
+    "test_auth_replay.ReplayTests.test_replay_unknown_event",
+    "test_auth_replay.ReplayTests.test_sequence_floor",
+    "test_auth_replay.ReplayTests.test_verified_history_replay",
+    "test_auth_replay.ReplayTests.test_wrong_pinned_digest",
+    "test_auth_replay.ReplayTests.test_wrong_pinned_head"
+  ]
+}

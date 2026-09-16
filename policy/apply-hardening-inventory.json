@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_apply_hardening.HardeningTests.test_application_pin_survives_next_revision_but_not_disappearing_event",
+    "test_apply_hardening.HardeningTests.test_backend_identity_cannot_be_forged_by_report",
+    "test_apply_hardening.HardeningTests.test_commit_refuses_rotated_writer_fence_inside_transaction",
+    "test_apply_hardening.HardeningTests.test_core_change_at_commit_is_refused",
+    "test_apply_hardening.HardeningTests.test_core_report_unknown_key_refused",
+    "test_apply_hardening.HardeningTests.test_duplicate_nonce_rejected_not_reencrypted",
+    "test_apply_hardening.HardeningTests.test_guard_after_row_mutation_refuses_commit",
+    "test_apply_hardening.HardeningTests.test_input_growth_budget_refused",
+    "test_apply_hardening.HardeningTests.test_lost_commit_reply_is_not_failure_and_recovery_has_no_new_nonce",
+    "test_apply_hardening.HardeningTests.test_malicious_rehashed_input_signature_rejected_by_store_audit",
+    "test_apply_hardening.HardeningTests.test_missing_real_loader_is_blocked",
+    "test_apply_hardening.HardeningTests.test_nonce_capacity_refused",
+    "test_apply_hardening.HardeningTests.test_oversized_note_refused_before_nonce",
+    "test_apply_hardening.HardeningTests.test_prepared_apply_refuses_rotated_writer_fence",
+    "test_apply_hardening.HardeningTests.test_read_does_not_return_note_if_authority_changes_during_decrypt",
+    "test_apply_hardening.HardeningTests.test_read_refuses_input_change_during_decrypt",
+    "test_apply_hardening.HardeningTests.test_real_application_gate_without_core_is_blocked_not_skip",
+    "test_apply_hardening.HardeningTests.test_rollback_after_input_insert",
+    "test_apply_hardening.HardeningTests.test_whole_history_capacity_refused_without_nonce"
+  ]
+}

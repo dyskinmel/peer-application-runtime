@@ -1,0 +1,336 @@
+{
+  "$description": "PAR neutral seed; provisional visual values; no rendered contrast qualification.",
+  "base": {
+    "color": {
+      "paper": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1
+        }
+      },
+      "ink": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.063,
+            0.094,
+            0.125
+          ],
+          "alpha": 1
+        }
+      },
+      "slate": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.345,
+            0.4,
+            0.459
+          ],
+          "alpha": 1
+        }
+      },
+      "mist": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.941,
+            0.953,
+            0.965
+          ],
+          "alpha": 1
+        }
+      },
+      "charcoal": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.059,
+            0.078,
+            0.102
+          ],
+          "alpha": 1
+        }
+      },
+      "pale": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.898,
+            0.925,
+            0.953
+          ],
+          "alpha": 1
+        }
+      },
+      "blue": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.086,
+            0.275,
+            0.631
+          ],
+          "alpha": 1
+        }
+      },
+      "blueLight": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.506,
+            0.698,
+            1
+          ],
+          "alpha": 1
+        }
+      },
+      "red": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.69,
+            0.09,
+            0.13
+          ],
+          "alpha": 1
+        }
+      },
+      "redLight": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.62,
+            0.62
+          ],
+          "alpha": 1
+        }
+      },
+      "amber": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.47,
+            0.29,
+            0.0
+          ],
+          "alpha": 1
+        }
+      },
+      "amberLight": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.78,
+            0.36
+          ],
+          "alpha": 1
+        }
+      },
+      "green": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.06,
+            0.36,
+            0.25
+          ],
+          "alpha": 1
+        }
+      },
+      "greenLight": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.44,
+            0.86,
+            0.66
+          ],
+          "alpha": 1
+        }
+      },
+      "black": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1
+        }
+      },
+      "yellow": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            0
+          ],
+          "alpha": 1
+        }
+      }
+    },
+    "space": {
+      "s0": {
+        "$type": "dimension",
+        "$value": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "s4": {
+        "$type": "dimension",
+        "$value": {
+          "value": 4,
+          "unit": "px"
+        }
+      },
+      "s8": {
+        "$type": "dimension",
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        }
+      },
+      "s12": {
+        "$type": "dimension",
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        }
+      },
+      "s16": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "s24": {
+        "$type": "dimension",
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        }
+      },
+      "s32": {
+        "$type": "dimension",
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        }
+      },
+      "s48": {
+        "$type": "dimension",
+        "$value": {
+          "value": 48,
+          "unit": "px"
+        }
+      }
+    },
+    "radius": {
+      "small": {
+        "$type": "dimension",
+        "$value": {
+          "value": 6,
+          "unit": "px"
+        }
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": {
+          "value": 10,
+          "unit": "px"
+        }
+      }
+    },
+    "motion": {
+      "none": {
+        "$type": "duration",
+        "$value": {
+          "value": 0,
+          "unit": "ms"
+        }
+      },
+      "fast": {
+        "$type": "duration",
+        "$value": {
+          "value": 120,
+          "unit": "ms"
+        }
+      },
+      "normal": {
+        "$type": "duration",
+        "$value": {
+          "value": 200,
+          "unit": "ms"
+        }
+      }
+    },
+    "font": {
+      "body": {
+        "$type": "fontFamily",
+        "$value": [
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "code": {
+        "$type": "fontFamily",
+        "$value": [
+          "ui-monospace",
+          "monospace"
+        ]
+      },
+      "sizeBody": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "weightNormal": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "weightStrong": {
+        "$type": "fontWeight",
+        "$value": 600
+      }
+    },
+    "target": {
+      "recommended": {
+        "$type": "dimension",
+        "$value": {
+          "value": 44,
+          "unit": "px"
+        }
+      }
+    }
+  }
+}

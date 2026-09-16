@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_repair_audit.RepairAudit.test_audit_job_limit_enforced",
+    "test_repair_audit.RepairAudit.test_cancel_complete_job_rejected",
+    "test_repair_audit.RepairAudit.test_cancel_does_not_undo_valid_published_bytes",
+    "test_repair_audit.RepairAudit.test_cancelled_job_cannot_resume",
+    "test_repair_audit.RepairAudit.test_completed_result_alteration_rejected",
+    "test_repair_audit.RepairAudit.test_current_grant_can_cancel_old_authority_job",
+    "test_repair_audit.RepairAudit.test_directory_target_rejected",
+    "test_repair_audit.RepairAudit.test_hardlink_target_rejected",
+    "test_repair_audit.RepairAudit.test_intent_alteration_rejected_on_reopen",
+    "test_repair_audit.RepairAudit.test_nonboolean_migration_rejected",
+    "test_repair_audit.RepairAudit.test_owner_required_even_with_put_capability",
+    "test_repair_audit.RepairAudit.test_pending_renew_rejected",
+    "test_repair_audit.RepairAudit.test_postrepair_gc_keeps_historical_observation",
+    "test_repair_audit.RepairAudit.test_reappeared_stage_of_completed_job_rejected",
+    "test_repair_audit.RepairAudit.test_released_damaged_bytes_not_implicitly_destroyed",
+    "test_repair_audit.RepairAudit.test_repaired_objects_feed_new_recipient_without_donor",
+    "test_repair_audit.RepairAudit.test_result_bound_to_expected_request",
+    "test_repair_audit.RepairAudit.test_result_signature_tampering_rejected",
+    "test_repair_audit.RepairAudit.test_schema_tampering_rejected",
+    "test_repair_audit.RepairAudit.test_separate_staging_budget",
+    "test_repair_audit.RepairAudit.test_stage_changed_after_validation_does_not_replace_target",
+    "test_repair_audit.RepairAudit.test_stage_symlink_is_not_followed",
+    "test_repair_audit.RepairAudit.test_symlink_target_rejected",
+    "test_repair_audit.RepairAudit.test_unknown_stage_not_deleted",
+    "test_repair_audit.RepairAudit.test_unlisted_stage_file_blocks_cancel",
+    "test_repair_audit.RepairAudit.test_v2_gc_tombstone_survives_migration",
+    "test_repair_audit.RepairAudit.test_v2_nonempty_migrates_then_repairs",
+    "test_repair_audit.RepairAudit.test_v2_requires_explicit_migration"
+  ]
+}

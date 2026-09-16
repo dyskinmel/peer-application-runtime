@@ -1,0 +1,401 @@
+[
+  {
+    "id": "G0",
+    "name": "Specification & compatibility closure",
+    "depends_on": [],
+    "required_checks": [
+      "厳密CDDL/codec corpusを独立codecで照合",
+      "PAR全体crypto vectorsとstrict reject一致",
+      "実際のdependency/toolchain lock",
+      "Automerge actor/seq/deps検証probe"
+    ],
+    "exit_criteria": [
+      "par/coreまだ未実装でも契約に実装不可能な箇所が無い",
+      "全MUSTにacceptance contract、全critical未決事項に判定結果"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-ARCH-001",
+      "PAR-ARCH-003",
+      "PAR-ID-001",
+      "PAR-CRYPTO-001",
+      "PAR-CRYPTO-002",
+      "PAR-CRYPTO-005",
+      "PAR-WIRE-001",
+      "PAR-WIRE-003",
+      "PAR-WIRE-006",
+      "PAR-SYNC-001",
+      "PAR-SEC-001",
+      "PAR-MIG-001",
+      "PAR-QUAL-001",
+      "PAR-QUAL-005",
+      "PAR-EXT-004"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G1",
+    "name": "Local integrity",
+    "depends_on": [
+      "G0"
+    ],
+    "required_checks": [
+      "暗号化storeとledger/outbox原子的commit",
+      "各commit境界fault injection",
+      "same operation IDの結果照会",
+      "restart/corruption/ENOSPCの区別"
+    ],
+    "exit_criteria": [
+      "ACK済み集合がprocess-crash後に残る",
+      "対象OS durability classの前提記録"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-CORE-002",
+      "PAR-CORE-003",
+      "PAR-ARCH-002",
+      "PAR-ARCH-004",
+      "PAR-ID-003",
+      "PAR-CRYPTO-003",
+      "PAR-STORE-001",
+      "PAR-STORE-002",
+      "PAR-STORE-003",
+      "PAR-STORE-005",
+      "PAR-SDK-002",
+      "PAR-OPS-003"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G2",
+    "name": "Two-peer convergence",
+    "depends_on": [
+      "G1"
+    ],
+    "required_checks": [
+      "正規招待/権限/epoch/key/seed",
+      "offline concurrent edits→reconnect",
+      "conflict/invalid actor/late epoch試験",
+      "NATを介さない実process通信"
+    ],
+    "exit_criteria": [
+      "identical有効operation集合→identical状態",
+      "auth前のprivate一覧なし"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-CORE-001",
+      "PAR-AUTH-001",
+      "PAR-AUTH-002",
+      "PAR-AUTH-003",
+      "PAR-AUTH-004",
+      "PAR-AUTH-007",
+      "PAR-CRYPTO-004",
+      "PAR-WIRE-002",
+      "PAR-WIRE-005",
+      "PAR-DATA-001",
+      "PAR-DATA-002",
+      "PAR-DATA-003",
+      "PAR-DATA-005",
+      "PAR-SYNC-002",
+      "PAR-SYNC-003",
+      "PAR-SYNC-005"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G3",
+    "name": "Three-peer durability / M1",
+    "depends_on": [
+      "G2"
+    ],
+    "required_checks": [
+      "opaque Cのbyte-complete receipt",
+      "A/B停止とB2 fresh restore",
+      "復旧secret別保管・事前admission",
+      "partial/false receipt/lease reboot/closure欠損"
+    ],
+    "exit_criteria": [
+      "operation集合/frontier/Blob/conflicts/tombstones一致",
+      "Cに平文keyなし、未認可Dは取得/復号できない",
+      "外部dependency遮断で同じ結果"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-CORE-004",
+      "PAR-CORE-005",
+      "PAR-ID-004",
+      "PAR-ID-005",
+      "PAR-DATA-006",
+      "PAR-DATA-007",
+      "PAR-STORE-004",
+      "PAR-REP-001",
+      "PAR-REP-002",
+      "PAR-REP-003",
+      "PAR-REP-004",
+      "PAR-REP-005",
+      "PAR-REP-006",
+      "PAR-REC-001",
+      "PAR-REC-002",
+      "PAR-REC-003",
+      "PAR-REC-004",
+      "PAR-GC-002",
+      "PAR-BUDGET-001",
+      "PAR-UX-007",
+      "PAR-OPS-001",
+      "PAR-QUAL-004"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G4",
+    "name": "Hostile input & network",
+    "depends_on": [
+      "G2"
+    ],
+    "required_checks": [
+      "drop/duplicate/reorder/replay",
+      "signed malformed/actor fork/control fork",
+      "aggregate quota/decode bounds",
+      "import/control/parser negative corpus"
+    ],
+    "exit_criteria": [
+      "侵害入力で共有状態が不正に進まない",
+      "攻撃者以外のSpaceに進捗余地あり"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-ARCH-005",
+      "PAR-AUTH-006",
+      "PAR-WIRE-004",
+      "PAR-SYNC-004",
+      "PAR-SYNC-006",
+      "PAR-GC-003",
+      "PAR-NET-003",
+      "PAR-NET-004",
+      "PAR-BUDGET-002",
+      "PAR-OPS-002",
+      "PAR-SEC-002",
+      "PAR-MIG-004"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G5",
+    "name": "Real Internet",
+    "depends_on": [
+      "G3",
+      "G4"
+    ],
+    "required_checks": [
+      "IPv4/IPv6/CGNAT/UDP-blocked/relay",
+      "network change/reconnect",
+      "relay ingress capability quota",
+      "participant-only egress trace"
+    ],
+    "exit_criteria": [
+      "失敗経路はtyped reason、隠れたfallbackなし",
+      "claimed transport組合せの実環境記録"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-NET-001",
+      "PAR-NET-002",
+      "PAR-NET-006"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G6",
+    "name": "Platforms & UI contracts",
+    "depends_on": [
+      "G3",
+      "G4"
+    ],
+    "required_checks": [
+      "nativeOS/Swift/Kotlin個別lifecycle",
+      "Browser limited profile/storage",
+      "24状態UI galleryとa11y",
+      "Polish変更でcommand trace不変"
+    ],
+    "exit_criteria": [
+      "public matrixと実機証拠一致",
+      "typed bindings/Unicode/FFI/threadingが同じ意味"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-ARCH-006",
+      "PAR-ID-002",
+      "PAR-DATA-004",
+      "PAR-REP-007",
+      "PAR-GC-001",
+      "PAR-NET-005",
+      "PAR-SDK-001",
+      "PAR-SDK-003",
+      "PAR-SDK-004",
+      "PAR-SDK-006",
+      "PAR-PLAT-001",
+      "PAR-PLAT-002",
+      "PAR-PLAT-003",
+      "PAR-PLAT-004",
+      "PAR-BUDGET-004",
+      "PAR-BUDGET-005",
+      "PAR-UX-001",
+      "PAR-UX-002",
+      "PAR-UX-003",
+      "PAR-UX-004",
+      "PAR-UX-005",
+      "PAR-UX-006",
+      "PAR-DS-001",
+      "PAR-DS-002",
+      "PAR-DS-003",
+      "PAR-DS-004",
+      "PAR-DS-005",
+      "PAR-DS-006",
+      "PAR-OPS-005"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G7",
+    "name": "Security assurance closure",
+    "depends_on": [
+      "G3",
+      "G4"
+    ],
+    "required_checks": [
+      "design + implementation independent review",
+      "各input fuzz campaign/replay",
+      "全Critical/High/未分類を閉包",
+      "修正後のindependent retest"
+    ],
+    "exit_criteria": [
+      "作者の自己評価だけでは通過不可",
+      "対象source/spec/featureのscope固定"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-CRYPTO-006",
+      "PAR-GC-005",
+      "PAR-SEC-003",
+      "PAR-SEC-004",
+      "PAR-EXT-003"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G8",
+    "name": "Scale/resources/soak",
+    "depends_on": [
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "required_checks": [
+      "2/8/64/256profile benchmarks",
+      "7日Keeper soak+fresh restore",
+      "24時間mobile resume campaign",
+      "latency/CPU/RAM/bandwidth/disk分布"
+    ],
+    "exit_criteria": [
+      "correctnessとbounded resourceを同時達成",
+      "未達targetはscope/性能公表へ反映、実測に偽装しない"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-BUDGET-003",
+      "PAR-PERF-001",
+      "PAR-PERF-002",
+      "PAR-PERF-004",
+      "PAR-EXT-002"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G9",
+    "name": "Upgrade and disaster recovery",
+    "depends_on": [
+      "G3",
+      "G4"
+    ],
+    "required_checks": [
+      "store migration全境界crash",
+      "schema/epoch migrationとdraft保持",
+      "正常authority rotation",
+      "古いbackup/損傷DB/partial salvage"
+    ],
+    "exit_criteria": [
+      "raw downgradeでデータ喪失なし",
+      "元store保全と新store検証を実証"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-ID-006",
+      "PAR-AUTH-005",
+      "PAR-STORE-006",
+      "PAR-REC-005",
+      "PAR-REC-006",
+      "PAR-GC-004",
+      "PAR-OPS-004",
+      "PAR-MIG-002",
+      "PAR-MIG-003",
+      "PAR-MIG-005"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G10",
+    "name": "OSS release candidate",
+    "depends_on": [
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "required_checks": [
+      "signed artifacts/SBOM/licenses/provenance",
+      "clean-install quickstart",
+      "interop/export compatibility",
+      "保守窓口/release鍵/模擬advisory"
+    ],
+    "exit_criteria": [
+      "同一RC sourceに累積gate evidence",
+      "英文公開情報とsupported matrix完成"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-SDK-005",
+      "PAR-PLAT-005",
+      "PAR-SEC-006",
+      "PAR-MIG-006",
+      "PAR-OSS-002",
+      "PAR-OSS-003",
+      "PAR-OSS-005",
+      "PAR-OSS-006",
+      "PAR-QUAL-003",
+      "PAR-EXT-001"
+    ],
+    "state": "NOT_RUN"
+  },
+  {
+    "id": "G11",
+    "name": "Production-qualified profile",
+    "depends_on": [
+      "G10"
+    ],
+    "required_checks": [
+      "全claim→最新evidence binding",
+      "project-owned service outage演習",
+      "known risk/support policy公開",
+      "release artifact readback検証"
+    ],
+    "exit_criteria": [
+      "対象profileの全必須要件PASS",
+      "未解決Critical/High/未分類なし",
+      "NOT_RUNを除外したように装わない"
+    ],
+    "first_required_requirement_ids": [
+      "PAR-CORE-006",
+      "PAR-PLAT-006",
+      "PAR-OPS-006",
+      "PAR-SEC-005",
+      "PAR-PERF-003",
+      "PAR-PERF-005",
+      "PAR-OSS-001",
+      "PAR-OSS-004",
+      "PAR-QUAL-002",
+      "PAR-QUAL-006"
+    ],
+    "state": "NOT_RUN"
+  }
+]

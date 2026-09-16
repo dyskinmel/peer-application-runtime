@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "suite": "migration-rehearsal-process",
+  "case_ids": [
+    "test_process.ProcessRecoveryTests.test_demo_reports_local_only_nonclaims",
+    "test_process.ProcessRecoveryTests.test_sigkill_after_shadow_verification",
+    "test_process.ProcessRecoveryTests.test_sigkill_backup_after_copy",
+    "test_process.ProcessRecoveryTests.test_sigkill_backup_before_copy",
+    "test_process.ProcessRecoveryTests.test_sigkill_shadow_after_rows",
+    "test_process.ProcessRecoveryTests.test_sigkill_switch_after_replace",
+    "test_process.ProcessRecoveryTests.test_sigkill_switch_before_replace"
+  ]
+}

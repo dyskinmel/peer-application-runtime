@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_NOT_BENCHMARKED",
+  "hard": {
+    "frame_body_bytes": 1048576,
+    "envelope_bytes": 786432,
+    "change_plain_bytes": 524288,
+    "block_plain_bytes": 262144,
+    "blob_plain_bytes": 268435456,
+    "dependency_count": 128,
+    "head_count": 256,
+    "inventory_page_bytes": 131072,
+    "inventory_page_entries": 1024,
+    "catalog_page_entries": 256,
+    "control_page_entries": 128,
+    "certificate_bytes": 4096,
+    "control_entry_bytes": 65536,
+    "rpc_payload_bytes": 524288,
+    "nesting_depth": 32,
+    "string_bytes": 4096,
+    "app_id_bytes": 128
+  },
+  "resource_defaults": {
+    "active_peer_connections": 16,
+    "sync_streams_per_peer": 4,
+    "pending_dependencies_per_peer_bytes": 8388608,
+    "pending_dependencies_global_bytes": 67108864,
+    "document_snapshot_soft_bytes": 4194304,
+    "foreign_storage_bytes": 0,
+    "relay_bytes_per_second": 0,
+    "reservation_seconds": 600,
+    "maximum_lease_seconds": 604800,
+    "presence_ttl_seconds": 60,
+    "frame_read_timeout_seconds": 30,
+    "handshake_timeout_seconds": 15
+  },
+  "qualification_targets": {
+    "alpha_memberships_per_space": 64,
+    "stable_initial_memberships_per_space": 256
+  },
+  "note": "hard limit変更はprofile digestを変更する。soft budget超過はinvalid署名と同一視しない。protocol型以外の総CPU/メモリー量もresource policyで制限。"
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "name": "whole-file-local-v0.1",
+  "artifact_version": "00.10.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "baseline": "00.02.00",
+  "schema_user_version": 3,
+  "independent_review": "NOT_RUN",
+  "test_counts": {
+    "manifest": 50,
+    "pipeline": 57,
+    "faults": 58
+  },
+  "sigkill_scenarios": 40,
+  "max_file_bytes": 7340032,
+  "chunk_bytes": 262144,
+  "manifest_max_bytes": 32768,
+  "default_stage_jobs": 16,
+  "product_limit_changed": false,
+  "physical_power_loss_tested": false,
+  "automerge_validation": false,
+  "network_verified": false,
+  "full_file_semantics_validated_locally": true,
+  "read_only_restore_preserved": true,
+  "destructive_store_gc": false,
+  "pinned_inputs": [
+    {
+      "path": "baseline/spec-00.02.00/protocol/par-v1.cddl",
+      "sha256": "b94ee7b8e6f8fc88658fd825825caaf39d5f9ea47818dab4de2ce88a66c54775"
+    },
+    {
+      "path": "experiments/blob-store/profile.json",
+      "sha256": "c41ea2cc1f1fd1fdbed3164919fa55ad103f6720c786dd254b33afabd33b1589"
+    },
+    {
+      "path": "experiments/blob-store/par_blob_store/store.py",
+      "sha256": "2ce6127897a67a99800cfc01ef5e937239267760a168c5da12095bffc7c34781"
+    },
+    {
+      "path": "experiments/blob-store/par_blob_store/writer.py",
+      "sha256": "208954bd01b4987de1900cf7d2fedb0ca1bc651002a43bd714a67659423dd2da"
+    },
+    {
+      "path": "experiments/g0-crypto/par_crypto/store_writer.py",
+      "sha256": "9bc5b90830eb56b7b082d4c35d65089df2ff4c39e50536b74a8ca7993df3f78d"
+    },
+    {
+      "path": "experiments/g0-crypto/par_crypto/objects.py",
+      "sha256": "600128d2b1ac5a3dc771adff12faee77d883c39db16d1718d6510cf6090a2a83"
+    },
+    {
+      "path": "docs/decisions/ADR-FILE-0010.ja.md",
+      "sha256": "74915e32b23cd75d283ece6903d0bc2b900b971daf623c754409a459b169154f"
+    }
+  ]
+}

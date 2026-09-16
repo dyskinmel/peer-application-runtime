@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_owner.OwnerTests.test_apply_denied_even_full_grant",
+    "test_owner.OwnerTests.test_cancel_before_start_no_proposal_or_io",
+    "test_owner.OwnerTests.test_close_command_no_more_requests",
+    "test_owner.OwnerTests.test_connection_limit",
+    "test_owner.OwnerTests.test_default_grant_read_only",
+    "test_owner.OwnerTests.test_detached_channel_cannot_write",
+    "test_owner.OwnerTests.test_extra_field_rejected",
+    "test_owner.OwnerTests.test_fetch_selected_then_validate_core_blocked",
+    "test_owner.OwnerTests.test_fetch_wrong_plan_rejected",
+    "test_owner.OwnerTests.test_generation_change_rejected",
+    "test_owner.OwnerTests.test_input_copy_before_task_runs",
+    "test_owner.OwnerTests.test_inquiry_unavailable_not_absent",
+    "test_owner.OwnerTests.test_local_change_rejects_accept",
+    "test_owner.OwnerTests.test_missing_expected_revision_rejected",
+    "test_owner.OwnerTests.test_no_certificate_or_payload_in_snapshot",
+    "test_owner.OwnerTests.test_observe_no_automatic_network_or_apply",
+    "test_owner.OwnerTests.test_proposal_once_consumed",
+    "test_owner.OwnerTests.test_propose_only_then_accept_persists_without_get",
+    "test_owner.OwnerTests.test_restart_resume_plan_digest_without_refetch",
+    "test_owner.OwnerTests.test_resume_corrupt_plan_rejected",
+    "test_owner.OwnerTests.test_resume_wrong_sha_rejected",
+    "test_owner.OwnerTests.test_resume_wrong_targets_rejected",
+    "test_owner.OwnerTests.test_single_worker_no_implicit_queue",
+    "test_owner.OwnerTests.test_stale_revision_rejected",
+    "test_owner.OwnerTests.test_timeout_invalid_rejected",
+    "test_owner.OwnerTests.test_wrong_context_rejected",
+    "test_owner.OwnerTests.test_wrong_proposal_not_accepted"
+  ]
+}

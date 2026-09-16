@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "promotion_contract": "P6_RELEASE_EVIDENCE_V1",
+  "candidate_required_status": "PARTIAL",
+  "verified_requires_clean_git": true,
+  "full_registry_scope_required": true,
+  "sampling_is_evidence": false,
+  "cache_is_evidence": false,
+  "active_quarantine_blocks": true,
+  "expired_quarantine_blocks": true,
+  "product_qualified": false
+}

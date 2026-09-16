@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submit_staging.SubmitStaging.test_acknowledged_corruption_rejected",
+    "test_submit_staging.SubmitStaging.test_begin_no_job",
+    "test_submit_staging.SubmitStaging.test_bool_offset",
+    "test_submit_staging.SubmitStaging.test_capacity_no_record_created",
+    "test_submit_staging.SubmitStaging.test_chunk_limit",
+    "test_submit_staging.SubmitStaging.test_conflicting_descriptor",
+    "test_submit_staging.SubmitStaging.test_controller_revision_change_rejects_pending",
+    "test_submit_staging.SubmitStaging.test_duplicate_begin",
+    "test_submit_staging.SubmitStaging.test_empty_chunk",
+    "test_submit_staging.SubmitStaging.test_exact_chunk_retry",
+    "test_submit_staging.SubmitStaging.test_gap",
+    "test_submit_staging.SubmitStaging.test_missing_acknowledged_payload",
+    "test_submit_staging.SubmitStaging.test_overlap",
+    "test_submit_staging.SubmitStaging.test_private_mode",
+    "test_submit_staging.SubmitStaging.test_ready_prefix",
+    "test_submit_staging.SubmitStaging.test_record_limit_duplicate_allowed",
+    "test_submit_staging.SubmitStaging.test_restart_partial",
+    "test_submit_staging.SubmitStaging.test_symlink_payload_refused",
+    "test_submit_staging.SubmitStaging.test_unack_tail_trimmed_by_explicit_chunk",
+    "test_submit_staging.SubmitStaging.test_wrong_final_hash",
+    "test_submit_staging.SubmitStaging.test_wrong_repeated_chunk",
+    "test_submit_staging.SubmitStaging.test_wrong_store_rejected_before_allocation"
+  ]
+}

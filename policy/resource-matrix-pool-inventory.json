@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_pool.PoolTests.test_active_cancel_keeps_slot_until_cleanup",
+    "test_pool.PoolTests.test_caller_task_cancel_does_not_cancel_worker",
+    "test_pool.PoolTests.test_close_discards_queued_without_starting",
+    "test_pool.PoolTests.test_close_failure_retains_resource_and_stops_admission",
+    "test_pool.PoolTests.test_duplicate_connection_never_closed_by_second_owner",
+    "test_pool.PoolTests.test_duplicate_id_after_completion_rejected",
+    "test_pool.PoolTests.test_expire_active_releases_cooperatively",
+    "test_pool.PoolTests.test_expire_queued_before_factory",
+    "test_pool.PoolTests.test_factory_failure_not_retried",
+    "test_pool.PoolTests.test_foreign_context_closed_no_operation",
+    "test_pool.PoolTests.test_invalid_id_and_timeout_before_admission",
+    "test_pool.PoolTests.test_invalid_limits",
+    "test_pool.PoolTests.test_late_factory_result_closed_without_operation",
+    "test_pool.PoolTests.test_missing_factory_rejected_without_fallback",
+    "test_pool.PoolTests.test_normal_closes_before_success",
+    "test_pool.PoolTests.test_operation_failure_closes_once",
+    "test_pool.PoolTests.test_peer_queue_bound",
+    "test_pool.PoolTests.test_queue_overflow_no_factory_call",
+    "test_pool.PoolTests.test_queued_cancel_skips_factory",
+    "test_pool.PoolTests.test_round_robin_not_global_fifo",
+    "test_pool.PoolTests.test_slow_close_counts_as_active",
+    "test_pool.PoolTests.test_slow_peer_does_not_block_other_with_spare_slot",
+    "test_pool.PoolTests.test_status_copy_cannot_mutate_queue",
+    "test_pool.PoolTests.test_unknown_peer_rejected"
+  ]
+}

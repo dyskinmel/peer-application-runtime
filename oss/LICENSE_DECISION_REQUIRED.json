@@ -1,0 +1,24 @@
+{
+  "baseline_license_is_release_authorization": false,
+  "copyright_holder": "dyskinmel",
+  "external_publish_prerequisites": [
+    {
+      "id": "public_repository",
+      "status": "EXTERNAL_ACTION_REQUIRED"
+    },
+    {
+      "id": "github_private_vulnerability_reporting",
+      "status": "EXTERNAL_ACTION_REQUIRED"
+    },
+    {
+      "id": "hosted_ci",
+      "status": "EXTERNAL_ACTION_REQUIRED"
+    }
+  ],
+  "final_license_text": "LICENSE",
+  "notice_finalized": true,
+  "publishable": false,
+  "schema_version": 2,
+  "selected_spdx_license": "Apache-2.0",
+  "status": "RESOLVED_SOURCE_ONLY_ALPHA"
+}

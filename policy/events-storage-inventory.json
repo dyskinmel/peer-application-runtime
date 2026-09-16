@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_events.StorageTests.test_after_commit_failure_is_unknown",
+    "test_events.StorageTests.test_append_cap_rejects_without_drop",
+    "test_events.StorageTests.test_authority_change_before_commit",
+    "test_events.StorageTests.test_cancel_after_commit_keeps_result",
+    "test_events.StorageTests.test_cancel_before_commit_keeps_nonce_burned",
+    "test_events.StorageTests.test_cancel_before_nonce",
+    "test_events.StorageTests.test_cursor_tamper_refused",
+    "test_events.StorageTests.test_deleted_event_refused",
+    "test_events.StorageTests.test_lock_second_writer",
+    "test_events.StorageTests.test_no_plaintext_sql_or_callback_errors",
+    "test_events.StorageTests.test_payload_tamper_refused",
+    "test_events.StorageTests.test_reopen_matches_event_ids",
+    "test_events.StorageTests.test_schema_changed",
+    "test_events.StorageTests.test_schema_tamper_refused",
+    "test_events.StorageTests.test_unknown_operation_not_failed",
+    "test_events.StorageTests.test_wrong_local_key",
+    "test_events.StorageTests.test_wrong_stream"
+  ]
+}

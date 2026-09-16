@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "presenter.stories.UI-001",
+    "presenter.stories.UI-002",
+    "presenter.stories.UI-003",
+    "presenter.stories.UI-004",
+    "presenter.stories.UI-005",
+    "presenter.stories.UI-006",
+    "presenter.stories.UI-007",
+    "presenter.stories.UI-008",
+    "presenter.stories.UI-009",
+    "presenter.stories.UI-010",
+    "presenter.stories.UI-011",
+    "presenter.stories.UI-012",
+    "presenter.stories.UI-013",
+    "presenter.stories.UI-014",
+    "presenter.stories.UI-015",
+    "presenter.stories.UI-016",
+    "presenter.stories.UI-017",
+    "presenter.stories.UI-018",
+    "presenter.stories.UI-019",
+    "presenter.stories.UI-020",
+    "presenter.stories.UI-021",
+    "presenter.stories.UI-022",
+    "presenter.stories.UI-023",
+    "presenter.stories.UI-024",
+    "presenter.stories.baseline_registry_exact",
+    "presenter.stories.source_fixture_not_imported_by_runtime"
+  ]
+}

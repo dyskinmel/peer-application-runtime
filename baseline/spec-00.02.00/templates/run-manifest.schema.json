@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PAR production execution manifest candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "scope",
+    "source_tree_digest",
+    "spec_digest",
+    "toolchain",
+    "fixture_digest",
+    "platform",
+    "command",
+    "started_utc",
+    "ended_utc",
+    "duration_ms",
+    "raw_log_digest",
+    "exit_code",
+    "result"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "source_tree_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "spec_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "toolchain": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "fixture_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "platform": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "command": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "started_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ended_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "raw_log_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "exit_code": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "result": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "NOT_RUN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "dependency_lock_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "input_seed": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

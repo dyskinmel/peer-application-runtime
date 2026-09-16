@@ -1,0 +1,19 @@
+{
+  "profile": "par-application-intent-local-0050",
+  "version": "00.50.00",
+  "python_min": "3.11",
+  "platform": "POSIX_PRIVATE_SINGLE_WRITER",
+  "max_intents": 64,
+  "max_events": 256,
+  "max_event_bytes": 65536,
+  "registered_cases": 70,
+  "actual_sigkill_boundaries": 8,
+  "apply_wire_exposed": false,
+  "automatic_retry": false,
+  "metadata_encrypted": false,
+  "real_core_executed": false,
+  "public_network_executed": false,
+  "product_qualified": false,
+  "independent_review": "NOT_RUN",
+  "receipt_scope": "SYNTHETIC_CORE_TRANSACTION_TESTS_NOT_CRDT_QUALIFICATION"
+}

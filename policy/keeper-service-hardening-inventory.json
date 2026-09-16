@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_service_hardening.ServiceHardening.test_duplicate_status_field_rejected",
+    "test_service_hardening.ServiceHardening.test_incomplete_status_is_not_a_valid_success",
+    "test_service_hardening.ServiceHardening.test_response_loss_is_unknown_without_auto_retry",
+    "test_service_hardening.ServiceHardening.test_stale_lockfile_hardlink_refused",
+    "test_service_hardening.ServiceHardening.test_stale_lockfile_symlink_refused",
+    "test_service_hardening.ServiceHardening.test_status_cannot_claim_network_reachability",
+    "test_service_hardening.ServiceHardening.test_status_cannot_claim_product_qualification",
+    "test_service_hardening.ServiceHardening.test_status_integer_is_not_boolean",
+    "test_service_hardening.ServiceHardening.test_unknown_status_is_rejected"
+  ]
+}

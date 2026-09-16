@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_read_session.ReadSessionTests.test_ack_rejected",
+    "test_read_session.ReadSessionTests.test_actual_authority_head_change_rejects_old_binding",
+    "test_read_session.ReadSessionTests.test_caller_args_snapshotted_before_waiting_for_hello",
+    "test_read_session.ReadSessionTests.test_current_certificate_bounded_copy",
+    "test_read_session.ReadSessionTests.test_disconnected_provider_is_not_absence",
+    "test_read_session.ReadSessionTests.test_empty_have",
+    "test_read_session.ReadSessionTests.test_generation_change_during_cleanup_cannot_return_stale_success",
+    "test_read_session.ReadSessionTests.test_generation_changed_while_answering",
+    "test_read_session.ReadSessionTests.test_keeper_only_member_denied",
+    "test_read_session.ReadSessionTests.test_missing_is_signed_observation_not_global_absence",
+    "test_read_session.ReadSessionTests.test_one_request_per_connection",
+    "test_read_session.ReadSessionTests.test_peer_binding_rejects_bool_generation",
+    "test_read_session.ReadSessionTests.test_peer_certificate_cannot_substitute_another_authorized_device",
+    "test_read_session.ReadSessionTests.test_publish_rejected",
+    "test_read_session.ReadSessionTests.test_read_does_not_mutate_either_store",
+    "test_read_session.ReadSessionTests.test_real_store_have_need_get_preserves_ciphertext",
+    "test_read_session.ReadSessionTests.test_scope_is_exact",
+    "test_read_session.ReadSessionTests.test_snapshot_changed_before_get_rejected",
+    "test_read_session.ReadSessionTests.test_stale_generation_before_request",
+    "test_read_session.ReadSessionTests.test_tls_pin_is_bound_to_membership_enrollment",
+    "test_read_session.ReadSessionTests.test_waiting_client_cancellation_is_not_absence",
+    "test_read_session.ReadSessionTests.test_wrong_response_signature_rejected"
+  ]
+}

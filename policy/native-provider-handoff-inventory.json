@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scope": "LOCAL_PROVIDER_HANDOFF_SOURCE_SHAPE_NOT_NATIVE_QUALIFICATION",
+  "case_ids": [
+    "test_handoff.HandoffTests.test_cancel_after_dial_closes_connection",
+    "test_handoff.HandoffTests.test_close_failure_retains_resource",
+    "test_handoff.HandoffTests.test_closed_session_rejects_new_connection",
+    "test_handoff.HandoffTests.test_doctor_does_not_invoke_factories",
+    "test_handoff.HandoffTests.test_epoch_change_after_dial_closes_connection",
+    "test_handoff.HandoffTests.test_epoch_reader_mismatch_blocks_pin_open",
+    "test_handoff.HandoffTests.test_missing_bundle_is_blocked_without_fallback",
+    "test_handoff.HandoffTests.test_pin_store_requires_declared_and_supplied_capability",
+    "test_handoff.HandoffTests.test_precancelled_connection_never_calls_factory",
+    "test_handoff.HandoffTests.test_successful_close_releases_owned_connection_once",
+    "test_handoff.HandoffTests.test_wrong_epoch_rejected_before_provider_use",
+    "test_handoff.HandoffTests.test_wrong_peer_is_closed_and_rejected"
+  ]
+}

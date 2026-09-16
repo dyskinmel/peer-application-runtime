@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_plan.PlanTests.test_byte_budget_counts_all_records",
+    "test_plan.PlanTests.test_empty_explicit_plan",
+    "test_plan.PlanTests.test_frozen",
+    "test_plan.PlanTests.test_owned_copy",
+    "test_plan.PlanTests.test_plan_contains_no_plaintext_or_private_key",
+    "test_plan.PlanTests.test_record_budget",
+    "test_plan.PlanTests.test_reject_bytes_bool",
+    "test_plan.PlanTests.test_reject_bytes_over",
+    "test_plan.PlanTests.test_reject_descriptor_bool_length",
+    "test_plan.PlanTests.test_reject_descriptor_oversized",
+    "test_plan.PlanTests.test_reject_descriptor_zero",
+    "test_plan.PlanTests.test_reject_duplicate_envelope",
+    "test_plan.PlanTests.test_reject_duplicate_inner",
+    "test_plan.PlanTests.test_reject_generation",
+    "test_plan.PlanTests.test_reject_generation_upper",
+    "test_plan.PlanTests.test_reject_no_binding",
+    "test_plan.PlanTests.test_reject_no_descriptors",
+    "test_plan.PlanTests.test_reject_oversized_encoding",
+    "test_plan.PlanTests.test_reject_record_bool",
+    "test_plan.PlanTests.test_reject_record_over",
+    "test_plan.PlanTests.test_reject_record_zero",
+    "test_plan.PlanTests.test_reject_scope_bool",
+    "test_plan.PlanTests.test_reject_snapshot_mutable",
+    "test_plan.PlanTests.test_reject_snapshot_short",
+    "test_plan.PlanTests.test_reject_trailing_bytes",
+    "test_plan.PlanTests.test_reordered_plan_has_different_identity",
+    "test_plan.PlanTests.test_roundtrip",
+    "test_plan.PlanTests.test_wrong_binding_scope"
+  ]
+}

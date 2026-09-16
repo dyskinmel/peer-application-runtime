@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "event-host.integration.abort-wait-releases-owner-session",
+    "event-host.integration.ack-commit-response-loss-is-unknown",
+    "event-host.integration.authority-change-observed-before-ack",
+    "event-host.integration.loop-break-does-not-ack",
+    "event-host.integration.real-async-notification-not-polling-fixture",
+    "event-host.integration.unacked-reconnect-redelivers-after-sigkill"
+  ]
+}

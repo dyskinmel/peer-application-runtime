@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_ledger.MatrixLedgerTests.test_bad_existing_prefix_pin_refused",
+    "test_ledger.MatrixLedgerTests.test_boolean_exit_cannot_replace_zero",
+    "test_ledger.MatrixLedgerTests.test_boolean_sequence_is_not_integer_identity",
+    "test_ledger.MatrixLedgerTests.test_changed_source_cannot_resume",
+    "test_ledger.MatrixLedgerTests.test_correct_child_exit_cardinality_and_resume",
+    "test_ledger.MatrixLedgerTests.test_different_config_cannot_resume",
+    "test_ledger.MatrixLedgerTests.test_failure_terminal",
+    "test_ledger.MatrixLedgerTests.test_interrupted_begin_not_replayed",
+    "test_ledger.MatrixLedgerTests.test_missing_preservation_not_pass",
+    "test_ledger.MatrixLedgerTests.test_no_seal_no_pass",
+    "test_ledger.MatrixLedgerTests.test_nonzero_exit_cannot_be_pass",
+    "test_ledger.MatrixLedgerTests.test_old_single_channel_manifest_not_matrix",
+    "test_ledger.MatrixLedgerTests.test_wrong_exit_count_refused",
+    "test_ledger.MatrixLedgerTests.test_wrong_participant_result_refused"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_subscriptions.PresenceTests.test_changed_duplicate_refused",
+    "test_subscriptions.PresenceTests.test_clock_regression_stops_hints",
+    "test_subscriptions.PresenceTests.test_duplicate_does_not_refresh_ttl",
+    "test_subscriptions.PresenceTests.test_lower_sequence_refused",
+    "test_subscriptions.PresenceTests.test_old_session_refused",
+    "test_subscriptions.PresenceTests.test_peer_limit",
+    "test_subscriptions.PresenceTests.test_presence_not_durable",
+    "test_subscriptions.PresenceTests.test_recent_then_unknown_not_offline",
+    "test_subscriptions.PresenceTests.test_recreated_cache_has_no_history",
+    "test_subscriptions.PresenceTests.test_ttl_upper_bound"
+  ]
+}

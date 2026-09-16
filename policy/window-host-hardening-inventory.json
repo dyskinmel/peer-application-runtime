@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_host_hardening.AdminHardening.test_admin_rejects_extra_archive_for_inspect",
+    "test_host_hardening.AdminHardening.test_completed_admin_retry_inspect_is_stable",
+    "test_host_hardening.AdminHardening.test_output_exists_refuses_before_compaction",
+    "test_host_hardening.AdminHardening.test_wrong_minimum_pin_rejects_before_listener",
+    "test_host_hardening.ResponseHardening.test_client_never_accepts_unwrapped_command",
+    "test_host_hardening.ResponseHardening.test_response_boolean_size_rejected",
+    "test_host_hardening.ResponseHardening.test_response_complete_begin_hash_rejected",
+    "test_host_hardening.ResponseHardening.test_response_empty_prefix_hash_rejected",
+    "test_host_hardening.ResponseHardening.test_response_false_product_claim_rejected",
+    "test_host_hardening.ResponseHardening.test_response_snapshot_copy_not_alias",
+    "test_host_hardening.ResponseHardening.test_response_wrong_size",
+    "test_host_hardening.ResponseHardening.test_response_wrong_token",
+    "test_host_hardening.ResponseHardening.test_subprocess_group_not_detached"
+  ]
+}

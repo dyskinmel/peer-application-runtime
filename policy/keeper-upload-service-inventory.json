@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_upload_service.UploadService.test_convenience_chunk_invalid_input_is_coded",
+    "test_upload_service.UploadService.test_convenience_stream_invalid_input_is_coded",
+    "test_upload_service.UploadService.test_donor_upload_then_read",
+    "test_upload_service.UploadService.test_index_larger_than_request_is_chunked",
+    "test_upload_service.UploadService.test_oversized_frame_does_not_stop_server",
+    "test_upload_service.UploadService.test_partial_then_disconnect",
+    "test_upload_service.UploadService.test_read_client_cannot_mutate",
+    "test_upload_service.UploadService.test_read_request_to_upload_socket_rejected",
+    "test_upload_service.UploadService.test_restart_after_partial_index",
+    "test_upload_service.UploadService.test_restart_full_retry",
+    "test_upload_service.UploadService.test_retry_after_reserve_response_not_read",
+    "test_upload_service.UploadService.test_separate_donor_and_recipient_processes",
+    "test_upload_service.UploadService.test_sigkill_server_after_acknowledged_chunk",
+    "test_upload_service.UploadService.test_sigkill_server_during_unfinished_request",
+    "test_upload_service.UploadService.test_unauthorized_client_does_not_crash_server",
+    "test_upload_service.UploadService.test_upload_request_to_read_socket_rejected",
+    "test_upload_service.UploadService.test_whole_upload_retry_no_lease_double_charge_or_extension",
+    "test_upload_service.UploadService.test_wrong_pinned_keeper_rejected"
+  ]
+}

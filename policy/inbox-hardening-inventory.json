@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_inbox.HardeningTests.test_byte_capacity_rejection_preserves_existing_record",
+    "test_inbox.HardeningTests.test_core_exception_is_not_document_invalidity",
+    "test_inbox.HardeningTests.test_disk_change_during_core_validation_invalidates_result",
+    "test_inbox.HardeningTests.test_future_epoch_never_retained",
+    "test_inbox.HardeningTests.test_hardlink_record_rejected",
+    "test_inbox.HardeningTests.test_id_length_checked",
+    "test_inbox.HardeningTests.test_invalid_file_before_capacity_check_does_not_poison_scope",
+    "test_inbox.HardeningTests.test_invalid_limit_boolean",
+    "test_inbox.HardeningTests.test_local_store_actor_fork_quarantines_received_scope",
+    "test_inbox.HardeningTests.test_no_nonce_created_by_receive_or_inspect",
+    "test_inbox.HardeningTests.test_owner_change_at_last_callback_returns_unknown",
+    "test_inbox.HardeningTests.test_pin_allows_new_legitimate_records_but_keeps_known_bytes",
+    "test_inbox.HardeningTests.test_prepublication_authority_change_does_not_publish",
+    "test_inbox.HardeningTests.test_report_does_not_expose_core_preview_text",
+    "test_inbox.HardeningTests.test_reserved_evidence_slot_covers_conflict_with_local_store",
+    "test_inbox.HardeningTests.test_symlink_record_rejected",
+    "test_inbox.HardeningTests.test_wide_directory_permissions_rejected"
+  ]
+}

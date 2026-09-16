@@ -1,0 +1,11 @@
+{
+  "creation_info_semantics": "DETERMINISTIC_INVENTORY_SNAPSHOT_NOT_DEVELOPMENT_BASELINE_TIME",
+  "inventory_snapshot_created": "2026-09-16T11:10:49Z",
+  "profile_sha256": "861e6a6aadbb03d72dd05c44517dc88d61b31bad5af20c6a2ea5a4ef91ec2b04",
+  "profile_source": {
+    "commit": "daae84c9bb0a68dfb0a4cd96517b8271e746f53f",
+    "commit_timestamp": "2026-09-16T11:10:49Z",
+    "path": "oss/PUBLIC_ALPHA_RELEASE.json"
+  },
+  "schema_version": 1
+}

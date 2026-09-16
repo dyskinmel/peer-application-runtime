@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "path": "oss/PUBLIC_SOURCE_POLICY.json",
+      "kind": "SECRET_LITERAL",
+      "reason": "public scanner policy necessarily names signatures it rejects"
+    },
+    {
+      "path": "oss/PUBLIC_SOURCE_POLICY.json",
+      "kind": "PRIVATE_KEY_MATERIAL",
+      "reason": "public scanner policy necessarily names private-key markers it rejects"
+    },
+    {
+      "path": "oss/PUBLIC_SOURCE_POLICY.json",
+      "kind": "LOCAL_ABSOLUTE_PATH",
+      "reason": "public scanner policy necessarily names local-path prefixes it rejects"
+    },
+    {
+      "path": "policy/public-preview-boundary.json",
+      "kind": "SECRET_LITERAL",
+      "reason": "legacy public-preview scanner policy necessarily names signatures it rejects"
+    },
+    {
+      "path": "policy/public-preview-boundary.json",
+      "kind": "PRIVATE_KEY_MATERIAL",
+      "reason": "legacy scanner policy necessarily names private-key markers it rejects"
+    },
+    {
+      "path": "policy/public-preview-boundary.json",
+      "kind": "LOCAL_ABSOLUTE_PATH",
+      "reason": "legacy scanner policy necessarily names local-path prefixes it rejects"
+    },
+    {
+      "path": "product/wp15/PUBLIC_PREVIEW_BOUNDARY.json",
+      "kind": "SECRET_LITERAL",
+      "reason": "legacy WP15 scanner policy necessarily names signatures it rejects"
+    },
+    {
+      "path": "product/wp15/PUBLIC_PREVIEW_BOUNDARY.json",
+      "kind": "PRIVATE_KEY_MATERIAL",
+      "reason": "legacy WP15 scanner policy necessarily names private-key markers it rejects"
+    },
+    {
+      "path": "product/wp15/PUBLIC_PREVIEW_BOUNDARY.json",
+      "kind": "LOCAL_ABSOLUTE_PATH",
+      "reason": "legacy WP15 scanner policy necessarily names local-path prefixes it rejects"
+    },
+    {
+      "path": "tests/product/wp14/test_doctor.py",
+      "kind": "SECRET_LITERAL",
+      "reason": "negative doctor-redaction fixture intentionally contains fake secret markers"
+    },
+    {
+      "path": "tests/product/wp14/test_doctor.py",
+      "kind": "PRIVATE_KEY_MATERIAL",
+      "reason": "negative doctor-redaction fixture intentionally contains fake private-key marker"
+    },
+    {
+      "path": "tests/product/wp14/test_doctor.py",
+      "kind": "LOCAL_ABSOLUTE_PATH",
+      "reason": "negative doctor-redaction fixture intentionally contains fake local path"
+    },
+    {
+      "path": "tests/test_local_closure_sprint_a.py",
+      "kind": "LOCAL_ABSOLUTE_PATH",
+      "reason": "negative public-preview scanner fixture intentionally contains fake local path"
+    },
+    {
+      "path": "tests/test_artifact_survival.py",
+      "kind": "EMAIL_ADDRESS",
+      "reason": "reserved .invalid test identity"
+    },
+    {
+      "path": "tests/test_evidence_promotion.py",
+      "kind": "EMAIL_ADDRESS",
+      "reason": "reserved .invalid test identity"
+    },
+    {
+      "path": "tests/test_impact_selection.py",
+      "kind": "EMAIL_ADDRESS",
+      "reason": "reserved .invalid test identity"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "SECRET_TOKEN",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "SECRET_ASSIGNMENT",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "SECRET_LITERAL",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "PRIVATE_KEY_MATERIAL",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "LOCAL_ABSOLUTE_PATH",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "WINDOWS_USER_PATH",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "EMAIL_ADDRESS",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "PRIVATE_GIT_REMOTE",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "tests/test_oss_prerelease.py",
+      "kind": "INTERNAL_HOSTNAME",
+      "reason": "negative OSS scanner fixture"
+    },
+    {
+      "path": "harness/public_preview.py",
+      "kind": "PRIVATE_KEY_MATERIAL",
+      "reason": "scanner implementation necessarily contains the private-key detection signature"
+    },
+    {
+      "path": "harness/public_preview.py",
+      "kind": "SECRET_LITERAL",
+      "reason": "scanner implementation necessarily contains a configured private-key marker"
+    },
+    {
+      "path": "harness/public_preview.py",
+      "kind": "PRIVATE_GIT_REMOTE",
+      "reason": "scanner implementation necessarily contains the private-remote detection signature"
+    }
+  ]
+}

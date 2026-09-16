@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_hardening.HardeningTests.test_cancel_during_stage_watcher_cleanup_retires_returned_socket",
+    "test_hardening.HardeningTests.test_cleanup_complete_does_not_mean_active_resources_are_gone",
+    "test_hardening.HardeningTests.test_cleanup_failed_resource_reference_is_retained",
+    "test_hardening.HardeningTests.test_dns_name_ip_spelling_confusion_never_reaches_resolver",
+    "test_hardening.HardeningTests.test_ipv4_dotted_hex_not_treated_as_dns",
+    "test_hardening.HardeningTests.test_pending_io_cancel_before_inner_task_start_does_not_leak_coroutine"
+  ]
+}

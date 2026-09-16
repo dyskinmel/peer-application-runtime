@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_host_config.HostConfig.test_bound_records",
+    "test_host_config.HostConfig.test_config_roundtrip",
+    "test_host_config.HostConfig.test_no_boolean_limits",
+    "test_host_config.HostConfig.test_no_boolean_version",
+    "test_host_config.HostConfig.test_no_legacy_profile",
+    "test_host_config.HostConfig.test_no_unknown_fields",
+    "test_host_config.HostConfig.test_pin_required",
+    "test_host_config.HostConfig.test_pin_store_consistent",
+    "test_host_config.HostConfig.test_snapshot_not_mutable_alias",
+    "test_host_config.HostConfig.test_unknown_pin_fields"
+  ]
+}

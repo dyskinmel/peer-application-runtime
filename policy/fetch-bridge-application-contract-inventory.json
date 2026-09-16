@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_application_delegation.ApplicationDelegationTests.test_actual_core_absence_does_not_write",
+    "test_application_delegation.ApplicationDelegationTests.test_cancellation_is_propagated_with_uncertain_intent",
+    "test_application_delegation.ApplicationDelegationTests.test_commit_response_loss_retains_original_id",
+    "test_application_delegation.ApplicationDelegationTests.test_contract_double_blocked_before_nonce",
+    "test_application_delegation.ApplicationDelegationTests.test_failed_inquiry_does_not_unlock_replay",
+    "test_application_delegation.ApplicationDelegationTests.test_failed_validation_drops_cached_validation",
+    "test_application_delegation.ApplicationDelegationTests.test_failure_after_delegation_is_unknown_even_if_named_core_failure",
+    "test_application_delegation.ApplicationDelegationTests.test_not_observed_inquiry_does_not_unlock_uncertain_intent",
+    "test_application_delegation.ApplicationDelegationTests.test_optional_application_must_not_allow_doubles",
+    "test_application_delegation.ApplicationDelegationTests.test_reopened_application_inquires_without_materializing",
+    "test_application_delegation.ApplicationDelegationTests.test_synthetic_delegation_reuses_existing_atomic_store",
+    "test_application_delegation.ApplicationDelegationTests.test_unknown_inquiry_must_keep_original_expected_revision",
+    "test_application_delegation.ApplicationDelegationTests.test_unknown_inquiry_must_use_original_id"
+  ]
+}

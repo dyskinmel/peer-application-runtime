@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "profile": "job-submission-retire-local-v1",
+  "artifact_version": "00.25.00",
+  "scope": "DUAL_AUTHORIZED_PAYLOAD_ONLY_RETIREMENT_WITH_COMPATIBLE_PRIVATE_HOST",
+  "payload_retirement": true,
+  "dual_authorization": true,
+  "explicit_rebind": true,
+  "inflight_read_only_reconciliation": true,
+  "compatible_host": true,
+  "job_cancellation": false,
+  "automatic_replay": false,
+  "record_gc": false,
+  "remote_retirement": false,
+  "secure_erase": false,
+  "cross_store_atomicity": false,
+  "product_qualified": false,
+  "independent_review_completed": false,
+  "tests": {
+    "contract": 10,
+    "lifecycle": 13,
+    "audit": 25,
+    "restart": 24,
+    "host": 8,
+    "process": 2
+  },
+  "test_total": 82,
+  "sigkill_cases": 24,
+  "limits": {
+    "request_bytes": 8192,
+    "journal_bytes": 65536,
+    "approvals": 8,
+    "stage_records": 32,
+    "stage_payload_bytes": 67108864
+  },
+  "pinned_inputs": [
+    {
+      "path": "experiments/host-job-submit/par_job_submit/__init__.py",
+      "sha256": "366b486752aeb06e374bfac25778851c7e824562b576ee1eb0790a7c1a51716f"
+    },
+    {
+      "path": "experiments/host-job-submit/par_job_submit/client.py",
+      "sha256": "d44c99a01fdbae2a4b0480be30cba10198c96beff8aee8ba05cbed7546af25ef"
+    },
+    {
+      "path": "experiments/host-job-submit/par_job_submit/host.py",
+      "sha256": "578d2e32eb33e67b9e3c90c268978fdb0815aa3f5079902e03ea29456bf9bf2c"
+    },
+    {
+      "path": "experiments/host-job-submit/par_job_submit/protocol.py",
+      "sha256": "25e84c25978288a5db5fd92469906d47a8f86f758fb255056820bdfe7bc3f8fa"
+    },
+    {
+      "path": "experiments/host-job-submit/par_job_submit/server.py",
+      "sha256": "ff3115bc17bc72bcdfd25bfeedac7989ea558f76f4a8cf022827b4c1920e02a2"
+    },
+    {
+      "path": "experiments/host-job-submit/par_job_submit/staging.py",
+      "sha256": "c0df6bf625f0fdae5ff3729096e7387d2fe8e114ee624c980c901cd99bc1592a"
+    },
+    {
+      "path": "experiments/host-management-jobs/par_management_jobs/journal.py",
+      "sha256": "bcb8d0a044df38849bd0c845b9d8593df06aec8852b9947860c8f3272bc7f0f8"
+    },
+    {
+      "path": "experiments/job-submission-retire/par_submit_retire/__init__.py",
+      "sha256": "f1a151d888da13964a9da56e650ac0613573750563d6f08e9457f09c0194df7b"
+    },
+    {
+      "path": "experiments/job-submission-retire/par_submit_retire/contract.py",
+      "sha256": "4ebed05ab83d6be6fc2a2ed4f204b7cec640a1db1f24b3426cd8a5fe4a98c034"
+    },
+    {
+      "path": "experiments/job-submission-retire/par_submit_retire/host.py",
+      "sha256": "34e583bb41c2269e7e915cb1c5b5c90a8ef7be4aa5bfb6e343f36916bbbed891"
+    },
+    {
+      "path": "experiments/job-submission-retire/par_submit_retire/store.py",
+      "sha256": "628eae42ad14b92a97f85a1db6f646d27199e3037be91d214b1994db5eda940e"
+    },
+    {
+      "path": "tools/keeper_retiring_submit_host.py",
+      "sha256": "78ee100e55b76b671747a3fe3d029092799148c20eb159b715793e27e73e6ecb"
+    }
+  ]
+}

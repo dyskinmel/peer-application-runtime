@@ -1,0 +1,175 @@
+{
+  "classification": "PRE_RELEASE_SOURCE_DEPENDENCY_INVENTORY_NOT_FINAL_RESOLUTION",
+  "dependencies": [
+    {
+      "detected_license": "ISC",
+      "inclusion_status": "SOURCE_REFERENCE_ONLY_BINARY_NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "OFFICIAL_UPSTREAM",
+        "url": "https://github.com/jedisct1/libsodium/blob/1.0.18/LICENSE"
+      },
+      "license_status": "REVIEWED_OFFICIAL_SOURCE",
+      "maintenance_status": "UNKNOWN",
+      "name": "libsodium-ctypes-local-candidate",
+      "native_or_future": "CURRENT_REFERENCE_EXPERIMENT_AND_NATIVE_DECISION_INPUT",
+      "pin_status": "PINNED_BINARY_SHA256",
+      "relationship": "DIRECT",
+      "scope": "reference_runtime_crypto",
+      "security_qualified": false,
+      "sha256": "85e2e494494f4f50c4b6d2b4ae90e885da1bfdefd52c4cc5767fd10abff62505",
+      "source": "policy/crypto-provider.json",
+      "transitive_dependencies": "UNKNOWN",
+      "version": "1.0.18"
+    },
+    {
+      "detected_license": "LicenseRef-SQLite-Public-Domain",
+      "inclusion_status": "SYSTEM_RUNTIME_NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "OFFICIAL_UPSTREAM",
+        "url": "https://www.sqlite.org/copyright.html"
+      },
+      "license_status": "REVIEWED_OFFICIAL_SOURCE",
+      "maintenance_status": "UNKNOWN",
+      "name": "sqlite",
+      "native_or_future": "CURRENT_REFERENCE_AND_FUTURE_NATIVE_STORAGE_DECISION",
+      "pin_status": "FLOATING_SYSTEM_RUNTIME",
+      "relationship": "DIRECT",
+      "scope": "reference_runtime_store",
+      "security_qualified": false,
+      "source": "experiments/g0-store/README.ja.md",
+      "transitive_dependencies": "NOT_APPLICABLE_LOCAL_METADATA",
+      "version": ">=3.37 reference requirement; exact runtime varies"
+    },
+    {
+      "detected_license": "Apache-2.0",
+      "inclusion_status": "NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "OFFICIAL_UPSTREAM",
+        "url": "https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt"
+      },
+      "license_status": "REVIEWED_OFFICIAL_SOURCE",
+      "maintenance_status": "UNKNOWN",
+      "name": "typescript-compiler",
+      "native_or_future": "DEVELOPMENT_TOOL",
+      "pin_status": "FLOATING_UNDECLARED",
+      "relationship": "DIRECT_TOOL_UNDECLARED",
+      "scope": "development_build_tool",
+      "security_qualified": "NOT_APPLICABLE",
+      "source": "product/wp10/package.json#scripts.build",
+      "transitive_dependencies": "UNKNOWN",
+      "version": "UNKNOWN"
+    },
+    {
+      "detected_license": "MIT",
+      "inclusion_status": "NOT_SELECTED_NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "OFFICIAL_UPSTREAM",
+        "url": "https://github.com/automerge/automerge/blob/main/LICENSE"
+      },
+      "license_status": "REVIEWED_OFFICIAL_SOURCE",
+      "maintenance_status": "RESEARCH_REQUIRED",
+      "name": "automerge-native-dependency",
+      "native_or_future": "FUTURE_NATIVE_DEPENDENCY",
+      "pin_status": "NOT_SELECTED",
+      "relationship": "FUTURE_DIRECT",
+      "scope": "future_native_actor",
+      "security_qualified": false,
+      "source": "handoff/native_readiness/contracts/g0-actor.json",
+      "transitive_dependencies": "UNKNOWN",
+      "version": "UNKNOWN"
+    },
+    {
+      "detected_license": "UNKNOWN",
+      "inclusion_status": "DECISION_REQUIRED_NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "NOT_APPLICABLE_UNSELECTED",
+        "url": null
+      },
+      "license_status": "FUTURE_SELECTION_REQUIRED",
+      "maintenance_status": "RESEARCH_REQUIRED",
+      "name": "production-crypto-provider",
+      "native_or_future": "FUTURE_NATIVE_DEPENDENCY",
+      "pin_status": "NOT_SELECTED",
+      "relationship": "FUTURE_DIRECT",
+      "scope": "future_native_crypto",
+      "security_qualified": false,
+      "source": "docs/decisions/G0_CRYPTO_PROVIDER_DECISION_0066.json",
+      "transitive_dependencies": "UNKNOWN",
+      "version": "UNKNOWN"
+    }
+  ],
+  "development_baseline": {
+    "head": "2452b0ebb5bbc0e4b0322ea67f1c4ff80406100e",
+    "source_digest": "8959dcac8450766248d3f846743781d6ef123a67468dfdca6285b709becb7b59",
+    "tree": "fa8c93f46a8e7b79ead9f8b11450b49b8c66bf26"
+  },
+  "limitations": [
+    "no registry/network resolution was performed",
+    "transitive dependency closure is UNKNOWN where no lockfile or resolved native graph exists",
+    "native production and platform dependencies remain unresolved",
+    "license and maintenance status are not inferred from package names"
+  ],
+  "network_resolution_performed": false,
+  "package_manifests": [
+    {
+      "dependencies": {},
+      "devDependencies": {},
+      "license_declared": "Apache-2.0",
+      "name": "par-sdk-events-local",
+      "optionalDependencies": {},
+      "path": "product/wp10/package.json",
+      "peerDependencies": {},
+      "private": true,
+      "scripts": {
+        "build": "tsc -p tsconfig.json --outDir lib"
+      },
+      "sha256": "ef090b4b01068c0000d3acb8184a08dcd9b71c230bab0c20829f1082627271ce",
+      "version": "0.0.0-local.41"
+    },
+    {
+      "dependencies": {},
+      "devDependencies": {},
+      "license_declared": "Apache-2.0",
+      "name": "UNKNOWN",
+      "optionalDependencies": {},
+      "path": "product/wp11/lib/package.json",
+      "peerDependencies": {},
+      "private": "UNKNOWN",
+      "scripts": {},
+      "sha256": "4b0a73871bdc7eb04ea0575a5662fd15afbccec58f8cdc7070927fa5563068bf",
+      "version": "UNKNOWN"
+    },
+    {
+      "dependencies": {},
+      "devDependencies": {},
+      "license_declared": "Apache-2.0",
+      "name": "par-reference-presenter-candidate",
+      "optionalDependencies": {},
+      "path": "product/wp11/package.json",
+      "peerDependencies": {},
+      "private": true,
+      "scripts": {},
+      "sha256": "86e497a223308a99ef192b794b9e0422505d322caec4516d0ada47e5cb8102b6",
+      "version": "0.0.0"
+    },
+    {
+      "dependencies": {},
+      "devDependencies": {},
+      "license_declared": "Apache-2.0",
+      "name": "UNKNOWN",
+      "optionalDependencies": {},
+      "path": "product/wp13/node/package.json",
+      "peerDependencies": {},
+      "private": true,
+      "scripts": {},
+      "sha256": "2ae42f15512de2d24abb81270fa5139ff057ec3a4fa0b061d75c113900db0bdc",
+      "version": "UNKNOWN"
+    }
+  ],
+  "schema_version": 1
+}

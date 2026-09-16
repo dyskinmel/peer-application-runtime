@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "name": "recovery-closure-local-v0.1",
+  "artifact_version": "00.11.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "baseline": "00.02.00",
+  "independent_review": "NOT_RUN",
+  "test_counts": {
+    "contract": 37,
+    "pipeline": 36,
+    "transfer": 33,
+    "faults": 20
+  },
+  "sigkill_scenarios": 10,
+  "max_bytes": 33554432,
+  "max_objects": 1024,
+  "max_envelopes": 64,
+  "max_index_bytes": 524288,
+  "max_object_bytes": 900000,
+  "source_scan_max_envelopes": 4096,
+  "source_scan_max_bytes": 33554432,
+  "current_epoch_only": true,
+  "external_pin_required": true,
+  "automerge_validated": false,
+  "network_verified": false,
+  "writable_recovery": false,
+  "physical_power_loss_tested": false,
+  "product_limit_changed": false,
+  "donor_free_recipient_process_tested": true,
+  "pinned_inputs": [
+    {
+      "path": "baseline/spec-00.02.00/protocol/par-v1.cddl",
+      "sha256": "b94ee7b8e6f8fc88658fd825825caaf39d5f9ea47818dab4de2ce88a66c54775"
+    },
+    {
+      "path": "experiments/blob-manifest/profile.json",
+      "sha256": "1a9a9f456c056b163cdcefc2a1acb37de4e905fd448eb5ce6edbdf4547ba2efa"
+    },
+    {
+      "path": "experiments/space-auth/par_auth/replay.py",
+      "sha256": "e1293e1e681bf240a041ac0f37b91a3e21179835e73e0ab96998402a627de375"
+    },
+    {
+      "path": "experiments/blob-store/par_blob_store/model.py",
+      "sha256": "22685d78b6fe4293e173c0f77f66f3d758840d803548afd20ad1e54063e8abed"
+    },
+    {
+      "path": "experiments/blob-manifest/par_file/reader.py",
+      "sha256": "d5543c2810b957f2abfe16bae41c4e577bd3be33e16b374053bab7046f1f6068"
+    },
+    {
+      "path": "experiments/recovery-closure/fixtures/closure-current-epoch.json",
+      "sha256": "f9f6b5a9240cbd606281f2c0d148755e8b6cebe96637e7e5303d1d01fae6b422"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_recovery_faults.Faults.test_cross_thread_refused",
+    "test_recovery_faults.Faults.test_donor_db_removed_then_fresh_process_recovers",
+    "test_recovery_faults.Faults.test_initial_directory_failure_stable_error",
+    "test_recovery_faults.Faults.test_lost_finalize_reply_reopen",
+    "test_recovery_faults.Faults.test_lost_object_reply_replays_identical",
+    "test_recovery_faults.Faults.test_no_space_before_publish",
+    "test_recovery_faults.Faults.test_receive_fsync_failure_not_completed",
+    "test_recovery_faults.Faults.test_reentrant_receive_refused",
+    "test_recovery_faults.Faults.test_reopen_does_not_accept_claim_file",
+    "test_recovery_faults.Faults.test_sigkill_finalize_ack",
+    "test_recovery_faults.Faults.test_sigkill_finalize_durable",
+    "test_recovery_faults.Faults.test_sigkill_finalize_published",
+    "test_recovery_faults.Faults.test_sigkill_finalize_stage_verified",
+    "test_recovery_faults.Faults.test_sigkill_finalize_verified",
+    "test_recovery_faults.Faults.test_sigkill_object_ack",
+    "test_recovery_faults.Faults.test_sigkill_object_durable",
+    "test_recovery_faults.Faults.test_sigkill_object_published",
+    "test_recovery_faults.Faults.test_sigkill_object_synced",
+    "test_recovery_faults.Faults.test_sigkill_object_written",
+    "test_recovery_faults.Faults.test_temporary_cleanup_failure_preserves_unknown_result"
+  ]
+}

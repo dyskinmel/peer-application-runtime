@@ -1,0 +1,119 @@
+{
+  "dependency_license_status": [
+    {
+      "detected_license": "ISC",
+      "inclusion_status": "SOURCE_REFERENCE_ONLY_BINARY_NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "OFFICIAL_UPSTREAM",
+        "url": "https://github.com/jedisct1/libsodium/blob/1.0.18/LICENSE"
+      },
+      "name": "libsodium-ctypes-local-candidate",
+      "status": "REVIEWED_OFFICIAL_SOURCE"
+    },
+    {
+      "detected_license": "LicenseRef-SQLite-Public-Domain",
+      "inclusion_status": "SYSTEM_RUNTIME_NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "OFFICIAL_UPSTREAM",
+        "url": "https://www.sqlite.org/copyright.html"
+      },
+      "name": "sqlite",
+      "status": "REVIEWED_OFFICIAL_SOURCE"
+    },
+    {
+      "detected_license": "Apache-2.0",
+      "inclusion_status": "NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "OFFICIAL_UPSTREAM",
+        "url": "https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt"
+      },
+      "name": "typescript-compiler",
+      "status": "REVIEWED_OFFICIAL_SOURCE"
+    },
+    {
+      "detected_license": "MIT",
+      "inclusion_status": "NOT_SELECTED_NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "OFFICIAL_UPSTREAM",
+        "url": "https://github.com/automerge/automerge/blob/main/LICENSE"
+      },
+      "name": "automerge-native-dependency",
+      "status": "REVIEWED_OFFICIAL_SOURCE"
+    },
+    {
+      "detected_license": "UNKNOWN",
+      "inclusion_status": "DECISION_REQUIRED_NOT_BUNDLED",
+      "license_evidence": {
+        "reviewed_on": "2026-09-16",
+        "source_kind": "NOT_APPLICABLE_UNSELECTED",
+        "url": null
+      },
+      "name": "production-crypto-provider",
+      "status": "FUTURE_SELECTION_REQUIRED"
+    }
+  ],
+  "files_requiring_notice_review": [],
+  "legal_conclusion": "FACTUAL_LICENSE_REVIEW_COMPLETED_NOT_LEGAL_ADVICE",
+  "license_authorized_for_publication": false,
+  "manifest_license_declarations": [
+    {
+      "declared_license": "Apache-2.0",
+      "package": "par-sdk-events-local",
+      "path": "product/wp10/package.json",
+      "status": "COMPONENT_METADATA_ONLY_NOT_REPOSITORY_LICENSE_DECISION"
+    },
+    {
+      "declared_license": "Apache-2.0",
+      "package": "UNKNOWN",
+      "path": "product/wp11/lib/package.json",
+      "status": "COMPONENT_METADATA_ONLY_NOT_REPOSITORY_LICENSE_DECISION"
+    },
+    {
+      "declared_license": "Apache-2.0",
+      "package": "par-reference-presenter-candidate",
+      "path": "product/wp11/package.json",
+      "status": "COMPONENT_METADATA_ONLY_NOT_REPOSITORY_LICENSE_DECISION"
+    },
+    {
+      "declared_license": "Apache-2.0",
+      "package": "UNKNOWN",
+      "path": "product/wp13/node/package.json",
+      "status": "COMPONENT_METADATA_ONLY_NOT_REPOSITORY_LICENSE_DECISION"
+    }
+  ],
+  "potential_license_conflicts": [],
+  "release_license_decision": "Apache-2.0",
+  "repository_license_material": [
+    {
+      "included_in_public_candidate": true,
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "status": "FINAL_REPOSITORY_LICENSE_MATERIAL"
+    },
+    {
+      "included_in_public_candidate": true,
+      "path": "NOTICE",
+      "sha256": "64781c05ed26283f2bd0dfa499f4ac90a8f675598f6fa9a945ad4e9821d824dd",
+      "status": "FINAL_REPOSITORY_LICENSE_MATERIAL"
+    }
+  ],
+  "repository_license_material_complete": true,
+  "schema_version": 2,
+  "source_only_alpha_dependency_review": {
+    "conclusion": "NO_KNOWN_LICENSE_CONFLICT_FOR_SOURCE_ONLY_ALPHA_SCOPE",
+    "limitations": [
+      "factual upstream license review only; not legal advice",
+      "no third-party binary or native dependency bundle is distributed",
+      "the production crypto provider remains unselected and requires a new review before distribution",
+      "transitive and native dependency closure remains required before binary or native-artifact distribution"
+    ],
+    "reviewed_on": "2026-09-16",
+    "scope": "DECLARED_AND_REFERENCED_UNBUNDLED_DEPENDENCIES",
+    "status": "COMPLETED"
+  },
+  "third_party_compatibility": "REVIEWED_NO_BUNDLED_THIRD_PARTY_ARTIFACTS"
+}

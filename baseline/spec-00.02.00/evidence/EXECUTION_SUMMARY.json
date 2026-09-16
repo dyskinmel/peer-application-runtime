@@ -1,0 +1,310 @@
+{
+  "scope": "SPECIFICATION_SUPPORT_ONLY",
+  "result": "PASS",
+  "input_set_sha256": "8298335c9b4c8a0223a21d5cd6a9a5cd5f2ad0b83551e053c1442fc0192b4db2",
+  "input_files": [
+    {
+      "path": "spec/01-product-contract.ja.md",
+      "sha256": "d682429fb8aa971dd585c46a52883e100b91c36ebc84be2697ce39bbf2d4f1e7"
+    },
+    {
+      "path": "spec/02-architecture.ja.md",
+      "sha256": "0a49c3f9a0b874bad7f275ee09f4eb75de1e684ecc4d38150abec80acfef69cc"
+    },
+    {
+      "path": "spec/03-identity.ja.md",
+      "sha256": "c1c36d5554140bacc96388ff60e9f23845d0ec1a3ac0e560183b4ce61ead1580"
+    },
+    {
+      "path": "spec/04-authority.ja.md",
+      "sha256": "70cb16d5b4f4b0046a77b9ec51c5cf1ebd20604e331955ba1010607a547e7ce4"
+    },
+    {
+      "path": "spec/05-cryptography.ja.md",
+      "sha256": "108d4fd305ef2f761df0203e7a9468c44196f7e0611030a3c829e985d9726a55"
+    },
+    {
+      "path": "spec/06-wire.ja.md",
+      "sha256": "5beb55e1ff2b1d5b6ae49d75d7f6c587f18c2344cb1b2aa9c0a2942aa52ac788"
+    },
+    {
+      "path": "spec/07-data-model.ja.md",
+      "sha256": "da5c10182def9bbe5b41d35ae3679ac9344ef922021e1296c0a3a094784dc55f"
+    },
+    {
+      "path": "spec/08-synchronization.ja.md",
+      "sha256": "64ab97094cf8af297e3d80e3126b472c48426053dd1dff027785744022b08fe1"
+    },
+    {
+      "path": "spec/09-local-storage.ja.md",
+      "sha256": "b239754ea90840744ef3fa863c17e1e5e94dfdd4b4b0771705b6e35c4d95771e"
+    },
+    {
+      "path": "spec/10-replication.ja.md",
+      "sha256": "09e9f192bd2c048d5b702d1d51a8e08e0296d9e1798e6e72351c34797847d31f"
+    },
+    {
+      "path": "spec/11-recovery.ja.md",
+      "sha256": "c2a4a4b08b21c53430459cb729d196d45064aa3e4d9d0abac0dc7c84dcbde6e0"
+    },
+    {
+      "path": "spec/12-retention-gc.ja.md",
+      "sha256": "25b7824eb6fa09722418580022b8b3f108d5e0d1be2430379521e4e89dc7b269"
+    },
+    {
+      "path": "spec/13-connectivity.ja.md",
+      "sha256": "27ff5f631876b370df93c995e27c0e274818bf3fe02463d040661c61056f9644"
+    },
+    {
+      "path": "spec/14-sdk-contract.ja.md",
+      "sha256": "253b3bea22024083dd9e3b90acdb751146f39e3e915b9cdf29d8e22752028ee6"
+    },
+    {
+      "path": "spec/15-platforms.ja.md",
+      "sha256": "50d45b8e9b031414586479c59dc22a5e8cfd7f7cbc0f3bb3ee0c35e754d73226"
+    },
+    {
+      "path": "spec/16-resource-policy.ja.md",
+      "sha256": "e929f10ec3b4cb8e8637b2ee5b59af77036d6bc171cf80d56c198fe535dbe6f5"
+    },
+    {
+      "path": "spec/17-experience.ja.md",
+      "sha256": "63488008bf01fb18c47cd09f5d294e9060fb53723e3f615768224511efa158b4"
+    },
+    {
+      "path": "spec/18-polishable-ui.ja.md",
+      "sha256": "12d535e1141e36fd89bee7a22090068b7040b7bbf59444f767d7a27e395d6671"
+    },
+    {
+      "path": "spec/19-operations.ja.md",
+      "sha256": "cfa68b3dbb7286e51eaf5c56e873a9ffb136b8c227cf46cfaa7aaad5165b1a98"
+    },
+    {
+      "path": "spec/20-security-assurance.ja.md",
+      "sha256": "271bf1202243ac27d038a314aa3aaa2c6ef8d3362596ca345597247a047a801e"
+    },
+    {
+      "path": "spec/21-performance.ja.md",
+      "sha256": "72634c039c6d49dc263f5550f79375cfceedd33703aca07551cb6a0f92deadf9"
+    },
+    {
+      "path": "spec/22-compatibility-migration.ja.md",
+      "sha256": "2203cd669fda012b2abb60944bb93b7deb732f8c04d72c2840b09a0a0a1eff89"
+    },
+    {
+      "path": "spec/23-oss-release.ja.md",
+      "sha256": "61fa1dc4f6e0eada59340a7796734a6c9532d83e4e0b9c222634a94210aea031"
+    },
+    {
+      "path": "spec/24-production-qualification.ja.md",
+      "sha256": "bf76729754cd059c6f04c4df7525b9c90174e80cdc3cdc133e8b12106bbb5c6e"
+    },
+    {
+      "path": "spec/25-extension-strategy.ja.md",
+      "sha256": "f0608408773646ae463ac6f4cc307c47197acea3a2193268d8e1bc4f8a7422f1"
+    },
+    {
+      "path": "protocol/ACTIVITY.ja.md",
+      "sha256": "6f860915385194ef762b964bb7c4bae1cca499752c47ded95bf3159b429974aa"
+    },
+    {
+      "path": "protocol/OBJECTS.ja.md",
+      "sha256": "f946dce97113bf8127f7fdbf24ef350de9cef7a21d52a671856094b327e676bb"
+    },
+    {
+      "path": "protocol/limits.json",
+      "sha256": "d303e07a6b92ce593d0b54421d0a4393a1b033da33ee5571abf5e5beb7d67709"
+    },
+    {
+      "path": "protocol/par-v1.cddl",
+      "sha256": "b94ee7b8e6f8fc88658fd825825caaf39d5f9ea47818dab4de2ce88a66c54775"
+    },
+    {
+      "path": "protocol/registry.json",
+      "sha256": "2f8bd0770fd50df72fea5eefef585466c2d84a9baeaf9f9fcc2a02a10c57ea68"
+    },
+    {
+      "path": "protocol/storage-v1.sql",
+      "sha256": "f702ac756a601a4912e71dc6e709fb5fbfc48a68a72673519a15bd4e7f6851df"
+    },
+    {
+      "path": "api/README.ja.md",
+      "sha256": "c6fc3b84e06f95992416e9fc8aa122a42d2ec8c50e3a25032829a2db75702b66"
+    },
+    {
+      "path": "api/example-contract.ts",
+      "sha256": "0f51d640e55e2681e6bdb81e0a92665df2100ad7a1191868035e7dfd0af2f26a"
+    },
+    {
+      "path": "api/par-contracts.d.ts",
+      "sha256": "624e6a8d21281fd57de13c851451f9c15bc8fcdcec7ab7b00f79e819230491fb"
+    },
+    {
+      "path": "api/ui-command-registry.json",
+      "sha256": "3daf0c956afce7a4134d8dc5e73c013aedf4817bbc632d2bd6605794bbb5099e"
+    },
+    {
+      "path": "ui/DESIGN_HANDOFF.ja.md",
+      "sha256": "da7f073d6a11523d84e8b9380e686157621a9e1a6e765cf28df86141e298b5d2"
+    },
+    {
+      "path": "ui/polish-contract.json",
+      "sha256": "487dbe1cccb76e2baa4ff3c0d42eca639373af52e86e9869f75ad1eb45a4d8dd"
+    },
+    {
+      "path": "ui/stories.json",
+      "sha256": "a3444abfcae7f2fcafbb5eb959ebd1ed687dd394594ae59486d6cce257c3f274"
+    },
+    {
+      "path": "tokens/base.tokens.json",
+      "sha256": "b5591ec63e0ce2268ab35bcc7a439722f8b2a3caaa73ed1c1da4c3b7920168e8"
+    },
+    {
+      "path": "tokens/semantic.tokens.json",
+      "sha256": "548f4b980bbc8bceba41c210bbff2545510f22ad1b1c5ab850576ba8eb706385"
+    },
+    {
+      "path": "tokens/themes.json",
+      "sha256": "90c821067b6d22bae719693ca16af8a1fe7dc7cca4d2bdd0571f62feb68e7697"
+    },
+    {
+      "path": "catalog/acceptance-tests.json",
+      "sha256": "d5058ca79ffaca53b80bbecbaaa78e00fdfee5793911c03a0d4c90de01a8fbf8"
+    },
+    {
+      "path": "catalog/documents.json",
+      "sha256": "91373db733e9970a7f611a0e2932096fe01856494f57fa4aaef12954b2b8ec6d"
+    },
+    {
+      "path": "catalog/gates.json",
+      "sha256": "8ccfc87762b85dd35c12735c8a0756998b32779c1e1fcd4410a2216ae4f06945"
+    },
+    {
+      "path": "catalog/open-decisions.json",
+      "sha256": "4c0f1adb578b22773dc753bfd8ae491bd487db740148f19c0cab329f732af961"
+    },
+    {
+      "path": "catalog/requirements.json",
+      "sha256": "5b883172a6a6609570494b2d837333e29ec40002a053c3889d0088ec4e19996b"
+    },
+    {
+      "path": "catalog/sources.json",
+      "sha256": "029d147821a370c464a41a33ffd6f8d3a51264ed1f390a1722382b3662bde576"
+    },
+    {
+      "path": "catalog/work-packages.json",
+      "sha256": "6b121b761bb1abd7f0411b96867b4af1d4a60560b0dc134c24d13e0a3c896b49"
+    },
+    {
+      "path": "tools/check_assets.py",
+      "sha256": "713831902635d853798a26bc6ad8b9b438ab233d08cd57bd66a50c89559a53e9"
+    },
+    {
+      "path": "tools/test_validator.py",
+      "sha256": "2a316ea37d8b130e5ee9623943dc83aea60f69e7d72013244ebdd097e1c2950f"
+    },
+    {
+      "path": "tools/validate_spec.py",
+      "sha256": "a833a5b0024445fc62597a3861aba514c6601c960afb97b43313636b14834c2c"
+    },
+    {
+      "path": "tools/verify_primitives.py",
+      "sha256": "47d81d84a2cac3a4fd25f1d43dbae7c25f4f9726bf42c38cdae0bbead1b18786"
+    },
+    {
+      "path": "fixtures/README.ja.md",
+      "sha256": "7951491313286d944e0c65391cd1bb56697c20a9a8c777fbd36a3f4fc48fbb8f"
+    },
+    {
+      "path": "fixtures/primitive-kats.json",
+      "sha256": "3a59ec99674c4f3626be6039725088ad25fda70ba8866b0bce50be9c30a70502"
+    },
+    {
+      "path": "fixtures/wire-samples.json",
+      "sha256": "cac8b22926b04e98f67aa90da5767e2b8fcc1e1867f8997cb924a2faa35265bb"
+    },
+    {
+      "path": "templates/checkpoint.json",
+      "sha256": "94baa5ec8e0da5318d3b8c0a21a7801ca069b937bbb6458f60bb3102b0e86aaf"
+    },
+    {
+      "path": "templates/qualification.json",
+      "sha256": "72795865495fff1207cd4829745184a0f7f95fed98017245143b12509c1a9d70"
+    },
+    {
+      "path": "templates/run-manifest.schema.json",
+      "sha256": "57083245e7cf062eac9afaa1adf38cd7370f601086add167ff336a77c125d497"
+    }
+  ],
+  "runs": [
+    {
+      "name": "structure",
+      "scope": "SPECIFICATION_SUPPORT_ONLY",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "tools/validate_spec.py",
+        "--report",
+        "evidence/spec-validation.json"
+      ],
+      "started_utc": "2026-09-05T16:08:53.962876+00:00",
+      "ended_utc": "2026-09-05T16:08:54.587356+00:00",
+      "duration_ms": 625,
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_log": "evidence/structure.log",
+      "raw_log_sha256": "41cc8170d37afed0cebb34c9810ec2548bed12680582d2031ee7399f0271c3b0"
+    },
+    {
+      "name": "validator-controls",
+      "scope": "SPECIFICATION_SUPPORT_ONLY",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "tools/test_validator.py"
+      ],
+      "started_utc": "2026-09-05T16:08:54.587748+00:00",
+      "ended_utc": "2026-09-05T16:08:55.385686+00:00",
+      "duration_ms": 798,
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_log": "evidence/validator-controls.log",
+      "raw_log_sha256": "31f22da99822d1a1527344bf8c26872514ef1b017d0b86f1912fca3a249fdc06"
+    },
+    {
+      "name": "asset-checks",
+      "scope": "SPECIFICATION_SUPPORT_ONLY",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "tools/check_assets.py",
+        "--report",
+        "evidence/support-checks.json"
+      ],
+      "started_utc": "2026-09-05T16:08:55.386085+00:00",
+      "ended_utc": "2026-09-05T16:08:56.878462+00:00",
+      "duration_ms": 1493,
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_log": "evidence/asset-checks.log",
+      "raw_log_sha256": "3438aff3961bbbea1da14799aa8279d348aaf0b990da4339eca15adf21ae63ce"
+    },
+    {
+      "name": "primitive-kats",
+      "scope": "SPECIFICATION_SUPPORT_ONLY",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "tools/verify_primitives.py",
+        "--report",
+        "evidence/primitive-kats.json"
+      ],
+      "started_utc": "2026-09-05T16:08:56.878867+00:00",
+      "ended_utc": "2026-09-05T16:08:57.503261+00:00",
+      "duration_ms": 625,
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_log": "evidence/primitive-kats.log",
+      "raw_log_sha256": "bdb830fe68959113c83a0a1102e33cfc4a4cdd3b9f005713019ef306754b012b"
+    }
+  ],
+  "runtime_tests_executed": 0,
+  "independent_reviews_completed": 0,
+  "note": "CDDL rule-presence checks and sample byte formatting are NOT CDDL conformance or wire parser execution."
+}

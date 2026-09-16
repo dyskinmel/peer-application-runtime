@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_lifecycle_contract.ContractTests.test_alias_rejected",
+    "test_lifecycle_contract.ContractTests.test_archive_size_budget",
+    "test_lifecycle_contract.ContractTests.test_bad_hex",
+    "test_lifecycle_contract.ContractTests.test_bool_revision_rejected",
+    "test_lifecycle_contract.ContractTests.test_canonical_order",
+    "test_lifecycle_contract.ContractTests.test_control_acceptance_is_not_job_success",
+    "test_lifecycle_contract.ContractTests.test_duplicate_records",
+    "test_lifecycle_contract.ContractTests.test_duplicate_refs",
+    "test_lifecycle_contract.ContractTests.test_evidence_is_not_job_success",
+    "test_lifecycle_contract.ContractTests.test_generationless_legacy_always_blocked",
+    "test_lifecycle_contract.ContractTests.test_inventory_roundtrip",
+    "test_lifecycle_contract.ContractTests.test_json_duplicate_key_rejected",
+    "test_lifecycle_contract.ContractTests.test_live_gates_cannot_be_claimed",
+    "test_lifecycle_contract.ContractTests.test_live_snapshot_blocks_compaction",
+    "test_lifecycle_contract.ContractTests.test_missing_anchor",
+    "test_lifecycle_contract.ContractTests.test_missing_reference",
+    "test_lifecycle_contract.ContractTests.test_negative_budget",
+    "test_lifecycle_contract.ContractTests.test_no_unknown_result_flag",
+    "test_lifecycle_contract.ContractTests.test_payload_retirement_required",
+    "test_lifecycle_contract.ContractTests.test_property_read_only_plan",
+    "test_lifecycle_contract.ContractTests.test_record_key_binding",
+    "test_lifecycle_contract.ContractTests.test_size_limit_before_decode",
+    "test_lifecycle_contract.ContractTests.test_unknown_field",
+    "test_lifecycle_contract.ContractTests.test_unknown_outcome_blocks",
+    "test_lifecycle_contract.ContractTests.test_unknown_state"
+  ]
+}

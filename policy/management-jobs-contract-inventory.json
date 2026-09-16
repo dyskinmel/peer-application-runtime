@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_jobs_contract.JobContract.test_activity_observer_required",
+    "test_jobs_contract.JobContract.test_alias_job_same_signed_intent_rejected",
+    "test_jobs_contract.JobContract.test_arbitrary_method_denied",
+    "test_jobs_contract.JobContract.test_bad_signature_not_enqueued",
+    "test_jobs_contract.JobContract.test_cancel_prepared",
+    "test_jobs_contract.JobContract.test_cancel_then_step_does_not_dispatch",
+    "test_jobs_contract.JobContract.test_compact_rejects_command",
+    "test_jobs_contract.JobContract.test_different_input_same_id_rejected",
+    "test_jobs_contract.JobContract.test_empty_command_rejected",
+    "test_jobs_contract.JobContract.test_invalid_activity_type",
+    "test_jobs_contract.JobContract.test_job_id_requires_bytes",
+    "test_jobs_contract.JobContract.test_poll_redacted",
+    "test_jobs_contract.JobContract.test_queue_budget",
+    "test_jobs_contract.JobContract.test_root_cannot_alias_gateway",
+    "test_jobs_contract.JobContract.test_same_root_writer_refused",
+    "test_jobs_contract.JobContract.test_stable_id_duplicate",
+    "test_jobs_contract.JobContract.test_submit_is_queued_without_gateway_effect",
+    "test_jobs_contract.JobContract.test_success_not_cancellable"
+  ],
+  "scope": "LOCAL_EXPERIMENT_ONLY"
+}

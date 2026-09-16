@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "name": "auth-store-local-v0.1",
+  "artifact_version": "00.08.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "baseline": "00.02.00",
+  "schema_user_version": 2,
+  "schema_metadata_version": 1,
+  "independent_review": "NOT_RUN",
+  "test_counts": {
+    "commit": 37,
+    "persistence": 29,
+    "schema": 12,
+    "faults": 54
+  },
+  "sigkill_scenarios": 49,
+  "physical_power_loss_tested": false,
+  "automerge_validation": false,
+  "global_latest_proven": false,
+  "same_process_adversary_isolated": false,
+  "max_material_bytes": 900000,
+  "max_materials_per_space": 1024,
+  "pinned_inputs": [
+    {
+      "path": "baseline/spec-00.02.00/protocol/storage-v1.sql",
+      "sha256": "f702ac756a601a4912e71dc6e709fb5fbfc48a68a72673519a15bd4e7f6851df"
+    },
+    {
+      "path": "experiments/g0-store/schema-overlay.sql",
+      "sha256": "4354550fc44367ef70d20f3c6cfe08399eec74e66b4c999ef202e91d1f9e3318"
+    },
+    {
+      "path": "experiments/auth-store/schema.sql",
+      "sha256": "485aab3fcca4b65300e217d77c2116796bf3a3c07e5a48ea13bacb93a2318da4"
+    },
+    {
+      "path": "docs/decisions/ADR-AUTH-STORE-0001.ja.md",
+      "sha256": "712746799af96792c6c448babeacb9698227f917992ecd8aced52d9b1f500553"
+    },
+    {
+      "path": "docs/decisions/ADR-AUTH-STORE-0002.ja.md",
+      "sha256": "49fec52c85c938812fadeda2192b119052ae4264a01022d4d1baddf954bb7c39"
+    },
+    {
+      "path": "docs/decisions/ADR-AUTH-STORE-0003.ja.md",
+      "sha256": "fe1508f595f04ccddeb39cce3128521bef71ea9aca06c25bcaa0cbe9848349a2"
+    },
+    {
+      "path": "experiments/g0-store/par_store/store.py",
+      "sha256": "acf9239c205700a8d4937e0952d5d23f45bf288e39b870dcd65a364aee476628"
+    },
+    {
+      "path": "experiments/g0-store/par_store/recovery.py",
+      "sha256": "059f77cb916b0cce56e55f50af679c4e45636a14d7cfd5db3560b2f35ffb26fe"
+    },
+    {
+      "path": "experiments/g0-crypto/par_crypto/store_writer.py",
+      "sha256": "9bc5b90830eb56b7b082d4c35d65089df2ff4c39e50536b74a8ca7993df3f78d"
+    },
+    {
+      "path": "experiments/space-auth/profile.json",
+      "sha256": "24e4f9df4b8064f477d415804129b910988dedf23646f752fa9c18c8a8917d48"
+    }
+  ]
+}

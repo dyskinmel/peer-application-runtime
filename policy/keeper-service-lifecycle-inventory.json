@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_service_lifecycle.ServiceLifecycle.test_abstract_and_relative_addresses_refused",
+    "test_service_lifecycle.ServiceLifecycle.test_authority_change_drops_pending_response",
+    "test_service_lifecycle.ServiceLifecycle.test_child_inherits_harness_process_group",
+    "test_service_lifecycle.ServiceLifecycle.test_clean_shutdown_unlinks_endpoint",
+    "test_service_lifecycle.ServiceLifecycle.test_close_is_idempotent_and_releases_pin",
+    "test_service_lifecycle.ServiceLifecycle.test_corrupt_get_not_returned",
+    "test_service_lifecycle.ServiceLifecycle.test_current_authority_rejects_old_capability",
+    "test_service_lifecycle.ServiceLifecycle.test_disconnect_releases_reader_pin",
+    "test_service_lifecycle.ServiceLifecycle.test_endpoint_mode_is_private",
+    "test_service_lifecycle.ServiceLifecycle.test_existing_regular_file_never_deleted",
+    "test_service_lifecycle.ServiceLifecycle.test_get_keeps_pin_until_response_closes",
+    "test_service_lifecycle.ServiceLifecycle.test_local_get_signed_response",
+    "test_service_lifecycle.ServiceLifecycle.test_private_directory_required",
+    "test_service_lifecycle.ServiceLifecycle.test_process_challenge_nonce",
+    "test_service_lifecycle.ServiceLifecycle.test_process_get",
+    "test_service_lifecycle.ServiceLifecycle.test_process_no_read_method_permission",
+    "test_service_lifecycle.ServiceLifecycle.test_process_receipt_matches_preexisting",
+    "test_service_lifecycle.ServiceLifecycle.test_process_status_not_all_leases",
+    "test_service_lifecycle.ServiceLifecycle.test_process_wrong_pinned_key",
+    "test_service_lifecycle.ServiceLifecycle.test_released_lease_get_denied",
+    "test_service_lifecycle.ServiceLifecycle.test_server_unknown_option_not_implicit_dispatch",
+    "test_service_lifecycle.ServiceLifecycle.test_symlink_endpoint_refused",
+    "test_service_lifecycle.ServiceLifecycle.test_symlink_parent_refused"
+  ]
+}

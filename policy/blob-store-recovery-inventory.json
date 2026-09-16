@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_blob_recovery.BlobRecoveryTests.test_alias_metadata_tamper_rejected",
+    "test_blob_recovery.BlobRecoveryTests.test_backup_restore_signed_attachments_readonly",
+    "test_blob_recovery.BlobRecoveryTests.test_corrupt_block_rejected_on_read",
+    "test_blob_recovery.BlobRecoveryTests.test_deleted_reference_not_silently_empty",
+    "test_blob_recovery.BlobRecoveryTests.test_empty_v2_migration_response_loss_is_queryable",
+    "test_blob_recovery.BlobRecoveryTests.test_extra_schema_trigger_rejected",
+    "test_blob_recovery.BlobRecoveryTests.test_invalid_position_rejected",
+    "test_blob_recovery.BlobRecoveryTests.test_invalid_signature_in_rehashed_backup_not_published",
+    "test_blob_recovery.BlobRecoveryTests.test_migration_failure_leaves_schema2",
+    "test_blob_recovery.BlobRecoveryTests.test_missing_block_rejected_on_reopen",
+    "test_blob_recovery.BlobRecoveryTests.test_other_author_signature_is_rejected",
+    "test_blob_recovery.BlobRecoveryTests.test_populated_v2_without_blobs_migrates_without_data_loss",
+    "test_blob_recovery.BlobRecoveryTests.test_reference_position_change_is_detected",
+    "test_blob_recovery.BlobRecoveryTests.test_removed_manifest_with_recomputed_snapshot_hash_not_published",
+    "test_blob_recovery.BlobRecoveryTests.test_reopen_old_ticket_is_rejected",
+    "test_blob_recovery.BlobRecoveryTests.test_reopen_requires_reactivation_but_readable",
+    "test_blob_recovery.BlobRecoveryTests.test_reordered_refs_and_file_links_cannot_bypass_signature",
+    "test_blob_recovery.BlobRecoveryTests.test_schema2_does_not_open_schema3",
+    "test_blob_recovery.BlobRecoveryTests.test_schema3_explicit",
+    "test_blob_recovery.BlobRecoveryTests.test_schema3_requires_explicit_migration",
+    "test_blob_recovery.BlobRecoveryTests.test_signed_manifest_tamper_rejected",
+    "test_blob_recovery.BlobRecoveryTests.test_symlinked_block_rejected",
+    "test_blob_recovery.BlobRecoveryTests.test_unknown_envelope_does_not_mean_empty_attachments"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submit_lifecycle.SubmitLifecycle.test_after_job_effect_exception_unknown_then_reconcile",
+    "test_submit_lifecycle.SubmitLifecycle.test_before_dispatch_exception_requires_explicit_retry",
+    "test_submit_lifecycle.SubmitLifecycle.test_duplicate_cancelled_registration_not_reactivated",
+    "test_submit_lifecycle.SubmitLifecycle.test_duplicate_no_second_job",
+    "test_submit_lifecycle.SubmitLifecycle.test_exact_preexisting_job_registration",
+    "test_submit_lifecycle.SubmitLifecycle.test_missing_registered_job_refused",
+    "test_submit_lifecycle.SubmitLifecycle.test_reconcile_ready_refused",
+    "test_submit_lifecycle.SubmitLifecycle.test_registered_job_journal_capacity_not_bypassed",
+    "test_submit_lifecycle.SubmitLifecycle.test_registration_not_selection_or_execution",
+    "test_submit_lifecycle.SubmitLifecycle.test_reopen_registered_does_not_dispatch",
+    "test_submit_lifecycle.SubmitLifecycle.test_retry_ready_refused",
+    "test_submit_lifecycle.SubmitLifecycle.test_retry_registered_after_execution",
+    "test_submit_lifecycle.SubmitLifecycle.test_same_intent_other_job_id",
+    "test_submit_lifecycle.SubmitLifecycle.test_select_is_separate",
+    "test_submit_lifecycle.SubmitLifecycle.test_signature_in_payload_not_replaced_by_controller",
+    "test_submit_lifecycle.SubmitLifecycle.test_stale_target_before_begin",
+    "test_submit_lifecycle.SubmitLifecycle.test_submit_incomplete",
+    "test_submit_lifecycle.SubmitLifecycle.test_target_changes_at_dispatch_boundary",
+    "test_submit_lifecycle.SubmitLifecycle.test_target_changes_before_submit"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "format_version": 1,
+  "kind": "TEMPLATE_NOT_QUALIFIED",
+  "source_tree_digest": null,
+  "spec_digest": null,
+  "qualified_profiles": [],
+  "gate_evidence": {},
+  "claims": [],
+  "known_risks": [],
+  "support_window": null,
+  "production_ready": false
+}

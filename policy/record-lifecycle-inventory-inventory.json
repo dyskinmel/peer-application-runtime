@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_lifecycle_inventory.InventoryTests.test_actual_socket_blocks_capture",
+    "test_lifecycle_inventory.InventoryTests.test_controller_revocation_observed",
+    "test_lifecycle_inventory.InventoryTests.test_corrupt_control_rejected",
+    "test_lifecycle_inventory.InventoryTests.test_corrupt_job_rejected",
+    "test_lifecycle_inventory.InventoryTests.test_corrupt_stage_rejected",
+    "test_lifecycle_inventory.InventoryTests.test_empty_real_store",
+    "test_lifecycle_inventory.InventoryTests.test_exact_three_ledger_graph",
+    "test_lifecycle_inventory.InventoryTests.test_expected_pin_enforced",
+    "test_lifecycle_inventory.InventoryTests.test_inflight_control_stays_unknown",
+    "test_lifecycle_inventory.InventoryTests.test_live_all_terminal_still_blocks_deletion",
+    "test_lifecycle_inventory.InventoryTests.test_missing_registered_job_rejected",
+    "test_lifecycle_inventory.InventoryTests.test_no_files_modified",
+    "test_lifecycle_inventory.InventoryTests.test_no_new_signature_on_collection",
+    "test_lifecycle_inventory.InventoryTests.test_no_secrets_or_payload_in_export",
+    "test_lifecycle_inventory.InventoryTests.test_partial_retirement_is_nonterminal",
+    "test_lifecycle_inventory.InventoryTests.test_real_reopen_does_not_assume_previous_inventory",
+    "test_lifecycle_inventory.InventoryTests.test_real_success_keeps_authoritative_effect_reference",
+    "test_lifecycle_inventory.InventoryTests.test_receiving_bytes_accounted",
+    "test_lifecycle_inventory.InventoryTests.test_registered_queued_is_retained",
+    "test_lifecycle_inventory.InventoryTests.test_selected_job_blocks_capture",
+    "test_lifecycle_inventory.InventoryTests.test_snapshot_change_during_collection",
+    "test_lifecycle_inventory.InventoryTests.test_stable_snapshot_bytes",
+    "test_lifecycle_inventory.InventoryTests.test_uncertain_temp_is_not_silently_ignored",
+    "test_lifecycle_inventory.InventoryTests.test_wrong_thread_refused"
+  ]
+}

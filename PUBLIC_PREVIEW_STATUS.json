@@ -1,0 +1,40 @@
+{
+  "classification": "PERSONAL_OSS_SOURCE_ONLY_ALPHA_NOT_RELEASE_AUTHORIZATION",
+  "display_name": {
+    "kind": "PROVISIONAL_FUNCTIONAL_DESCRIPTOR",
+    "value": "Peer Application Runtime"
+  },
+  "external_publish_prerequisites": [
+    {
+      "id": "public_repository",
+      "status": "EXTERNAL_ACTION_REQUIRED"
+    },
+    {
+      "id": "github_private_vulnerability_reporting",
+      "status": "EXTERNAL_ACTION_REQUIRED"
+    },
+    {
+      "id": "hosted_ci",
+      "status": "EXTERNAL_ACTION_REQUIRED"
+    }
+  ],
+  "manifest_sha256": "a0c93097d851d7ddbde42b56ebcba202e91a3edd835a9926700de26f51a28282",
+  "product_qualified": false,
+  "publishable": false,
+  "release_authorized": false,
+  "release_profile": "oss/PUBLIC_ALPHA_RELEASE.json",
+  "schema_version": 3,
+  "source": {
+    "branch": "main",
+    "checkpoint_tags": [],
+    "commit_time": "2026-09-16T08:08:38-05:00",
+    "head": "fc19827ec4b984c0d0907f985f5fa6722e559cdc",
+    "source_digest": "715c07d8edd6f4208f20a7e706182118a6b2f0d614942ad8fbc95688798254d0",
+    "tree": "67f81fc771673025ab0a10a5b2a2d4bd9e94de86"
+  },
+  "unresolved_gates": [
+    "public_repository",
+    "github_private_vulnerability_reporting",
+    "hosted_ci"
+  ]
+}

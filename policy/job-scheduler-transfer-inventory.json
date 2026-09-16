@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_scheduler_transfer.SchedulerTransfer.test_authority_change_during_response_drops_pin_and_holds_job",
+    "test_scheduler_transfer.SchedulerTransfer.test_backlog_is_not_admitted_while_paused",
+    "test_scheduler_transfer.SchedulerTransfer.test_cancel_drain_preserves_existing_connection",
+    "test_scheduler_transfer.SchedulerTransfer.test_disconnect_releases_pin_before_effect",
+    "test_scheduler_transfer.SchedulerTransfer.test_drain_timeout_does_not_force_effect",
+    "test_scheduler_transfer.SchedulerTransfer.test_hello_only_socket_is_not_idle",
+    "test_scheduler_transfer.SchedulerTransfer.test_invalid_read_request_does_not_keep_activity",
+    "test_scheduler_transfer.SchedulerTransfer.test_normal_response_releases_pin_before_effect",
+    "test_scheduler_transfer.SchedulerTransfer.test_one_response_failure_does_not_fake_idle_on_other_endpoint",
+    "test_scheduler_transfer.SchedulerTransfer.test_partial_request_blocks_until_disconnect",
+    "test_scheduler_transfer.SchedulerTransfer.test_pending_reader_without_connection_blocks_effect",
+    "test_scheduler_transfer.SchedulerTransfer.test_pinned_response_keeps_prepared_job_waiting",
+    "test_scheduler_transfer.SchedulerTransfer.test_timeout_releases_pin_before_effect",
+    "test_scheduler_transfer.SchedulerTransfer.test_two_endpoints_are_polled_in_alternating_order"
+  ]
+}

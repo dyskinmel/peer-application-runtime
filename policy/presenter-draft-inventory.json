@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "presenter.draft.authority_change_preserves_buffer",
+    "presenter.draft.backwards_selection_preserved",
+    "presenter.draft.blocked_commit_not_draft_loss",
+    "presenter.draft.clean_remote_explicit_accept",
+    "presenter.draft.combining_mark_not_normalized",
+    "presenter.draft.commit_intent_not_real_save",
+    "presenter.draft.commit_requires_frontier_match",
+    "presenter.draft.composition_end_not_commit",
+    "presenter.draft.composition_prevents_submit",
+    "presenter.draft.dirty_remote_not_auto_apply",
+    "presenter.draft.emoji_family_not_grapheme_count",
+    "presenter.draft.invalid_selection_reject",
+    "presenter.draft.latest_remote_bounded",
+    "presenter.draft.no_mutation",
+    "presenter.draft.private_initial_unsaved",
+    "presenter.draft.remote_during_composition_preserves",
+    "presenter.draft.remote_old_sequence_reject",
+    "presenter.draft.replace_scalar_range",
+    "presenter.draft.same_sequence_changed_text_reject",
+    "presenter.draft.scalar_position_conversion"
+  ]
+}

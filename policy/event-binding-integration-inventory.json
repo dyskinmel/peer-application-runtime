@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "event-binding.integration.acknowledged-survives-process-restart",
+    "event-binding.integration.authority-change-rejects-ack",
+    "event-binding.integration.consumer-break-redelivers-after-process-restart",
+    "event-binding.integration.owner-lost-ack-reconcile-on-reconnect",
+    "event-binding.integration.real-journal-bigint-and-manual-ack",
+    "event-binding.integration.sigkill-after-ack-commit-keeps-cursor",
+    "event-binding.integration.sigkill-before-ack-redelivers"
+  ]
+}

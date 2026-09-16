@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_transport.TransportTests.test_abort_wait_allows_cleanup",
+    "test_transport.TransportTests.test_connected_descriptor_real_poll",
+    "test_transport.TransportTests.test_duplicate_json_key_rejected",
+    "test_transport.TransportTests.test_eof_does_not_ack",
+    "test_transport.TransportTests.test_frame_truncation_cleanup",
+    "test_transport.TransportTests.test_host_close_closes_idle_attached_transport_promptly",
+    "test_transport.TransportTests.test_idle_connection_expires",
+    "test_transport.TransportTests.test_oversized_length_closes_connection_no_effect",
+    "test_transport.TransportTests.test_reused_request_id_closes_without_replay",
+    "test_transport.TransportTests.test_socket_wait_notification"
+  ]
+}

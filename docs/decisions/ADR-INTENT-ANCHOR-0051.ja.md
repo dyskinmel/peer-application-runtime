@@ -1,0 +1,12 @@
+# ADR-INTENT-ANCHOR-0051: 読み取り照合値の永続境界と時間依存fixture
+
+状態: 承認済み次工程に対するlocal implementation candidate、独立レビュー未実施。
+入力: NEXT_DURABLE_OWNER_CAPABILITY_0050.ja.md、00.50の2件の未解消タイミング検査。
+
+既存保存形式・署名・nonce・owner wire・製品期限上限を変更せず、まず再現可能な検査と外部pinの保存境界を実装する。
+PinStoreを注入し、単一文書bindingに限ったPOSIX実装を用意する。外部ストレージの独立性やOS鍵保管をこの実装だけで主張しない。一般のowner portへ適用を公開しない。
+
+control fixtureのselect/status/cancelは実CLI別processを維持するが、selector/drainのclockだけをtest child内で明示制御する。1500msの設定は維持し、同じfixtureで1.6秒へ進めて自然期限終了と遅すぎるcancel拒否も検査する。製品CLIへtest用引数やclockを追加しない。
+plannerの開始後期限切れはfactoryに入ってから実asyncio Timeoutをrescheduleする。開始前期限切れは別caseでfactoryを一切生成しないことを確認する。旧test IDを削除せず2case追加。failureをskip/expectedFailureへ変更しない。
+
+新しいguarded test/policy/sourceのため全29laneはfresh candidateで検証する。旧23件のreceiptを新候補へ移し替えない。過去の失敗ログは保持する。

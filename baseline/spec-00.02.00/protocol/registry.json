@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "status": "NORMATIVE_CANDIDATE",
+  "wire_id": "par/1-draft-2",
+  "major": 1,
+  "profile_matching": "exact_digest_until_G0_freeze",
+  "messages": [
+    {
+      "code": 1,
+      "name": "HELLO",
+      "body_type": "hello-body",
+      "minimum_state": "transport-secure",
+      "direction": "both"
+    },
+    {
+      "code": 2,
+      "name": "AUTH",
+      "body_type": "auth-body",
+      "minimum_state": "hello-exchanged",
+      "direction": "both"
+    },
+    {
+      "code": 10,
+      "name": "SPACE_OPEN",
+      "body_type": "space-open-body",
+      "minimum_state": "app-authenticated",
+      "direction": "request"
+    },
+    {
+      "code": 11,
+      "name": "SPACE_ACCEPT",
+      "body_type": "space-accept-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "response"
+    },
+    {
+      "code": 12,
+      "name": "CONTROL_GET",
+      "body_type": "control-get-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "request"
+    },
+    {
+      "code": 13,
+      "name": "CONTROL_PAGE",
+      "body_type": "control-page-body",
+      "minimum_state": "control-sync",
+      "direction": "response"
+    },
+    {
+      "code": 20,
+      "name": "HAVE",
+      "body_type": "have-body",
+      "minimum_state": "epoch-ready",
+      "direction": "both"
+    },
+    {
+      "code": 21,
+      "name": "NEED",
+      "body_type": "need-body",
+      "minimum_state": "epoch-ready",
+      "direction": "request"
+    },
+    {
+      "code": 22,
+      "name": "CHANGE",
+      "body_type": "change-body",
+      "minimum_state": "epoch-ready",
+      "direction": "response"
+    },
+    {
+      "code": 23,
+      "name": "APPLY_RESULT",
+      "body_type": "apply-result-body",
+      "minimum_state": "epoch-ready",
+      "direction": "response"
+    },
+    {
+      "code": 30,
+      "name": "MANIFEST_GET",
+      "body_type": "manifest-get-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "request"
+    },
+    {
+      "code": 31,
+      "name": "MANIFEST_DATA",
+      "body_type": "manifest-data-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "response"
+    },
+    {
+      "code": 32,
+      "name": "BLOCK_GET",
+      "body_type": "block-get-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "request"
+    },
+    {
+      "code": 33,
+      "name": "BLOCK_DATA",
+      "body_type": "block-data-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "response"
+    },
+    {
+      "code": 40,
+      "name": "RETAIN_OFFER",
+      "body_type": "retain-offer-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "request"
+    },
+    {
+      "code": 41,
+      "name": "RETAIN_ACCEPT",
+      "body_type": "retain-accept-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "response"
+    },
+    {
+      "code": 42,
+      "name": "RETAIN_COMMIT",
+      "body_type": "retain-commit-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "request"
+    },
+    {
+      "code": 43,
+      "name": "RETAIN_RECEIPT",
+      "body_type": "retain-receipt-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "response"
+    },
+    {
+      "code": 44,
+      "name": "RETAIN_RELEASE",
+      "body_type": "retain-release-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "request"
+    },
+    {
+      "code": 45,
+      "name": "RETAIN_RELEASE_RESULT",
+      "body_type": "retain-release-result-body",
+      "minimum_state": "space-proof-checked",
+      "direction": "response"
+    },
+    {
+      "code": 50,
+      "name": "PRESENCE",
+      "body_type": "presence-body",
+      "minimum_state": "epoch-ready",
+      "direction": "both"
+    },
+    {
+      "code": 60,
+      "name": "RPC_CALL",
+      "body_type": "rpc-call-body",
+      "minimum_state": "epoch-ready",
+      "direction": "request"
+    },
+    {
+      "code": 61,
+      "name": "RPC_RESULT",
+      "body_type": "rpc-result-body",
+      "minimum_state": "epoch-ready",
+      "direction": "response"
+    },
+    {
+      "code": 62,
+      "name": "RPC_CANCEL",
+      "body_type": "rpc-cancel-body",
+      "minimum_state": "epoch-ready",
+      "direction": "request"
+    },
+    {
+      "code": 63,
+      "name": "RPC_CANCEL_RESULT",
+      "body_type": "rpc-cancel-result-body",
+      "minimum_state": "epoch-ready",
+      "direction": "response"
+    },
+    {
+      "code": 255,
+      "name": "ERROR",
+      "body_type": "error-body",
+      "minimum_state": "any",
+      "direction": "response"
+    }
+  ],
+  "domain_labels": [
+    "account-id",
+    "device-id",
+    "space-id",
+    "certificate-sign",
+    "certificate-id",
+    "genesis-sign",
+    "control-sign",
+    "control-id",
+    "authority-possession",
+    "member-page-id",
+    "membership-root",
+    "join-request",
+    "admission-sign",
+    "session-auth",
+    "session-id",
+    "space-grant",
+    "epoch-salt",
+    "object-key",
+    "actor-id",
+    "envelope-aad",
+    "envelope-sign",
+    "envelope-id",
+    "block-aad",
+    "block-id",
+    "key-package-info",
+    "key-package-aad",
+    "key-package-sign",
+    "key-package-id",
+    "package-root",
+    "inventory-page-id",
+    "inventory-root",
+    "retention-sign",
+    "retention-id",
+    "receipt-sign",
+    "receipt-id",
+    "recovery-sign",
+    "recovery-id",
+    "recovery-kit-aad",
+    "export-manifest-sign",
+    "activity-aad",
+    "activity-sign"
+  ],
+  "object_kinds": {
+    "document": 1,
+    "event": 2,
+    "blob": 3,
+    "recovery": 4,
+    "seed": 5
+  },
+  "roles": {
+    "reader": 1,
+    "editor": 2,
+    "opaque-keeper": 3
+  },
+  "suite": {
+    "PAR-C1": 1
+  },
+  "features": {
+    "documents": 1,
+    "blobs": 2,
+    "retention": 3,
+    "events": 4,
+    "presence": 5,
+    "registered_rpc": 6
+  },
+  "errors": [
+    {
+      "code": 1001,
+      "name": "INVALID_ENCODING",
+      "retry_hint": "none"
+    },
+    {
+      "code": 1002,
+      "name": "LIMIT_EXCEEDED",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1003,
+      "name": "UNSUPPORTED_PROFILE",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1004,
+      "name": "AUTHENTICATION_FAILED",
+      "retry_hint": "none"
+    },
+    {
+      "code": 1005,
+      "name": "NOT_AUTHORIZED",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1006,
+      "name": "CONTROL_REQUIRED",
+      "retry_hint": "reconnect"
+    },
+    {
+      "code": 1007,
+      "name": "CONTROL_FORK",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1008,
+      "name": "EPOCH_REBASE_REQUIRED",
+      "retry_hint": "rebase"
+    },
+    {
+      "code": 1009,
+      "name": "DEPENDENCIES_PENDING",
+      "retry_hint": "reconnect"
+    },
+    {
+      "code": 1010,
+      "name": "RESOURCE_BLOCKED",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1011,
+      "name": "ROOT_INCOMPLETE",
+      "retry_hint": "reconnect"
+    },
+    {
+      "code": 1012,
+      "name": "OUTCOME_UNKNOWN",
+      "retry_hint": "same-operation"
+    },
+    {
+      "code": 1013,
+      "name": "OPERATION_ID_REUSED",
+      "retry_hint": "none"
+    },
+    {
+      "code": 1014,
+      "name": "CANCEL_TOO_LATE",
+      "retry_hint": "none"
+    },
+    {
+      "code": 1015,
+      "name": "KEY_UNAVAILABLE",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1016,
+      "name": "CURSOR_EXPIRED",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1017,
+      "name": "INTEGRITY_FAILURE",
+      "retry_hint": "none"
+    },
+    {
+      "code": 1018,
+      "name": "NOT_FOUND_IN_SCOPE",
+      "retry_hint": "none"
+    },
+    {
+      "code": 1019,
+      "name": "STORAGE_FULL",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1020,
+      "name": "UNSUPPORTED_SCHEMA",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1021,
+      "name": "DEADLINE_EXCEEDED",
+      "retry_hint": "none"
+    },
+    {
+      "code": 1022,
+      "name": "ACTOR_EQUIVOCATION",
+      "retry_hint": "user-action"
+    },
+    {
+      "code": 1023,
+      "name": "NO_REACHABLE_PEER",
+      "retry_hint": "reconnect"
+    }
+  ],
+  "key_context_kinds": {
+    "document": 1,
+    "event": 2,
+    "blob": 3,
+    "recovery": 4,
+    "seed": 5,
+    "presence": 6,
+    "rpc": 7
+  },
+  "codecs": {
+    "automerge_change": 1,
+    "durable_event_cbor": 2
+  }
+}

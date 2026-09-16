@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scope": "LOCAL_PROVIDER_HANDOFF_SOURCE_SHAPE_NOT_NATIVE_QUALIFICATION",
+  "case_ids": [
+    "test_manifest.ManifestTests.test_available_capability_requires_factory_flag",
+    "test_manifest.ManifestTests.test_bad_epoch_rejected",
+    "test_manifest.ManifestTests.test_capability_names_are_exact",
+    "test_manifest.ManifestTests.test_descriptor_versions_are_independent",
+    "test_manifest.ManifestTests.test_experimental_posix_is_never_os_protected",
+    "test_manifest.ManifestTests.test_profile_default_is_blocked",
+    "test_manifest.ManifestTests.test_profile_json_roundtrips_exactly",
+    "test_manifest.ManifestTests.test_string_boolean_rejected",
+    "test_manifest.ManifestTests.test_unknown_manifest_field_rejected",
+    "test_manifest.ManifestTests.test_unverified_native_source_cannot_claim_protection"
+  ]
+}

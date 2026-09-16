@@ -1,0 +1,3005 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>PAR — 詳細仕様 00.02.00</title><style>*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:#f7f8fa;color:#17212b;font:16px/1.85 system-ui,sans-serif}a{color:#174e91;text-underline-offset:3px}a:focus-visible{outline:3px solid #b76800;outline-offset:3px}.skip{position:absolute;left:8px;top:-80px;background:white;padding:10px}.skip:focus{top:8px}aside{position:fixed;inset:0 auto 0 0;width:280px;background:#fff;border-right:1px solid #dce1e6;padding:24px 20px;overflow:auto}aside h2{font-size:18px;margin:0 0 8px}aside p{font-size:12px;color:#566574}nav a{display:block;padding:7px 0;font-size:13px;line-height:1.55;text-decoration:none}main{max-width:1120px;margin-left:280px;padding:42px 48px}header{border-bottom:2px solid #17212b;margin-bottom:36px;padding-bottom:26px}header h1{font-size:34px;letter-spacing:-.02em;line-height:1.4}header .eyebrow{font-size:12px;letter-spacing:.15em;font-weight:700}header p{max-width:760px}.badge{display:inline-block;background:#e9eef4;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:600}.chapter{background:#fff;border:1px solid #e0e5eb;border-radius:10px;padding:30px 34px;margin:0 0 32px;scroll-margin-top:20px}.chapter h1{font-size:25px;line-height:1.5}.chapter h2{font-size:21px;margin-top:34px}.chapter h3{font-size:17px;margin-top:25px}.source{font-size:12px;color:#667587;word-break:break-all}p,li{overflow-wrap:anywhere}table{display:block;overflow-x:auto;width:100%;border-collapse:collapse;font-size:14px;line-height:1.65;margin:24px 0}th,td{padding:10px 12px;border:1px solid #dbe1e8;vertical-align:top;min-width:110px}th{background:#edf2f7;text-align:left}pre{background:#f0f3f6;border-radius:6px;padding:18px;overflow:auto;font-size:13px;line-height:1.6}code{font-family:ui-monospace,monospace}p code,td code{background:#eef2f6;padding:1px 4px;border-radius:3px;font-size:.88em}blockquote{margin:20px 0;padding:4px 20px;border-left:4px solid #6985a1;color:#43546b}footer{font-size:13px;color:#667587}@media(max-width:900px){aside{position:static;width:auto;max-height:320px;border-bottom:1px solid #ddd}main{margin:0;padding:24px 12px}.chapter{padding:20px 18px}header h1{font-size:28px}}@media print{aside,.skip{display:none}main{margin:0;padding:0;max-width:none}.chapter{border:0;padding:0;break-before:page}header{break-after:page}a{color:inherit;text-decoration:none}pre{white-space:pre-wrap}table{display:table;font-size:10pt}body{font-size:10pt;background:white}}</style></head><body><a class="skip" href="#main">本文へ移動</a><aside><h2>PAR Specification</h2><p>00.02.00 · 2026-09-05<br>規範候補 / 製品未実装<br>ページ内検索はブラウザーの検索機能で行えます。</p><nav aria-label="仕様の目次"><a href="#doc-1">Peer Application Runtime — 詳細仕様 00.02.00</a><a href="#doc-2">仕様の完成度 — 00.02.00</a><a href="#doc-3">01 — プロダクト契約・品質の定義</a><a href="#doc-4">02 — 内部構造・責務境界</a><a href="#doc-5">03 — ID・鍵保管・端末復旧</a><a href="#doc-6">04 — Space・認可・鍵更新・所有者移管</a><a href="#doc-7">05 — 暗号スイート・署名対象・鍵導出</a><a href="#doc-8">06 — Wire format・状態遷移・上限</a><a href="#doc-9">07 — 文書・スキーマ・検索・イベント・RPC</a><a href="#doc-10">08 — 同期・因果関係・検証・再開</a><a href="#doc-11">09 — ローカル保存・原子性・破損・容量</a><a href="#doc-12">10 — Keeper・復旧集合・lease・自動修復</a><a href="#doc-13">11 — 初期成功条件・復旧・可搬性</a><a href="#doc-14">12 — 履歴・削除・GC・チェックポイント</a><a href="#doc-15">13 — 発見・NAT・Relay・接続ポリシー</a><a href="#doc-16">14 — SDK API・言語境界・開発体験</a><a href="#doc-17">15 — プラットフォーム能力・実機資格</a><a href="#doc-18">16 — 資源制御・負荷・保管の公平性</a><a href="#doc-19">17 — UX・操作flow・状態説明</a><a href="#doc-20">18 — Polish可能なUI構造・デザインシステム</a><a href="#doc-21">19 — 運用・診断・プライバシー</a><a href="#doc-22">20 — 脅威モデル・安全性評価・検証責務</a><a href="#doc-23">21 — 性能・規模・長期運用の検証計画</a><a href="#doc-24">22 — 互換性・更新・schema/storage移行</a><a href="#doc-25">23 — 完全OSS・供給網・公開と維持</a><a href="#doc-26">24 — 適合性・証跡・Production Ready判定</a><a href="#doc-27">25 — 拡張余地と領域内の高い到達目標</a><a href="#doc-28">Wire補足 — object生成順・cross-field制約</a><a href="#doc-29">Event / Presence / RPC — データと再実行の契約</a><a href="#doc-30">G0–G11 — 本番到達までの合格条件</a><a href="#doc-31">実装への引継ぎ — 検証可能な作業単位</a><a href="#doc-32">UIデザイン／Polishの引継ぎ</a><a href="#doc-33">未freeze事項と解消の実験</a><a href="#doc-34">作成時の自己レビュー</a><a href="#doc-35">00.01.00 → 00.02.00</a><a href="#doc-36">次の実装者／AIエージェントへの引継ぎ</a><a href="#doc-37">一次資料と設計判断の境界</a></nav></aside><main id="main"><header><div class="eyebrow">PEER APPLICATION RUNTIME</div><h1>参加者の端末から、<br>協調バックエンドをつくる。</h1><p>最初の3台構成から、セキュリティ・復旧・多端末・運用・OSS公開まで。後から磨き込めるUI設計を含む詳細仕様候補です。</p><span class="badge">25 domains · 149 requirements · 12 gates</span><p><strong>このHTMLは仕様の閲覧版です。</strong>製品の画面モックや完成SDKではありません。機械可読の正本候補と検査結果はZIP内の各ファイルを参照してください。</p></header><section id="doc-1" class="chapter"><p class="source">START_HERE.ja.md</p><h1>Peer Application Runtime — 詳細仕様 00.02.00</h1>
+<p><strong>参加者の端末だけで、保存・同期・共有・復旧を担う、完全OSSのアプリケーション基盤。</strong></p>
+<p>本パッケージは、最初の3台構成からProduction Readyな公開profileへ至るための詳細設計候補。製品ソース、SDKバイナリ、本番認定、最終UI画稿ではない。仮称PARは商標/名称確定前。仕様日2026-09-05。</p>
+<p>全体をブラウザーで続けて読む場合は <a href="READ_SPEC.html">オフライン閲覧版</a> を開く。これは仕様の閲覧用であり製品UIではない。</p>
+<h2>最初に読む</h2>
+<ol>
+<li><a href="#doc-3">製品契約</a>と<a href="#doc-4">構成</a>で、不変条件・提供範囲を把握する。</li>
+<li><a href="#doc-13">初期成功条件と復旧</a>でA/B/C/B2の役割とoracleを確認する。</li>
+<li><a href="#doc-30">G0–G11</a>と<a href="#doc-31">実装作業単位</a>で、順序/証拠/停止条件を把握する。</li>
+<li>UI担当は<a href="#doc-19">UX</a>、<a href="#doc-20">Polish構造</a>、<a href="#doc-32">デザイン引継ぎ</a>を読む。</li>
+<li><a href="#doc-2">完成度</a>と<a href="#doc-33">未freeze事項</a>を見て、実装や検証が終わったと誤認しない。</li>
+</ol>
+<h2>規範と優先順位</h2>
+<p>文書のMUSTはこの候補を採用する実装が満たす必須条件。外部規格が本プロジェクトを認定した意味ではない。</p>
+<ul>
+<li>製品の不変条件・保証境界: spec01。</li>
+<li>振る舞い・失敗意味・認可: 各specと明記されたcross-field契約。</li>
+<li>wireのfield/code/数値上限: protocol/par-v1.cddl、registry.json、limits.json。</li>
+<li>API型: api/par-contracts.d.ts。意味はspec14とprotocol/ACTIVITY.ja.md。</li>
+<li>release判定: spec24、catalog/gates.json、plan/GATES.ja.md。</li>
+<li>requirement/test catalogsは本文の要件を追跡する索引。本文と矛盾したら黙ってどちらかを選ばず、freezeを止めて修正する。</li>
+</ul>
+<p>例・token seed・UI synthetic fixture・性能targetは実測や本番保証ではない。サンプル値を見てcontractを推測しない。日本語本文が本草案の正本。英語READMEは概要であり、完全な英文protocolは公開前の追加成果物。</p>
+<h2>内容の配置</h2>
+<table>
+<thead>
+<tr>
+  <th>path</th>
+  <th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>spec/</td>
+  <td>25分野の詳細仕様候補</td>
+</tr>
+<tr>
+  <td>protocol/</td>
+  <td>CDDL・message registry・limits・object/activity意味・SQLite最小DDL</td>
+</tr>
+<tr>
+  <td>api/</td>
+  <td>型宣言とコンパイル専用利用例</td>
+</tr>
+<tr>
+  <td>ui/, tokens/</td>
+  <td>状態fixture、component/flow/Polish契約、暫定token</td>
+</tr>
+<tr>
+  <td>catalog/</td>
+  <td>要件・試験・gate・作業単位・未決実験・資料のmachine-readable索引</td>
+</tr>
+<tr>
+  <td>plan/</td>
+  <td>実装段階・引継ぎ・再開方法</td>
+</tr>
+<tr>
+  <td>review/</td>
+  <td>変更点・完成度・未freeze事項・自己レビュー</td>
+</tr>
+<tr>
+  <td>tools/, fixtures/</td>
+  <td>仕様支援物の検査・primitive KAT・wireサンプル</td>
+</tr>
+<tr>
+  <td>evidence/</td>
+  <td>本turnで実際に行った仕様支援検査のみ</td>
+</tr>
+<tr>
+  <td>history/</td>
+  <td>改変していない00.01.00原本</td>
+</tr>
+</tbody>
+</table>
+<h2>簡単な検査</h2>
+<pre><code class="language-sh">python3 tools/validate_spec.py
+python3 tools/test_validator.py
+python3 tools/check_assets.py
+# cryptographyが既にある環境だけ: ランタイムではなくprimitiveの公開KAT
+python3 tools/verify_primitives.py
+</code></pre>
+<p>check_assetsはSQLiteの構文/constraintとTypeScript宣言の検査。tscがない環境はBLOCKEDでありPASSにしない。新たに依存を無断インストールしたりネットワーク接続したりしない。</p>
+<h2>最初の実装対象</h2>
+<p>WP-01のprotocol/crypto/Automerge境界probe。全機能のstubや架空の成功logから始めない。新環境ではtoolchain/実行可能性を測定し、結果をcheckpointへ記録する。</p>
+</section><section id="doc-2" class="chapter"><p class="source">review/COMPLETENESS.ja.md</p><h1>仕様の完成度 — 00.02.00</h1>
+<h2>結論</h2>
+<p><strong>最初の成功条件から本番運用・OSS公開までを一貫して扱う、詳細な規範候補仕様を作成した段階。</strong> 企画の説明だけではなく、実装境界、入出力、失敗の意味、UI契約、受け入れ条件、release判断へ分解されている。別実装で相互運用できる凍結protocol、実測済み性能、完成SDKではない。</p>
+<h2>数えられる完成範囲</h2>
+<table>
+<thead>
+<tr>
+  <th>対象</th>
+  <th style="text-align:right">今回の内容</th>
+  <th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>領域別詳細仕様</td>
+  <td style="text-align:right">25文書</td>
+  <td>全25領域に候補本文とMUSTあり</td>
+</tr>
+<tr>
+  <td>追跡するMUST要件</td>
+  <td style="text-align:right">149件</td>
+  <td>spec clauseと受け入れ契約に対応</td>
+</tr>
+<tr>
+  <td>製品acceptance contract</td>
+  <td style="text-align:right">149件</td>
+  <td>正常149/異常149のシナリオ、実行0</td>
+</tr>
+<tr>
+  <td>wire message registry</td>
+  <td style="text-align:right">26種類</td>
+  <td>CDDL型・frame discriminant候補あり</td>
+</tr>
+<tr>
+  <td>production gate</td>
+  <td style="text-align:right">G0–G11の12段階</td>
+  <td>入口/出口/依存/証跡を定義、実行0</td>
+</tr>
+<tr>
+  <td>実装work package</td>
+  <td style="text-align:right">16件</td>
+  <td>対象file境界/入出力/独立oracle/停止条件</td>
+</tr>
+<tr>
+  <td>UI semantic fixture</td>
+  <td style="text-align:right">24状態</td>
+  <td>状態・action・禁止表示。実UI未作成</td>
+</tr>
+<tr>
+  <td>token seed</td>
+  <td style="text-align:right">51 tokens</td>
+  <td>base/semantic/component、theme分離</td>
+</tr>
+<tr>
+  <td>freeze前の実験/レビュー</td>
+  <td style="text-align:right">11件</td>
+  <td>gate/担当role/終了条件/未達方針あり</td>
+</tr>
+</tbody>
+</table>
+<p>149/149の参照がそろうことは<strong>管理するMUSTの追跡網羅率</strong>であり、製品保証を証明した割合ではない。見落とした要件がないこと、暗号が安全なこと、実装が正しいことは別レビュー・試験で判断する。</p>
+<h2>成熟度</h2>
+<p>L0=アイデア、L1=構造と到達点、L2=具体的な規範候補/試験契約、L3=実装probeと独立codecで凍結、L4=対象profileの本番証拠閉包。</p>
+<p><strong>本仕様全体はL2。</strong> wire/API/SQL等の支援物には構文や型の確認を加えたが、それだけでL3/G0全体に昇格させない。成熟度の4段階を線形の工数率へ換算しないため、根拠の薄い「95%完成」のような単一比率は使用しない。</p>
+<table>
+<thead>
+<tr>
+  <th>領域</th>
+  <th>詳細化の到達点</th>
+  <th>残ること</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>製品/architecture/保証</td>
+  <td>不変条件・提供範囲・役割・portsを記述</td>
+  <td>実装で不要な境界/不足境界を検証</td>
+</tr>
+<tr>
+  <td>identity/auth/crypto</td>
+  <td>鍵分離、control/epoch、移管、AAD/KDF/署名対象候補</td>
+  <td>composed vectors、strictness、独立review</td>
+</tr>
+<tr>
+  <td>wire/data/sync</td>
+  <td>CDDL、code、limits、causal妥当性、state machine</td>
+  <td>CDDL parser/別codec/Automerge adapter実行</td>
+</tr>
+<tr>
+  <td>storage/replication/recovery</td>
+  <td>transaction、closure、lease、GC、M1 oracle</td>
+  <td>実ストア障害・電源断class・fresh restore</td>
+</tr>
+<tr>
+  <td>SDK/platform</td>
+  <td>typed Result/取消し/Unicode/host能力</td>
+  <td>実binding/OS最低版/実機lifecycle</td>
+</tr>
+<tr>
+  <td>UX/Polish</td>
+  <td>画面構造・状態・部品・tokens・不変条件</td>
+  <td>visual選定、component実装、利用者/a11y試験</td>
+</tr>
+<tr>
+  <td>production/OSS</td>
+  <td>security/soak/migration/release/support gate</td>
+  <td>実測・独立担当・運用演習・公開</td>
+</tr>
+</tbody>
+</table>
+<h2>今回実行した検査の意味</h2>
+<p><code>evidence/</code>に実際の構造検査、validator負例、SQLite DDL/constraint、TypeScript型、公開primitive KATの結果を保存する。これらは仕様資料と支援物の検査。製品acceptance149件、実ネットワーク、端末・UI、独立暗号レビュー、全PAR crypto vectorsはNOT_RUN。</p>
+<p>本packageに含むPythonは仕様支援検査であり、PARランタイム実装量へ加算しない。製品実装0、製品runtime試験0、独立security review0、公開repo/registry release0。</p>
+<h2>次の最短経路</h2>
+<p>仕様の説明をさらに際限なく増やすより、WP-01/OD-01〜04で曖昧さとlibrary境界を実測し、wire/crypto/storageをfreezeする。その後G1→G2→G3のM1を実装する。以後のgate/拡張はこの体系に沿って更新する。</p>
+<h2>実行結果の要約</h2>
+<p>仕様構造検査: PASS。検証器自身のbaseline＋負例13件: PASS。SQLite候補24tableの構文と4種類のconstraint拒否: PASS。TypeScript宣言/例のstrict型検査: PASS。公開primitiveの6確認: PASS。wireサンプル11件はhex形式と正例frame長だけ確認。CDDL parser適合、PAR暗号組合せ、製品runtime、実機UIは未実施。rawログはevidence/EXECUTION_SUMMARY.jsonから辿れる。</p>
+</section><section id="doc-3" class="chapter"><p class="source">spec/01-product-contract.ja.md</p><h1>01 — プロダクト契約・品質の定義</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 製品の約束</h2>
+<p>PARは、アプリ参加者の端末群で、権限付きデータ共有・ローカル操作・時間をまたぐ受渡し・復旧を成立させる組み込み基盤である。クラウドアカウント、APIキー、特定企業の認証・relay・課金サービスを基本動作の前提としない。完成基準は機能数ではなく、壊れた通信・中断・更新・鍵の紛失に対しても誤った成功を表示しないこと。</p>
+<p>「最高水準」は現時点での市場優位性を主張する語ではない。本仕様では、検証可能な安全性、データ可搬性、導入容易性、アクセシビリティ、運用可能性、資源効率を同時に引き上げる開発目標とする。</p>
+<h2>2. 利用者と仕事</h2>
+<table>
+<thead>
+<tr>
+  <th>利用者</th>
+  <th>仕事</th>
+  <th>成功の意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>アプリ開発者</td>
+  <td>ローカルに作ったアプリを共有可能にする</td>
+  <td>サーバー実装なしで招待、編集、状態表示、復旧を統合</td>
+</tr>
+<tr>
+  <td>エンドユーザー</td>
+  <td>複数端末・チームで安心して使う</td>
+  <td>通信不在でも編集でき、保存場所と未保護分が分かる</td>
+</tr>
+<tr>
+  <td>Keeper提供者</td>
+  <td>指定グループへ余力を提供</td>
+  <td>容量・帯域・電力を制御し、内容を読まずに協力</td>
+</tr>
+<tr>
+  <td>運用担当</td>
+  <td>接続・容量・鍵・移行の障害を診断</td>
+  <td>機密内容を収集せず原因と次の操作を判断</td>
+</tr>
+<tr>
+  <td>OSS contributor</td>
+  <td>別host・言語・UIを実装する</td>
+  <td>公開契約とfixtureで互換性を判定できる</td>
+</tr>
+</tbody>
+</table>
+<p>最初の参照アプリは共有ノート＋添付ファイル。次の実証アプリはチームチャットと共有タスクリスト。ノート固有のfieldをruntimeへ埋め込まない。</p>
+<h2>3. 品質軸</h2>
+<p>正当性、機密性・認可、復旧性、可搬性、接続性、説明可能性、操作容易性、資源効率、更新可能性の9軸で評価する。ネットワークがないときの不達を隠すより、保存済みの編集を維持し原因を示す。</p>
+<table>
+<thead>
+<tr>
+  <th>語</th>
+  <th>正確な意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>local committed</td>
+  <td>指定storage classの原子的保存が完了</td>
+</tr>
+<tr>
+  <td>retained</td>
+  <td>Keeperが特定rootのbytesを保管したと署名で表明</td>
+</tr>
+<tr>
+  <td>recoverable at frontier</td>
+  <td>対象利用者の鍵・認可と必要data closureを確認</td>
+</tr>
+<tr>
+  <td>available now</td>
+  <td>今回の取得要求またはfresh challengeに応答</td>
+</tr>
+<tr>
+  <td>caught up</td>
+  <td>特定peerが広告した特定frontierに追いついた</td>
+</tr>
+<tr>
+  <td>production-qualified</td>
+  <td>公開したprofile・版・環境・障害範囲のgateを通過</td>
+</tr>
+</tbody>
+</table>
+<p>これらの状態は並列に存在する。たとえばlocal committed=true、remote copies=0、auth freshness=unconfirmedは正常な状態の組合せ。</p>
+<h2>4. プロファイル</h2>
+<p><code>participants-only</code>は参加者の経路だけを使用。<code>community-assisted</code>は参加者が提供するKeeper/Relayを選び、常時稼働性を高める。<code>external-assisted</code>は明示登録した第三者サービスを使う。全て同じdata/auth契約を使い、設定変更の前後でegress manifestを表示する。</p>
+<p>ここで外部依存を禁じる対象はPARが選ぶサービス。OS、回線、ユーザー指定DNS、アプリ配布経路の存在まで否定しない。SDK内蔵のanalytics、公開STUN、DNS bootstrap、クラッシュ送信などは例外扱いせず、全て外部依存として列挙する。</p>
+<h2>5. 到達点と非保証</h2>
+<p>正式版の核は招待制Space、Documents、Blobs、Events、Presence、登録済みRPC、Keeper、Recovery、診断とUI部品。Public write network、匿名保管市場、金融的な全体合意、任意コード実行は追加の保証モデルを要する拡張であり、この核へ無理に混ぜない。</p>
+<p>参加者全員が停止しコピーへの時間的経路もない場合は配送できない。過去の平文の回収、世界全体の最新状態の証明、端末数から独立した人間の数の証明、悪意あるownerからの保護は保証しない。これらは機能不足の言い訳ではなく、製品表示にも残す境界。</p>
+<h2>6. 本版の位置付け</h2>
+<p>00.01.00の原則は継承するが、wire互換は主張しない。authority rotation、control sequenceとcontent epochの分離、復旧資格の事前準備、soft limitとhard validityの分離、UI headless契約を追加する。詳しくは <code>review/CHANGELOG.ja.md</code>。</p>
+<p>規範本文を実装の都合で黙って変更しない。設計変更は差分・理由・影響するtest IDを記録し、破壊的変更は新profileへ移す。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-CORE-001"></a></p>
+<h3>PAR-CORE-001 — 中央依存の排除</h3>
+<p><strong>MUST:</strong> SDKと参照アプリは、設定外のbootstrap・relay・telemetry・認証サービスへ通信してはならない。
+受け入れ: <code>AT-CORE-001</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-CORE-002"></a></p>
+<h3>PAR-CORE-002 — ローカル優先</h3>
+<p><strong>MUST:</strong> 起動と既存データの読書きは、他peerの接続完了を待たず利用可能とする。
+受け入れ: <code>AT-CORE-002</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-CORE-003"></a></p>
+<h3>PAR-CORE-003 — 保証の区別</h3>
+<p><strong>MUST:</strong> local保存・他端末保管・適用・取得・認可鮮度を別の機械可読状態で公開する。
+受け入れ: <code>AT-CORE-003</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-CORE-004"></a></p>
+<h3>PAR-CORE-004 — 資源同意</h3>
+<p><strong>MUST:</strong> 他人向けの保管・中継・RPCは機能別の明示同意と上限設定を必要とする。
+受け入れ: <code>AT-CORE-004</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-CORE-005"></a></p>
+<h3>PAR-CORE-005 — 可搬性</h3>
+<p><strong>MUST:</strong> 認可されたデータと復旧資料を公開形式で取り出せ、運営者の承認なく第三者実装へ移行できる設計とする。
+受け入れ: <code>AT-CORE-005</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-CORE-006"></a></p>
+<h3>PAR-CORE-006 — 主張の限定</h3>
+<p><strong>MUST:</strong> 対応表示はversion、profile、機能、環境、残る制約に結び付け、未実行gateを合格扱いしない。
+受け入れ: <code>AT-CORE-006</code> / 最初の必須gate: <code>G11</code>。</p>
+</section><section id="doc-4" class="chapter"><p class="source">spec/02-architecture.ja.md</p><h1>02 — 内部構造・責務境界</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 採用案と比較</h2>
+<p>推奨はRust portable core＋host ports＋headless presenter。通信は当初libp2p、文書はAutomerge core。どちらも交換可能な責務境界を設けるが、同時に複数backendを作らない。native/browserで既存Repoの互換を仮定せず、PARの署名付きchangeを共通形式とする。<a href="#S01">[S01]</a><a href="#S02">[S02]</a></p>
+<p>iroh等で接続部分を集約する案はP0の比較対象に残す。全面自作はNAT、暗号、CRDTの検証負担を増やすため採用しない。既存部品で満たせない契約が見つかれば、保証を消すのでなく最小adapterか採用変更をADRで判断する。</p>
+<h2>2. 依存方向</h2>
+<pre><code class="language-text">Application / optional UI kit / CLI
+        ↓ commands       ↑ immutable views + typed events
+Headless presentation / SDK bindings
+        ↓
+Use cases: edit / join / sync / retain / recover / migrate
+        ↓
+Domain: identity, authority, documents, replication, resource policy
+        ↓ interface only
+Ports: AtomicStore, BlockStore, Crypto, KeyVault, Transport,
+       Clock, Random, Lifecycle, Budget, Diagnostics
+        ↑ implementations
+Native host (SQLite/libp2p) / Browser host (IndexedDB/JS transport)
+</code></pre>
+<p>portable coreにGUI、socket、filesystem pathname、HTTP client、OS singletonを入れない。clock/random/networkを注入できる構造にし、決定的なシミュレーションを可能にする。これによりUIのPolishとprotocolの再検証を不要に結合しない。</p>
+<h2>3. 所有権・並行性</h2>
+<p>1 runtime data directoryに1書込みcoordinator。各Spaceのcontrol activationと各Documentのlocal transactionは直列化するが、別文書のparse、署名検証、blob transferはbudget内で並行可。public callbackでdomain lockを保持しない。actorのsequence採番とoutbox保存は同じtransaction。</p>
+<p>複数windowは同じruntimeへ接続する。複数processで同じDBを共有する場合はIPC owner modeを使い、無調整の別runtimeによる同じactor利用を拒否する。browser multi-tabはhost内leader lease＋DB transactional fencingを用い、lease期限だけで排他を保証したことにしない。</p>
+<h2>4. 主なportの契約</h2>
+<table>
+<thead>
+<tr>
+  <th>Port</th>
+  <th>入力→出力</th>
+  <th>禁止</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>AtomicStore</td>
+  <td>transaction plan→durable receipt/definite abort/unknown</td>
+  <td>false success、暗黙network</td>
+</tr>
+<tr>
+  <td>BlockStore</td>
+  <td>bounded bytes→content ref、read verified bytes</td>
+  <td>未完blobを完成扱い</td>
+</tr>
+<tr>
+  <td>Crypto</td>
+  <td>key handle＋typed context→cipher/signature</td>
+  <td>silent suite downgrade</td>
+</tr>
+<tr>
+  <td>KeyVault</td>
+  <td>key purpose＋user policy→handle/class</td>
+  <td>hardware-backedの推測</td>
+</tr>
+<tr>
+  <td>Transport</td>
+  <td>approved peer route→authenticated byte stream</td>
+  <td>自動の外部endpoint選択</td>
+</tr>
+<tr>
+  <td>Clock</td>
+  <td>monotonic duration＋wall display＋boot ID</td>
+  <td>wall clockを認可順に使用</td>
+</tr>
+<tr>
+  <td>Budget</td>
+  <td>scope＋resource estimate→permit/refusal</td>
+  <td>無制限queue</td>
+</tr>
+<tr>
+  <td>Diagnostics</td>
+  <td>typed redacted record→local sink</td>
+  <td>本文・秘密を含むログ</td>
+</tr>
+</tbody>
+</table>
+<h2>5. 障害封じ込め</h2>
+<p>受信peerのmalformed dataでruntime全体を停止しない。crypto/authに疑義があれば当該Space/Documentを隔離する。正当な無関係Spaceのlocal編集は継続する。未確定の保存を成功扱いしない一方、network停止だけで文書をread-onlyにしない。</p>
+<p>重いmaterializationはworker budgetを使う。nativeでは必要に応じ別processのcodec worker、browserではWorkerを使う。timeoutでRustの実行中関数が安全に強制停止できるとは扱わない。</p>
+<h2>6. 初期リポジトリの切り方</h2>
+<p>最初は <code>par-contracts</code>、<code>par-core</code>、<code>par-host-native</code>、<code>par-conformance</code>、<code>par-cli</code> の機能単位。core内ではidentity/authority/data/storage/syncをmodule分離する。public typeとportは先に安定させ、必要になった境界だけ独立crateにする。大量の空crateや未使用plugin機構は作らない。</p>
+<p>UIは <code>par-presenter</code> と各platform component kit、参照アプリに分割。SDK本体にReact/SwiftUI/Compose依存を要求しない。optional hosted toolsやAI診断を加えても基本機能の依存にはしない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-ARCH-001"></a></p>
+<h3>PAR-ARCH-001 — host分離</h3>
+<p><strong>MUST:</strong> portable coreはOS・GUI・transport実装へ直接依存せず、Clock/Randomを含む狭いportへ依存する。
+受け入れ: <code>AT-ARCH-001</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-ARCH-002"></a></p>
+<h3>PAR-ARCH-002 — writer排他</h3>
+<p><strong>MUST:</strong> 同じdata directory・actorを同時に複数writerへ割当てない。
+受け入れ: <code>AT-ARCH-002</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-ARCH-003"></a></p>
+<h3>PAR-ARCH-003 — 再現可能性</h3>
+<p><strong>MUST:</strong> 時刻・乱数・配送・保存障害を制御できる試験hostを提供する。
+受け入れ: <code>AT-ARCH-003</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-ARCH-004"></a></p>
+<h3>PAR-ARCH-004 — callback隔離</h3>
+<p><strong>MUST:</strong> callback内でdomain lockを保持せず、queue上限と再入・取消し規則を公開する。
+受け入れ: <code>AT-ARCH-004</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-ARCH-005"></a></p>
+<h3>PAR-ARCH-005 — 障害局所化</h3>
+<p><strong>MUST:</strong> peerの不正入力で別Spaceの健全なlocal保存を止めない。
+受け入れ: <code>AT-ARCH-005</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-ARCH-006"></a></p>
+<h3>PAR-ARCH-006 — 交換可能なUI</h3>
+<p><strong>MUST:</strong> business stateとpermission判定はpresenter/domainへ置き、visual layerはtyped commandとviewだけで操作する。
+受け入れ: <code>AT-ARCH-006</code> / 最初の必須gate: <code>G6</code>。</p>
+</section><section id="doc-5" class="chapter"><p class="source">spec/03-identity.ja.md</p><h1>03 — ID・鍵保管・端末復旧</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. IDと鍵の用途</h2>
+<p>AppIdはASCII reverse-domain形式1〜128 bytes。labelはUTF-8表示値でありIDと分離する。AccountIdはアプリ専用account root public key、DeviceIdはdevice signing keyからdomain-separated hashを得る。TransportPeerIdは通信経路の認証IDでDeviceIdとは別。</p>
+<p>Account root、device Ed25519 signing key、device X25519 HPKE recipient key、transport key、local storage wrapping key、Space authority keyは分ける。Ed25519→X25519の暗黙変換や全アプリ共通account keyを既定にしない。ID導出と正確なbytesは <code>06-wire</code>、<code>protocol/par-v1.cddl</code>。</p>
+<h2>2. 証明書</h2>
+<p>DeviceCertificateはAppId、account public key、device signing/HPKE public keys、serial、formatをaccount rootが署名したもの。certificateは端末鍵の結合を証明するがSpace権限は付与しない。membershipに証明書digestを固定し、同じDeviceIdでHPKE keyだけを入れ替えない。certificateの再発行は新しいadmissionを要する。</p>
+<p>TLS/Noiseが認証したtransport peerとDeviceIdの結合は接続ごとのnonce署名で確認する。offline証明書だけを使って現在の接続相手と同一と判断しない。</p>
+<h2>3. 鍵保護の等級</h2>
+<p><code>software-encrypted</code>、<code>os-protected</code>、<code>hardware-wrapped</code>、<code>hardware-nonexportable</code>を別表示する。特定OSにKeychain/Keystoreがあることから、選んだ全暗号suiteがhardware内で動作すると推測しない。headless Keeperもlocal storage keyの保護方式を起動前に選ぶ。</p>
+<p>ブラウザーの同一origin内で実行する悪意scriptは鍵・平文に到達し得る脅威として扱う。nonextractable keyを使うだけでXSSから安全とは表示しない。<a href="#S21">[S21]</a> Web専用のCSP、依存scriptの固定、unsafe HTML排除はplatform gate。</p>
+<h2>4. バックアップを3種類に分ける</h2>
+<table>
+<thead>
+<tr>
+  <th>種類</th>
+  <th>含むもの</th>
+  <th>含まないもの</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Data Export</td>
+  <td>control、暗号化blocks、manifests、key packages</td>
+  <td>平文の秘密鍵</td>
+</tr>
+<tr>
+  <td>Device Recovery Kit</td>
+  <td>事前認可された受信ID、復旧に必要な秘密材料を暗号化</td>
+  <td>自動的なowner権限</td>
+</tr>
+<tr>
+  <td>Authority Backup</td>
+  <td>authority秘密鍵と既知control head、危険の説明</td>
+  <td>世界最新headの保証</td>
+</tr>
+</tbody>
+</table>
+<p>Recovery Kitは32-byte CSPRNG recovery secretでAEAD暗号化し、secretと同じdata ZIPへ無断同梱しない。暗記しやすい弱いpasswordだけへの依存は既定外。印刷・QRは利用者の明示操作とする。</p>
+<p>同じdeviceのcloneはold actorのsequenceを再使用し得る。復旧後の編集には新actor generationを必ず生成する。cloneが他に存在しないことは暗号だけで証明できないため、通常運用では新device enrollment＋旧device失効を推奨する。</p>
+<h2>5. 新しい端末は勝手に参加できない</h2>
+<p>A/B停止後にCから復旧するB2は、事前にmembershipへ認可され、対応するkey packageと復旧秘密材料が準備されている必要がある。あるいは、稼働中のauthorityがその時点で新しい端末を認可する。</p>
+<p><strong>データを保管しているCが、authority不在のまま任意の新deviceへ権限を発行することは禁止。</strong> この区別を最初の3台成功条件にも組み込む。</p>
+<h2>6. authority backupの古さ</h2>
+<p>古いauthority backupを復元しても、既存Spaceへの制御writeを自動再開しない。正当な稼働authorityからの移管、または既存チェーンとの明示的な復旧手順が必要。最新headを確認する相手が全て停止している場合、最新状態は判定不能。local read/exportは保持し、新Spaceへ移す選択肢を示す。</p>
+<p>署名鍵を失い復旧材料もなく、他の受信者にも平文がないデータは復号できない。鍵をなくしたこととネットワークがないことを異なるエラーにする。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-ID-001"></a></p>
+<h3>PAR-ID-001 — 鍵用途分離</h3>
+<p><strong>MUST:</strong> account/device/transport/HPKE/local/authority鍵を目的別に管理し、証明書とmembershipの両方を認可時に確認する。
+受け入れ: <code>AT-ID-001</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-ID-002"></a></p>
+<h3>PAR-ID-002 — 保護等級</h3>
+<p><strong>MUST:</strong> 実測・設定したkey protection classを返し、未検証hardware対応を表示しない。
+受け入れ: <code>AT-ID-002</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-ID-003"></a></p>
+<h3>PAR-ID-003 — 復旧世代</h3>
+<p><strong>MUST:</strong> clone/import後のwriterは新actor generationを使い、過去sequenceを再利用しない。
+受け入れ: <code>AT-ID-003</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-ID-004"></a></p>
+<h3>PAR-ID-004 — 復旧資格</h3>
+<p><strong>MUST:</strong> authority不在の新規環境復旧には、事前に認可された復旧IDと有効なkey packageを要求する。
+受け入れ: <code>AT-ID-004</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-ID-005"></a></p>
+<h3>PAR-ID-005 — 鍵の分離配布</h3>
+<p><strong>MUST:</strong> data exportへ平文復旧秘密を同梱せず、secret表示・印刷・コピーは独立同意とする。
+受け入れ: <code>AT-ID-005</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-ID-006"></a></p>
+<h3>PAR-ID-006 — 古いauthorityの停止</h3>
+<p><strong>MUST:</strong> authority backup復元から既存Spaceのcontrol writeを無条件に再開しない。
+受け入れ: <code>AT-ID-006</code> / 最初の必須gate: <code>G9</code>。</p>
+</section><section id="doc-6" class="chapter"><p class="source">spec/04-authority.ja.md</p><h1>04 — Space・認可・鍵更新・所有者移管</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 権限モデル</h2>
+<p>Spaceは機密性と認可の境界。roleはreader、editor、opaque-keeper。authorityはこれらとは別の制御権で、必要ならreader/editor roleを兼ねる。relay permissionはさらに別の接続capability。AppId一致もaccount共通もSpace内の権限を与えない。</p>
+<p>v1では文書/field単位の機密ACLを入れない。異なる秘密共有範囲は別Space。業務承認や残高制約はowner-signed controlとは別のアプリロジック。</p>
+<h2>2. 二つの単調な系列</h2>
+<p>00.01.00からの重要変更として、<code>control_sequence</code>と<code>content_epoch</code>を分離する。</p>
+<table>
+<thead>
+<tr>
+  <th>変更</th>
+  <th>control_sequence</th>
+  <th>content_epoch</th>
+  <th>baseline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Keeper/Relay権限・quotaの変更</td>
+  <td>+1</td>
+  <td>同じ</td>
+  <td>不要</td>
+</tr>
+<tr>
+  <td>受信・編集membership変更</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>採用cutから新規</td>
+</tr>
+<tr>
+  <td>content schemaの破壊的変更</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>明示変換</td>
+</tr>
+<tr>
+  <td>authorityの正常移管</td>
+  <td>+1</td>
+  <td>同じ</td>
+  <td>不要</td>
+</tr>
+<tr>
+  <td>機密鍵漏洩・履歴圧縮</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>明示作成</td>
+</tr>
+</tbody>
+</table>
+<p>ControlEntryはprevious hash、sequence、content epoch、action、各manifest root、current signer、next authority keyを結ぶ。genesisには最初のauthority keyとidentityを固定する。SpaceIdはgenesisのhashなので正常移管でも変えない。</p>
+<h2>3. 招待</h2>
+<p>受信者はdevice certificate＋fresh nonceへ自署したJoinRequestを作る。招待者はSpace名、role、受信者fingerprintを別の信頼経路で確認し、authorityがmembershipと必要鍵packageを発行する。QRは接続経路の発見にも使えるが、QRを読んだだけでhostの全権限を与えない。</p>
+<p>one-click flowは「requestをownerへ届ける」操作として提供できる。全分断peerで一回だけ消費される匿名bearer tokenを標準にはしない。owner不在時は <code>approval-pending</code> とし、利用者のlocalデータを消さない。</p>
+<h2>4. epoch切替のtransaction</h2>
+<ol>
+<li>authorityが検証済みのcut、各Documentのfrontier、blob参照、tombstonesを選ぶ。全世界最新とは呼ばない。</li>
+<li>新membershipを作り、fresh epoch keyとpackage-set IDを生成する。</li>
+<li>旧CRDTの選択値だけでなく競合値一覧と出典も<code>conflict carryover</code>として保存する。未解決競合を黙って一値へ潰さない。</li>
+<li>一度だけ生成した新baseline bytesを暗号化保存する。受信peerが同じ値から別々にbaselineを再生成してはならない。<a href="#S03">[S03]</a></li>
+<li>必要rootを含む署名済みcontrolと各受信者へのHPKE packageを作る。生成順に循環hashを作らない。</li>
+<li>受信側は必要control、membership、key、seedが揃い検証できたとき原子的にactive epochを切り替える。</li>
+</ol>
+<p>content controlは更新を知った時点で受信authに反映する。seed待ちの間に旧権限の新しい共有writeを継続しない。旧local内容は読める範囲で保持し、新編集はprivate draftへ保存する。</p>
+<h2>5. 古い編集と古い資格</h2>
+<p>新cutに含まれない旧epoch編集はrebase候補。現在も権限を持つ利用者がdiffを確認し、新epochの自分の操作として再適用する。自動再署名はしない。署名のwall timestampでは「失効前に書いた」を認定しない。</p>
+<p>制御更新を知らないpeerは旧規則で動き得る。これを瞬時失効とは宣伝しない。再接続時はcontrol同期をdata適用より先にする。最新controlの隠蔽は検知できない場合があるので<code>known_control_head</code>と<code>freshness</code>を返す。</p>
+<h2>6. 正常なauthority移管</h2>
+<p>old authorityがrotation entryのcanonical bodyに署名し、new authorityが同じbodyへ別domain tagでproof of possessionを署名する。各受信者は既存チェーンでoldが有効なこと、sequenceが直後、both signaturesが正しいことを検証。次のentryからnewだけを受け入れる。</p>
+<p>これは侵害済みold keyを魔法のように無効化する方法ではない。oldが並行した正当署名でforkを作れば、branchごとに観測が異なり得る。forkを観測したら自動hash選択せず、共有writeを停止してbranch exportと新Space移行へ進む。</p>
+<h2>7. ownerの不在と権限の回復</h2>
+<p>通常の編集にauthority常駐は不要。参加・除名・epoch更新には制御署名が要る。初期版ではquorum electionや自動leader takeoverを加えない。複数管理者・threshold recoveryを追加する際は、所有権移管、split brain、古いbackupの再出現まで含む別profileで検証する。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-AUTH-001"></a></p>
+<h3>PAR-AUTH-001 — 認可系列</h3>
+<p><strong>MUST:</strong> membershipを通常CRDTから分離し、prev hash・sequence・署名を検証する。
+受け入れ: <code>AT-AUTH-001</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-AUTH-002"></a></p>
+<h3>PAR-AUTH-002 — 系列分離</h3>
+<p><strong>MUST:</strong> 保管権限変更だけでcontent epochを不要に再生成せず、read/write membership変更ではepochを更新する。
+受け入れ: <code>AT-AUTH-002</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-AUTH-003"></a></p>
+<h3>PAR-AUTH-003 — baseline一意性</h3>
+<p><strong>MUST:</strong> epoch baselineはauthorityが生成した同一bytesを配布し、競合値の出典も保全する。
+受け入れ: <code>AT-AUTH-003</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-AUTH-004"></a></p>
+<h3>PAR-AUTH-004 — 失効の順序</h3>
+<p><strong>MUST:</strong> 新しいcontent epochを伴うcontrolを観測したら旧epoch共有writeを止め、未確定の編集はprivate draftとして保持する。
+受け入れ: <code>AT-AUTH-004</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-AUTH-005"></a></p>
+<h3>PAR-AUTH-005 — 正常移管</h3>
+<p><strong>MUST:</strong> authority rotationは有効old署名とnew proof of possessionの両方で結び、SpaceIdを保持する。
+受け入れ: <code>AT-AUTH-005</code> / 最初の必須gate: <code>G9</code>。</p>
+<p><a id="PAR-AUTH-006"></a></p>
+<h3>PAR-AUTH-006 — fork隔離</h3>
+<p><strong>MUST:</strong> 同じcontrol位置への異なる有効署名を検出したらfork evidenceを保持し、自動勝者選択を行わない。
+受け入れ: <code>AT-AUTH-006</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-AUTH-007"></a></p>
+<h3>PAR-AUTH-007 — 招待対象</h3>
+<p><strong>MUST:</strong> JoinRequestとInviteは対象device鍵・AppId・SpaceId・要求nonceへ束縛する。
+受け入れ: <code>AT-AUTH-007</code> / 最初の必須gate: <code>G2</code>。</p>
+</section><section id="doc-7" class="chapter"><p class="source">spec/05-cryptography.ja.md</p><h1>05 — 暗号スイート・署名対象・鍵導出</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 採用するsuite候補</h2>
+<p><code>PAR-C1</code>はEd25519、SHA-256、HKDF-SHA256、XChaCha20-Poly1305、HPKE base modeの組合せ。HPKEはKEM=0x0020（DHKEM X25519/HKDF-SHA256）、KDF=0x0001、AEAD=0x0003（ChaCha20Poly1305）。HPKE base mode単独を送信者認証と解釈せず、鍵packageにはauthority署名を必須にする。<a href="#S04">[S04]</a><a href="#S05">[S05]</a><a href="#S06">[S06]</a><a href="#S07">[S07]</a></p>
+<p>暗号primitiveは保守された実装を使用する。自作暗号、非暗号学的乱数、認証失敗後の復号継続は禁止。ここでの組合せは設計候補であって独立レビューを通過したprotocolではない。P0で実装選定とPAR全体のknown-answer corpusを作り、G7で第三者による暗号・認可レビューを閉じる。</p>
+<h2>2. bytesとdomain separation</h2>
+<p><code>C(x)</code>はPAR制限付きcore deterministic CBOR。可変長文字列を単純連結しない。</p>
+<pre><code class="language-text">D(label, parts) = C([&quot;PAR&quot;, 1, label, parts])
+H(label, parts) = SHA256(D(label, parts))
+S(key, label, parts) = Ed25519.Sign(key, D(label, parts))
+</code></pre>
+<p>用途別labelを <code>protocol/registry.json</code> に固定する。labelはASCIIで大文字小文字を区別。署名はpure Ed25519でありEd25519phではない。Ed25519のpublic key、signatureの受理基準は選択libraryのstrict verificationを固定し、小位数点・非正規signature等をreject corpusで一致させる。<a href="#S05">[S05]</a></p>
+<p>AccountId=<code>H(&quot;account-id&quot;, [app_id, account_pk])</code>、DeviceId=<code>H(&quot;device-id&quot;, [app_id, device_sign_pk])</code>、SpaceId=<code>H(&quot;space-id&quot;, [genesis_body_bytes])</code>。signed wrapperの署名自身をhash入力へ循環させない。</p>
+<h2>3. subkey導出</h2>
+<p>content epochごとに独立な32-byte <code>epoch_secret</code>をCSPRNGで作る。</p>
+<pre><code class="language-text">salt = H(&quot;epoch-salt&quot;, [app_id, space_id, content_epoch])
+prk = HKDF-Extract(salt, epoch_secret)
+object_key = HKDF-Expand(prk,
+    D(&quot;object-key&quot;, [kind, object_id, key_generation]), 32)
+</code></pre>
+<p><code>kind</code>はdocument/event/blob/recovery/seedで別値。新epochに旧epoch secretを流用しない。blob専用鍵を新epochでwrapして旧immutable blobを参照する場合も、旧document keyやepoch secret全体を渡さない。</p>
+<h2>4. change envelope</h2>
+<p><code>header_bytes</code>はschemaに示す全headerをcanonical CBOR化したbytes。<code>nonce</code>は24-byte CSPRNG。</p>
+<pre><code class="language-text">ciphertext = XChaCha20Poly1305.Seal(object_key, nonce,
+    aad=D(&quot;envelope-aad&quot;, [header_bytes]), plaintext=payload)
+signature = S(device_sign_key, &quot;envelope-sign&quot;, [header_bytes, nonce, ciphertext])
+envelope_bytes = C({0:header_bytes, 1:nonce, 2:ciphertext, 3:signature})
+envelope_id = H(&quot;envelope-id&quot;, [envelope_bytes])
+</code></pre>
+<p>同じkey/nonceを別の平文に再使用しない。retryは保存済みbytesをそのまま送る。乱数失敗はcommit前に失敗する。発行nonceとobject key generationを記録し、local duplicateを拒否する。他端末との衝突は192-bit CSPRNG前提の残余リスクとして扱い、RNGを脅威モデルに含める。</p>
+<p>envelope headerはapp、space、epoch、object、kind、author、actor generation、seq、prev、schema、deps、plain length、CRDT hash、control head、codecを含む。signatureを確認した後もmembershipと内側actorを確認する。</p>
+<h2>5. sealed block</h2>
+<p>Blob chunk/baseline/recovery descriptorは、型付きblock headerをAADにして同じAEADで保護する。headerはapp/space/epoch/object/kind/chunk_index/key_generation/plain_length。block IDはnonce・AAD・ciphertextを含むcanonical sealed block bytesのhash。</p>
+<p>chunk_indexとobject IDを認証するため、別ファイルの同じindexへchunkを差し替えては復号検証が通らない。plain lengthをAEAD後に検査し、ciphertext lengthだけから無制限allocationしない。</p>
+<h2>6. key package生成順</h2>
+<ol>
+<li>新epoch番号、membership root、seed policy、ランダムpackage-set IDを決定。</li>
+<li>recipient certificate digest、app/space/epoch/package-set IDからHPKE <code>info</code> を作る。</li>
+<li>HPKE AADはsuite、recipient ID、membership root。暗号化平文はepoch secret＋一致すべきcontext。</li>
+<li><code>enc</code>、ciphertext、recipient、contextをauthorityが署名。</li>
+<li>package一覧rootを作り、最後にControlEntryへ結ぶ。</li>
+</ol>
+<p>packageのHPKE infoに、これから生成する暗号文を含むcontrol hashを使わない。受信側はcontrolのpackage rootと署名・recipient・membershipの三者を検証してからsecretを有効化する。</p>
+<h2>7. 接続認証</h2>
+<p>HELLOは両者のnonce、DeviceCertificate、supported version/suiteを含む。選択version、suite、両HELLOのraw digest、両transport peer ID、initiator/responder roleをtranscriptへ含める。downgradeやrole reflectionを検出する。認証済みSessionIdにSpace grantを束縛し、別接続へgrantを再利用しない。</p>
+<h2>8. 鍵漏洩と上限</h2>
+<p>静的epoch secret方式はforward secrecy/PCSを保証しない。署名鍵漏洩は当該device失効＋epoch更新、authority漏洩はforkリスクを伴うSpace移行、local key漏洩は端末隔離と再暗号化のrunbookへ進む。失効前に読めた不変blobは回収不能。</p>
+<p>より強いgroup securityはMLS profileとして別に仕様化する。MLSのFS/PCSは鍵削除とprotocol運用の前提を持ち、archiveからの復旧と同じ保証ではない。<a href="#S08">[S08]</a> 基本profileを広告でSignal相当と呼ばない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-CRYPTO-001"></a></p>
+<h3>PAR-CRYPTO-001 — suite固定</h3>
+<p><strong>MUST:</strong> 暗号suiteとstrict verify基準をprofileへ固定し、未対応suiteをsilent downgradeしない。
+受け入れ: <code>AT-CRYPTO-001</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-CRYPTO-002"></a></p>
+<h3>PAR-CRYPTO-002 — context結合</h3>
+<p><strong>MUST:</strong> 署名・AAD・KDFには型付きdomainとapp/space/epoch/object/recipientを結び付ける。
+受け入れ: <code>AT-CRYPTO-002</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-CRYPTO-003"></a></p>
+<h3>PAR-CRYPTO-003 — nonce管理</h3>
+<p><strong>MUST:</strong> CSPRNG失敗時は書込みを失敗させ、再送では保存済みciphertextを再使用する。
+受け入れ: <code>AT-CRYPTO-003</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-CRYPTO-004"></a></p>
+<h3>PAR-CRYPTO-004 — package認証</h3>
+<p><strong>MUST:</strong> HPKE base packageはauthority署名とcontrol上のrecipient・manifest rootの両方を検証する。
+受け入れ: <code>AT-CRYPTO-004</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-CRYPTO-005"></a></p>
+<h3>PAR-CRYPTO-005 — 生成順</h3>
+<p><strong>MUST:</strong> 自己参照hashを作らず、package-set ID→package→root→controlの順を固定する。
+受け入れ: <code>AT-CRYPTO-005</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-CRYPTO-006"></a></p>
+<h3>PAR-CRYPTO-006 — 保証境界</h3>
+<p><strong>MUST:</strong> 基本profileにFS・PCS・匿名性を主張せず、侵害時の鍵更新・データ退避を公開する。
+受け入れ: <code>AT-CRYPTO-006</code> / 最初の必須gate: <code>G7</code>。</p>
+</section><section id="doc-8" class="chapter"><p class="source">spec/06-wire.ja.md</p><h1>06 — Wire format・状態遷移・上限</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. protocol version</h2>
+<p>本版はwire draft <code>par/1-draft-2</code>。公開の固定標準や既存v1との互換ではない。最初の実装はexact profile digestの一致を要求し、G0でfreeze後にmajor/minor互換規則を有効化する。</p>
+<p>frameは4-byte big-endian body length＋1個のCBOR map。bodyは1,048,576 bytes以下。0-length、末尾の余分なCBOR item、途中EOFを拒否。長さを読む前にbody用allocationを行わない。header/body readにdeadlineとpeer別budgetを設ける。</p>
+<p>RFC 8949 §4.2.1を基に、最短整数、有限長、UTF-8厳密検証、integer-key map順、重複key拒否を課す。protocol headerでfloat/tag/undefinedは禁止。NULを含む識別子、invalid UTF-8、未知のcritical fieldは拒否。<a href="#S09">[S09]</a></p>
+<h2>2. frame common fields</h2>
+<table>
+<thead>
+<tr>
+  <th>key</th>
+  <th>型</th>
+  <th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>0</td>
+  <td>uint</td>
+  <td>protocol major、候補値1</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>uint</td>
+  <td>message code</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>bstr(16)</td>
+  <td>request ID。相手の応答は同じ値</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>bstr(32)またはnull</td>
+  <td>SpaceId。HELLO/AUTHおよび認証前ERRORのみnull可</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>map</td>
+  <td>message別body</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>uint</td>
+  <td>flags。候補版は0のみ</td>
+</tr>
+</tbody>
+</table>
+<p>msg codesは <code>protocol/registry.json</code>、完全な型は <code>protocol/par-v1.cddl</code>。仕様外fieldは候補版でrejectする。future optional fieldは登録済みextension containerに限定する。古い実装が未知fieldを消して再署名してはならない。</p>
+<h2>3. 上限を分離する</h2>
+<p><code>protocol/limits.json</code>がcandidate hard limitsの機械可読正本。frame 1 MiB、envelope 768 KiB、1 changeのplain bytes 512 KiB、block plain 256 KiB、deps 128、heads 256、inventory page 128 KiB。1つの大きいbaselineはchunkに分割する。</p>
+<p>文書の見かけ上の4 MiB soft limitを、合流した合法changeのarrival-dependent拒否に使わない。profile外のresourceは<code>resource-blocked</code>とし、無効署名等の<code>invalid</code>と区別する。上限値は調整候補であり性能実測値ではない。</p>
+<h2>4. session状態</h2>
+<pre><code class="language-text">new → transport-secure → hello-exchanged → app-authenticated
+    → space-proof-checked → control-sync → epoch-ready
+    → inventory-sync → fetching → applying → caught-up-with-peer
+</code></pre>
+<p>認証前はHELLO/AUTH/ERROR以外を受け付けない。Space認可前のCONTROL_GETは、提示されたpin/proofを検証し、認可されたbootstrap範囲にだけ返す。全Space列挙は禁止。Space grantはsession、role、known control headに結ぶ。</p>
+<p>新controlがdataより先に必要。未知epochはbounded待機。forkや無権限では共有stateを進めない。restartでは新session nonceとrequest IDsを生成し、durable operation IDは維持する。</p>
+<h2>5. message family</h2>
+<table>
+<thead>
+<tr>
+  <th>family</th>
+  <th>主要操作</th>
+  <th>契約</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>handshake</td>
+  <td>HELLO、AUTH</td>
+  <td>両方向challengeとnegotiation署名</td>
+</tr>
+<tr>
+  <td>space/control</td>
+  <td>SPACE_OPEN、SPACE_ACCEPT、CONTROL_GET/PAGE</td>
+  <td>認可・head・epochの確認</td>
+</tr>
+<tr>
+  <td>sync</td>
+  <td>HAVE、NEED、CHANGE、APPLY_RESULT</td>
+  <td>causal dataと適用結果</td>
+</tr>
+<tr>
+  <td>object</td>
+  <td>MANIFEST_GET、BLOCK_GET、BLOCK_DATA</td>
+  <td>scope内のhash指名取得</td>
+</tr>
+<tr>
+  <td>retain</td>
+  <td>RETAIN_OFFER/ACCEPT/COMMIT/RECEIPT/RELEASE</td>
+  <td>容量予約とroot全体の保管</td>
+</tr>
+<tr>
+  <td>activity</td>
+  <td>PRESENCE</td>
+  <td>TTL付きhintのみ</td>
+</tr>
+<tr>
+  <td>execution</td>
+  <td>RPC_CALL/RESULT/CANCEL</td>
+  <td>同梱handlerのみ、取消しはbest effort</td>
+</tr>
+<tr>
+  <td>error</td>
+  <td>ERROR</td>
+  <td>typed code、phase、retry hint、機密なし</td>
+</tr>
+</tbody>
+</table>
+<p>GETは同じrequest IDでも別sessionなら新しいtransport操作。同じdurable operation IDとinput digestでの意味的再試行は受け側台帳で判断する。期限は受信monotonic clockで開始し、送信者wall clockを信用しない。</p>
+<h2>6. flow controlと公平性</h2>
+<p>peerあたり同期stream 4、native既定active connections 16。優先順位はcontrol→interactive changes→recovery→blob→repair。各優先度内でもSpace公平性を設け、特定Spaceの大量blobで他Spaceの保存通知を塞がない。creditを超える送信は停止・接続切断対象。</p>
+<p>各inventory pageにはsnapshot token、cursor、doneを持つ。更新中のcatalogをページ走査する場合、tokenが変われば再走査し、前回の不完全一覧を「全件同期完了」としない。</p>
+<h2>7. 適合判定</h2>
+<p>CDDLは形の定義であり、署名、依存解決、認可の安全性を証明しない。<a href="#S10">[S10]</a> 本packageの構造検査もCDDL conformance実行とは別。canonical/reject fixturesと別codec間比較、各messageのstate-invalid試験をG0/G4で実施する。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-WIRE-001"></a></p>
+<h3>PAR-WIRE-001 — framing</h3>
+<p><strong>MUST:</strong> length、UTF-8、canonical encoding、map key、trailing bytesを検証してからtyped messageを受理する。
+受け入れ: <code>AT-WIRE-001</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-WIRE-002"></a></p>
+<h3>PAR-WIRE-002 — 認証順序</h3>
+<p><strong>MUST:</strong> session stateに合わないmessageと未認可Spaceの一覧要求を拒否する。
+受け入れ: <code>AT-WIRE-002</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-WIRE-003"></a></p>
+<h3>PAR-WIRE-003 — negotiation束縛</h3>
+<p><strong>MUST:</strong> version/suite/両nonce/両peer/roleを認証transcriptに含める。
+受け入れ: <code>AT-WIRE-003</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-WIRE-004"></a></p>
+<h3>PAR-WIRE-004 — bounded入力</h3>
+<p><strong>MUST:</strong> frame/envelope/依存数等のhard limitsをallocationと展開の前後で検査する。
+受け入れ: <code>AT-WIRE-004</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-WIRE-005"></a></p>
+<h3>PAR-WIRE-005 — paging整合</h3>
+<p><strong>MUST:</strong> inventoryにsnapshot tokenと完了境界を持たせ、途中変更時のcoverageを未完として返す。
+受け入れ: <code>AT-WIRE-005</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-WIRE-006"></a></p>
+<h3>PAR-WIRE-006 — 互換拒否</h3>
+<p><strong>MUST:</strong> 未freeze版はprofile digest一致を要求し、未知の意味を持つdataを適用・再署名しない。
+受け入れ: <code>AT-WIRE-006</code> / 最初の必須gate: <code>G0</code>。</p>
+</section><section id="doc-9" class="chapter"><p class="source">spec/07-data-model.ja.md</p><h1>07 — 文書・スキーマ・検索・イベント・RPC</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 型とschema</h2>
+<p>Spaceはimmutable SchemaManifestをcontent hashで固定する。field typeはregister、text、list、map、counter、blob-ref。null/absentを区別し、opaque JSON全置換を共同編集textと同一に扱わない。decimal値は正規化済みdecimal stringで表現し、binary floatを金額の契約に使わない。</p>
+<p>正当な操作の判定は、署名者、declared causal dependencies、固定schemaに基づく。受信側の「今見えている全体状態」をvalidation入力にすると配送順で受理集合が変わり得るため、そうしない。</p>
+<h2>2. hard validityとsoft policy</h2>
+<p>hard validityはencoding、署名、権限、actor/seq、dependency relation、許可されたfield/operation type、change単体のbytes/ops上限。soft policyは文書の長さ、現時点の見た目、業務ルール、端末容量。</p>
+<p>各peerで有効だった同時追加をmergeすると、推奨文書サイズを超えることがある。この場合、片方の操作を到着順で捨てず <code>policy-conflicted</code> または <code>resource-blocked</code> を返す。raw履歴を保ち、より大きいprofile/端末で開く、分割、新checkpointという解決経路を提供する。</p>
+<p>counterは整数の操作。選んだCRDT実装の数値範囲を越えたときに暗黙wrap・float変換をしない。deterministic overflow状態として履歴を保ち、表示・再構成の契約を共通fixtureで固定する。</p>
+<h2>3. 文書lifecycle</h2>
+<p><code>unknown-local → known-unfetched → materialized → tombstoned</code>を区別。隔離、rebase候補、resource-blockedは別軸。文書IDは乱数で、同じタイトルが二つあってよい。文書の一意名はアプリが別途解決する。</p>
+<p>同一epochの有効DocumentTombstoneは同時updateより優先。tombstoneのfield編集は禁止。復元は新DocumentIdを作り、元IDとの由来だけ記録する。要素削除と文書全体の削除は別操作。</p>
+<h2>4. text、カーソル、undo</h2>
+<p>外部SDKのindex指定は<code>unicode-scalar</code>と対象frontierを必須にする。UTF-16 code unitやgrapheme数からの変換はbinding側の明示adapter。孤立surrogate、scalar途中のindexを拒否。実際のAutomerge bindingにはencoding差があるため跨言語fixtureを必須にする。<a href="#S22">[S22]</a></p>
+<p>継続的な共同編集にはopaque stable cursorを優先し、remote change後のselectionを再解決する。UIのIME変換中はcomposition bufferを保持し、remote更新で未確定文字を消さない。undoはlocal intentionに対する新しいCRDT操作で、他者の履歴をrollbackしない。</p>
+<h2>5. queryと購読</h2>
+<p>queryはローカルに認可・materialize済みのview。returnはrows、epoch、frontier、coverage、conflicts、pagination tokenを含む。未同期をnot-foundに変換しない。全文検索はnativeでは暗号化cacheからメモリー索引を構築、必要なpersisted indexはlocal keyで保護する。</p>
+<p>document subscribeはsnapshotの最新値通知でcoalesce可。イベントログ用途には使わない。機密scopeが異なるSpaceを跨ぐ検索は利用者が読めるSpace集合に対してのみローカル合成する。</p>
+<h2>6. Durable Events / Presence</h2>
+<p>Eventはschemaで検証した不変payload、stream ID、event ID、causal parentsを持つ。少なくとも一回配送を実現する条件は、保持中のeventへ再接続できること。cursorより古い履歴が意図的にGCされていれば<code>CURSOR_EXPIRED</code>とrebase/export経路を返し、無言で先へ飛ばさない。</p>
+<p>PresenceはTTLとboot/sessionに結び付く非永続hint。再接続時に過去presenceを再生しない。TTLを過ぎた相手は「最近の状態不明」。ユーザー全体の正確なonline数とは扱わない。</p>
+<h2>7. RPC</h2>
+<p>RPCはpeerとhandler versionを明示。handler登録と提供同意を分離し、input/output/schema、CPU/memory/time budgets、effect class（pure/local-idempotent/external）を宣言する。</p>
+<p>呼び出しIDはcaller/Space/handler version/input digestへ結ぶ。異なるinputでの再利用はreject。結果とlocal side effectを同一AtomicStoreへcommitできるhandlerだけ、ローカル範囲のdedup保証を持つ。外部副作用は別systemの契約。timeoutとcancelは結果不明を返し得る。任意コード、shell、汎用proxy、暗黙のfilesystem権限を含めない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-DATA-001"></a></p>
+<h3>PAR-DATA-001 — 受理の決定性</h3>
+<p><strong>MUST:</strong> change validityを宣言された依存状態とimmutable schemaで評価し、配送順で正当な操作を捨てない。
+受け入れ: <code>AT-DATA-001</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-DATA-002"></a></p>
+<h3>PAR-DATA-002 — 競合の露出</h3>
+<p><strong>MUST:</strong> registerの競合値・由来とsoft policy違反を返し、暗黙の業務的正解を選ばない。
+受け入れ: <code>AT-DATA-002</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-DATA-003"></a></p>
+<h3>PAR-DATA-003 — 文書削除</h3>
+<p><strong>MUST:</strong> 同epochの有効tombstoneを文書全体へ適用し、復元は新IDとする。
+受け入れ: <code>AT-DATA-003</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-DATA-004"></a></p>
+<h3>PAR-DATA-004 — 文字位置</h3>
+<p><strong>MUST:</strong> text indexの単位とfrontierを明示し、binding差をfixtureで検証する。
+受け入れ: <code>AT-DATA-004</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-DATA-005"></a></p>
+<h3>PAR-DATA-005 — 検索範囲</h3>
+<p><strong>MUST:</strong> queryはcoverage/frontierを返し、同期不能を全体の不存在と扱わない。
+受け入れ: <code>AT-DATA-005</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-DATA-006"></a></p>
+<h3>PAR-DATA-006 — イベント再開</h3>
+<p><strong>MUST:</strong> durable cursorの再配送・期限切れを明示し、presenceを永続eventとして再配送しない。
+受け入れ: <code>AT-DATA-006</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-DATA-007"></a></p>
+<h3>PAR-DATA-007 — RPC副作用</h3>
+<p><strong>MUST:</strong> 同一requestとinput digestを束縛し、結果不明を成功/失敗確定へ変換しない。
+受け入れ: <code>AT-DATA-007</code> / 最初の必須gate: <code>G3</code>。</p>
+</section><section id="doc-10" class="chapter"><p class="source">spec/08-synchronization.ja.md</p><h1>08 — 同期・因果関係・検証・再開</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 同期の単位</h2>
+<p>dataはSpace→content epoch→objectで分離。暗号化transportの相手が正しいことと、受信changeが有効であることは別。個々のenvelopeを原著作者の署名で検証し、中継者の署名へ置換しない。</p>
+<p>Automerge payloadは1つのchange。外側headerのactor/seq/hash/depsと内側changeを一致させる。複数authorを一つのenvelopeで包んで権限確認を迂回する方式は禁止。<a href="#S01">[S01]</a></p>
+<h2>2. 同期手順</h2>
+<ol>
+<li>相互session認証とSpace proofを確認。</li>
+<li>known control headsを比較。新controlを取得・検証し必要epoch seedを準備。</li>
+<li>scoped inventoryを固定tokenでページ取得。</li>
+<li>local headsと相手headsを比較してNEEDを作る。要求は欠落envelope/change/manifest/blockに限定。</li>
+<li>changeをbounded quarantineへ受信し、hard limits、署名、cert、membership、AEAD、inner actor、depsを順に検証。</li>
+<li>dependency closureが揃ったものだけtransactionへ適用。</li>
+<li>local durable receiptの後でAPPLY_RESULTを返し、snapshotを通知。</li>
+<li>相手が広告したfrontierとの一致を確認。新しいhead hintがあれば続ける。</li>
+</ol>
+<p>HAVEやpubsubはhintであり唯一の配送経路ではない。再接続時・前景idle時にanti-entropyを行う。初期のforeground間隔は30秒±20% jitter、OS停止中の定時timerは要求しない。</p>
+<h2>3. actorと復旧</h2>
+<p>actor ID=<code>H(&quot;actor-id&quot;, [space, epoch, object, author_device, generation])</code>。sequenceはそのactorのchange順。prev author envelopeとAutomerge依存を同時検証する。普通の並行actorは競合としてmergeし、同じactor seqへの異なる有効changeはequivocationとして文書を隔離する。</p>
+<p>一時的に別branchを観測することはあり得る。全有効change集合が最終的に一致し、非equivocating actorと同じcodec/profileを使う場合に収束を保証する。悪意editorの意味的に合法な内容まで正しいとは主張しない。</p>
+<h2>4. quarantineの3区分</h2>
+<table>
+<thead>
+<tr>
+  <th>区分</th>
+  <th>例</th>
+  <th>動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>waiting</td>
+  <td>dependency/control/seed未着</td>
+  <td>budget内保存、取得を試す</td>
+</tr>
+<tr>
+  <td>invalid</td>
+  <td>signature/schema/actor不正</td>
+  <td>applyしない。reasonをredactして記録</td>
+</tr>
+<tr>
+  <td>resource-blocked</td>
+  <td>正当だがlocal budgetに収まらない</td>
+  <td>invalidと呼ばず別host/profileへの復旧経路</td>
+</tr>
+</tbody>
+</table>
+<p>依存待ちはpeerごと8 MiB、runtimeで64 MiBを初期値とする。capacity超過はcredit停止または再取得可能な受信途中データを破棄。local committed原本や保管lease済みblockをpressure evictionに使わない。</p>
+<h2>5. 中断と冪等性</h2>
+<p>transfer request IDと意味的operation IDを分離。再起動後も署名envelope bytesとCommitIdは変えない。重複envelope IDは同じobjectとして扱い、outboxで新changeを作り直さない。受信側のAPPLY_RESULT消失後も同一IDで照会できる。</p>
+<p>通信cancelは送信停止であり、既に保存した編集のundoではない。参照UIは「送信を止める」と「変更を取り消す」を別commandにする。</p>
+<h2>6. catalogと完全性</h2>
+<p>catalogは署名付きobject announcementとtombstonesを保持する。初期小Space profileは認可範囲のcatalog metadata全体を取得し、本文は選択取得可。partial replicationで任意の内容filterの完全性を保証しない。</p>
+<p>pagination snapshot token、head集合、対象集合IDを使い、途中で見えない文書がないことをそのpeer viewの範囲で判定する。件数一致だけを完全性判定に使わない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-SYNC-001"></a></p>
+<h3>PAR-SYNC-001 — 内外author一致</h3>
+<p><strong>MUST:</strong> 各changeを単一authorとして検証し、inner actor/seq/deps/hashが外側宣言に一致することを要求する。
+受け入れ: <code>AT-SYNC-001</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-SYNC-002"></a></p>
+<h3>PAR-SYNC-002 — 依存先行</h3>
+<p><strong>MUST:</strong> control/epoch/causal depsが揃う前に適用済みACKを返さない。
+受け入れ: <code>AT-SYNC-002</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-SYNC-003"></a></p>
+<h3>PAR-SYNC-003 — 収束条件</h3>
+<p><strong>MUST:</strong> 同じ有効集合・epoch・codecの非equivocating入力でvalues/conflicts/tombstonesが一致する。
+受け入れ: <code>AT-SYNC-003</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-SYNC-004"></a></p>
+<h3>PAR-SYNC-004 — equivocation</h3>
+<p><strong>MUST:</strong> 同actor同sequenceの異なる有効署名を検出した文書は隔離して証拠を保持する。
+受け入れ: <code>AT-SYNC-004</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-SYNC-005"></a></p>
+<h3>PAR-SYNC-005 — 再開冪等性</h3>
+<p><strong>MUST:</strong> restart/retryでCommitIdとenvelope bytesを保ち新しい変更を重複作成しない。
+受け入れ: <code>AT-SYNC-005</code> / 最初の必須gate: <code>G2</code>。</p>
+<p><a id="PAR-SYNC-006"></a></p>
+<h3>PAR-SYNC-006 — 待機容量</h3>
+<p><strong>MUST:</strong> quarantineとfetch queueをscope別に制限し、正当データのresource-blockedをinvalidと区別する。
+受け入れ: <code>AT-SYNC-006</code> / 最初の必須gate: <code>G4</code>。</p>
+</section><section id="doc-11" class="chapter"><p class="source">spec/09-local-storage.ja.md</p><h1>09 — ローカル保存・原子性・破損・容量</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 保存の正本</h2>
+<p>ネイティブはSQLiteをcatalog/commit/outboxの原子性に使用し、本文・change・materialized cacheはlocal keyまたはSpace keyで暗号化する。SQLite自体に暗号化があると誤解させない。平文検索索引、SQL引数ログ、tempファイルに本文を漏らさない。</p>
+<p>候補設定は <code>journal_mode=WAL</code>、<code>synchronous=FULL</code>、<code>foreign_keys=ON</code>。接続ごとにreadbackし、要求値が反映されなければ耐久性profileをqualifiedとしない。SQLiteのWAL/FULLはcommitごとの同期を伴うが、実媒体がflushを正しく実装する等の前提を持つ。<a href="#S11">[S11]</a><a href="#S12">[S12]</a></p>
+<h2>2. commit境界</h2>
+<p>local commandは事前生成した<code>operation_id</code>と入力digestを持つ。署名・暗号化・一時的materializationに失敗したら保存前の状態を保持する。</p>
+<pre><code class="language-text">validate command against local causal view
+prepare signed immutable envelope bytes
+BEGIN IMMEDIATE
+  assert current epoch + writer fencing token
+  insert encrypted envelope and causal indexes
+  insert commit ledger(operation_id, digest, commit_id)
+  update actor sequence + materialized-cache reference
+  insert outbox entry
+COMMIT (FULL)
+return CommitReceipt
+publish local snapshot
+</code></pre>
+<p>callbackは同期的変更記述でありnetwork/random side effectを行わない。local persistedになる前に画面へ楽観表示する場合は<code>pending-local</code>を明示する。network送信はcommit完了後。</p>
+<h2>3. outcome unknown</h2>
+<p>ストレージ層がcommit成否を確定できない場合、<code>LOCAL_OUTCOME_UNKNOWN</code>とoperation IDを返す。成功と決め付けず、同じoperation IDのledger照会またはrestart recoveryで判定する。再試行で別IDを作り、同じ変更を二重適用してはならない。</p>
+<p>failure envelopeを分ける。process crash、OS crash/power loss、media corruption、媒体喪失、悪意のstorageは異なる試験。SIGKILLを通しただけで電源断耐性を実証したとは呼ばない。</p>
+<h2>4. 外部blockとの整合性</h2>
+<p>大きいblobはstaging→hash/AEAD確定→ファイルflush→atomic rename→必要なdirectory同期→SQLite参照commitの順。DBが参照する前にblockを永続化する。crashで参照されない完成blockが残ることは許容し、orphan GCで回収する。DB参照だけ存在しblockが未完という成功状態は許さない。</p>
+<p>OSによってdirectory flush等の手段が違う。AtomicBlockPublish portで実装し、成功時にstorage classを返す。未検証OSでは候補profileとして表示する。</p>
+<h2>5. schema候補</h2>
+<p><code>protocol/storage-v1.sql</code>に最小DDLを含む。PKは原則32-byte ID、u64の順序値は8-byte big-endian BLOB。SQLite signed integerの範囲をwire u64と混同しない。全sequence比較は同長BLOBかhostのchecked u64で行う。</p>
+<p>commit ledgerとoutboxにはunique operation ID、envelope IDを持たせる。catalog、pinned roots、lease reservations、recovery sessions、migration journalを別tableへ置く。plaintextを汎用JSON columnへ保存しない。</p>
+<h2>6. restartと破損</h2>
+<p>起動はDB整合性確認、schema version確認、active transaction recovery、blob reference audit、outbox再構成の順。フルblob検査はbackgroundでよいが、使用するblockは取得時に必ずhash/AEADを検証する。</p>
+<p>破損を検出したら元ファイルを上書きせずread-only退避。健全block、署名履歴、Keeperから新DBへ再構築し、sourceとの対応manifestを残す。最後にユーザーへ差分と失った範囲を提示する。</p>
+<h2>7. disk fullとbackup</h2>
+<p>quota不足はwrite admissionで先に推定し、SQLite/OS ENOSPCも扱う。少量のemergency reserveは診断・commit結果保存用に使用し、任意の可用性保証とはしない。未送信localデータ、pin、active leaseを黙って削除しない。</p>
+<p>稼働中SQLiteを単純にDBファイルだけcopyする方法はbackup手順にしない。整合snapshot/backup APIとblock rootsを固定し、export側で取得集合をpinする。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-STORE-001"></a></p>
+<h3>PAR-STORE-001 — 原子的保存</h3>
+<p><strong>MUST:</strong> commit ledger・actor state・暗号化change・outboxを一つの原子的transactionで保存する。
+受け入れ: <code>AT-STORE-001</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-STORE-002"></a></p>
+<h3>PAR-STORE-002 — 耐久性設定</h3>
+<p><strong>MUST:</strong> 実際のjournal/synchronous/host storage classを確認してからreceiptを発行する。
+受け入れ: <code>AT-STORE-002</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-STORE-003"></a></p>
+<h3>PAR-STORE-003 — 結果不明</h3>
+<p><strong>MUST:</strong> commit成否不明はoperation IDで照会・再開し、新IDによる盲目的再実行をしない。
+受け入れ: <code>AT-STORE-003</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-STORE-004"></a></p>
+<h3>PAR-STORE-004 — blob公開順</h3>
+<p><strong>MUST:</strong> blockの永続化をDB参照公開より先に完了させ、stagingを完成扱いしない。
+受け入れ: <code>AT-STORE-004</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-STORE-005"></a></p>
+<h3>PAR-STORE-005 — 平文漏洩防止</h3>
+<p><strong>MUST:</strong> 本文・索引・cache・temp・SQLログの永続保存は暗号化または非保存にする。
+受け入れ: <code>AT-STORE-005</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-STORE-006"></a></p>
+<h3>PAR-STORE-006 — 破損復旧</h3>
+<p><strong>MUST:</strong> corruption時は元データを保全し、別保存先へ検証付き再構築する。
+受け入れ: <code>AT-STORE-006</code> / 最初の必須gate: <code>G9</code>。</p>
+</section><section id="doc-12" class="chapter"><p class="source">spec/10-replication.ja.md</p><h1>10 — Keeper・復旧集合・lease・自動修復</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 何を保管するか</h2>
+<p>保管契約はchange単体でなく<code>RetentionSet</code>。対象frontierを復元するための暗号化objects、control/genesis、key package、schema、causal履歴、blob/seed manifestsを含む。</p>
+<p>三つのrootを区別する。</p>
+<table>
+<thead>
+<tr>
+  <th>root</th>
+  <th>読める主体</th>
+  <th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>semantic recovery root</td>
+  <td>読取り権限を持つ端末</td>
+  <td>対象文書frontierと依存関係・鍵参照</td>
+</tr>
+<tr>
+  <td>inventory root</td>
+  <td>認可されたKeeper</td>
+  <td>保管すべき全block ID・長さの集合</td>
+</tr>
+<tr>
+  <td>retention manifest ID</td>
+  <td>requester/keeper</td>
+  <td>上二つとscope/profile/operationを署名で結合</td>
+</tr>
+</tbody>
+</table>
+<p>inventoryはsorted unique entriesを最大1,024件ずつページ化し、page hashesをrootへ結ぶ。pageは子data refsだけを含み、自分自身や親manifestを参照しない。署名root自体の保管は別の必須条件。全byte集合のdigestは件数だけでなくIDと長さとkindを含む。</p>
+<h2>2. opaque Keeperに分かること</h2>
+<p>Keeperはhash・length・外側署名・quota・scopeを検証できるが、暗号化Documentの全依存が意味的にそろうかは通常検証できない。</p>
+<p>したがって <code>byte-complete retention</code> と <code>authorized recovery-closure-verified</code> を区別する。requesterの認可済みclosure builderが意味的完全性を確認したmanifestに対して初めて復旧指標を計算する。悪意のrequesterが作った不完全manifestへKeeperが正直にreceiptを出しても「復元可能」と自動昇格しない。</p>
+<h2>3. protocol</h2>
+<ol>
+<li>RETAIN_OFFER: caller、capability、operation ID、manifest、requested duration、total bytes。</li>
+<li>Keeperはmembership/capability、scope、利用者同意、disk budgetを検証し、重複operationは同じ結果を返す。</li>
+<li>RETAIN_ACCEPT: reservation ID、accepted duration、missing inventory pages/blocks。</li>
+<li>scoped BLOCK_GET/transferで欠けたbytesを埋め、hash・lengthを検証。</li>
+<li>RETAIN_COMMIT: manifest rootとfresh challengeを指定。</li>
+<li>KeeperがDB/block rootsを永続化してから署名RECEIPTを発行。</li>
+</ol>
+<p>receiptはkeeper DeviceId、manifest ID、inventory root、storage class、control head、lease duration、challenge、boot referenceを持つ。partial retentionはpartialと報告しfull receiptを出さない。</p>
+<h2>4. leaseとclock</h2>
+<p>初期最大lease 7日、reservation timeout 10分、foregroundで残り期間の半分を目安に更新する。時刻は利用者表示用wall clockと期限用monotonicを分離する。requester再起動後はfresh challengeまでreceipt freshnessをunknownに戻す。</p>
+<p>Keeper再起動時にmonotonic残期間を確定できなければ、既存leaseを勝手にexpiredとしてevictしない。diskの予約状態を保持し、再確認か利用者の明示的な強制解放が必要。安全な保持が過剰になる場合もdiagnosticsで説明する。悪意のclock・電源断・退会に対する永久保存保証はしない。</p>
+<h2>5. replica selectionと修復</h2>
+<p>既定はlocal copy＋2 remote receipts。selectionは認可、容量、最近の到達性、電力/回線条件、利用者が登録した障害領域の順で絞り、同順位は安定hashで分散する。DeviceIdの数を物理独立性と同一視しない。</p>
+<p>修復は不足確認→source探索→候補予約→必要blocks転送→receipt→古い予約解放。sourceがなければ<code>unrecoverable-from-reachable-peers</code>とし、offlineとpermanent lossを断定しない。backoffとjitterで同時repairの輻輳を抑える。</p>
+<h2>6. retrieval auth</h2>
+<p>hashを知るだけでGETできない。current sessionのSpace grantと、そのcontrol headで許されたretention setを確認する。Keeperは本文に触れず、caller certificateとcapabilityからscopeを検証する。</p>
+<p>新controlを知らないKeeperは古いgrantを認め得る。この制限は失効の観測遅延として表示する。コピーされた過去ciphertext/keyまで回収したとは主張しない。resource capabilityは読み取り鍵の代用ではない。</p>
+<h2>7. pauseと退出</h2>
+<p>pauseは新規offer/renewを止め、既存保管の扱いを説明する。graceful leaveは移管を試すが、利用者には即時停止権がある。強制停止は約束を破る可能性を明示し、reachable peerへbest-effortで通知する。バックグラウンドで利用者を拘束する仕組みは作らない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-REP-001"></a></p>
+<h3>PAR-REP-001 — 完全性の二段階</h3>
+<p><strong>MUST:</strong> byte retentionと認可済みsemantic recovery closureを区別し、最後のchangeだけを復旧可能と数えない。
+受け入れ: <code>AT-REP-001</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REP-002"></a></p>
+<h3>PAR-REP-002 — receipt永続化</h3>
+<p><strong>MUST:</strong> 全対象bytesとmanifestを永続化後にのみfull retention receiptを発行する。
+受け入れ: <code>AT-REP-002</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REP-003"></a></p>
+<h3>PAR-REP-003 — lease鮮度</h3>
+<p><strong>MUST:</strong> fresh challengeとboot/monotonic状態でreceipt鮮度を管理し、古いreceiptを現在可用性としない。
+受け入れ: <code>AT-REP-003</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REP-004"></a></p>
+<h3>PAR-REP-004 — 保管側再起動</h3>
+<p><strong>MUST:</strong> lease期限が不明な再起動では、既存予約を安全側へ保持して明示解放または再確認を要する。
+受け入れ: <code>AT-REP-004</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REP-005"></a></p>
+<h3>PAR-REP-005 — 冪等予約</h3>
+<p><strong>MUST:</strong> 同じoperation IDとdigestのoffer/commitはquotaを二重消費せず、異なるdigestの再利用を拒否する。
+受け入れ: <code>AT-REP-005</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REP-006"></a></p>
+<h3>PAR-REP-006 — 認可取得</h3>
+<p><strong>MUST:</strong> GETはcontent hash知識だけで許可せず、session/Space/capability/controlのscopeを照合する。
+受け入れ: <code>AT-REP-006</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REP-007"></a></p>
+<h3>PAR-REP-007 — 退出の説明</h3>
+<p><strong>MUST:</strong> 資源提供者が退出でき、保管約束と移管未完の影響を明示する。
+受け入れ: <code>AT-REP-007</code> / 最初の必須gate: <code>G6</code>。</p>
+</section><section id="doc-13" class="chapter"><p class="source">spec/11-recovery.ja.md</p><h1>11 — 初期成功条件・復旧・可搬性</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 最初の成功条件 M1</h2>
+<p>単なるチャットの往復ではなく、中央サービスなしのbackend最小核を証明する。</p>
+<table>
+<thead>
+<tr>
+  <th>名前</th>
+  <th>初期状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>A</td>
+  <td>authority兼editor。ノート作成</td>
+</tr>
+<tr>
+  <td>B</td>
+  <td>editor。独立にoffline編集</td>
+</tr>
+<tr>
+  <td>C</td>
+  <td>opaque Keeper。閲覧鍵なし</td>
+</tr>
+<tr>
+  <td>B2</td>
+  <td>初期に認可済みの復旧用identity。通常は停止しsecretを別保存</td>
+</tr>
+</tbody>
+</table>
+<p>A/B/Cは最初の稼働3端末。B2はwriter停止後、空のdata directoryで起動する復旧先。復旧検証時も同時に必要な稼働端末はC/B2だけ。B2の認可とkey packageを準備していない場合に、Cだけで新加入ができたことにしない。</p>
+<h2>2. 手順とoracle</h2>
+<ol>
+<li>外部egressを遮断し、A/B/Cへの許可経路だけ残す。OS依存通信はPAR process/cgroupの測定と区別する。</li>
+<li>AがSpaceとノートを作りB、C、B2の役割を確定。B2 key packageをCの復旧集合に含める。</li>
+<li>A/Bを切断し、text編集、同じscalarへの別値、添付blob、1つのtombstoneを生成する。全operation IDsを保存。</li>
+<li>A/B再接続でcausal frontier、values、conflicts、tombstonesが一致する。</li>
+<li>Cへclosureを保管し、byte-complete receiptとA側のsemantic closure auditを確認。</li>
+<li>A/Bを停止し、データへ到達不能であることを測定。B2は持ち込み禁止のdataを除いた空環境で起動。</li>
+<li>B2が自分のrecovery secretとCのcontrol/key packages/blocksだけで復元。</li>
+<li>B2の結果を凍結oracleと比較。本文だけでなく有効operation集合、frontier、添付hash、競合、削除が一致する。</li>
+<li>Cの通常保存・ログから既知の平文sentinelが得られないことを検査する。</li>
+<li>未認可Dと間違ったkeyで同じ操作を試み、復元できないことを確認。</li>
+</ol>
+<h2>3. RecoveryState</h2>
+<p><code>planning → authenticating → fetching-control → obtaining-keys → fetching-blocks → verifying-closure → rebuilding → review → activated</code>。</p>
+<p>各段階にpause/resumeとprogress内訳を持つ。復旧先の既存データを上書きする操作は既定にしない。完了は全必要bytes・署名・AEAD・schema・frontierを検証し、ローカルstorageへcommit後。UIに「100%ダウンロード」と「復旧完了」を混同させない。</p>
+<p>再開可能なrecovery journalはtarget root、authorized identity、input/export digest、検証済みblock集合、未解決理由を持つ。別rootに変われば別sessionへ移す。</p>
+<h2>4. 復旧モード</h2>
+<table>
+<thead>
+<tr>
+  <th>モード</th>
+  <th>必要条件</th>
+  <th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>同端末DB再構築</td>
+  <td>鍵が健全、raw blocksが残る</td>
+  <td>新DBへindex/materialized viewを再生成</td>
+</tr>
+<tr>
+  <td>新端末へ復旧</td>
+  <td>事前認可IDまたは稼働authority、必要secret</td>
+  <td>認可範囲だけ復元</td>
+</tr>
+<tr>
+  <td>暗号化data import</td>
+  <td>公開export形式＋検証可能なkeys</td>
+  <td>sourceへ触らず新保存先へ復元</td>
+</tr>
+<tr>
+  <td>部分サルベージ</td>
+  <td>一部blocks/keysのみ</td>
+  <td>完全復旧とは別の明示partial export</td>
+</tr>
+<tr>
+  <td>authority危機</td>
+  <td>chain確認/正常移管が不可能</td>
+  <td>branch保全と新Space移行</td>
+</tr>
+</tbody>
+</table>
+<p>部分復旧は欠落object一覧と理由を必須にする。関連blobが壊れた場合も本文だけを「全体復元」と呼ばない。</p>
+<h2>5. export形式</h2>
+<p><code>export.json</code>にはformat version、AppId、SpaceId、選択epoch、control head、profile/codec/suite、root manifests、file inventory digest、作成条件、history範囲を含める。全objectはcontent-addressed pathに置き、relative pathだけ許可。path traversal、symlink、case collision、ZIP bomb、過大宣言をimport前に検査する。</p>
+<p>復旧秘密は別bundle。data exportのrecipient key packageは含めるが秘密鍵は入れない。export中のlive更新はsnapshot tokenで切り、追加分は別incremental exportにする。</p>
+<h2>6. 復旧不能の扱い</h2>
+<p>「鍵がない」「データが足りない」「peerが今いない」「profile不明」「認可がない」を別reasonにする。復元に必要な追加物と既に回収できたものを表示し、何度同じボタンを押しても状況が変わらないときは自動retryを止める。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-REC-001"></a></p>
+<h3>PAR-REC-001 — M1縦断</h3>
+<p><strong>MUST:</strong> A/B停止後、事前認可B2がCと別保管の復旧材料だけから完全な対象frontierを復元できる。
+受け入れ: <code>AT-REC-001</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REC-002"></a></p>
+<h3>PAR-REC-002 — 鍵なしKeeper</h3>
+<p><strong>MUST:</strong> opaque Keeperには閲覧keyを渡さず、通常保存・診断に本文が残らない。
+受け入れ: <code>AT-REC-002</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REC-003"></a></p>
+<h3>PAR-REC-003 — 復旧再開</h3>
+<p><strong>MUST:</strong> recovery journalをroot・identity・input digestに束縛し、中断後に検証済みblockを再利用する。
+受け入れ: <code>AT-REC-003</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REC-004"></a></p>
+<h3>PAR-REC-004 — 完了の条件</h3>
+<p><strong>MUST:</strong> download完了ではなく署名・AEAD・dependency・schema・local commit完了でactivatedにする。
+受け入れ: <code>AT-REC-004</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-REC-005"></a></p>
+<h3>PAR-REC-005 — import防御</h3>
+<p><strong>MUST:</strong> export path・総bytes・展開比・重複名を検査し、既存保存先へ無断上書きしない。
+受け入れ: <code>AT-REC-005</code> / 最初の必須gate: <code>G9</code>。</p>
+<p><a id="PAR-REC-006"></a></p>
+<h3>PAR-REC-006 — 部分結果</h3>
+<p><strong>MUST:</strong> 部分サルベージは欠落集合を示し、完全復旧や全権限回復と表示しない。
+受け入れ: <code>AT-REC-006</code> / 最初の必須gate: <code>G9</code>。</p>
+</section><section id="doc-14" class="chapter"><p class="source">spec/12-retention-gc.ja.md</p><h1>12 — 履歴・削除・GC・チェックポイント</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 削除の種類</h2>
+<p>UIとAPIは以下を別commandとする。local cache evictionは再取得可能なcacheの削除。shared tombstoneは以後の共有viewからの削除。forget Spaceは当該端末の鍵とpinを外す操作。retention releaseはKeeperへの解放要求。secure eraseは媒体・OS前提が別なので一般保証しない。</p>
+<p>remote peerが保持する過去の平文やcopyを消せるとは言わない。利用者が所有する端末と、他参加者に既に渡したデータの違いを説明する。</p>
+<h2>2. pin roots</h2>
+<p>GC root集合はactive epoch seed、local committed outbox、ユーザーpin、未完migration/recovery、unexpired/uncertain leases、explicit history retention、export snapshot、quarantined evidence。raw blocksの参照countだけに依存せず、rootからのreachabilityを検証する。</p>
+<p>GCはmark/sweep二段階。mark開始時のroot generationを固定し、sweep直前にgenerationの変化と新pinを照合する。新規commitとraceしたら対象を再判定する。削除失敗は記録して再試行し、成功と偽らない。</p>
+<h2>3. causal履歴の圧縮</h2>
+<p>長期offline writerが戻るため、単に古い日時だからchangeを消す方式は禁止。圧縮はauthorityが採用cutと新baselineを署名し、content epochを更新するcheckpoint。旧cut外変更はrebase候補として残す。</p>
+<p>新baselineは同じmaterialized valuesだけでなく、未解決conflictの出典をcarryover manifestに保存する。旧Automerge bytesを新規baselineへ混ぜず、参照・変換の関係を記録する。古い履歴を読む権限と新しいcurrent stateを読む権限を別にする。</p>
+<h2>4. 容量と履歴ポリシー</h2>
+<p>Spaceごとに<code>current-only</code>、<code>bounded-history</code>、<code>pinned-history</code>を選べるが、失効や保管約束の意味を変えない。bounded-historyの期間は「今の表示viewの履歴の希望」で、依存が必要なblockを無条件に消す期限ではない。</p>
+<p>容量不足時の優先はre-download可能cache→期限が確定した未pin retained data→orphan staging。未送信データや唯一のpinコピーを無断で消すことはない。容量が足りないなら書込み・新規保管を拒否し、既存データのexport/移管を案内する。</p>
+<h2>5. tombstoneの保持</h2>
+<p>同epochの古いupdate再来を防ぐためtombstoneを依存履歴とともに保持する。新epoch baselineのcatalogにも削除・移行の事実を反映する。新DocumentIdでの復元のみ許可するので旧IDの再利用によるresurrectionを避ける。</p>
+<h2>6. 削除確認</h2>
+<p>remote release ACKは「相手が解放を処理したという表明」。相手が本当に全copyを消した証明ではない。local消去もSSD wear leveling、backup、swap、crash dumpまで常に覆えるとは表示しない。必要ならOS/媒体別のより強い消去profileへ分ける。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-GC-001"></a></p>
+<h3>PAR-GC-001 — 削除の区別</h3>
+<p><strong>MUST:</strong> cache eviction、shared delete、forget、retention releaseを別commandと表示にする。
+受け入れ: <code>AT-GC-001</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-GC-002"></a></p>
+<h3>PAR-GC-002 — GC根保護</h3>
+<p><strong>MUST:</strong> active/pinned/outbox/lease/recovery/export/quarantine rootsに到達するblockをGCしない。
+受け入れ: <code>AT-GC-002</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-GC-003"></a></p>
+<h3>PAR-GC-003 — GC競合</h3>
+<p><strong>MUST:</strong> mark/sweep間の新pin・commitをgeneration確認で保護する。
+受け入れ: <code>AT-GC-003</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-GC-004"></a></p>
+<h3>PAR-GC-004 — 履歴短縮</h3>
+<p><strong>MUST:</strong> causal履歴短縮は署名checkpoint/epochとrebase経路を使い、壁時計の古さだけで破棄しない。
+受け入れ: <code>AT-GC-004</code> / 最初の必須gate: <code>G9</code>。</p>
+<p><a id="PAR-GC-005"></a></p>
+<h3>PAR-GC-005 — 秘密の消去境界</h3>
+<p><strong>MUST:</strong> remote releaseやlocal key削除を、既配布平文の回収証明と表示しない。
+受け入れ: <code>AT-GC-005</code> / 最初の必須gate: <code>G7</code>。</p>
+</section><section id="doc-15" class="chapter"><p class="source">spec/13-connectivity.ja.md</p><h1>13 — 発見・NAT・Relay・接続ポリシー</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 接続戦略</h2>
+<p>known peer cache→明示招待のroute→許可されたLAN discovery→指定Discovery Helper→指定Relayの順で候補を作る。優先順位は利用者policyで変更可能。routeは候補でありtrustではない。接続後にpeer identityとSpace資格を検証する。</p>
+<p>libp2pはhole punching、AutoNAT、Relay等を提供するが、任意のCGNAT/firewallを必ず通過するわけではない。<a href="#S02">[S02]</a> 経路がなければlocal-onlyとして継続し、relay追加・LAN・後で再接続の具体的選択肢を示す。</p>
+<h2>2. nativeとbrowser</h2>
+<p>nativeはQUICとTCP/Noise/Yamux、Relay v2。browserはJS transport adapterのWebRTCまたは明示WSS経路。nativeのUDP APIがWASM browserで使えると仮定しない。browser-to-browser WebRTCもsignaling/relay等の経路条件を検証する。<a href="#S25">[S25]</a></p>
+<p>optional external-assistedではSTUN/TURN/relay/notificationのendpoint・管理主体・帯域負担をmanifestへ記録する。初期listは空。TLS certificateの取得・更新やDNSも、利用構成ごとの運用依存として公開する。</p>
+<h2>3. discovery privacy</h2>
+<p>LAN discoveryはSpace名、文書名、account IDのbroadcastをしない。アプリ用service typeと短寿命接続nonce程度に抑える。ただしアプリ利用やIPの露出は残る。LAN permission拒否でも手動招待を使える。</p>
+<p>global DHTへprivate Space membershipを広告しない。将来public feedを載せる場合もpublic namespaceとprivate namespaceを分離する。</p>
+<h2>4. relay admissionの難所</h2>
+<p>relayのreservation時点ではPARのend-to-end Space streamはまだできていない。したがってアプリ層で後から認証するだけでopen relay防止が済むとは扱わない。</p>
+<p>参加者Relayはlibp2p relay reservationのconnection gaterに、owner認可のtransport peer ID＋resource grantを事前登録する。内側PAR認証でさらにDeviceId/Spaceを確認する。capability bootstrapは既存の認可経路または署名済み手動enrollmentで行う。callerが任意宛先へproxyできる機能は作らない。</p>
+<h2>5. route validation</h2>
+<p>peerが広告した宛先へ無条件dialすると、第三者hostやローカル管理APIへのアクセスを誘導され得る。scheme/port/length/宛先範囲を検証し、loopback/link-local/metadata endpoint等は明示LAN・local設定以外で拒否。DNS利用は解決後addressにもpolicyを適用し、redirectや多段解決で迂回させない。</p>
+<p>UPnPやルータ設定変更は明示許可なしに行わない。接続診断のactive probeも利用者の承認した相手・範囲だけへ送る。</p>
+<h2>6. ネットワーク切替</h2>
+<p>Wi-Fi→cellular、IPv4/IPv6、sleep/wake、VPN変更はroute再評価を行う。socket維持を前提とせず、durable outboxから再接続できる。meteredへの切替時は利用者編集の送信と他人のblob/relay負担を分けて制御する。</p>
+<p>exponential backoffは初期1秒、上限60秒、±20% jitterを候補とし、明示ユーザー操作はbudget内で前倒し可能。no routeを短周期で無限再試行しない。</p>
+<h2>7. 検証matrix</h2>
+<p>LAN、同一router、異なるNAT、CGNAT模擬、UDP blocked、TCP only、IPv6 only、dual stack、explicit relay、relayなし、DNS不達、route切替。各結果をdirect/relayed/unreachableで公開し、NATの名前から到達性を推測しない。emulator/network namespaceと実ネットワークは別evidence。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-NET-001"></a></p>
+<h3>PAR-NET-001 — 明示経路</h3>
+<p><strong>MUST:</strong> 接続候補は設定された参加者・許可されたdiscoveryから生成し、無断の公開サービスへfallbackしない。
+受け入れ: <code>AT-NET-001</code> / 最初の必須gate: <code>G5</code>。</p>
+<p><a id="PAR-NET-002"></a></p>
+<h3>PAR-NET-002 — 到達性観測</h3>
+<p><strong>MUST:</strong> direct/relayed/unreachableを実際の経路に基づき報告する。
+受け入れ: <code>AT-NET-002</code> / 最初の必須gate: <code>G5</code>。</p>
+<p><a id="PAR-NET-003"></a></p>
+<h3>PAR-NET-003 — relay入口認可</h3>
+<p><strong>MUST:</strong> Relay reservation段階でtransport peerとresource grantを制限し、内側Space認可も行う。
+受け入れ: <code>AT-NET-003</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-NET-004"></a></p>
+<h3>PAR-NET-004 — dial宛先防御</h3>
+<p><strong>MUST:</strong> 広告されたrouteにscheme/address範囲policyを適用し、任意proxyやSSRF相当の経路を開かない。
+受け入れ: <code>AT-NET-004</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-NET-005"></a></p>
+<h3>PAR-NET-005 — 回線切替</h3>
+<p><strong>MUST:</strong> ネットワーク変更とmetered制約で接続を再評価し、durable outboxを保つ。
+受け入れ: <code>AT-NET-005</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-NET-006"></a></p>
+<h3>PAR-NET-006 — 発見の最小化</h3>
+<p><strong>MUST:</strong> private Space名・membership・文書名をLAN/global discoveryへ公開しない。
+受け入れ: <code>AT-NET-006</code> / 最初の必須gate: <code>G5</code>。</p>
+</section><section id="doc-16" class="chapter"><p class="source">spec/14-sdk-contract.ja.md</p><h1>14 — SDK API・言語境界・開発体験</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 配布単位</h2>
+<p>Rust crateを中核に、Swift/Kotlin binding、TypeScript wrapper、headless CLI、optional UI kitを提供対象とする。UniFFIはSwift/Kotlinへのbinding候補だが、生成成功を実機動作と同一視しない。<a href="#S24">[S24]</a> package名の登録・公開は未実施。</p>
+<p><code>api/par-contracts.d.ts</code>はTypeScript形式の契約候補。runtime実装ではない。Rust型と外国語型はIDLから生成する方針だが、公開APIの意味・文字位置・u64・取消しを言語別適合試験で確認する。</p>
+<h2>2. 最小の使用体験</h2>
+<p>起動→Space作成→受信者requestを承認→文書編集→receiptをUIへ渡す。ユーザーはrelay/keeperを設定しなくても単独利用できる。ただしremote durability達成とは表示しない。</p>
+<p>型整合を確認する利用例は <code>api/example-contract.ts</code>。各操作は <code>Result&lt;T&gt;</code> を返すため、成功分岐を確認してから値を扱う。Space上のAPI名は <code>docs</code>、作成結果は <code>document</code> と <code>receipt</code>、文書readは <code>found/absent-local/waiting-data/tombstoned/quarantined</code>。複製観測はAsyncIterableであり、単発の同期完了boolではない。</p>
+<p>これは将来API例。今回packageに実行可能なPeerRuntimeはない。<code>operationId</code>は利用者操作の重複送信を区別するため呼出側で保持する。SDKは安全なID生成helperを提供し、再試行では同じIDを使う。</p>
+<h2>3. 非同期と取消し</h2>
+<p><code>open</code>はlocal準備だけを待つ。<code>close</code>は保存中処理を完了または未確定として記録し、networkの完了を無制限に待たない。キャンセルの意味は<code>before-commit / after-commit / outcome-unknown</code>。commit前はCANCELLED、後はCommitReceiptにcancellationRequestedを付けても保存済み内容を残す。不明はLOCAL_OUTCOME_UNKNOWNとoperation ID。保存済み内容の取消しには別のundo commandを必要とする。</p>
+<p>subscriptionはimmutable snapshot＋revision ID。通知coalesceを許すが、listener初期値と最新revisionへのcatch-upを保証する。unsubscribeは冪等、実行中callbackの停止保証とは別。UI callbackのthrowでruntimeを壊さない。</p>
+<h2>4. 型</h2>
+<p>すべてのIDは型付きopaque string、wireでは固定長bytes。u64をJS Numberへ入れずdecimal stringまたはBigInt。key handleは秘密bytesを通常のSDKオブジェクトへ露出させない。bytesはimmutableまたは所有権移譲を明確にし、FFI後に解放済みbufferを参照しない。</p>
+<p>read結果はfound/absent-local/waiting-data/tombstoned/quarantinedをdiscriminated unionとし、nullable documentだけで理由を潰さない。statusにepoch/control headと観測時点を付ける。</p>
+<h2>5. エラー</h2>
+<p>安定code＋phase＋retry class＋operation ID＋commit ID候補＋redacted detailを返す。<code>retryable=true</code>の一語ではなく、<code>none / same-operation / reconnect / user-action / rebase</code>を区別する。</p>
+<p>主要codeはSTORAGE_FULL、KEY_UNAVAILABLE、LOCAL_OUTCOME_UNKNOWN、NO_REACHABLE_PEER、CONTROL_REQUIRED、NOT_AUTHORIZED、EPOCH_REBASE_REQUIRED、CONTROL_FORK、ACTOR_EQUIVOCATION、DEPENDENCIES_PENDING、RESOURCE_BLOCKED、UNSUPPORTED_PROFILE、CURSOR_EXPIRED、RPC_OUTCOME_UNKNOWN。wireのOUTCOME_UNKNOWNはphaseに応じてlocal/RPCへ写像する。文字列の例外メッセージをparseして制御しない。</p>
+<h2>6. manifestと拡張</h2>
+<p>アプリmanifestはAppId、schemas、使うfeature profile、必要OS permissions、contribution default、support対象を宣言する。permissionを増やす更新はhostが再同意を取る。plugin/adapterはhost process内で実行する以上、単にinterfaceを実装しただけでsandboxedとは言わない。</p>
+<p>AI agentやautomationも同じtyped commandを使う。読み取り診断とstate変更を分離し、破壊的操作はpreview plan、対象revision、confirmation tokenを必要とする。ログやpeer本文の命令文を管理コマンドとして実行しない。基本SDKにAI serviceの契約を必要としない。</p>
+<h2>7. 開発者導入の受け入れ</h2>
+<p>クリーン環境で同梱quickstartのみを読み、クラウド登録なしで二台同期へ進める。CLIに <code>doctor --local --json</code>、<code>protection inspect</code>、<code>repair plan/apply</code> を含める。説明書のコマンドはCIで実行し、実在しないflagを放置しない。失敗時には最初の関係する原因を示し、秘密を送信するsupport bundleを自動作成しない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-SDK-001"></a></p>
+<h3>PAR-SDK-001 — 型付き結果</h3>
+<p><strong>MUST:</strong> read/commit/cancel/errorをdiscriminated unionで公開し、u64を損失なく往復する。
+受け入れ: <code>AT-SDK-001</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-SDK-002"></a></p>
+<h3>PAR-SDK-002 — 取消し境界</h3>
+<p><strong>MUST:</strong> cancelはcommit前後と結果不明を区別し、保存済み操作を消さない。
+受け入れ: <code>AT-SDK-002</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-SDK-003"></a></p>
+<h3>PAR-SDK-003 — 購読契約</h3>
+<p><strong>MUST:</strong> snapshot通知はrevision付きでbounded/coalescingとし、unsubscribeは冪等にする。
+受け入れ: <code>AT-SDK-003</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-SDK-004"></a></p>
+<h3>PAR-SDK-004 — 安全なautomation</h3>
+<p><strong>MUST:</strong> 破壊的管理commandにはpreviewと対象revisionの再確認を要する。
+受け入れ: <code>AT-SDK-004</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-SDK-005"></a></p>
+<h3>PAR-SDK-005 — 導入再現性</h3>
+<p><strong>MUST:</strong> 配布したquickstartのコマンドとサンプルをクリーン環境で試験する。
+受け入れ: <code>AT-SDK-005</code> / 最初の必須gate: <code>G10</code>。</p>
+<p><a id="PAR-SDK-006"></a></p>
+<h3>PAR-SDK-006 — binding所有権</h3>
+<p><strong>MUST:</strong> FFI/JS境界でbuffer・callback・key handleの生存期間とthread制約を定義する。
+受け入れ: <code>AT-SDK-006</code> / 最初の必須gate: <code>G6</code>。</p>
+</section><section id="doc-17" class="chapter"><p class="source">spec/15-platforms.ja.md</p><h1>15 — プラットフォーム能力・実機資格</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 機能を偽装しない共通API</h2>
+<p>APIの意味を共通化しても、OSが許す動作は異なる。<code>RuntimeCapabilities</code>はplatform、storage class、key protection、available transports、background modes、role eligibility、known restrictionsを返す。</p>
+<table>
+<thead>
+<tr>
+  <th>profile</th>
+  <th>対象</th>
+  <th>本番資格に必要な証拠</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>native-interactive</td>
+  <td>Linux/macOS/Windows</td>
+  <td>実process同期、保存・休止・鍵・更新</td>
+</tr>
+<tr>
+  <td>native-keeper</td>
+  <td>Linux/macOS/Windows headless</td>
+  <td>retention/lease/容量/サービス再起動</td>
+</tr>
+<tr>
+  <td>native-relay</td>
+  <td>到達可能な指定host</td>
+  <td>ingress認可、帯域制限、実経路</td>
+</tr>
+<tr>
+  <td>ios-interactive</td>
+  <td>iPhone/iPad</td>
+  <td>実機background/suspend/resume、鍵ロック</td>
+</tr>
+<tr>
+  <td>android-interactive</td>
+  <td>Android</td>
+  <td>実機Doze/App Standby、強制停止、metered</td>
+</tr>
+<tr>
+  <td>browser-interactive</td>
+  <td>Chromium/Firefox/WebKit</td>
+  <td>実browser/native互換、quota、tab lifecycle</td>
+</tr>
+</tbody>
+</table>
+<p>資格は各profile別に付与。native合格でmobile/browserをまとめてPASSにしない。</p>
+<h2>2. OS version policy</h2>
+<p>正確な最低OS/SDK versionはG6 qualification matrixへ列挙する。候補のAPI存在とshipping supportを区別し、未試験versionの番号を宣伝に固定しない。current stableと直前の主要版を評価対象とする運用方針を提案するが、release時に具体的build番号・deviceを記録する。</p>
+<p>初期基盤実装はLinux nativeを主laneにし、macOS/Windowsを同時に契約評価する。OSのない環境で書いたsourceを対応済みとせず、残るlaneをBLOCKED/NOT_RUNで保持する。</p>
+<h2>3. iOS</h2>
+<p>foreground編集と復帰時同期を核にする。background taskはOSが認めた枠で未完保存・短い同期を進める補助であり、永続relayに使わない。<a href="#S13">[S13]</a> key vaultがlock中なら暗号化保存・同期の可能範囲を明確にし、平文鍵を保護の弱い場所へfallbackしない。</p>
+<p>参照UIはpermissionを必要な操作時に要求。LAN拒否、通知拒否、カメラ拒否でもmanual invitationとlocal編集を提供する。音声/位置情報等の無関係なbackground modeで制約を回避しない。</p>
+<h2>4. Android</h2>
+<p>Doze/App Standby等でnetwork/jobが遅れることを前提とする。<a href="#S14">[S14]</a> WorkManager等への委譲は再開可能operationに限る。通常利用のためにbattery optimization除外やforeground service常駐を強制しない。</p>
+<p>プロセス停止・boot・lock・充電・meteredを組み合わせて試験する。foregroundの編集と、ユーザーが明示選んだ資源協力を別budgetにする。</p>
+<h2>5. Browser</h2>
+<p>WASM core＋JS hostで、native-only socket/file/key APIを隔離。IndexedDBのtransaction durabilityとpersistent storageの許可は別情報であり、storage evictionやorigin削除を無視しない。<a href="#S15">[S15]</a></p>
+<p>multi-tabはtransactional fencingとactor ownershipを確認。page freezeでmonotonic/sessionが変化したら、lease・presence・connectionを再評価する。Web Workerもページ終了後の永続サーバーとは扱わない。</p>
+<p>web配布はHTML/JSを取得する経路を必要とする。最初のロード経路まで不要だと称さない。offline配布可能なstatic bundleを提供し、既定でCDN/font/analyticsを外部取得しない。CSP、Trusted Types対応、untrusted text escapingを試験する。</p>
+<h2>6. 通知</h2>
+<p>APNs/FCMはoptional external-assisted。push hintに本文/秘密を入れず、送信資格情報を利用者の全端末へ配布しない。未配信でもforeground再開で同期できる。即時通知SLOを参加者限定profileへ混入しない。</p>
+<h2>7. packaging</h2>
+<p>Apple/Windowsの署名、Linux package、browser assetsにはdistribution provenanceを付ける。notarization/store審査とruntime安全性を同一視しない。headless serviceは管理者が指定したdirectory/portだけを使い、root権限を既定要件にしない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-PLAT-001"></a></p>
+<h3>PAR-PLAT-001 — 能力表</h3>
+<p><strong>MUST:</strong> platformごとのstorage/crypto/transport/background能力を機械可読にし、非対応を明示する。
+受け入れ: <code>AT-PLAT-001</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-PLAT-002"></a></p>
+<h3>PAR-PLAT-002 — mobile再開</h3>
+<p><strong>MUST:</strong> mobileで常時networkを前提とせず、suspend/restart後に未送信commitから再開する。
+受け入れ: <code>AT-PLAT-002</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-PLAT-003"></a></p>
+<h3>PAR-PLAT-003 — browser保存</h3>
+<p><strong>MUST:</strong> browser transaction完了と保存永続化許可・evictionリスクを分離して返す。
+受け入れ: <code>AT-PLAT-003</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-PLAT-004"></a></p>
+<h3>PAR-PLAT-004 — 最小権限</h3>
+<p><strong>MUST:</strong> LAN/カメラ/通知の拒否時も代替導入とlocal操作を提供し、無関係権限を要求しない。
+受け入れ: <code>AT-PLAT-004</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-PLAT-005"></a></p>
+<h3>PAR-PLAT-005 — web供給経路</h3>
+<p><strong>MUST:</strong> browser assetの配布依存を公開し、defaultで外部script/font/telemetryを読まない。
+受け入れ: <code>AT-PLAT-005</code> / 最初の必須gate: <code>G10</code>。</p>
+<p><a id="PAR-PLAT-006"></a></p>
+<h3>PAR-PLAT-006 — 版別資格</h3>
+<p><strong>MUST:</strong> 実際のOS build・device・browser versionをevidenceへ束縛し、support matrixをreleaseごとに更新する。
+受け入れ: <code>AT-PLAT-006</code> / 最初の必須gate: <code>G11</code>。</p>
+</section><section id="doc-18" class="chapter"><p class="source">spec/16-resource-policy.ja.md</p><h1>16 — 資源制御・負荷・保管の公平性</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 二つの資源予算</h2>
+<p>自身の編集・閲覧を<code>interactive budget</code>、他人の保管・中継・計算を<code>contribution budget</code>とする。後者は既定0。自身のlocal保存にまで他人向けquotaを流用して説明不能な失敗を起こさない。</p>
+<p>budgetはruntime/Space/peer/operation別。CPUは実時間、memoryはresident/allocator観測、storageは予約＋実使用、bandwidthは送受信別bytesとして計上。通信速度の自己申告だけを信用しない。</p>
+<h2>2. 許可する操作</h2>
+<p>許可はSpace allowlist、role、保存最大量、転送上限、metered許可、外部電源条件、実行時間帯で構成。pauseはすぐ新規負担を止める。既存leaseへの影響はREP規範に従う。</p>
+<p>資源提供をしないユーザーも通常の利用者であり、強制計算や広告的な招待spamを受けない。複製目標未達は率直に示し、参加者に無断でクラウドへ保存しない。</p>
+<h2>3. admissionとbackpressure</h2>
+<p>大きい操作は開始前に予約し、実使用との差を精算する。予約の重複はoperation IDで排除。操作が上限を越えたらbounded errorを返し、メモリーを積み増し続けない。</p>
+<p>個別peerへのrate limitingだけでなく、account/Space/connection群のbudgetも持つ。IDを増やせば資源制限を回避できる仕様にしない。ただし匿名Sybil耐性の全解決とは言わない。</p>
+<h2>4. 公平性と劣化</h2>
+<p>controlとsmall interactive changesを優先し、大blobはchunk境界でyieldする。pressure順はbackground repair停止→blob並行数削減→新規retain拒否→interactiveの明示backpressure。保存済みデータの無断evictや署名検証の省略で性能を稼がない。</p>
+<p>熱/電池/回線条件が悪化したらcontributionをpauseし、停止理由と再開条件を表示。remote peerへ詳細な電池残量を公開する必要はなく、利用可能capacity classだけ伝える。</p>
+<h2>5. quotaの説明</h2>
+<p>UIにはused/reserved/pinned/lease-protected/reclaimableを分けて表示。「空きを作る」で消える範囲のpreviewを出す。データ量とpeer数から費用ゼロを約束しない。長期保管の物理容量は複製・履歴・修復余裕を含む。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-BUDGET-001"></a></p>
+<h3>PAR-BUDGET-001 — 二予算</h3>
+<p><strong>MUST:</strong> interactiveとcontributionを別予算にし、第三者負担を既定0とする。
+受け入れ: <code>AT-BUDGET-001</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-BUDGET-002"></a></p>
+<h3>PAR-BUDGET-002 — scope制限</h3>
+<p><strong>MUST:</strong> runtime/Space/peer/operationの階層quotaを適用し、予約を原子的に管理する。
+受け入れ: <code>AT-BUDGET-002</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-BUDGET-003"></a></p>
+<h3>PAR-BUDGET-003 — 劣化時公平性</h3>
+<p><strong>MUST:</strong> 大blob/repair圧力下でもcontrolとinteractiveを優先し、署名検証を省略しない。
+受け入れ: <code>AT-BUDGET-003</code> / 最初の必須gate: <code>G8</code>。</p>
+<p><a id="PAR-BUDGET-004"></a></p>
+<h3>PAR-BUDGET-004 — 使用量表示</h3>
+<p><strong>MUST:</strong> used/reserved/pinned/lease-protected/reclaimableを区別し、削除前に影響を示す。
+受け入れ: <code>AT-BUDGET-004</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-BUDGET-005"></a></p>
+<h3>PAR-BUDGET-005 — 電力と回線</h3>
+<p><strong>MUST:</strong> 条件変更でcontributionをpauseし、再開条件をtyped statusにする。
+受け入れ: <code>AT-BUDGET-005</code> / 最初の必須gate: <code>G6</code>。</p>
+</section><section id="doc-19" class="chapter"><p class="source">spec/17-experience.ja.md</p><h1>17 — UX・操作flow・状態説明</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. UIを提供する理由</h2>
+<p>PARはheadless SDKが本体だが、開発者が毎回「保存できたか」「なぜつながらないか」を一から設計すると保証の意味が崩れやすい。そこでoptional componentsとしてConnectionStatus、ProtectionStatus、InviteFlow、RecoveryWizard、ContributionPanel、ConflictInspector、DiagnosticsPanelを提供する。</p>
+<p>UI kitを使わないアプリも許容するが、同じ状態契約とアクセシビリティ要件を実装する。デザインの統一を強要せず、意味の一貫性を守る。</p>
+<h2>2. 情報階層</h2>
+<p>最上位は利用者の作業。ネットワークgraphは通常画面の主役にしない。日常表示は「この端末に保存済み」「2台で保管確認」「接続待ち」程度。詳細panelでコピー場所、最終確認、経路、権限head、不足理由へ段階的に開ける。</p>
+<p>保存statusとセキュリティstatusを一つの信号灯へ潰さない。例えば、local保存は成功だが権限更新待ち、2コピーあるが現在接続不能、browser保存で永続化未許可を表示できる。</p>
+<h2>3. 基本画面</h2>
+<table>
+<thead>
+<tr>
+  <th>surface</th>
+  <th>主な内容</th>
+  <th>常に必要な操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Onboarding</td>
+  <td>ローカル開始、既存Space参加</td>
+  <td>アカウント登録なしで開始、後で設定</td>
+</tr>
+<tr>
+  <td>Workspace</td>
+  <td>文書/添付/共同編集</td>
+  <td>保存status、同期詳細、競合への入口</td>
+</tr>
+<tr>
+  <td>Connection</td>
+  <td>peer、direct/relay、失敗原因</td>
+  <td>再試行、手動route、設定確認</td>
+</tr>
+<tr>
+  <td>Protection</td>
+  <td>copies、freshness、recovery checkpoint</td>
+  <td>Keeper追加、復旧確認、export</td>
+</tr>
+<tr>
+  <td>Invite</td>
+  <td>相手fingerprint、Space、role</td>
+  <td>確認、取消し、manual code/file</td>
+</tr>
+<tr>
+  <td>Conflict</td>
+  <td>並行値・出典・diff</td>
+  <td>選択、統合、保留、private保存</td>
+</tr>
+<tr>
+  <td>Recovery</td>
+  <td>plan、keys、download、verify</td>
+  <td>一時停止、再開、部分export</td>
+</tr>
+<tr>
+  <td>Contribution</td>
+  <td>容量・帯域・電源・対象Space</td>
+  <td>pause、graceful leave、force stop</td>
+</tr>
+<tr>
+  <td>Security</td>
+  <td>devices、known control、key状態</td>
+  <td>失効、移管、backup、branch export</td>
+</tr>
+<tr>
+  <td>Diagnostics</td>
+  <td>redacted原因・経路・revision</td>
+  <td>ローカルexport、共有前preview</td>
+</tr>
+</tbody>
+</table>
+<h2>4. 初回導入flow</h2>
+<p>Local start → 文書を一つ作る → 「ほかの端末と共有」 → 相手JoinRequestをQR/fileで受け取る → fingerprint/roleを確認 → Space承認 → 接続 → 保存/複製の違いを短く提示。</p>
+<p>QR読取りを唯一の経路にしない。カメラ拒否・視覚制約ではfile/manual codeで同じsecurity確認ができる。fingerprintを色や絵だけで伝えない。認可発行者不在はpending画面にし、失敗したように何度も招待を作らせない。</p>
+<h2>5. 状態別microcopy</h2>
+<table>
+<thead>
+<tr>
+  <th>status</th>
+  <th>推奨日本語</th>
+  <th>避ける表現</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>local committed / no peers</td>
+  <td>この端末に保存済み。ほかの端末への複製待ちです。</td>
+  <td>保存失敗、完全バックアップ済み</td>
+</tr>
+<tr>
+  <td>retained + stale</td>
+  <td>2台の保管記録があります。現在の状態は未確認です。</td>
+  <td>安全です、現在2台オンライン</td>
+</tr>
+<tr>
+  <td>seed pending</td>
+  <td>共有権限の更新を確認しました。新しいデータを取得しています。</td>
+  <td>同期済み</td>
+</tr>
+<tr>
+  <td>rebase required</td>
+  <td>共有状態が更新されました。未共有の編集を確認してください。</td>
+  <td>編集を破棄しました</td>
+</tr>
+<tr>
+  <td>recovery verify</td>
+  <td>データを検証しています。復旧はまだ完了していません。</td>
+  <td>完了100%</td>
+</tr>
+<tr>
+  <td>missing key</td>
+  <td>復号に必要な復旧キーがありません。データ自体は保持されています。</td>
+  <td>データがありません</td>
+</tr>
+<tr>
+  <td>control fork</td>
+  <td>共有権限の履歴に不一致があります。新しい共有を停止しました。</td>
+  <td>ネットワークエラー</td>
+</tr>
+</tbody>
+</table>
+<p>文言はlocale catalogへ分離し、logicはmessage keyから逆算しない。</p>
+<h2>6. 操作安全性</h2>
+<p>失効、Space削除、鍵export、authority移管、強制Keeper停止にはpreviewと具体的対象を示す。confirmation tokenはplan digestと対象revisionへ結ぶ。画面を開いてから状態が変われば再preview。単なる「本当によろしいですか」で重要影響を隠さない。</p>
+<p>rebaseでは元のprivate編集を保持し、選択したdiffだけ新epochへ適用。authority不在をUIで迂回しない。undoは可能範囲を表示し、鍵漏洩やremote配布を取り消せたと誤解させない。</p>
+<h2>7. 国際化・アクセシビリティ</h2>
+<p>webの目標はWCAG 2.2 AA。追加でfocus visibility、十分なtouch target、reduced motionを明示設計する。AA target sizeの基準とより大きい推奨値を混同しない。<a href="#S16">[S16]</a> nativeは各OSのaccessibility tree、VoiceOver/TalkBack、keyboard/switch access、dynamic textを試験。</p>
+<p>色だけで状態を示さない。screen readerへstatus更新を毎文字通知せず重要遷移をcoalesceする。RTL、200%文字拡大、狭幅、長い日本語/ドイツ語、IME、ハイコントラストに耐える。network graphには同じ内容のtable/list表示を必ず用意。</p>
+<h2>8. UXの検証目標</h2>
+<p>初回利用者が説明書を読まずにlocalノートを作れる、誘導のみで招待と復旧へ進めることをユーザビリティ試験で測る。目標値はPERF/QAのcandidateであり、未実施の成功率を出さない。終了後には「どこに保存されているか」を本人の言葉で説明できるかを確認する。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-UX-001"></a></p>
+<h3>PAR-UX-001 — 状態の独立表示</h3>
+<p><strong>MUST:</strong> local保存・remote保管・現在接続・認可・復旧進捗を独立した意味で表示する。
+受け入れ: <code>AT-UX-001</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-UX-002"></a></p>
+<h3>PAR-UX-002 — 段階的開示</h3>
+<p><strong>MUST:</strong> 通常画面では作業を優先し、詳細panelで根拠・時点・原因に到達できる。
+受け入れ: <code>AT-UX-002</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-UX-003"></a></p>
+<h3>PAR-UX-003 — 導入の代替経路</h3>
+<p><strong>MUST:</strong> QR以外のmanual/file flowを用意し、権限拒否やauthority不在でもlocal作業を保つ。
+受け入れ: <code>AT-UX-003</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-UX-004"></a></p>
+<h3>PAR-UX-004 — 破壊操作の確認</h3>
+<p><strong>MUST:</strong> 破壊的・機密操作は影響previewをplan digestとrevisionに結び、変更時は再確認する。
+受け入れ: <code>AT-UX-004</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-UX-005"></a></p>
+<h3>PAR-UX-005 — アクセシビリティ</h3>
+<p><strong>MUST:</strong> 意味的ラベル・keyboard・拡大・RTL・reduced motionを提供し、webはWCAG 2.2 AAをqualification対象とする。
+受け入れ: <code>AT-UX-005</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-UX-006"></a></p>
+<h3>PAR-UX-006 — 編集意図の保全</h3>
+<p><strong>MUST:</strong> IME・selection・private draft・rebase/undoをremote更新で無断消去しない。
+受け入れ: <code>AT-UX-006</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-UX-007"></a></p>
+<h3>PAR-UX-007 — 真の完了</h3>
+<p><strong>MUST:</strong> download率・receipt数だけで復旧/全体保護の完了を表示しない。
+受け入れ: <code>AT-UX-007</code> / 最初の必須gate: <code>G3</code>。</p>
+</section><section id="doc-20" class="chapter"><p class="source">spec/18-polishable-ui.ja.md</p><h1>18 — Polish可能なUI構造・デザインシステム</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. UIの5層</h2>
+<p><code>Domain → Presenter → Interaction primitives → Components → Theme/Layout</code>。</p>
+<p>Domainは認可・保存・復旧の正本。Presenterはimmutable ViewModelとtyped Commandを供給。Interaction primitivesはfocus/keyboard/selection/confirmの挙動。Componentsは情報の組合せ。Theme/Layoutは色、余白、書体、角丸、動き、配置を扱う。</p>
+<p>Polishで変更する範囲を最後の二層へ寄せる。presentation layerからDBやnetworkへ直接アクセスしない。rendererは<code>vm</code>と<code>dispatch(command)</code>を受け取り、同じfixtureで独立に検討できる。</p>
+<h2>2. view contract</h2>
+<p>全ViewModelはschema version、revision、snapshot time、data scope、capabilities、actions、pending operation IDsを含む。actionにはenabled、disabled reason、required confirmation、target revisionを持つ。disabled buttonの理由をtooltipだけに隠さない。</p>
+<p>状態の優先順位はdomain側の原因codeから決定する。visual themeが<code>protected</code>を<code>success</code>へ勝手に変換して「未確認」を消すことはできない。コピー数と現在接続数は別field。</p>
+<h2>3. design tokens</h2>
+<p>primitive→semantic→componentの3段階。primitiveはspacing/type/motion/shape/color scale。semanticはsurface/text/border/focus/critical/warning/information/protection等。component tokenは用途を示すaliasで、全画面に独立hex値を埋め込まない。</p>
+<p>DTCG Format 2025.10を交換形式の候補にする。これはDesign Tokens Community Groupの仕様でありW3C標準と誤記しない。<a href="#S17">[S17]</a> 同梱token seedは暫定値で、ブランドの最終決定でもcontrast合格済みでもない。</p>
+<p><code>tokens/base.tokens.json</code>はbrand-neutralな寸法/動き、<code>tokens/semantic.tokens.json</code>は暫定の意味付きpalette。light/dark/high-contrast、compact/comfortable、reduced motionを同じsemantic keyで解決する。Web CSS、Swift、Composeへの変換は後続のgeneratorで行う。</p>
+<h2>4. component anatomy</h2>
+<table>
+<thead>
+<tr>
+  <th>component</th>
+  <th>固定する意味</th>
+  <th>Polishで変えてよいもの</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ProtectionStatus</td>
+  <td>local/retained/freshness/root</td>
+  <td>badge形、配置、詳細panelの幅</td>
+</tr>
+<tr>
+  <td>InviteReview</td>
+  <td>対象key/role/Space/権限影響</td>
+  <td>stepper、文言の長さ、カード表現</td>
+</tr>
+<tr>
+  <td>RecoveryProgress</td>
+  <td>fetch/verify/rebuild/activate</td>
+  <td>progress可視化、余白、animation</td>
+</tr>
+<tr>
+  <td>ConflictInspector</td>
+  <td>全競合値と出典、元draftの保持</td>
+  <td>split/stack表示、diff装飾</td>
+</tr>
+<tr>
+  <td>ContributionPanel</td>
+  <td>consent/上限/強制停止の影響</td>
+  <td>slider/数値入力、layout</td>
+</tr>
+<tr>
+  <td>DiagnosticsPanel</td>
+  <td>redaction/時点/原因code</td>
+  <td>table/cards、検索、グループ化</td>
+</tr>
+</tbody>
+</table>
+<p>UI kitのslotでhost固有ヘッダーやnavigationを差し替え可能にする。必須安全情報のslotを空にした場合はconformance違反となる。ブランド変更で保護statusを消せない。</p>
+<h2>5. screen statesとfixture-first</h2>
+<p>各主要surfaceについてempty/loading/ready/degraded/offline/unauthorized/rebase/fork/storage-full/recovery-partialをfixture化する。<code>ui/stories.json</code>は状態、利用可能action、禁止表示を記録する。ネットワークを動かさずにcomponent galleryを表示できる構造。</p>
+<p>fixtureはmock backend成功の証拠ではない。UIの描画/interactionを検証する入力であり、同じ状態はintegration traceからも再生して一致させる。</p>
+<h2>6. visual regressionとbehavior regression</h2>
+<p>reference screenshotsはtheme、locale、viewport、DPR、font environmentを固定する。theme変更PRではスクリーンショット差分とaccessibility tree差分を別レビュー。誤差thresholdで重要文言の欠落を見逃さない。</p>
+<p>Polishの完了条件は、domain/crypto/storage/wireを変更せず、同じcommand traceが同じ結果へ達し、required status/confirmationが残り、accessibilityが後退しないこと。必要なdomain変更が見つかれば別PR/ADRへ分離する。</p>
+<h2>7. 応答性</h2>
+<p>local typingとfocusはnetworkに依存しない。重いdiff、history、graphはvirtualization/workerを使い、UI threadにcryptoや全履歴のdecodeを載せない。animationは状態遷移の意味を補助し、データ保護の達成を先取りしない。</p>
+<h2>8. デザイナーへの引継ぎ</h2>
+<p>提供物はIA、component anatomy、state matrix、token contract、interaction contract、microcopy catalog、source fixture、accessibility checklist、画面ごとのacceptance criteria。画像モックだけを正本にしない。本packageに最終visual mockやpixel-perfect UI実装は含まない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-DS-001"></a></p>
+<h3>PAR-DS-001 — 層分離</h3>
+<p><strong>MUST:</strong> rendererはViewModelとtyped commandにだけ依存し、network/storage/cryptoを直接呼ばない。
+受け入れ: <code>AT-DS-001</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-DS-002"></a></p>
+<h3>PAR-DS-002 — tokens契約</h3>
+<p><strong>MUST:</strong> visual値をprimitive/semantic/component tokenへ分離し、意味付きaliasを保つ。
+受け入れ: <code>AT-DS-002</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-DS-003"></a></p>
+<h3>PAR-DS-003 — 状態fixture</h3>
+<p><strong>MUST:</strong> 主要surfaceの正常/空/失敗/権限/復旧状態をオフラインfixtureで再現する。
+受け入れ: <code>AT-DS-003</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-DS-004"></a></p>
+<h3>PAR-DS-004 — Polish不変条件</h3>
+<p><strong>MUST:</strong> 見た目変更後もcommand意味、保護状態、確認、アクセシビリティを維持する。
+受け入れ: <code>AT-DS-004</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-DS-005"></a></p>
+<h3>PAR-DS-005 — localeと動き</h3>
+<p><strong>MUST:</strong> 文字拡大・RTL・reduced motion・high contrastで同じ操作を提供する。
+受け入れ: <code>AT-DS-005</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-DS-006"></a></p>
+<h3>PAR-DS-006 — VM鮮度</h3>
+<p><strong>MUST:</strong> ViewModelにrevisionとaction可否理由を持ち、古い画面からのcommandは再検証する。
+受け入れ: <code>AT-DS-006</code> / 最初の必須gate: <code>G6</code>。</p>
+</section><section id="doc-21" class="chapter"><p class="source">spec/19-operations.ja.md</p><h1>19 — 運用・診断・プライバシー</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. operatorが答えられる問い</h2>
+<p>「どのデータがこの端末だけにあるか」「誰からいつ、何のrootの保管確認を受けたか」「現在どの経路を使うか」「なぜ同期できないか」「停止すると何が不足するか」を、平文本文や秘密鍵を収集せず回答可能にする。単一の緑ランプやping応答を耐久性の証拠にしない。</p>
+<p>診断には観測時点、local revision、対象Space、根拠object digest、freshness、reason code、対処可能actionを付ける。peer名とIP、SpaceId、document IDも利用状況を漏らすmetadataである。通常ログはセッション内pseudonymを使用し、外部exportは既定redactedとする。</p>
+<h2>2. 診断command契約（製品実装予定）</h2>
+<table>
+<thead>
+<tr>
+  <th>command</th>
+  <th>read/write</th>
+  <th>成功の意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>par doctor --local --json</code></td>
+  <td>read-only</td>
+  <td>保存領域、鍵参照、profile、時刻不確実性を検査。通信なし</td>
+</tr>
+<tr>
+  <td><code>par doctor --connectivity --json</code></td>
+  <td>明示的なprobe</td>
+  <td>設定済み宛先だけに接続して観測。外部ホストの自動追加なし</td>
+</tr>
+<tr>
+  <td><code>par protection inspect &lt;root&gt;</code></td>
+  <td>read-only</td>
+  <td>receipt・復元closure・取得観測を別々に表示</td>
+</tr>
+<tr>
+  <td><code>par export &lt;space&gt; --encrypted</code></td>
+  <td>新規出力</td>
+  <td>認可範囲のsnapshot export。権限を作らない</td>
+</tr>
+<tr>
+  <td><code>par repair plan &lt;store&gt;</code></td>
+  <td>read-only</td>
+  <td>元DBを変更しない修復提案と必要な容量</td>
+</tr>
+<tr>
+  <td><code>par repair apply &lt;plan-digest&gt;</code></td>
+  <td>write</td>
+  <td>承認済みplanを新領域へ適用、検証後だけ切替</td>
+</tr>
+<tr>
+  <td><code>par contribution pause</code></td>
+  <td>policy write</td>
+  <td>新規貢献停止。既存leaseへの影響を返す</td>
+</tr>
+</tbody>
+</table>
+<p>exitは0=指定範囲の検査完了/期待条件成立、2=degradedまたは利用者対応、3=操作失敗、4=前提不足/結果未確定。JSONにもresultとscopeを入れる。repairの実行成功を失われたデータの全復旧と同一視しない。</p>
+<h2>3. ログ・metrics</h2>
+<p>構造化eventは <code>{event_version, monotonic_seq, observed_at, component, code, severity, operation_ref, scope_ref, attributes}</code>。本文、key material、招待secret、復旧kit、平文file名、完全なraw messageは禁止。秘密の値をhash化しただけでは低entropy情報の保護にならないため、必要でなければ保存しない。</p>
+<p>metricsはlocal commit latency、outbox oldest age、closure欠損数、active streams、queue bytes、retries、decode budget、consentで分離した貢献bytes、quota拒否理由。平均だけでなく分布と母数を記録する。診断export前にプレビュー・選択・保存先確認を設ける。telemetryは既定offで、無送信構成でも全診断が使える。</p>
+<h2>4. runbook</h2>
+<table>
+<thead>
+<tr>
+  <th>事象</th>
+  <th>最初の安全動作</th>
+  <th>再開条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>authority fork</td>
+  <td>共有適用・権限発行停止、local read/export維持</td>
+  <td>明示的なfork解決/新Space移行。勝手に高seqを選ばない</td>
+</tr>
+<tr>
+  <td>local corruption</td>
+  <td>元領域を保全、read-only診断</td>
+  <td>検証済みclosureで新storeを構成し原子的切替</td>
+</tr>
+<tr>
+  <td>disk full</td>
+  <td>commit前に拒否、pending状態を保持</td>
+  <td>空き容量確認、同じoperation IDを再照会してからretry</td>
+</tr>
+<tr>
+  <td>Keeper停止</td>
+  <td>receiptを消失と断定しない、freshness低下を表示</td>
+  <td>別の到達可能なsourceから新しい適格peerへ複製</td>
+</tr>
+<tr>
+  <td>device盗難</td>
+  <td>他の認可済みauthorityから失効、新epoch</td>
+  <td>新しいmembership/key到達を確認。旧平文の回収は不能</td>
+</tr>
+<tr>
+  <td>authority喪失</td>
+  <td>既存read/write方針を維持、制御更新不能を表示</td>
+  <td>確認済みauthority backupまたは新Space移行</td>
+</tr>
+<tr>
+  <td>誤削除</td>
+  <td>GCを急がずexport/復旧候補を確保</td>
+  <td>tombstoneの意味を守り新documentとして復元</td>
+</tr>
+</tbody>
+</table>
+<p>各runbookは「原データを壊さない第一手」「承認が必要な操作」「結果を検証するoracle」「諦める条件と残存データのexport」を含む。誤操作を回復可能性ゼロへ増幅する自動修復は禁止。</p>
+<h2>5. privacy boundary</h2>
+<p>暗号化してもpeer同士の接続、転送量、objectサイズ、同一Space内の相関は漏れ得る。membership一覧は認可済み相手だけへ公開するが、opaque Keeperにも保管対象の規模・時点は観測される。匿名通信や法的な全端末消去保証を主張しない。利用者が開示した復号内容のcopy/exportを技術的に取り戻せない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-OPS-001"></a></p>
+<h3>PAR-OPS-001 — 診断根拠</h3>
+<p><strong>MUST:</strong> 保護・同期・接続の診断をscope/root/観測時点/freshnessに結び付ける。
+受け入れ: <code>AT-OPS-001</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-OPS-002"></a></p>
+<h3>PAR-OPS-002 — 秘密を記録しない</h3>
+<p><strong>MUST:</strong> 通常ログと既定診断exportに秘密鍵・平文本文・招待secretを含めない。
+受け入れ: <code>AT-OPS-002</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-OPS-003"></a></p>
+<h3>PAR-OPS-003 — read-only診断</h3>
+<p><strong>MUST:</strong> local doctorとrepair planはDB/鍵/接続設定を変更せず外部通信しない。
+受け入れ: <code>AT-OPS-003</code> / 最初の必須gate: <code>G1</code>。</p>
+<p><a id="PAR-OPS-004"></a></p>
+<h3>PAR-OPS-004 — 修復の安全性</h3>
+<p><strong>MUST:</strong> 修復は元領域を保全し、新領域の検証後だけactivateする。
+受け入れ: <code>AT-OPS-004</code> / 最初の必須gate: <code>G9</code>。</p>
+<p><a id="PAR-OPS-005"></a></p>
+<h3>PAR-OPS-005 — 停止の説明</h3>
+<p><strong>MUST:</strong> Keeper/Relay停止前に有効lease・進行中転送・不足コピーへの影響を表示する。
+受け入れ: <code>AT-OPS-005</code> / 最初の必須gate: <code>G6</code>。</p>
+<p><a id="PAR-OPS-006"></a></p>
+<h3>PAR-OPS-006 — 無送信観測</h3>
+<p><strong>MUST:</strong> telemetryなしでも同じlocal diagnosticsを使え、exportは明示操作に限定する。
+受け入れ: <code>AT-OPS-006</code> / 最初の必須gate: <code>G11</code>。</p>
+</section><section id="doc-22" class="chapter"><p class="source">spec/20-security-assurance.ja.md</p><h1>20 — 脅威モデル・安全性評価・検証責務</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 信頼境界</h2>
+<p>安全性対象は、暗号化保存、正当な編集の認可、同一署名operationの同一性、資源制限、正確な保証表示、更新/復旧時の権限維持。端末OSの完全侵害、正規readerによる平文再配布、authority自身の悪意ある正規決定、全networkの永続遮断は防げると主張しない。それでも検出できるfork・不正形式・署名不一致・虚偽保管は隔離・観測する。</p>
+<table>
+<thead>
+<tr>
+  <th>actor/境界</th>
+  <th>攻撃例</th>
+  <th>検査と残余リスク</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>unauthenticated network</td>
+  <td>大量接続、巨大frame、replay</td>
+  <td>pre-auth quota/timeout、transcript、allocation前上限。回線自体の飽和は残る</td>
+</tr>
+<tr>
+  <td>authorized editor</td>
+  <td>actor詐称、sequence fork、病的CRDT</td>
+  <td>inner/outer検証、因果依存検証、隔離、work budget。有効だが悪意ある文章は防がない</td>
+</tr>
+<tr>
+  <td>opaque Keeper</td>
+  <td>嘘のreceipt、欠損、古いroot</td>
+  <td>scope署名、root閉包、実取得、freshness。保管の未来保証はできない</td>
+</tr>
+<tr>
+  <td>Relay</td>
+  <td>traffic観測、遅延、切断</td>
+  <td>E2EE、時間制限、代替経路。通信metadata秘匿ではない</td>
+</tr>
+<tr>
+  <td>UI/host</td>
+  <td>XSS、誤ったconfirm、secret logging</td>
+  <td>narrow ports、revision guard、redaction、CSP。browser origin侵害は鍵利用を許し得る<a href="#S21">[S21]</a></td>
+</tr>
+<tr>
+  <td>contributor/build</td>
+  <td>悪意ある依存・release差替え</td>
+  <td>review、pin、provenance、署名、独立再ビルド<a href="#S18">[S18]</a></td>
+</tr>
+<tr>
+  <td>storage/clock</td>
+  <td>rollback、clone、bitflip、clock巻戻り</td>
+  <td>actor再生成、known-head pin、hash、期限不確実状態。全履歴喪失後の世界最新性は不明</td>
+</tr>
+</tbody>
+</table>
+<h2>2. 攻撃面を減らす境界</h2>
+<p>未認可処理は短い形式検査とcrypto/transport認証のみ。privateSpace存在確認を返さず、同じclassのerrorへ正規化する。RPCはregistered handlerかつpayload schema許可済み。ネットワークから任意URL fetch、shell、module installを起動しない。parserはbinary limitに加え、展開量・依存深度・aggregate object数の予算を持つ。</p>
+<p>危険な同期/復旧入力は可能なhostでprocess隔離する。単一スレッドのtimeoutだけで暴走parserを強制停止できるとは保証しない。iOS等の隔離制約があるprofileでは、前処理、bounded parser、差分fuzz、memory/timeの実機測定をrelease条件にする。</p>
+<h2>3. assurance workstreams</h2>
+<p>A: protocol design review — auth/epoch/crypto transcript/rollback/recovery。B: implementation review — unsafe/FFI、key lifetime、DB原子性、browser origin。C: fuzz — frame/CDDL boundary、CBOR、Automerge adapter、export、membership/epoch model。D: property/model — convergent valid operation sets、no authorization bypass、GC reachability、receipt≠semantic restore。E: operational adversarial trials — stolen kit、partial restore、untrusted relay/keeper、signed malicious editor。</p>
+<p>全fuzz targetは入力上限、oracle、seed corpus、artifact retention、timeout/crash分類を記録する。release candidateでは各外部入力targetに累計24 CPU-hour以上という<strong>初期campaign最低条件案</strong>を設定する。実行時間やcoverageの数値だけを十分性の証明にしない。未解決crash/hang、sanitizer error、unbounded amplificationはrelease blocker。</p>
+<h2>4. レビューの受入れ</h2>
+<p>独立reviewerは設計/実装作者以外。第三者が利用可能な予算・契約は未手配であり実施済みとしない。scopeはcommit、spec digest、suite/feature flags、平台、攻撃者modelで固定。findingごとに再現、重大度、修正差分、negative regression、独立retestを残す。修正により影響する既存gateは再実行する。</p>
+<p>公表した保証を破るCritical/Highおよび未分類security findingは、対応するprofileのreleaseを停止。Medium/Lowもowner、期限、残余リスク、公開範囲を記録する。単に分類を下げたりscopeから消すことで合格にしない。NIST SSDFのfinal文書を工程の参考にするが認証取得と称さない。<a href="#S20">[S20]</a></p>
+<h2>5. security disclosure</h2>
+<p>公開SECURITY.mdにsupported releases、private報告先、受領確認目標、緊急回避策、advisory、CVE取得を含む手順を置く。提案目標は3営業日以内の受領確認、7日以内の一次評価。運営体制が目標を維持できることをG10で確認し、未整備の窓口を公開済みとしない。PoCの秘密や利用者データをpublic issueへ誘導しない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-SEC-001"></a></p>
+<h3>PAR-SEC-001 — 脅威の網羅</h3>
+<p><strong>MUST:</strong> 各trust boundaryに攻撃、制御、残余リスク、検証IDを対応付ける。
+受け入れ: <code>AT-SEC-001</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-SEC-002"></a></p>
+<h3>PAR-SEC-002 — 悪意あるeditor</h3>
+<p><strong>MUST:</strong> 署名が有効でもactor/deps/seq/schemaと資源境界を検証する。
+受け入れ: <code>AT-SEC-002</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-SEC-003"></a></p>
+<h3>PAR-SEC-003 — fuzz evidence</h3>
+<p><strong>MUST:</strong> 公開入力ごとのfuzzとモデル試験をsource/corpus/toolchainへbindingする。
+受け入れ: <code>AT-SEC-003</code> / 最初の必須gate: <code>G7</code>。</p>
+<p><a id="PAR-SEC-004"></a></p>
+<h3>PAR-SEC-004 — 独立review</h3>
+<p><strong>MUST:</strong> 公開profileのcrypto/auth/recoveryは独立reviewと修正retestを必要とする。
+受け入れ: <code>AT-SEC-004</code> / 最初の必須gate: <code>G7</code>。</p>
+<p><a id="PAR-SEC-005"></a></p>
+<h3>PAR-SEC-005 — 未解決リスク</h3>
+<p><strong>MUST:</strong> Critical/High/未分類security findingがある対象profileをreleaseしない。
+受け入れ: <code>AT-SEC-005</code> / 最初の必須gate: <code>G11</code>。</p>
+<p><a id="PAR-SEC-006"></a></p>
+<h3>PAR-SEC-006 — disclosure</h3>
+<p><strong>MUST:</strong> 稼働するprivate報告窓口とsupported versionsを公開し運用演習する。
+受け入れ: <code>AT-SEC-006</code> / 最初の必須gate: <code>G10</code>。</p>
+</section><section id="doc-23" class="chapter"><p class="source">spec/21-performance.ja.md</p><h1>21 — 性能・規模・長期運用の検証計画</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 高品質を測る条件</h2>
+<p>以下は<strong>設計目標と試験workload</strong>であり実測値でも性能保証でもない。hard protocol bounds、運用上のsoft budget、製品で公表するqualified envelopeを分離する。数値の達成状況はOS/build/CPU/RAM/storage/network/thermal/loadを持つrecordで初めて表現できる。</p>
+<table>
+<thead>
+<tr>
+  <th>lane</th>
+  <th>workload候補</th>
+  <th>主なtarget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>L-small</td>
+  <td>2 editors、1,000 docs各4 KiB、1 change ≤4 KiB、native SSD、RTT≤20ms</td>
+  <td>local commit p95≤25ms/p99≤100ms、active peer可視化p95≤500ms</td>
+</tr>
+<tr>
+  <td>L-team</td>
+  <td>64 memberships、8 concurrent writers、10,000 docs、20 changes/sec、RTT100ms/loss1%</td>
+  <td>steady-state可視化p95≤2s、30分負荷後にqueueが収束</td>
+</tr>
+<tr>
+  <td>L-scale</td>
+  <td>256 memberships、16 concurrent writers、100,000 metadata records</td>
+  <td>中断/再開、bounded RAM、fairness、full catalogの時間/bytesを報告</td>
+</tr>
+<tr>
+  <td>L-history</td>
+  <td>1 doc 100,000 changes、30/90日offline相当のsynthetic履歴</td>
+  <td>native peak working set512MiBを初期予算、超過はpause/split案、データ破壊禁止</td>
+</tr>
+<tr>
+  <td>L-mobile</td>
+  <td>実機 foreground/resume、10,000 local docs、Wi-Fi/cellular切替</td>
+  <td>warm openでlocal一覧p95≤250ms、typing feedbackp95≤50ms</td>
+</tr>
+<tr>
+  <td>L-recovery</td>
+  <td>1 GiB logical dataの多数Blob、20 MiB/s測定経路、8GiB RAM</td>
+  <td>end-to-end取得・検証・再構築時間を分離、peak memoryと増幅率を測定</td>
+</tr>
+</tbody>
+</table>
+<p>各laneのhardwareはG8開始時に固定する。今は特定端末で達成した値ではない。Blob単体上限256MiBとaggregate1GiBは矛盾しない。100,000件はmetadata索引の試験であり全本文を常駐させない。</p>
+<h2>2. 最も重要な守る順序</h2>
+<p>データの正しさ・認可・local durabilityを削って速度を出さない。負荷超過時は、contributionの新規受付減→repair減→blob延期→interactiveのbackpressureという順で反応する。controlと復旧用の最低予算を確保し、過負荷でもstatus query/cancel/export-planが飢餓しない。</p>
+<p>合格は単なる平均改善でなく、latency分布、resource slope、commit loss数、authorized operation-set完全性、recovery成功率を併記する。lock contention、CPU crypto、CRDT decode、SQLite sync、network waitを分解して測定する。</p>
+<h2>3. 長期・障害試験</h2>
+<p>RCのnative Keeper laneは7日連続soakを初期release条件にする。毎日network flap、peer churn、disk pressureを入れ、最終日にclean restoreを行う。期間は実行記録から測る。仮想時計7日を現実の7日soakとして数えない。モバイルは24時間のsleep/resume実機campaignを別に行う。</p>
+<p>2/8/64/256 participant profileで、partition、reorder、loss、bandwidth cap、clock skew、重複、slow peer、private-but-malicious peerを分離して試す。シミュレーションは構造的raceを探す証拠であり、実回線のNAT成功率の代用にしない。</p>
+<h2>4. SLOの扱い</h2>
+<p>decentralized peer population全体に一律99.99% uptimeを約束しない。community Keeper運用者は、自分のpeer reachability、直近のroot取得検査、resource予約、repair lagをSLIにできる。取得可能なauth/key/sourceと容量がある条件下でのみRTOを測る。RPO=0はlocal acknowledged commitに対する<strong>定義済み障害範囲</strong>に限る。元端末喪失前に複製されていないデータのRPOを0と呼ばない。</p>
+<h2>5. regression policy</h2>
+<p>baselineはsame workload/hardware class/configで比較する。RCはp95/peak memoryの10%以上の悪化を要レビューとし、自動失格とは別に原因を記録。安全性修正の必要な費用を隠すためbaselineを勝手に更新しない。単発の外れ値と持続的な悪化はraw seriesで判断する。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-PERF-001"></a></p>
+<h3>PAR-PERF-001 — 性能の前提</h3>
+<p><strong>MUST:</strong> benchmarkにhardware/OS/profile/workload/network/母数と分布を記録し、目標を実測と表現しない。
+受け入れ: <code>AT-PERF-001</code> / 最初の必須gate: <code>G8</code>。</p>
+<p><a id="PAR-PERF-002"></a></p>
+<h3>PAR-PERF-002 — 正しさ優先</h3>
+<p><strong>MUST:</strong> 負荷試験中もACK済みoperationの完全性とauth invariantsを検査する。
+受け入れ: <code>AT-PERF-002</code> / 最初の必須gate: <code>G8</code>。</p>
+<p><a id="PAR-PERF-003"></a></p>
+<h3>PAR-PERF-003 — 規模の表示</h3>
+<p><strong>MUST:</strong> 対応規模を検証profileごとに公開し、membershipとconcurrent connectionsを分ける。
+受け入れ: <code>AT-PERF-003</code> / 最初の必須gate: <code>G11</code>。</p>
+<p><a id="PAR-PERF-004"></a></p>
+<h3>PAR-PERF-004 — 長期soak</h3>
+<p><strong>MUST:</strong> 指定soakの実時間、障害注入、終端のfresh restoreを記録する。
+受け入れ: <code>AT-PERF-004</code> / 最初の必須gate: <code>G8</code>。</p>
+<p><a id="PAR-PERF-005"></a></p>
+<h3>PAR-PERF-005 — 条件付き可用性</h3>
+<p><strong>MUST:</strong> uptime/RTO/RPOに対象データ・障害・source/key availabilityの条件を明記する。
+受け入れ: <code>AT-PERF-005</code> / 最初の必須gate: <code>G11</code>。</p>
+</section><section id="doc-24" class="chapter"><p class="source">spec/22-compatibility-migration.ja.md</p><h1>22 — 互換性・更新・schema/storage移行</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 版は一つではない</h2>
+<p>spec bundle版00.02.00、wire draft、暗号suite、schema ID、storage schema version、SDK semantic version、UI VM version、release artifact versionを分ける。数字が似ていても互換を推測しない。G0以前はexact profile digest一致のみ。正式wire1.xは双方が理解する必須機能集合が満たされる場合のみ接続する。</p>
+<table>
+<thead>
+<tr>
+  <th>変更</th>
+  <th>互換処理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SDKの便利関数追加</td>
+  <td>wire/storage不変ならminor candidate</td>
+</tr>
+<tr>
+  <td>新optional message</td>
+  <td>feature capability negotiationで未対応は使わない</td>
+</tr>
+<tr>
+  <td>signature/AAD/KDF変更</td>
+  <td>新suiteまたはwire major、silent fallback禁止</td>
+</tr>
+<tr>
+  <td>schema意味変更</td>
+  <td>新schema ID、明示migration、必要なら新epoch</td>
+</tr>
+<tr>
+  <td>DB index/cache追加</td>
+  <td>sourceが再構築可能ならlocal migration</td>
+</tr>
+<tr>
+  <td>owner/membership semantics変更</td>
+  <td>control featureを必須化、旧peer read-only/upgrade-required</td>
+</tr>
+</tbody>
+</table>
+<p>未知のsigned fieldsを消して再encodeしてはならない。unknown codecはopaque保管を許す場合も「適用済み」としない。信頼するcontrol/schemaが要求するcodecと一致するまでeditorを有効化しない。</p>
+<h2>2. database migration手順</h2>
+<ol>
+<li>writer lease/fence獲得、known store version検査。2. space/keys/blocksのintegrity inventoryを作成。3. 必要空き容量と時間の観測・停止可否を提示。4. 暗号化backupとmanifestを別領域へ作成・readback。5. shadow DBへmigrationしoperation ledger/outboxも移す。6. hash・logical invariants・schemaを検査。7. 新generationへatomic switch。8. 旧storeは明示retentionまで保持。</li>
+</ol>
+<p>途中crashは旧store継続または同じjournalから新store構築を再開する。migration開始前のsource digestと違うDBへjournalを流用しない。downgradeして未知storeを強制openする動作は禁止。新形式でwriteした後は、raw binary rollbackではなく対応export/importまたはforward fixを用いる。</p>
+<h2>3. application schema migration</h2>
+<p>変換はsource schema/frontier/epoch、target schema、converter digest、policyを固定する。pureでdeterministicな変換はsandboxされたアプリ同梱codeで行う。networkから変換codeを取得・実行しない。結果rootを承認して新epoch seedへ結ぶ。</p>
+<p>複数peerが同じJSONから独立にCRDT seedを作り別のobject identityを持つことを避ける。authorityが選んだ一つのseed bytesを共有する。失効/移行中の未取り込みdraftは保存し、旧schemaで勝手に新epochへ混ぜない。conflict値・tombstone・原文参照を落とすmigrationはlossyとしてpreviewを要求する。</p>
+<h2>4. interoperability matrix</h2>
+<p>native各OS、Swift/Kotlin、browser、N/N-1SDK、supported suite、wire feature、store versionを組合せて、capabilityに応じた正/負vectorを実行する。異なるbindingが同じRust coreを使った結果だけを独立protocol実装の一致と呼ばない。G0の独立codec比較、G10の外部conformance runnerでその差を補う。</p>
+<p>1.0以降の互換方針案は、wire major内で少なくとも直前minorとの対話を維持し、security理由の拒否には明示advisoryを付ける。古いreleaseを永久に安全なまま維持できるという約束はしない。正確なsupport期間はOSS運営体制にbindingする。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-MIG-001"></a></p>
+<h3>PAR-MIG-001 — version分離</h3>
+<p><strong>MUST:</strong> wire/suite/schema/store/SDK/UIのversionを独立識別し互換matrixで判定する。
+受け入れ: <code>AT-MIG-001</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-MIG-002"></a></p>
+<h3>PAR-MIG-002 — migration原子性</h3>
+<p><strong>MUST:</strong> migrationは元storeを保全しshadow検証後にatomic switchする。
+受け入れ: <code>AT-MIG-002</code> / 最初の必須gate: <code>G9</code>。</p>
+<p><a id="PAR-MIG-003"></a></p>
+<h3>PAR-MIG-003 — outbox保持</h3>
+<p><strong>MUST:</strong> schema/store migration後もoperation ledger/outboxと未反映draftを保持する。
+受け入れ: <code>AT-MIG-003</code> / 最初の必須gate: <code>G9</code>。</p>
+<p><a id="PAR-MIG-004"></a></p>
+<h3>PAR-MIG-004 — unknown保護</h3>
+<p><strong>MUST:</strong> 未知の必須意味を持つsigned dataを適用・再署名せずupgrade-requiredとして扱う。
+受け入れ: <code>AT-MIG-004</code> / 最初の必須gate: <code>G4</code>。</p>
+<p><a id="PAR-MIG-005"></a></p>
+<h3>PAR-MIG-005 — seed共有</h3>
+<p><strong>MUST:</strong> schema/epoch migrationに一つの承認済みseed bytesとsource frontierを固定する。
+受け入れ: <code>AT-MIG-005</code> / 最初の必須gate: <code>G9</code>。</p>
+<p><a id="PAR-MIG-006"></a></p>
+<h3>PAR-MIG-006 — 互換証拠</h3>
+<p><strong>MUST:</strong> binding互換と独立codec/protocol互換を分けて試験結果を公開する。
+受け入れ: <code>AT-MIG-006</code> / 最初の必須gate: <code>G10</code>。</p>
+</section><section id="doc-25" class="chapter"><p class="source">spec/23-oss-release.ja.md</p><h1>23 — 完全OSS・供給網・公開と維持</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 公開範囲と独立性</h2>
+<p>core、SDK、protocol、schema、tests、Keeper/Relay、診断/復旧CLI、UI kit、reference appを同じ公開原則で扱う。E2EE/backup/export/self-hostingの核心を非公開版へ隔離しない。production runtimeにproject-owned account/API key/license serverを要求しない。ブランド・ドメイン・署名鍵とprotocol互換は分け、forkが異なる名前で動くことを妨げない。</p>
+<p>Apache-2.0を本プロジェクトの推奨ライセンスとする。<a href="#S23">[S23]</a> 本仕様bundleには同ライセンス本文を収録する。引用/第三者仕様や依存ライブラリの権利を再許諾したと主張しない。製品名は仮称で商標調査未実施。貢献受付はDCO等の権限確認を候補とし、不要な全面著作権譲渡を要求しない。</p>
+<h2>2. build/release</h2>
+<p>依存lock・toolchain・feature flagsを固定し、clean environmentからsource→binary→packageの出所を記録する。署名は誰がどのartifactに署名したかを示し、ソフトウェアの正しさを証明するものではない。SBOM、license inventory、NOTICE、source archive、checksums、署名、provenance、対応platform matrixをreleaseごとに公開する。</p>
+<p>SLSA v1.2のbuild provenance要件を参考に、最初は実施したcontrolsを個別に開示する。未評価のSLSA levelを取得済みと表示しない。<a href="#S18">[S18]</a> 依存脆弱性scanはlockとDB更新時刻を保存し、severityだけでなく実際に該当するfeature/pathを評価する。</p>
+<p>自動update機構はcoreの必須条件でなくhost責務。提供する場合はroot/update権限分離、threshold、expiry、rollback/freeze対策、root rotation、offline検証を仕様化する。TUFはこれらの脅威への参照設計になる。<a href="#S19">[S19]</a> 既定offline runtimeにupdate checkのネットワーク通信を埋め込まない。</p>
+<h2>3. release channels</h2>
+<p><code>experimental</code>は未freeze wireと互換破壊を許すがexportを残す。<code>alpha</code>は最初の機能統合、<code>beta</code>は機能scope固定とmigration rehearsal、<code>rc</code>は同一source/toolchain上の全gate閉包、<code>stable</code>はqualified profileに限定する。すべての公開packageにmaturity badgeとknown limitsを入れる。</p>
+<p>1.0で必須にするのはnative core＋Keeper/Relay、Swift/Kotlinのinteractive、DX/docs/復旧/セキュリティ。Browserは独立profileの合格範囲だけをclaimする。Browser全機能未達をnative合格に紛れ込ませない。正式scopeを小さく見せるため実装済みの危険なpathを隠すこともしない。</p>
+<h2>4. governanceと保守</h2>
+<p>RFC提案→public議論→maintainer決定→ADR→compatibility test→release noteの経路を設ける。crypto/wire/authの変更には領域reviewerを必要とし、一人の作者だけでmerge/releaseを完結させない。最初に複数maintainerを確保できない場合はその事実を公開し、stable gateは未充足とする。</p>
+<p>support policyの候補は現行stableと直前minorを最低12か月の範囲で保守すること。ただし実際の開始日・対象版・responsible maintainer・emergency手順をG10で固定して初めて対外約束する。project shutdown時もsource/spec/export formatとself-hosting手順が残るよう、複数mirrorとoffline docsを用意する。</p>
+<h2>5. 初心者の受け入れ</h2>
+<p>release artifactだけを入手した新規環境で、cloud登録なしの2台編集、Keeper追加、診断、backup、fresh restore、uninstallを実施する。READMEのcommandはCIで実行し、secretや巨大build cacheをZIPに含めない。英文protocol/spec要約と日本語導入手順を公開前に整備する。本版の詳細本文は日本語草案であり英文正本完成とは扱わない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-OSS-001"></a></p>
+<h3>PAR-OSS-001 — 全機能OSS</h3>
+<p><strong>MUST:</strong> 利用に必須なSDK/keeper/relay/auth/export/診断のsourceとprotocolを公開対象にする。
+受け入れ: <code>AT-OSS-001</code> / 最初の必須gate: <code>G11</code>。</p>
+<p><a id="PAR-OSS-002"></a></p>
+<h3>PAR-OSS-002 — artifact provenance</h3>
+<p><strong>MUST:</strong> releaseをsource/toolchain/lock/feature flagsと署名・SBOMへ結び付ける。
+受け入れ: <code>AT-OSS-002</code> / 最初の必須gate: <code>G10</code>。</p>
+<p><a id="PAR-OSS-003"></a></p>
+<h3>PAR-OSS-003 — update trust</h3>
+<p><strong>MUST:</strong> 更新を提供する場合はroot/rollback/freeze/expiry検証を持ち、core起動と分離する。
+受け入れ: <code>AT-OSS-003</code> / 最初の必須gate: <code>G10</code>。</p>
+<p><a id="PAR-OSS-004"></a></p>
+<h3>PAR-OSS-004 — 公開claim</h3>
+<p><strong>MUST:</strong> channel/qualified platform/未検証feature/known limitationsをartifactへ同梱する。
+受け入れ: <code>AT-OSS-004</code> / 最初の必須gate: <code>G11</code>。</p>
+<p><a id="PAR-OSS-005"></a></p>
+<h3>PAR-OSS-005 — 保守体制</h3>
+<p><strong>MUST:</strong> security/crypto reviewとrelease承認に独立担当と公開support policyを持つ。
+受け入れ: <code>AT-OSS-005</code> / 最初の必須gate: <code>G10</code>。</p>
+<p><a id="PAR-OSS-006"></a></p>
+<h3>PAR-OSS-006 — 導入再現</h3>
+<p><strong>MUST:</strong> 新規環境で文書の導入/backup/restore/uninstall手順を実行する。
+受け入れ: <code>AT-OSS-006</code> / 最初の必須gate: <code>G10</code>。</p>
+</section><section id="doc-26" class="chapter"><p class="source">spec/24-production-qualification.ja.md</p><h1>24 — 適合性・証跡・Production Ready判定</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. 二つの品質を混ぜない</h2>
+<p>仕様の構造が整っていることと、製品が仕様を満たすことは別である。本bundleで実行するlint、JSON参照検査、SQL syntax、TS declaration typecheck、primitive KATは<strong>仕様支援物の検査</strong>。runtime実装、実ネットワーク、CDDL parser、組合せ暗号、実機UIの適合判定ではない。</p>
+<p><code>catalog/requirements.json</code>にMUST要件、<code>catalog/acceptance-tests.json</code>に正常/異常の受け入れ契約を置く。IDに対する実装pathがnullの間は未実装。文章上のpositive scenarioを実行結果と読み替えない。独立test IDが多いことより、脅威・状態遷移・失敗境界の網羅を重視する。</p>
+<h2>2. traceability chain</h2>
+<p><code>requirement → spec clause → test contract → test implementation → execution → release claim</code>。</p>
+<p>execution manifestはsource tree digest、spec+registry digest、dependency lock、toolchain executable/version、test corpus、platform hardware/OS、input seed、command、環境前提、開始/終了UTCとmonotonic duration、raw log digest、exit code、observation digest、resultを保持する。環境変数/secretは値を記録せず影響する設定のredacted digestを残す。</p>
+<p>試験失敗と環境不足は別状態。<code>PASS / FAIL / BLOCKED / NOT_RUN / NOT_APPLICABLE</code>を使い、SKIPや空出力をPASSへ昇格しない。NOT_APPLICABLEは承認済みprofileが対象を除外した理由とreviewerが必要。FAILは後続のblockedで上書きしない。</p>
+<h2>3. release gate graph</h2>
+<p>G0契約/互換性、G1 local integrity、G2 two-peer、G3 opaque Keeperからのfresh recovery、G4 hostile network、G5 real Internet、G6 multihost/UI、G7 security closure、G8 resource/soak、G9 migration、G10 OSS RC、G11 qualified release。</p>
+<p>G4/G7の準備は初日から行い、gate番号を安全性の後回しと解釈しない。後段の合格は前段の失敗を消さない。platform依存の結果は分離できるが、nativeだけ合格ならnative profileだけがrelease候補である。詳しい入口/出口/証拠は <code>plan/GATES.ja.md</code>。</p>
+<h2>4. M1と本番の違い</h2>
+<p>M1はG0–G3の条件を3台active構成とfresh authorized restoreで検証する最初の価値。単一processのsimulatorや同じディレクトリを共有する3processだけを実3台試験の証拠にしない。deterministic CIの後にhost隔離または実機で同じoracleを用いる。</p>
+<p>M1達成は実用価値の核であるが、internet NAT、mobile resume、長期soak、独立review、upgrade/rollbackを通っていない段階で本番readyと表示しない。</p>
+<h2>5. 改変と再実行</h2>
+<p>source/spec/fixtureのdigest変更で影響gateをstaleにする。影響不明は保守的に未確認。migration/UIだけという変更でもport境界やclaimに触れれば関係gateを再試験。critical fixが以前のnegative controlを通過しない場合はreviewで原因を確定する。</p>
+<p>test runnerにはdeliberate failing fixture、invalid UTF-8、missing dependency、wrong artifact hash、empty selection、malformed evidenceを入れて、検証器自身が失敗を見つけることを確認する。same test pass textを再利用しただけの結果を採用しない。</p>
+<h2>6. claim単位の完成</h2>
+<p>最終artifactには<code>qualified_profiles</code>, <code>guarantees</code>, <code>assumptions</code>, <code>exclusions</code>, <code>gate_evidence</code>, <code>known_risks</code>, <code>support_window</code>を含む。保証ごとに最新evidenceへの参照が必要。preserved old evidenceはhistoryであり現在版のPASSではない。release engineeringの署名がscientific/cryptographic correctnessを代行しない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-QUAL-001"></a></p>
+<h3>PAR-QUAL-001 — 追跡可能性</h3>
+<p><strong>MUST:</strong> 全MUST要件に試験契約を対応させ、実装/実行/claimを別状態で管理する。
+受け入れ: <code>AT-QUAL-001</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-QUAL-002"></a></p>
+<h3>PAR-QUAL-002 — 証跡binding</h3>
+<p><strong>MUST:</strong> 実行結果を正確なsource/spec/toolchain/fixture/platformへbindingする。
+受け入れ: <code>AT-QUAL-002</code> / 最初の必須gate: <code>G11</code>。</p>
+<p><a id="PAR-QUAL-003"></a></p>
+<h3>PAR-QUAL-003 — 結果の意味</h3>
+<p><strong>MUST:</strong> FAIL/BLOCKED/NOT_RUN/NOT_APPLICABLEをPASSと区別し適用範囲を明記する。
+受け入れ: <code>AT-QUAL-003</code> / 最初の必須gate: <code>G10</code>。</p>
+<p><a id="PAR-QUAL-004"></a></p>
+<h3>PAR-QUAL-004 — 初成功のoracle</h3>
+<p><strong>MUST:</strong> M1は暗号/認可/operation集合/復元closure/外部無依存を検証する。
+受け入れ: <code>AT-QUAL-004</code> / 最初の必須gate: <code>G3</code>。</p>
+<p><a id="PAR-QUAL-005"></a></p>
+<h3>PAR-QUAL-005 — 検証器の負例</h3>
+<p><strong>MUST:</strong> validator/test runnerへ意図的な失敗入力を与え、偽PASS防止を確認する。
+受け入れ: <code>AT-QUAL-005</code> / 最初の必須gate: <code>G0</code>。</p>
+<p><a id="PAR-QUAL-006"></a></p>
+<h3>PAR-QUAL-006 — claim gate</h3>
+<p><strong>MUST:</strong> 全公表保証の累積gateが満たされたprofileだけをproduction-qualifiedとする。
+受け入れ: <code>AT-QUAL-006</code> / 最初の必須gate: <code>G11</code>。</p>
+</section><section id="doc-27" class="chapter"><p class="source">spec/25-extension-strategy.ja.md</p><h1>25 — 拡張余地と領域内の高い到達目標</h1>
+<p>版 <strong>00.02.00</strong> / 2026-09-05 / <strong>規範候補・未凍結</strong></p>
+<p>正本の位置付けと優先規則は <a href="#doc-1">仕様案内</a>。本書の規範要件は <code>catalog/requirements.json</code>、受け入れ契約は <code>catalog/acceptance-tests.json</code> に対応する。</p>
+<h2>1. coreを小さくすることと、志を小さくすることは別</h2>
+<p>最初のprofileの上限は検証対象であり、将来の絶対上限ではない。目標は、参加者主権、優れたoffline体験、安全な協調、復旧しやすさ、簡単な組込みを損なわずに規模と用途を広げること。機能の数だけで品質を測らず、別実装の相互運用と作者不在での継続可能性も品質に含める。</p>
+<table>
+<thead>
+<tr>
+  <th>拡張候補</th>
+  <th>再利用できるcore</th>
+  <th>解かなければならない契約</th>
+  <th>入口の実験</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Large Space / hierarchical catalog</td>
+  <td>scoped IDs、inventory、quota</td>
+  <td>subspace秘匿、shard選択、offline権限、query coverage</td>
+  <td>1,000/10,000 membershipのmetadata/鍵更新費用</td>
+</tr>
+<tr>
+  <td>large-media / erasure coding</td>
+  <td>sealed blocks、recovery roots</td>
+  <td>fragment不可用性、再構成oracle、修復帯域、GC</td>
+  <td>大fileの中断resumeと複数故障復元</td>
+</tr>
+<tr>
+  <td>public signed feeds</td>
+  <td>signatures、immutable event、cache</td>
+  <td>公開metadata、撤回、spam budget、配信費用</td>
+  <td>read-only feedの署名/削除表示</td>
+</tr>
+<tr>
+  <td>threshold authority</td>
+  <td>control chain、co-signatures</td>
+  <td>署名者membership、key recovery、分断時停止、fork</td>
+  <td>固定n-of-mのcontrol承認モデル。BFT consensusとは区別</td>
+</tr>
+<tr>
+  <td>MLS security profile</td>
+  <td>transport、Space UI、epoch adapter</td>
+  <td>FS/PCSとarchive/recoveryの相互作用、state失効、multi-device</td>
+  <td>RFC9420準拠実装の文書/復旧適合<a href="#S08">[S08]</a></td>
+</tr>
+<tr>
+  <td>deterministic tasks</td>
+  <td>registered RPC、resource budgets</td>
+  <td>input secrecy、出力検証、retry、side effects、provider trust</td>
+  <td>pure bounded jobの重複実行比較</td>
+</tr>
+<tr>
+  <td>stronger transactions</td>
+  <td>scoped auth、typed errors</td>
+  <td>誰が順序を決めるか、quorum、分断時availability</td>
+  <td>指定coordinatorの予約APIから測定</td>
+</tr>
+<tr>
+  <td>fully local discovery</td>
+  <td>discovery port、invite</td>
+  <td>OS permissions、到達範囲、物理proximityと本人性の差</td>
+  <td>QR/LANと近接transportを独立比較</td>
+</tr>
+</tbody>
+</table>
+<h2>2. extensionの互換境界</h2>
+<p>extensionはversioned manifest、capability ID、privacy/transport dependency、resource class、threat model、acceptance suiteを持つ。必須extensionを理解しないpeerは明示拒否。将来拡張のため、今のwireへ「任意JSONを実行する」穴を入れない。無検証codeを取得するplugin managerは設けない。</p>
+<h2>3. 実験を採用する基準</h2>
+<p>実験には仮説、比較対象、固定workload、測定、失敗条件、coreへの侵襲、migration、ユーザー理解を含む。採用するかをgateで判断し、基盤全体を二つのtransport/CRDT stackへ同時に引き裂かない。高速な接続であっても既定public relay依存を消せない構成はParticipants Onlyの代替としない。</p>
+<p>実験未達を理由に取り返しのつかない既存データを放棄することはない。利用者が選ぶprofileと明示migrationで切り替える。各拡張にもProduction Ready証拠を必要とし、core1.0合格を自動継承しない。</p>
+<h2>規範要件と受け入れ契約</h2>
+<p>以下のMUSTは本候補仕様内の必須契約。採用候補であり、実装済み・検証済みという意味ではない。詳細な手順・前提は本書本文と対応する試験契約を併読する。</p>
+<p><a id="PAR-EXT-001"></a></p>
+<h3>PAR-EXT-001 — 拡張の分離</h3>
+<p><strong>MUST:</strong> extensionにcapability/threat/resource/migration/test契約を持たせcore保証を黙って変更しない。
+受け入れ: <code>AT-EXT-001</code> / 最初の必須gate: <code>G10</code>。</p>
+<p><a id="PAR-EXT-002"></a></p>
+<h3>PAR-EXT-002 — 上限の扱い</h3>
+<p><strong>MUST:</strong> 現profileの検証上限を将来の絶対上限とせず、拡大時は独立workloadで再認定する。
+受け入れ: <code>AT-EXT-002</code> / 最初の必須gate: <code>G8</code>。</p>
+<p><a id="PAR-EXT-003"></a></p>
+<h3>PAR-EXT-003 — 暗号拡張</h3>
+<p><strong>MUST:</strong> 強化暗号profileは復旧/保存との保証衝突と互換migrationを明示する。
+受け入れ: <code>AT-EXT-003</code> / 最初の必須gate: <code>G7</code>。</p>
+<p><a id="PAR-EXT-004"></a></p>
+<h3>PAR-EXT-004 — 実験の評価</h3>
+<p><strong>MUST:</strong> 代替技術の採否を依存性/性能/安全性/実装費用の証拠付きADRにする。
+受け入れ: <code>AT-EXT-004</code> / 最初の必須gate: <code>G0</code>。</p>
+</section><section id="doc-28" class="chapter"><p class="source">protocol/OBJECTS.ja.md</p><h1>Wire補足 — object生成順・cross-field制約</h1>
+<p>本書は規範候補。CDDLの構造だけでは表現しない制約を補う。exact draft profileで相互検証してからfreezeする。CDDL parserによる検証は本bundle作成時には実施していない。</p>
+<h2>初期化の非循環性</h2>
+<p>初期membership entriesはAppId/DeviceId/certificate digest/roleだけから作り、まだSpaceIdを含めない。member page/rootを作る。genesisはそのroot、初期authority、乱数salt、policy digestを含む。SpaceId=H(space-id,[genesis body bytes])を計算した後にepoch1のseed/key packageを作り、sequence1のINIT controlを発行する。sequence0はgenesisを指す概念位置であり通常controlではない。</p>
+<p>通常ControlEntryのprevは直前entryのID。最初だけSpaceId。control_id=H(control-id,[canonical control-entry bytes])。rotationの署名自身をbodyへ含めない。新authority proofは同じbodyにauthority-possession domainを使う。</p>
+<h2>署名objectとハッシュの対応</h2>
+<table>
+<thead>
+<tr>
+  <th>object</th>
+  <th>署名domain/parts</th>
+  <th>ID domain/parts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>DeviceCertificate</td>
+  <td>certificate-sign / [body_bytes]</td>
+  <td>certificate-id / [signed-object bytes]</td>
+</tr>
+<tr>
+  <td>Genesis</td>
+  <td>genesis-sign / [body_bytes]</td>
+  <td>space-id / [body_bytes]</td>
+</tr>
+<tr>
+  <td>ControlEntry</td>
+  <td>control-sign / [body_bytes]</td>
+  <td>control-id / [control-entry bytes]</td>
+</tr>
+<tr>
+  <td>JoinRequest</td>
+  <td>join-request / [body_bytes]</td>
+  <td>request nonceで一意識別</td>
+</tr>
+<tr>
+  <td>Admission record</td>
+  <td>admission-sign / [body_bytes]</td>
+  <td>handshakeでraw bytesへ束縛</td>
+</tr>
+<tr>
+  <td>KeyPackage</td>
+  <td>key-package-sign / [body_bytes]</td>
+  <td>key-package-id / [signed-object bytes]</td>
+</tr>
+<tr>
+  <td>Retention manifest</td>
+  <td>retention-sign / [body_bytes]</td>
+  <td>retention-id / [signed-object bytes]</td>
+</tr>
+<tr>
+  <td>Receipt</td>
+  <td>receipt-sign / [body_bytes]</td>
+  <td>receipt-id / [signed-object bytes]</td>
+</tr>
+<tr>
+  <td>plaintext RecoveryDescriptor</td>
+  <td>recovery-sign / [body_bytes]</td>
+  <td>recovery-id / [signed-object bytes]、外側はsealed block</td>
+</tr>
+<tr>
+  <td>Export manifest</td>
+  <td>export-manifest-sign / [body_bytes]</td>
+  <td>export container外部のSHA-256も付ける</td>
+</tr>
+</tbody>
+</table>
+<p>SignedObjectのsigner public keyは、単に入っているだけでは信用しない。certificateではaccount PK、control/packageではそのsequenceのauthority、retentionでは許可済みrequester、receiptでは認可済みKeeperと一致させる。中間者がbodyとsignerを同時に差し替える攻撃をpin/membershipで拒否する。</p>
+<p>member page ID = H(member-page-id,[C(page)])、membership root = H(membership-root,[C(ordered page IDs)])。ページはDeviceId byte順で分割し、ページ一覧は<strong>その分割順</strong>（ID hash順ではない）でroot化する。ここでsortedとはDeviceId順のページ順の意味でありhash値の並べ替えではない。重複DeviceIdを拒否する。inventoryはobject ID byte順で同じ規則を使い、H(inventory-page-id,[C(page)])、H(inventory-root,[C(root)])。key packagesはrecipient DeviceId順に並べてH(package-root,[C(package IDs)])。</p>
+<h2>cross-field必須規則</h2>
+<ul>
+<li>frame SpaceIdと内側の全SpaceId/AppIdが一致する。HELLO/AUTHはnull、認証前ERRORのみnull可。Space認可済みERRORは当該Spaceを使う。</li>
+<li>outer message全体のframe上限が個別array上限より優先する。CDDLの最大件数を全部一度に入れられるとは限らない。制御/manifestの連続pageで転送する。</li>
+<li>roleはreader/editor/opaqueKeeperのいずれか一つ。authority権限は別系列。resource grantは閲覧鍵を与えない。</li>
+<li>Control INITはseq1/epoch1/prev=SpaceId。permission-onlyはseq+1/同epoch/同content roots。content-transition/checkpointはseq+1/epoch+1/新package-setとseed。authority-rotationはseq+1/同epoch/next keyと二署名必須。他のactionにnew-key signatureを付けて意味を混在させない。</li>
+<li>admission ticketは初回control取得の限定的証拠。本人のsession署名とauthority chainを確認し、current membershipを上書きする許可として使わない。失効を知るpeerは拒否する。最大bootstrap proofの超過はexplicit手動/既知peer経路へ戻し、auth検証を省略しない。</li>
+<li>AUTH transcript = D(session-auth,[C(initiator HELLO),C(responder HELLO),selected wire ID,selected suite,initiator transportID,responder transportID,signer role])。roleはASCII <code>initiator</code>/<code>responder</code>。SessionId=H(session-id,[両HELLO bytes,selected wire ID,selected suite,両transportID])で共通化。device署名者はHELLO certificateと一致。</li>
+<li>SpaceOpen proofはD(space-grant,[SessionId,SpaceId,requestID,admission digest,known head,requested role,challenge])。admission digestはSHA-256(raw signed admission bytes)。SpaceAcceptは同domainで[SessionId,SpaceId,requestID,accepted head,sequence,epoch,grantee DeviceId,role,challenge]をresponder署名。grant digestは同partsへのH(space-grant,parts)。sessionを跨いで再利用不可。</li>
+<li>文書changeはkind=document、codec1=選定したAutomerge change bytes。depsは内側CRDT change hashesと一致、prevは同actor直前のenvelope ID。最初はseq1/prev=null。同一actor内の分岐は通常の競合でなくequivocation。eventはcodec2で扱い、codec1へ混在させない。</li>
+<li>未登録のkind/codec組合せはopaque保管可否をprofileで決め、applyは拒否。Durable eventのcanonical payload/同期は <code>ACTIVITY.ja.md</code> の別定義を使用する。</li>
+<li>sealed block AAD=D(block-aad,[block_header_bytes])、block_id=H(block-id,[C(sealed-block)])。inventoryはcanonical sealed bytes全体の長さを数える。</li>
+<li>HPKE info=D(key-package-info,[app,space,epoch,package_set_id,recipient_cert_digest])、AAD=D(key-package-aad,[suite,recipient DeviceId,membership root])。package本文のcontextと復号後contextも一致させる。</li>
+<li>Retention bytes/countはunique objectsとlengthから再計算。control/genesis/key/package/schema/inventory各page/semantic descriptorを復元に必要な形で保持する。parent manifestを子inventoryへ循環参照させない。root/descriptor用補助filesはrootの別fieldからpinしreceipt前に永続化する。</li>
+<li>RecoveryDescriptor chainはacyclicで、最大pages/object refsはlocal profile budgetで制御する。同じrootが示すcollectionを途中で置換しない。</li>
+</ul>
+<h2>未freezeの意味</h2>
+<p>この具体案でも、library選択に依存するAutomerge changeの厳密受理、crypto strictness、全messageのcross-codec vectorsはG0実験で確定する。未決の操作を実装者が勝手に補完し互換版として出荷しない。<code>review/OPEN_DECISIONS.ja.md</code>にfreeze前の証拠条件を記録する。</p>
+<h2>Recovery Kit</h2>
+<p>kitにはformat、app、recipient DeviceId、kit ID、random salt32、nonce24、ciphertextを置く。CSPRNG recovery_secret32をHKDF-Extract(salt,secret)、HKDF-Expand(info=D(recovery-kit-aad,[app,recipient,kitID]),32)でkeyへ導出する。同じcontextにformatを足したAADでXChaCha20Poly1305暗号化。plaintextは復旧用device signing/HPKE secretとcertificate、pinned genesis/control、必要root locator。第三者shareやパスワードKDFは本profile外。secretをkit/データarchiveと別経路に保持し、使用後の新actor generationを必須にする。encrypted kitだけを持っていても復号できない。</p>
+</section><section id="doc-29" class="chapter"><p class="source">protocol/ACTIVITY.ja.md</p><h1>Event / Presence / RPC — データと再実行の契約</h1>
+<p>状態は規範候補。messageの形だけで終わらせず、暗号化・配信・副作用の境界を以下に固定する。</p>
+<h2>Durable Event</h2>
+<p>CHANGEはcodec1文書差分、codec2永続イベントを運ぶ。codec2ではchange-headerのkind=event、object=channel ID、actorはdevice+generation+channelに束縛、seqは1から単調増加。prevは同actor直前event envelope ID、depsは因果的に既知のevent envelope IDs、field12はSHA-256(canonical event payload bytes)。payloadは <code>{0:event_type ASCII&lt;=128,1:schema_digest,2:application_value_bytes&lt;=65536,3:blob_manifest_refs&lt;=128}</code>。アプリ値はschema固有codecに従い、remote codeではない。</p>
+<p>envelopeの署名/AEAD/domainは文書と共通、object-kindをAAD/KDFに含むため文書への置換は拒否。same operation IDの再送は同じevent envelopeを返す。因果依存が不明ならpending、同actor同seq異bytesはfork。wall clockは表示用optional application fieldであり認可/順序の根拠ではない。</p>
+<p>ネットワーク上のevent因果順と、ローカルsubscriberのdelivery順を区別する。subscriber cursorは(channel,subscriber,retention generation,local delivery sequence)。local delivery sequenceは同端末storeの単調u64で再起動を跨ぐ。新しく届いた古い時刻のeventにも新delivery sequenceを割り当てる。単一のlast event timestamp/IDをcursorとすると遅延eventを欠落するので禁止。handle成功後のcursor ACK前にcrashすれば再配信可能。GCでcursor前提を失ったらCURSOR_EXPIREDとsnapshot/replay選択を返し、黙って最新位置へ飛ばさない。</p>
+<h2>Ephemeral Presence</h2>
+<p>presenceは<code>activity-envelope</code> family=1。channel ID、session ID、sender、counter、epoch、control head、TTLを認証headerへ入れる。外側PRESENCEのTTLと署名対象TTLを一致させ、第三者が延長できないようにする。object key導出のkindにreserved key-context6を使用する。payloadはbounded application hint、counterはsession内単調、replayは捨てる。freshnessは受信monotonic clock＋TTLで決め、wall clockで相手onlineを断定しない。再接続sessionが変わったら古いsession presenceはexpired。</p>
+<h2>RPC</h2>
+<p>rpc request/resultはactivity-envelope family2/3。family2はsender=caller/target=provider、family3は逆。operation ID、handler、input digest、deadline duration、modeをheaderとpayloadで一致させる。key-context7を使用する。Space共有鍵なので同Space readerからも入力を秘密にする契約ではない。participant間の個別機密が必要な場合は別Spaceまたは将来のpairwise profileを要求する。targetが違う署名RPCを実行しない。</p>
+<p><code>input_digest = SHA-256(C([SpaceId, target_device, handler_id, handler_schema_digest, application_input_bytes, declared_mode]))</code>。期限は相手への到達時点からmonotonic durationで評価するため、ネットワーク中の厳密なabsolute deadlineを保証しない。</p>
+<table>
+<thead>
+<tr>
+  <th>handler mode</th>
+  <th>再送</th>
+  <th>ledgerと副作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>pure</td>
+  <td>同ID/inputで明示retry可</td>
+  <td>結果をcacheできる。外部副作用なしというアプリ責務</td>
+</tr>
+<tr>
+  <td>local-idempotent</td>
+  <td>同ID/inputのみretry可</td>
+  <td>PAR管理storeのtransaction内でdedupe/副作用/resultをまとめる</td>
+</tr>
+<tr>
+  <td>external-side-effect</td>
+  <td>自動retry不可</td>
+  <td>外部処理結果が不明ならoutcome-unknown。外部APIのexactly-onceを主張しない</td>
+</tr>
+</tbody>
+</table>
+<p>新しいcallbackが単に<code>idempotent=true</code>と申告しただけではlocal-idempotentにしない。PARの提供するeffect transaction interfaceに限定する。FFIがそのtransactionを提供できないbindingではmodeをunsupportedとして返す。mode不一致は拒否。raw database handleをhandlerへ渡さず、bound transaction portで副作用を記述する。</p>
+<p>取消しは開始前cancelled、実行中request acknowledged、完了済み/不明のtoo-lateを区別する。途中取消しで外部副作用を自動rollbackしたとは言わない。RPC ledgerの保存期限はhandler profileへ明示し、期限後の同IDは安全性確認なしに新実行しない。初期profileは実行記録をSpace内明示GC checkpointまで保持、容量不足なら新規実行を拒否する。</p>
+<h2>activity-envelope暗号形式</h2>
+<p>headerはCDDL activity-header。C(header)を<code>header_bytes</code>とする。keyはspec05のHKDFにkind6または7、object_id=channel、key_generationを与えて導出する。AEAD AAD=D(activity-aad,[header_bytes])、署名=S(device key,activity-sign,[header_bytes,nonce,ciphertext])。nonce24は新規CSPRNG。RPC retryは元の署名/暗号bytesを再送し、新sessionで必要なdelivery wrapperだけ再生成する。header SessionIdはpresenceで現在値、RPCではnullとし、永続operationをsession外へ移せる。session認証とgrantは転送ごとに別途必要。</p>
+<p>RPC bodyに含めるapplication resultも同じgroup-key境界。operation IDに結び、結果を返したdeviceが指定targetであることを検証する。presence/RPCのpayload合計がframe上限に収まるようRPC application bytesは512KiB未満、overheadを含むbody&lt;=1MiBを最優先する。</p>
+<p>activity-header field13はpresenceの署名対象TTLで1〜60秒、RPCではnull。認証sessionのsenderと署名deviceを一致させ、代理転送を許す将来profileでは別のorigin/replay契約を要する。</p>
+</section><section id="doc-30" class="chapter"><p class="source">plan/GATES.ja.md</p><h1>G0–G11 — 本番到達までの合格条件</h1>
+<p>本表は実行計画とrelease判断の契約。現在すべてNOT_RUN。後段の完了で前段の失敗を上書きしない。G4/G7の設計作業は初日から並行し、番号順にsecurityを後回しにしない。</p>
+<h2>G0 — Specification &amp; compatibility closure</h2>
+<p>前提: なし。仕様baselineを固定。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: 厳密CDDL/codec corpusを独立codecで照合；PAR全体crypto vectorsとstrict reject一致；実際のdependency/toolchain lock；Automerge actor/seq/deps検証probe。</p>
+<p>出口: par/coreまだ未実装でも契約に実装不可能な箇所が無い；全MUSTにacceptance contract、全critical未決事項に判定結果。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G1 — Local integrity</h2>
+<p>前提: G0。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: 暗号化storeとledger/outbox原子的commit；各commit境界fault injection；same operation IDの結果照会；restart/corruption/ENOSPCの区別。</p>
+<p>出口: ACK済み集合がprocess-crash後に残る；対象OS durability classの前提記録。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G2 — Two-peer convergence</h2>
+<p>前提: G1。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: 正規招待/権限/epoch/key/seed；offline concurrent edits→reconnect；conflict/invalid actor/late epoch試験；NATを介さない実process通信。</p>
+<p>出口: identical有効operation集合→identical状態；auth前のprivate一覧なし。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G3 — Three-peer durability / M1</h2>
+<p>前提: G2。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: opaque Cのbyte-complete receipt；A/B停止とB2 fresh restore；復旧secret別保管・事前admission；partial/false receipt/lease reboot/closure欠損。</p>
+<p>出口: operation集合/frontier/Blob/conflicts/tombstones一致；Cに平文keyなし、未認可Dは取得/復号できない；外部dependency遮断で同じ結果。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G4 — Hostile input &amp; network</h2>
+<p>前提: G2。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: drop/duplicate/reorder/replay；signed malformed/actor fork/control fork；aggregate quota/decode bounds；import/control/parser negative corpus。</p>
+<p>出口: 侵害入力で共有状態が不正に進まない；攻撃者以外のSpaceに進捗余地あり。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G5 — Real Internet</h2>
+<p>前提: G3, G4。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: IPv4/IPv6/CGNAT/UDP-blocked/relay；network change/reconnect；relay ingress capability quota；participant-only egress trace。</p>
+<p>出口: 失敗経路はtyped reason、隠れたfallbackなし；claimed transport組合せの実環境記録。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G6 — Platforms &amp; UI contracts</h2>
+<p>前提: G3, G4。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: nativeOS/Swift/Kotlin個別lifecycle；Browser limited profile/storage；24状態UI galleryとa11y；Polish変更でcommand trace不変。</p>
+<p>出口: public matrixと実機証拠一致；typed bindings/Unicode/FFI/threadingが同じ意味。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G7 — Security assurance closure</h2>
+<p>前提: G3, G4。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: design + implementation independent review；各input fuzz campaign/replay；全Critical/High/未分類を閉包；修正後のindependent retest。</p>
+<p>出口: 作者の自己評価だけでは通過不可；対象source/spec/featureのscope固定。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G8 — Scale/resources/soak</h2>
+<p>前提: G3, G4, G5。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: 2/8/64/256profile benchmarks；7日Keeper soak+fresh restore；24時間mobile resume campaign；latency/CPU/RAM/bandwidth/disk分布。</p>
+<p>出口: correctnessとbounded resourceを同時達成；未達targetはscope/性能公表へ反映、実測に偽装しない。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G9 — Upgrade and disaster recovery</h2>
+<p>前提: G3, G4。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: store migration全境界crash；schema/epoch migrationとdraft保持；正常authority rotation；古いbackup/損傷DB/partial salvage。</p>
+<p>出口: raw downgradeでデータ喪失なし；元store保全と新store検証を実証。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G10 — OSS release candidate</h2>
+<p>前提: G5, G6, G7, G8, G9。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: signed artifacts/SBOM/licenses/provenance；clean-install quickstart；interop/export compatibility；保守窓口/release鍵/模擬advisory。</p>
+<p>出口: 同一RC sourceに累積gate evidence；英文公開情報とsupported matrix完成。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>G11 — Production-qualified profile</h2>
+<p>前提: G10。責任: 当該領域実装者＋独立reviewer。</p>
+<p>試験/成果: 全claim→最新evidence binding；project-owned service outage演習；known risk/support policy公開；release artifact readback検証。</p>
+<p>出口: 対象profileの全必須要件PASS；未解決Critical/High/未分類なし；NOT_RUNを除外したように装わない。</p>
+<p>証跡: source/spec/fixture/platform/toolchain、実行command、raw observations、result、review記録。該当しないplatformは承認されたprofile除外として記録し、別platformの合格を転用しない。</p>
+<h2>停止・再開</h2>
+<p>FAILは修正と再実行でのみ閉じる。BLOCKEDは前提不足の原因/解消手順/影響範囲を記録する。未実行をSKIPで隠さない。source/spec/lockが変わったgateはSTALEとして再評価し、旧evidenceはhistoryへ残す。実装者がverifierを変更したときはverifierの負例も独立確認する。</p>
+</section><section id="doc-31" class="chapter"><p class="source">plan/IMPLEMENTATION.ja.md</p><h1>実装への引継ぎ — 検証可能な作業単位</h1>
+<p><strong>状態:</strong> 実装計画案。以下のcandidate pathは将来作成する場所であり、この仕様ZIPに製品ソースが存在するという意味ではない。</p>
+<p><strong>Goal:</strong> 最小の3台backendから、公開できるqualified profileまで、データ保全と認可を段階的に実証する。</p>
+<p><strong>Architecture:</strong> Rust portable core、狭いhost ports、Automerge core、native libp2p、暗号化SQLite/blocks、headless Presenter。正本は各specとGATES。未承認の低レベル補完はADRとG0判定を経る。</p>
+<p>各作業は独立review可能なcommit単位へ分割し、実装開始前に対応acceptance contractを実行可能testへ落とす。テストが失敗することを確認→最小実装→合格→関連負例→review→checkpointの順に行う。ここでは未知の製品関数を実装済みとして呼ぶテストコードを大量生成せず、input/output/oracleを固定する。</p>
+<h2>WP-01 — Protocol/crypto compatibility spike</h2>
+<p>Gate: G0。入力: protocol/par-v1.cddl + spec03–08。
+候補file境界: <code>candidate crates/par-protocol/src/{codec,crypto}.rs; tests/vectors/</code>。
+公開/内部interface: canonical_encode / strict_decode / verify_author_bindingの契約。
+独立した受け入れ: canonical/reject bytes、HPKE/AEAD/signature組合せKAT、actor extraction。
+失敗時: 異codecの不一致は仕様/adapter修正、未検証をPASSにしない。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-02 — Local ledger and crash safety</h2>
+<p>Gate: G1。入力: WP-01とstorage DDL。
+候補file境界: <code>candidate crates/par-storage/src/{commit,actor,outbox}.rs; tests/faults/</code>。
+公開/内部interface: commit(opId,digest) / lookup(opId) / outbox.resume。
+独立した受け入れ: transactionの各write前後でstopしACK集合を再構築。
+失敗時: 暗号化/atomicityを省いたtemporary実装を本番扱いしない。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-03 — Identity and Space control</h2>
+<p>Gate: G2。入力: WP-01–02、spec03–05。
+候補file境界: <code>candidate crates/par-space/src/{membership,control,epoch}.rs</code>。
+公開/内部interface: admit/verify_control/prepare_epoch/activate_epoch。
+独立した受け入れ: fake membership、古いcontrol、fork、missing key/seed、別recipient。
+失敗時: 承認待ちと未認可を別状態に保持。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-04 — Two-peer signed change sync</h2>
+<p>Gate: G2。入力: WP-03、spec07–08。
+候補file境界: <code>candidate crates/par-sync/src/{session,inventory,apply}.rs</code>。
+公開/内部interface: open_session / need / accept_change / snapshot。
+独立した受け入れ: offline text+scalar conflict、seq fork、dependency待ち。
+失敗時: Automerge受理失敗を握りつぶしてJSON同期へ置換しない。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-05 — Immutable blobs and closure builder</h2>
+<p>Gate: G3。入力: WP-02–04、spec09–12。
+候補file境界: <code>candidate crates/par-replication/src/{closure,inventory,blocks}.rs</code>。
+公開/内部interface: build_closure / audit_closure / publish_block。
+独立した受け入れ: 最後のchangeだけの集合を不完全として検出。
+失敗時: resource budget超過はroot不完全表示とresumeを残す。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-06 — Keeper retention and receipt</h2>
+<p>Gate: G3。入力: WP-05。
+候補file境界: <code>candidate apps/par-cli/src/keeper.rs; crates/par-replication/src/lease.rs</code>。
+公開/内部interface: offer/accept/commit/receipt/release。
+独立した受け入れ: quota二重予約、partial bytes、reboot期限不明、virtual dishonest keeper。
+失敗時: 既存lease保護、強制退出の影響を明示。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-07 — M1 recovery orchestration</h2>
+<p>Gate: G3。入力: WP-03–06、spec11。
+候補file境界: <code>candidate tests/scenarios/m1_three_peers.rs; apps/shared-notes/</code>。
+公開/内部interface: recover(plan) / resume(journal) / verify / activate。
+独立した受け入れ: A/B停止→preauthorized B2がCのみから復元、未認可D拒否。
+失敗時: oracle投入をrestore経路と完全分離。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-08 — Adversarial parsing and flow control</h2>
+<p>Gate: G4。入力: WP-01–07。
+候補file境界: <code>candidate tests/fuzz/; crates/par-runtime/src/budget.rs</code>。
+公開/内部interface: admission budget / quarantine / peer isolation。
+独立した受け入れ: invalid UTF8、huge-dep、signed invalid、slow peer。
+失敗時: 良性Spaceの進捗もoracleで検査。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-09 — Internet transports and Relay</h2>
+<p>Gate: G5。入力: WP-06/08、spec13。
+候補file境界: <code>candidate crates/par-transport-libp2p/; tests/internet/</code>。
+公開/内部interface: connect_candidate / reserve_relay / diagnose_route。
+独立した受け入れ: CGNAT、blocked UDP、IPv6、network切替、egress deny。
+失敗時: 環境依存failureは正確なreasonを記録。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-10 — Idiomatic SDK and host lifecycle</h2>
+<p>Gate: G6。入力: WP-04/07/08、spec14–16。
+候補file境界: <code>candidate bindings/{swift,kotlin,typescript}/; crates/par-host-*</code>。
+公開/内部interface: SDK declaration→binding ABI→async/Unicode/cancel。
+独立した受け入れ: 実OS復帰、browser multi-tab、FFI lifetime。
+失敗時: OS未確認laneは明示BLOCKED、native成果を保持。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-11 — Reference app / reusable Presenter / UI</h2>
+<p>Gate: G6。入力: WP-10、spec17–18、ui assets。
+候補file境界: <code>candidate packages/par-presenter/; packages/par-ui/; apps/shared-notes/</code>。
+公開/内部interface: VM stream / typed command / revision confirm。
+独立した受け入れ: 24fixture gallery、keyboard/a11y、theme-only差分。
+失敗時: 視覚変更とdomain仕様変更を別レビュー。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-12 — Independent security remediation</h2>
+<p>Gate: G7。入力: WP-01–11とthreat model。
+候補file境界: <code>candidate tests/security/; docs/security/; evidence/reviews/</code>。
+公開/内部interface: review finding→repro→fix→retest。
+独立した受け入れ: crypto/auth/recovery全経路のindependent評価。
+失敗時: 未手配reviewをNOT_RUNのまま明示。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-13 — Scale, resource, soak</h2>
+<p>Gate: G8。入力: WP-09–11、spec21。
+候補file境界: <code>candidate benches/; tests/soak/; evidence/benchmark/</code>。
+公開/内部interface: workload manifest / measured distributions。
+独立した受け入れ: 各scaleと7日Keeper/24h mobile。
+失敗時: 安全性保証を削ってtarget達成しない。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-14 — Migration and operating tools</h2>
+<p>Gate: G9。入力: WP-07–10、spec19/22。
+候補file境界: <code>candidate apps/par-cli/src/{doctor,repair,migrate}.rs</code>。
+公開/内部interface: plan/approve/apply/rebuild/activate。
+独立した受け入れ: migration途中停止、old backup、corruption。
+失敗時: 旧storeとdraftを失わない。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-15 — OSS release engineering</h2>
+<p>Gate: G10。入力: WP-12–14、spec23–24。
+候補file境界: <code>candidate .github/workflows/; release/; docs/</code>。
+公開/内部interface: source→build→SBOM→sign→verify。
+独立した受け入れ: clean install、separate verifier、support演習。
+失敗時: 公開/署名key利用はOwnerの実行承認で別操作。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+<h2>WP-16 — Production claim closure</h2>
+<p>Gate: G11。入力: 全必須gate。
+候補file境界: <code>candidate release/qualification.json</code>。
+公開/内部interface: claim(profile,scope,evidence)。
+独立した受け入れ: external service停止、artifact再取得、全保証照合。
+失敗時: 一つでも必須未達ならそのprofileはcandidate維持。</p>
+<p>完了記録には変更path・source digest・対応requirement IDs・新規test実装path・実行結果・残るblockerを付ける。scope外のfeatureを空stubで増やすことは完了ではない。</p>
+</section><section id="doc-32" class="chapter"><p class="source">ui/DESIGN_HANDOFF.ja.md</p><h1>UIデザイン／Polishの引継ぎ</h1>
+<p>今回提供するのは見た目の完成稿ではなく、後から見た目を大きく改善してもcoreを書き直さないための契約。最終画面・ブランド・pixel-perfect実装は未作成。</p>
+<h2>基本の情報構造</h2>
+<p>第一階層は「作業」「共有相手」「保管と復旧」「診断」。ネットワークgraphは診断内の任意の詳細であり、通常の利用者にP2P用語を学ばせない。アプリ本来の作業は常に最初の画面で継続できる。初回から複製や暗号suiteの全設定を要求しない。</p>
+<p>参照アプリはshared notes。利用者はofflineで最初の一文字を書ける。共有時に対象と権限を確認し、裏でcontrol/epochを整える。保存表示は利用者が必要とする時だけ詳細を開けるが、未保存・復旧危険・権限変化は隠さない。</p>
+<h2>6つの主要flow</h2>
+<ol>
+<li><strong>初回:</strong> local準備→ノート作成→local save表示→任意の端末追加。鍵backupの説明は作業を遮らず、共有/保護の節目で促す。</li>
+<li><strong>招待:</strong> request生成→別経路で送付→fingerprint/role preview→authority承認→key/seed受信→参加完了。コピーリンクだけで権限が確定したように見せない。</li>
+<li><strong>保管役追加:</strong> 保管する対象・容量・通信・電力条件→同意→容量予約→closure転送→receipt→復元可能性検証。進捗内訳を別表示。</li>
+<li><strong>競合/rebase:</strong> 元の変更と現在stateを比較→変更の採用案→target revision確認→自分の新操作でapply→元draftの保存位置を表示。</li>
+<li><strong>復旧:</strong> 空領域選択→復旧資格→source→fetch→verify→rebuild→差分確認→activate。画面を閉じてもjournalから再開。</li>
+<li><strong>停止/退出:</strong> 新規受付停止と即時強制停止を分離→残る保管約束→移管試行→明示停止→不足状態を他peerへ可能なら通知。</li>
+</ol>
+<h2>表現と実装の分離</h2>
+<p>各画面はPresenterからVMを受け取り、rendererは型付きcommandを返す。重いnetwork・crypto・diffはUI threadで実行しない。native navigation、Web layout、dark theme等を変更してもcommandsとstatusの意味は同一。</p>
+<p>focusは遷移前のoriginと戻り先を持つ。modalはescape/戻るを備えるがcommit済み操作を取消したと表示しない。screen-readerへのstatus通知はurgentな失敗以外を乱発しない。progressは取得量/検証済み量/残り未確定を区別する。drag専用操作を作らずkeyboardの同等経路を用意する。文字列伸長・RTL・IME・safe areaを最初からfixtureに含める。</p>
+<h2>後工程でデザイナーが受け取るもの</h2>
+<p><code>stories.json</code>の24状態、<code>polish-contract.json</code>の不変境界、tokensの3層、spec17の文言/アクセシビリティ、spec18のcomponent anatomy。各storyを各themeで表示するgalleryを実装し、その画面をvisual reviewのsourceにする。theme seedは完成paletteではなく、変更のための意味的境界。</p>
+<h2>Polishの終了条件</h2>
+<p>見た目の比較だけでなく、同じaction traceが同じdomain結果になること、危険操作の確認が残ること、disabled理由が読めること、200%文字拡大やkeyboardで完了できることを確認する。必要なdomain変更が見つかった場合はvisual変更と別のレビューへ分ける。WCAG2.2AAを目標とし、実UIがない段階で準拠済みと主張しない。<a href="#S16">[S16]</a></p>
+</section><section id="doc-33" class="chapter"><p class="source">review/OPEN_DECISIONS.ja.md</p><h1>未freeze事項と解消の実験</h1>
+<p>空欄の仕様を実装者に自由補完させるための一覧ではない。候補値と安全な既定は本文に示し、それを変更/凍結するための測定を明示する。本版で下記実験を実施したとは扱わない。</p>
+<h2>OD-01 — PAR-C1実装の組合せとstrictness</h2>
+<p>阻害gate: G0 / 担当role: crypto lead / 状態: OPEN。
+実験: HPKE/Ed25519/XChaCha/KDF/canonical CBORのlibrary候補を固定し、正/負組合せvectorsを二経路で照合。
+出口: suite/domain/AAD/nonce/recipient不一致のrejectまで一致。依存lockとfeature flagsをcommit。
+未達時: suite変更はprofile digest更新、silent downgrade禁止。</p>
+<h2>OD-02 — CDDLと全wire codecの独立適合</h2>
+<p>阻害gate: G0 / 担当role: protocol lead / 状態: OPEN。
+実験: CDDL parserとproduction予定codecとは別のcodecで全26messageとcross-field corpusを実行。
+出口: CDDL syntax/正例/負例/未知field/境界状態が一致し0未分類差分。
+未達時: 仕様修正またはcodec変更、候補版をfreezeしない。</p>
+<h2>OD-03 — Automerge内側検証/overflow/seed</h2>
+<p>阻害gate: G0 / 担当role: data lead / 状態: OPEN。
+実験: 実際のRust libraryでactor/seq/deps/hashを抽出し改造入力、int64境界、epoch seedを検証。
+出口: inner/outer対応、causal validity、text encoding、counter overflowの結果が公開契約と一致。
+未達時: adapter/型契約を修正しexact profile更新。検証省略しない。</p>
+<h2>OD-04 — production storage形状とhost ports</h2>
+<p>阻害gate: G0 / 担当role: storage lead / 状態: OPEN。
+実験: 最小DDLを全操作に対応付け、control初期化、idempotency、blob原子性、nonce発行台帳を実装probe。
+出口: 全公開writeの原子単位が決まり、DDL/constraintが実装順と一致。
+未達時: 最小DDLを拡張。DDL構文成功をdurability完了としない。</p>
+<h2>OD-05 — lease rebootとGCのbounded運用</h2>
+<p>阻害gate: G3 / 担当role: replication lead / 状態: OPEN。
+実験: clock不明・長期offline・満杯・強制退出を状態モデル/実storeで試験。
+出口: 保護rootの不当evictなし、quota永久拘束の解除経路とUXを実証。
+未達時: 受理容量/profile/保守方針を変更、保証を黙って弱めない。</p>
+<h2>OD-06 — browser/native接続matrix</h2>
+<p>阻害gate: G5 / 担当role: network lead / 状態: OPEN。
+実験: 選択libp2p/JS adapterの実versionを固定しdirect/relay/WSS/権限を試験。
+出口: default空peerで無外部接続、指定経路のみ稼働、失敗理由一致。
+未達時: browserを限定profileに保ちnativeを継続。</p>
+<h2>OD-07 — OS最低版/鍵保護/FFI/cancel</h2>
+<p>阻害gate: G6 / 担当role: platform lead / 状態: OPEN。
+実験: 対象OS/architecture/toolchain一覧を実機で測定し保護classとlifecycleを記録。
+出口: 対応と表示する組合せに実機証拠。export/cancel/Unicodeの意味一致。
+未達時: 未合格組合せはexperimental、対応済みと表示しない。</p>
+<h2>OD-08 — 独立暗号/認可/復旧レビュー</h2>
+<p>阻害gate: G7 / 担当role: security owner / 状態: OPEN。
+実験: 外部reviewerへsource/spec/fixture固定でレビューを依頼し再現・修正・retest。
+出口: Critical/High/未分類0、scope漏れなし、独立再試験。
+未達時: 該当profileのstable停止。</p>
+<h2>OD-09 — 性能/規模/電池/soak予算</h2>
+<p>阻害gate: G8 / 担当role: performance lead / 状態: OPEN。
+実験: spec21のworkloadと実hardwareを固定して分布/増幅率/失敗集合を測定。
+出口: 安全性を保ったqualified envelopeとpublic targetsを決定。
+未達時: scope/profile/アルゴリズムを調整し結果を公開。</p>
+<h2>OD-10 — UI可用性とPolish実証</h2>
+<p>阻害gate: G6 / 担当role: design lead / 状態: OPEN。
+実験: 24state galleryと実flowを実装しkeyboard/screen reader/初心者理解を試験。
+出口: 利用者がlocal/remote/current-availableを区別し危険操作を理解、テーマ差分で意味不変。
+未達時: VM/component/microcopyを改善、mockをbackend証拠にしない。</p>
+<h2>OD-11 — OSS運営と英語仕様・配布</h2>
+<p>阻害gate: G10 / 担当role: maintainers / 状態: OPEN。
+実験: 独立release reviewer/security窓口/support体制、英語protocol要約、signed artifactsを整備。
+出口: clean install/報告受領/update鍵演習/配布readbackが完了。
+未達時: source previewとして公開する選択肢、stableを名乗らない。</p>
+</section><section id="doc-34" class="chapter"><p class="source">review/SELF_REVIEW.ja.md</p><h1>作成時の自己レビュー</h1>
+<p>これは作者側の文書レビューであり、独立セキュリティ監査ではない。構造validatorが安全性の全問題を発見するとは主張しない。</p>
+<table>
+<thead>
+<tr>
+  <th>項目</th>
+  <th>発見/是正</th>
+  <th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>control/epoch条件</td>
+  <td>Keeper権限変更とcontent epoch更新を混同しないよう旧epoch write停止条件を限定</td>
+  <td>本文/MUST索引を一致</td>
+</tr>
+<tr>
+  <td>Presence TTL</td>
+  <td>outer TTLだけでは署名対象と一致しないためactivity headerへ結合</td>
+  <td>CDDL/意味契約を追加</td>
+</tr>
+<tr>
+  <td>pre-auth ERROR</td>
+  <td>SpaceId=nullがHELLO/AUTHだけではエラー返却と矛盾。ERROR前認証経路を追加</td>
+  <td>文書/型を修正</td>
+</tr>
+<tr>
+  <td>control生成順</td>
+  <td>初期SpaceIdを含むpackageとgenesisが循環しない順序を明示</td>
+  <td>OBJECTSで定義</td>
+</tr>
+<tr>
+  <td>storage FK順</td>
+  <td>ledgerが未insert envelopeを参照する記述。envelope→ledger→outbox順へ修正</td>
+  <td>本文/DDL整合</td>
+</tr>
+<tr>
+  <td>API例</td>
+  <td><code>.documents</code>と<code>.docs</code>、Resultのunwrap、readの状態型が不一致</td>
+  <td>宣言/例/本文を統一、typecheck実行</td>
+</tr>
+<tr>
+  <td>error names</td>
+  <td>文章上の旧名とregistry/型の差</td>
+  <td>安定codeを統一しlocal/RPC unknown写像を明記</td>
+</tr>
+<tr>
+  <td>event/presence/RPC</td>
+  <td>message名だけでは暗号/再実行/cursor契約不足</td>
+  <td>ACTIVITYと型を追加</td>
+</tr>
+<tr>
+  <td>UI command</td>
+  <td>story内のactionがTS unionより多い</td>
+  <td>command registryに統合</td>
+</tr>
+<tr>
+  <td>UI forbidden text</td>
+  <td>「復元可能性は未確認」が禁止substring「復元可能」に一致</td>
+  <td>表現を曖昧でない文言へ変更</td>
+</tr>
+<tr>
+  <td>primitive KAT</td>
+  <td>公開Ed25519 signatureの転記でhex一文字過多</td>
+  <td>RFC原典照合して修正、既存実装のKATで確認</td>
+</tr>
+<tr>
+  <td>crypto completeness</td>
+  <td>primitive KATをPAR全体の検証と誤認し得る</td>
+  <td>全出力にscope/未検証項目を明記</td>
+</tr>
+<tr>
+  <td>support状態</td>
+  <td>文書参照数をruntime PASSと混同し得る</td>
+  <td>NOT_STARTED/NOT_RUNを維持するvalidator負例</td>
+</tr>
+</tbody>
+</table>
+<h2>未実施で残すレビュー</h2>
+<p>OD-01/02/03/04の実library境界、whole-protocol crypto vectors、independent CDDL conformance、組合せ安全性、各OSの物理durability、authority rollbackとgrant失効の実証、全UIflow、性能/soak、外部review。これらが残ることを、完成度やrelease gateで隠さない。</p>
+</section><section id="doc-35" class="chapter"><p class="source">review/CHANGELOG.ja.md</p><h1>00.01.00 → 00.02.00</h1>
+<p>原本をhistoryへ保存。新仕様の方が新しいという理由だけで互換を仮定しない。元版は未実装草案のため製品データmigrationは未実施。</p>
+<table>
+<thead>
+<tr>
+  <th>項目</th>
+  <th>判断/変更</th>
+  <th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>product境界</td>
+  <td>参加者主権・local-first・完全OSSを維持</td>
+  <td>vendor依存ゼロのruntime経路を必須にする</td>
+</tr>
+<tr>
+  <td>control/epoch</td>
+  <td>sequenceとcontent epochを分離</td>
+  <td>Keeper追加だけで文書全体の鍵/seedを再作成しない</td>
+</tr>
+<tr>
+  <td>authority</td>
+  <td>正常移管の二署名を追加</td>
+  <td>owner key不変を恒久制約にせず、forkは別問題として停止</td>
+</tr>
+<tr>
+  <td>recovery</td>
+  <td>事前認可B2を明示</td>
+  <td>opaque Cが勝手に新ユーザー権限を発行する抜け道を除く</td>
+</tr>
+<tr>
+  <td>copy評価</td>
+  <td>byte-completeとsemantic closureを分離</td>
+  <td>Keeperのreceiptだけでは復元可能と数えない</td>
+</tr>
+<tr>
+  <td>causal validity</td>
+  <td>deps時点の検証/arrival-independent契約</td>
+  <td>soft size超過を到着順の無効判定にしない</td>
+</tr>
+<tr>
+  <td>immutable hashes</td>
+  <td>seed/package/root/controlの生成順</td>
+  <td>暗号化結果を自分のAADへ参照する循環を避ける</td>
+</tr>
+<tr>
+  <td>lease/clock</td>
+  <td>reboot時期限不明の安全側保持</td>
+  <td>古いmonotonic期限を流用した不当GCを防ぐ</td>
+</tr>
+<tr>
+  <td>text/bindings</td>
+  <td>Unicode scalar+frontierを公開</td>
+  <td>Swift/JS/Rustの文字offset差を隠さない</td>
+</tr>
+<tr>
+  <td>API</td>
+  <td>Result/operationID/unknown/cancelを型化</td>
+  <td>timeoutを副作用失敗と断定しない</td>
+</tr>
+<tr>
+  <td>UI</td>
+  <td>headless Presenter/typed Command/tokens</td>
+  <td>visual polishをdomain/crypto/storageから分離</td>
+</tr>
+<tr>
+  <td>production</td>
+  <td>G0–G11、149MUST/試験契約、claim evidence</td>
+  <td>文書lintと製品適合を分離</td>
+</tr>
+<tr>
+  <td>成果状態</td>
+  <td>normative candidate、未freeze</td>
+  <td>SDK実装・runtime試験・外部監査は0</td>
+</tr>
+</tbody>
+</table>
+<p>前の発想を無条件に踏襲するのでなく、実装上の矛盾が生じやすい復旧資格・署名生成順・因果的妥当性を優先して見直した。新たな制約には解除条件/拡張経路を併記し、初期検証上限をプロダクトの恒久上限にしない。</p>
+</section><section id="doc-36" class="chapter"><p class="source">plan/HANDOFF.ja.md</p><h1>次の実装者／AIエージェントへの引継ぎ</h1>
+<h2>いま存在するもの</h2>
+<p>仕様25分野、MUST索引、正/負試験契約、CDDL候補、API宣言、保存DDL、UI fixture/tokens、gateと作業単位、仕様支援検査器。製品のRust workspaceやアプリは存在しない。candidate source pathを実在fileと誤認しない。</p>
+<h2>読み込む最小context</h2>
+<p>START_HERE→spec01/02→自分のWP→そのWPのspec→関連requirement/test ID→OPEN_DECISIONSの該当項目。全履歴を毎回読まず、範囲と不変条件を先に固定する。仕様を変更する場合は理由/影響/互換/再試験をADRへ書く。</p>
+<h2>環境gate</h2>
+<p>OS/architecture、Rust/cargo、node/tsc、Python、C compiler、network制限、実機/エミュレータの有無をprobeして保存する。ないtoolのtestをPASSにしない。依存を取得できない場合、machine contracts/fixturesを前進させても実ビルド済みと扱わない。secretはlog・ZIPに入れない。</p>
+<h2>作業cycle</h2>
+<p>固定baselineのdigest→対応acceptanceを実行可能testへ変換→意図した失敗の確認→最小実装→正/負test→diffとscope review→checkpoint→関連gate再評価。既存の不確実な結果を再利用する場合はsource/spec/toolchain一致を先に確認する。</p>
+<h2>checkpoint</h2>
+<p>checkpointはversion、source tree digest、spec digest、lock digest、WP、completed requirements、実行済み/未実行test、raw evidence参照、未解決blocker、次の一手、必要外部条件、変更可能pathを含む。生成時点のfile集合のhashを保存する。再開はdigestと前提を確認してからで、途中まで読んだ物語の続きから無条件に実行しない。</p>
+<p>source未作成の本版はcheckpointにsource_tree=null、implementation=NOT_STARTEDを明記する。nullを0commitや仮SHAで埋めない。</p>
+<h2>実装前のレビュー必須項目</h2>
+<p>G0のOD-01〜04を優先。APIに残るserver-side RPC effect transaction等を具体化するときは、そのbindingが本当に原子性を提供できるかを実装probeする。protocol意味に変更があればdraft/profile digestを更新し、別実装者が旧仕様を読んで互換だと思わないようにする。</p>
+<h2>後工程</h2>
+<p>M1達成後はG4/G5/G6の実環境を段階的に追加。実機・外部review・soakがこの環境で実施不能でもsource/specを保存してNOT_RUN/BLOCKEDのまま引き渡す。本番qualifiedの表示だけは外部証拠なしで前倒ししない。</p>
+</section><section id="doc-37" class="chapter"><p class="source">SOURCES.md</p><h1>一次資料と設計判断の境界</h1>
+<p>調査確認日: 2026-09-05。以下は公開一次資料。全文の複製ではなく、設計で参照した目的とリンクを記す。本文の[Sxx]はこの一覧に対応する。採用数値・MUST・gate・UI構造はPARの提案であり、参照元がPARを認定した意味ではない。</p>
+<h2 id="S01">S01 — Automerge — core / concepts / conflicts</h2>
+<p>CRDT文書/競合の既存機構。PARの認可・復旧・署名wrapperは本仕様の新規設計。</p>
+<ul>
+<li>https://github.com/automerge/automerge</li>
+<li>https://automerge.org/docs/reference/concepts/</li>
+<li>https://automerge.org/docs/reference/documents/conflicts/</li>
+</ul>
+<h2 id="S02">S02 — libp2p — hole punching</h2>
+<p>到達性確認とrelay-assisted hole punching。任意NATでの成功保証としない。</p>
+<ul>
+<li>https://libp2p.io/docs/hole-punching/</li>
+</ul>
+<h2 id="S03">S03 — Automerge — Modeling Data</h2>
+<p>共通初期履歴/identityの注意。epoch seedを一度作り配布する設計への参照。</p>
+<ul>
+<li>https://automerge.org/docs/cookbook/modeling-data/</li>
+</ul>
+<h2 id="S04">S04 — RFC 9180 — HPKE</h2>
+<p>HPKE algorithms/encoding。base modeの採用と外部署名の組合せはPAR側責務。</p>
+<ul>
+<li>https://www.rfc-editor.org/rfc/rfc9180.html</li>
+</ul>
+<h2 id="S05">S05 — RFC 8032 — EdDSA</h2>
+<p>Ed25519と公開known-answer vector。strict受理の実装一致は別試験。</p>
+<ul>
+<li>https://www.rfc-editor.org/rfc/rfc8032.html</li>
+</ul>
+<h2 id="S06">S06 — RFC 5869 — HKDF</h2>
+<p>HKDF-SHA256と公開known-answer vector。</p>
+<ul>
+<li>https://www.rfc-editor.org/rfc/rfc5869.html</li>
+</ul>
+<h2 id="S07">S07 — libsodium — XChaCha20-Poly1305</h2>
+<p>24-byte nonce型AEAD。暗号primitive仕様とPAR組合せレビューは別。</p>
+<ul>
+<li>https://libsodium.gitbook.io/doc/secret-key_cryptography/aead/chacha20-poly1305/xchacha20-poly1305_construction</li>
+</ul>
+<h2 id="S08">S08 — RFC 9420 — Messaging Layer Security</h2>
+<p>将来のgroup security profile。基本PARでMLS/FS/PCSを実装済みとしない。</p>
+<ul>
+<li>https://www.rfc-editor.org/rfc/rfc9420.html</li>
+</ul>
+<h2 id="S09">S09 — RFC 8949 — CBOR</h2>
+<p>core deterministic encodingに独自の制限subsetを重ねる。</p>
+<ul>
+<li>https://www.rfc-editor.org/rfc/rfc8949.html</li>
+</ul>
+<h2 id="S10">S10 — RFC 8610 — CDDL</h2>
+<p>構造記述言語。署名/認可/意味的検証は表現外の追加契約。</p>
+<ul>
+<li>https://www.rfc-editor.org/rfc/rfc8610.html</li>
+</ul>
+<h2 id="S11">S11 — SQLite — WAL and PRAGMA</h2>
+<p>WAL/FULLと接続設定。flush実装/媒体前提を別記。</p>
+<ul>
+<li>https://www.sqlite.org/wal.html</li>
+<li>https://sqlite.org/pragma.html</li>
+</ul>
+<h2 id="S12">S12 — SQLite — Atomic Commit</h2>
+<p>crash/durable filesystem前提。プロセス停止と電源断を区別。</p>
+<ul>
+<li>https://sqlite.org/atomiccommit.html</li>
+</ul>
+<h2 id="S13">S13 — Apple — Background Execution</h2>
+<p>mobile lifecycle制約。具体的OS上のqualificationは未実施。</p>
+<ul>
+<li>https://developer.apple.com/documentation/uikit/extending-your-app-s-background-execution-time</li>
+<li>https://developer.apple.com/documentation/backgroundtasks</li>
+</ul>
+<h2 id="S14">S14 — Android — Doze and App Standby</h2>
+<p>background/network制約。常時サーバーとしてスマートフォンを扱わない。</p>
+<ul>
+<li>https://developer.android.com/training/monitoring-device-state/doze-standby</li>
+</ul>
+<h2 id="S15">S15 — W3C — Indexed Database API</h2>
+<p>transaction API。ブラウザー保存の永続性保証はhost仕様/実機で分離。</p>
+<ul>
+<li>https://www.w3.org/TR/IndexedDB/</li>
+</ul>
+<h2 id="S16">S16 — W3C — WCAG 2.2</h2>
+<p>Web UIのAA目標。nativeは相当するOS accessibilityも試験。準拠認定未実施。</p>
+<ul>
+<li>https://www.w3.org/TR/WCAG22/</li>
+</ul>
+<h2 id="S17">S17 — DTCG — Format Module 2025.10</h2>
+<p>stable community specification。W3C Standardではない。</p>
+<ul>
+<li>https://www.designtokens.org/TR/2025.10/format/</li>
+</ul>
+<h2 id="S18">S18 — SLSA v1.2</h2>
+<p>build provenance/release工程の参照。SLSA level取得を主張しない。</p>
+<ul>
+<li>https://slsa.dev/spec/v1.2/</li>
+<li>https://slsa.dev/spec/v1.2/build-requirements</li>
+</ul>
+<h2 id="S19">S19 — The Update Framework</h2>
+<p>更新のrollback/freeze/root鍵脅威。auto-updateは任意host機能。</p>
+<ul>
+<li>https://theupdateframework.io/docs/security/</li>
+<li>https://github.com/theupdateframework/specification/blob/master/tuf-spec.md</li>
+</ul>
+<h2 id="S20">S20 — NIST SP 800-218 — SSDF 1.1 final</h2>
+<p>final版を工程参考とする。revision draftを最終標準と扱わない。</p>
+<ul>
+<li>https://csrc.nist.gov/pubs/sp/800/218/final</li>
+<li>https://csrc.nist.gov/pubs/sp/800/218/r1/ipd</li>
+</ul>
+<h2 id="S21">S21 — W3C — Web Cryptography Level 2</h2>
+<p>脅威モデルを参照。draft文書のstatusと、script origin侵害の限界を区別。</p>
+<ul>
+<li>https://www.w3.org/TR/webcrypto-2/</li>
+</ul>
+<h2 id="S22">S22 — Automerge Swift — TextEncoding</h2>
+<p>UTF-8/UTF-16/Unicode scalarのindex差。PAR公開offset契約は明示化。</p>
+<ul>
+<li>https://automerge.org/automerge-swift/documentation/automerge/textencoding/</li>
+<li>https://unicode.org/faq/utf_bom.html</li>
+</ul>
+<h2 id="S23">S23 — Apache License 2.0</h2>
+<p>推奨ライセンス。第三者依存の条件は別確認。</p>
+<ul>
+<li>https://www.apache.org/licenses/LICENSE-2.0</li>
+</ul>
+<h2 id="S24">S24 — Mozilla — UniFFI</h2>
+<p>Swift/Kotlin binding選択肢。runtime/lifecycleの適合証明ではない。</p>
+<ul>
+<li>https://mozilla.github.io/uniffi-rs/latest/</li>
+</ul>
+<h2 id="S25">S25 — libp2p — WebRTC browser connectivity</h2>
+<p>browserとnative transportの差を考慮。全組合せの実接続は未実施。</p>
+<ul>
+<li>https://libp2p.io/docs/webrtc-browser-connectivity/</li>
+</ul>
+<h2>既存仕様の扱い</h2>
+<p>基準: peer-application-runtime-spec-00.01.00.zip。SHA-256: <code>397320e761e095c9758f2ebc904db3264c464729f947a570b4b4fffc6181b579</code>。今回の元になった仕様であり、実装コードや動作証拠ではない。原本はhistory内にそのまま保存する。</p>
+<p>ライセンス本文は環境の標準Apache-2.0全文を収録し、公式公開本文を参照した。出所情報を含む資料/SBOMの製品公開前レビューはG10。</p>
+</section><footer>PAR 00.02.00 — Offline document reader. No external assets, scripts, telemetry or fonts.</footer></main></body></html>

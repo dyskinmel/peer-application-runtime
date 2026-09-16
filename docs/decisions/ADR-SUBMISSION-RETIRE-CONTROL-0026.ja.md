@@ -1,0 +1,12 @@
+# ADR-0026: 同じ第四socket上の明示version拡張
+
+採用: 既存登録helloは維持する。request内profileを二つの定数と照合し、それぞれの署名domainと固定method集合で検証する。profileを認可とみなさず、署名を検証した後だけdispatchする。旧実装のPythonファイルは改変しない。
+理由: 第五socket/daemonを追加せず、旧登録clientを壊さない。新hostに回収があるという仮定は持たせず、新clientは対応応答を要求し、失敗時fallbackしない。
+代案: helloを変更する→既存clientを一律更新する必要。第五socket→設定/監視/接続面を増やす。汎用RPC→管理権限・method制限を曖昧にするため不採用。
+
+狭いadapterは元のRetiringSubmissionsへ固定分岐で接続する。proposal/statusと副作用を分け、副作用には二者署名を必要とする。現在controllerだけで元登録者を代替しない。
+応答生成の失敗は、効果実行後ならUNCERTAIN。保存/署名のチェックを省いて成功表示しない。実装中にこの負例を追加して、拒否と誤表示していた箇所を是正した。
+
+受領00.25.00のZIPは末尾切断。全追跡ソースは内部Git bundleのb6643f9から復元しマニフェストと一致。457過去artifactは未回収。元ソース/仕様を作り直す必要はなく、局所試験はこの復元ソース上でやり直す。由来はdocs/recovery/INPUT_0025_RECOVERY.jsonへ固定する。
+
+範囲: 実験の互換性候補であり製品wire/Gateの凍結ではない。保存形式変更、一般RPC、公開network、record無制限化はない。

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_fetch_controller.ControllerTests.test_apply_bad_id_rejected_before_state_change",
+    "test_fetch_controller.ControllerTests.test_apply_unavailable_keeps_original_id",
+    "test_fetch_controller.ControllerTests.test_candidate_added_after_observation_requires_refresh",
+    "test_fetch_controller.ControllerTests.test_close_rejects_view",
+    "test_fetch_controller.ControllerTests.test_contract_double_not_promoted",
+    "test_fetch_controller.ControllerTests.test_duplicate_targets_rejected",
+    "test_fetch_controller.ControllerTests.test_generation_changed_rejects_view",
+    "test_fetch_controller.ControllerTests.test_monotone_sequence_and_revision",
+    "test_fetch_controller.ControllerTests.test_no_payload_or_key_in_view",
+    "test_fetch_controller.ControllerTests.test_observation_is_owned",
+    "test_fetch_controller.ControllerTests.test_old_observation_cannot_trigger_command",
+    "test_fetch_controller.ControllerTests.test_pin_binds_plan_targets_scope_and_generations",
+    "test_fetch_controller.ControllerTests.test_read_only_waiting_view",
+    "test_fetch_controller.ControllerTests.test_ready_core_absence_is_blocked",
+    "test_fetch_controller.ControllerTests.test_targets_copied",
+    "test_fetch_controller.ControllerTests.test_validate_unready_does_not_apply",
+    "test_fetch_controller.ControllerTests.test_validation_generation_change_not_published",
+    "test_fetch_controller.ControllerTests.test_validation_not_reused_after_new_candidate",
+    "test_fetch_controller.ControllerTests.test_wrong_source_rejected"
+  ]
+}

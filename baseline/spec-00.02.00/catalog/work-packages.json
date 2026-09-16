@@ -1,0 +1,178 @@
+[
+  {
+    "id": "WP-01",
+    "gate": "G0",
+    "title": "Protocol/crypto compatibility spike",
+    "inputs": "protocol/par-v1.cddl + spec03–08",
+    "candidate_paths": "candidate crates/par-protocol/src/{codec,crypto}.rs; tests/vectors/",
+    "interfaces": "canonical_encode / strict_decode / verify_author_bindingの契約",
+    "acceptance": "canonical/reject bytes、HPKE/AEAD/signature組合せKAT、actor extraction",
+    "stop_policy": "異codecの不一致は仕様/adapter修正、未検証をPASSにしない",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-02",
+    "gate": "G1",
+    "title": "Local ledger and crash safety",
+    "inputs": "WP-01とstorage DDL",
+    "candidate_paths": "candidate crates/par-storage/src/{commit,actor,outbox}.rs; tests/faults/",
+    "interfaces": "commit(opId,digest) / lookup(opId) / outbox.resume",
+    "acceptance": "transactionの各write前後でstopしACK集合を再構築",
+    "stop_policy": "暗号化/atomicityを省いたtemporary実装を本番扱いしない",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-03",
+    "gate": "G2",
+    "title": "Identity and Space control",
+    "inputs": "WP-01–02、spec03–05",
+    "candidate_paths": "candidate crates/par-space/src/{membership,control,epoch}.rs",
+    "interfaces": "admit/verify_control/prepare_epoch/activate_epoch",
+    "acceptance": "fake membership、古いcontrol、fork、missing key/seed、別recipient",
+    "stop_policy": "承認待ちと未認可を別状態に保持",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-04",
+    "gate": "G2",
+    "title": "Two-peer signed change sync",
+    "inputs": "WP-03、spec07–08",
+    "candidate_paths": "candidate crates/par-sync/src/{session,inventory,apply}.rs",
+    "interfaces": "open_session / need / accept_change / snapshot",
+    "acceptance": "offline text+scalar conflict、seq fork、dependency待ち",
+    "stop_policy": "Automerge受理失敗を握りつぶしてJSON同期へ置換しない",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-05",
+    "gate": "G3",
+    "title": "Immutable blobs and closure builder",
+    "inputs": "WP-02–04、spec09–12",
+    "candidate_paths": "candidate crates/par-replication/src/{closure,inventory,blocks}.rs",
+    "interfaces": "build_closure / audit_closure / publish_block",
+    "acceptance": "最後のchangeだけの集合を不完全として検出",
+    "stop_policy": "resource budget超過はroot不完全表示とresumeを残す",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-06",
+    "gate": "G3",
+    "title": "Keeper retention and receipt",
+    "inputs": "WP-05",
+    "candidate_paths": "candidate apps/par-cli/src/keeper.rs; crates/par-replication/src/lease.rs",
+    "interfaces": "offer/accept/commit/receipt/release",
+    "acceptance": "quota二重予約、partial bytes、reboot期限不明、virtual dishonest keeper",
+    "stop_policy": "既存lease保護、強制退出の影響を明示",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-07",
+    "gate": "G3",
+    "title": "M1 recovery orchestration",
+    "inputs": "WP-03–06、spec11",
+    "candidate_paths": "candidate tests/scenarios/m1_three_peers.rs; apps/shared-notes/",
+    "interfaces": "recover(plan) / resume(journal) / verify / activate",
+    "acceptance": "A/B停止→preauthorized B2がCのみから復元、未認可D拒否",
+    "stop_policy": "oracle投入をrestore経路と完全分離",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-08",
+    "gate": "G4",
+    "title": "Adversarial parsing and flow control",
+    "inputs": "WP-01–07",
+    "candidate_paths": "candidate tests/fuzz/; crates/par-runtime/src/budget.rs",
+    "interfaces": "admission budget / quarantine / peer isolation",
+    "acceptance": "invalid UTF8、huge-dep、signed invalid、slow peer",
+    "stop_policy": "良性Spaceの進捗もoracleで検査",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-09",
+    "gate": "G5",
+    "title": "Internet transports and Relay",
+    "inputs": "WP-06/08、spec13",
+    "candidate_paths": "candidate crates/par-transport-libp2p/; tests/internet/",
+    "interfaces": "connect_candidate / reserve_relay / diagnose_route",
+    "acceptance": "CGNAT、blocked UDP、IPv6、network切替、egress deny",
+    "stop_policy": "環境依存failureは正確なreasonを記録",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-10",
+    "gate": "G6",
+    "title": "Idiomatic SDK and host lifecycle",
+    "inputs": "WP-04/07/08、spec14–16",
+    "candidate_paths": "candidate bindings/{swift,kotlin,typescript}/; crates/par-host-*",
+    "interfaces": "SDK declaration→binding ABI→async/Unicode/cancel",
+    "acceptance": "実OS復帰、browser multi-tab、FFI lifetime",
+    "stop_policy": "OS未確認laneは明示BLOCKED、native成果を保持",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-11",
+    "gate": "G6",
+    "title": "Reference app / reusable Presenter / UI",
+    "inputs": "WP-10、spec17–18、ui assets",
+    "candidate_paths": "candidate packages/par-presenter/; packages/par-ui/; apps/shared-notes/",
+    "interfaces": "VM stream / typed command / revision confirm",
+    "acceptance": "24fixture gallery、keyboard/a11y、theme-only差分",
+    "stop_policy": "視覚変更とdomain仕様変更を別レビュー",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-12",
+    "gate": "G7",
+    "title": "Independent security remediation",
+    "inputs": "WP-01–11とthreat model",
+    "candidate_paths": "candidate tests/security/; docs/security/; evidence/reviews/",
+    "interfaces": "review finding→repro→fix→retest",
+    "acceptance": "crypto/auth/recovery全経路のindependent評価",
+    "stop_policy": "未手配reviewをNOT_RUNのまま明示",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-13",
+    "gate": "G8",
+    "title": "Scale, resource, soak",
+    "inputs": "WP-09–11、spec21",
+    "candidate_paths": "candidate benches/; tests/soak/; evidence/benchmark/",
+    "interfaces": "workload manifest / measured distributions",
+    "acceptance": "各scaleと7日Keeper/24h mobile",
+    "stop_policy": "安全性保証を削ってtarget達成しない",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-14",
+    "gate": "G9",
+    "title": "Migration and operating tools",
+    "inputs": "WP-07–10、spec19/22",
+    "candidate_paths": "candidate apps/par-cli/src/{doctor,repair,migrate}.rs",
+    "interfaces": "plan/approve/apply/rebuild/activate",
+    "acceptance": "migration途中停止、old backup、corruption",
+    "stop_policy": "旧storeとdraftを失わない",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-15",
+    "gate": "G10",
+    "title": "OSS release engineering",
+    "inputs": "WP-12–14、spec23–24",
+    "candidate_paths": "candidate .github/workflows/; release/; docs/",
+    "interfaces": "source→build→SBOM→sign→verify",
+    "acceptance": "clean install、separate verifier、support演習",
+    "stop_policy": "公開/署名key利用はOwnerの実行承認で別操作",
+    "state": "NOT_STARTED"
+  },
+  {
+    "id": "WP-16",
+    "gate": "G11",
+    "title": "Production claim closure",
+    "inputs": "全必須gate",
+    "candidate_paths": "candidate release/qualification.json",
+    "interfaces": "claim(profile,scope,evidence)",
+    "acceptance": "external service停止、artifact再取得、全保証照合",
+    "stop_policy": "一つでも必須未達ならそのprofileはcandidate維持",
+    "state": "NOT_STARTED"
+  }
+]

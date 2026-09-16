@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "suite": "migration-rehearsal-planner",
+  "case_ids": [
+    "test_planner.PlannerTests.test_active_pointer_and_observation_are_strict",
+    "test_planner.PlannerTests.test_corrupt_or_unexpected_schema_is_refused",
+    "test_planner.PlannerTests.test_insufficient_capacity_is_refused_without_writes",
+    "test_planner.PlannerTests.test_plan_has_independent_versions_and_canonical_identity",
+    "test_planner.PlannerTests.test_plan_is_read_only_and_does_not_create_work_root",
+    "test_planner.PlannerTests.test_planner_does_not_use_network",
+    "test_planner.PlannerTests.test_source_digest_changes_when_valid_source_content_changes",
+    "test_planner.PlannerTests.test_unknown_or_downgrade_store_version_is_upgrade_required",
+    "test_planner.PlannerTests.test_wal_or_shm_sidecar_is_refused"
+  ]
+}

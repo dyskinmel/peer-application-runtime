@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_retire_audit.RetireAudit.test_completed_cannot_rebind",
+    "test_retire_audit.RetireAudit.test_corrupt_confirmed_prefix_not_silently_deleted",
+    "test_retire_audit.RetireAudit.test_hardlink_refused",
+    "test_retire_audit.RetireAudit.test_inode_replacement_not_deleted",
+    "test_retire_audit.RetireAudit.test_intent_reopen_does_not_delete_or_refund",
+    "test_retire_audit.RetireAudit.test_live_tombstone_reappearance_blocks_capacity",
+    "test_retire_audit.RetireAudit.test_metadata_permissions_refused",
+    "test_retire_audit.RetireAudit.test_migration_preserves_active_bytes",
+    "test_retire_audit.RetireAudit.test_old_reader_refuses_new_schema",
+    "test_retire_audit.RetireAudit.test_old_schema_requires_explicit_migration",
+    "test_retire_audit.RetireAudit.test_operation_id_cannot_bind_two_stages",
+    "test_retire_audit.RetireAudit.test_original_metadata_changed_after_intent_rejected",
+    "test_retire_audit.RetireAudit.test_pending_blocks_handoff",
+    "test_retire_audit.RetireAudit.test_pending_blocks_original_begin",
+    "test_retire_audit.RetireAudit.test_rebind_after_authority_change",
+    "test_retire_audit.RetireAudit.test_rebind_limit_bounded",
+    "test_retire_audit.RetireAudit.test_rebind_same_authority_with_new_request_refused",
+    "test_retire_audit.RetireAudit.test_rebind_same_request_idempotent",
+    "test_retire_audit.RetireAudit.test_replay_and_audit_do_not_create_new_signatures",
+    "test_retire_audit.RetireAudit.test_sidecar_signature_corruption_rejected",
+    "test_retire_audit.RetireAudit.test_symlink_refused",
+    "test_retire_audit.RetireAudit.test_tombstone_reappeared_payload_rejected",
+    "test_retire_audit.RetireAudit.test_unknown_file_refused_not_removed"
+  ]
+}

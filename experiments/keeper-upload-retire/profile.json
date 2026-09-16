@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "name": "keeper-upload-retire-local-v1",
+  "artifact_version": "00.17.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "test_counts": {
+    "contract": 24,
+    "lifecycle": 25,
+    "audit": 23,
+    "faults": 33
+  },
+  "sigkill_scenarios": 20,
+  "spool_schema_version": 2,
+  "max_staging_bytes": 16777216,
+  "max_staging_records": 1024,
+  "authorization_records_max": 8,
+  "public_listener": false,
+  "automatic_retirement": false,
+  "record_quota_reclaimed": false,
+  "keeper_mutated": false,
+  "physical_power_loss_tested": false,
+  "product_qualified": false,
+  "writable_recovery": false,
+  "independent_review": "NOT_RUN",
+  "pinned_inputs": [
+    {
+      "path": "experiments/keeper-upload-retire/par_keeper_upload_retire/contract.py",
+      "sha256": "9526d16bc6dd89f40b745e7c7d3398282f3c326ad3fa19faed95e42f9b96d1b3"
+    },
+    {
+      "path": "experiments/keeper-upload-retire/par_keeper_upload_retire/spool.py",
+      "sha256": "5fc375c2b7508498a34de224ecc2f48cbea96b4e1e62e95de05b684b8abf9d8b"
+    },
+    {
+      "path": "experiments/keeper-upload/par_keeper_upload/protocol.py",
+      "sha256": "a423684182095b1a987a94db7956bdef63298634ff28cd73867134625c797813"
+    },
+    {
+      "path": "experiments/keeper-upload/par_keeper_upload/spool.py",
+      "sha256": "4375611b8183485683b7a7ad95ee65888ef477c4199490e40c3ddc547af276e1"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/protocol.py",
+      "sha256": "d57df980c3f7302de330623111df1deee99a5789660e3b06d082d4dfb5658d60"
+    },
+    {
+      "path": "policy/crypto-provider.json",
+      "sha256": "62cac014fb4a67145eab5462e1d7840e2d01ffef271fa793ce17a0d7a29af63c"
+    }
+  ]
+}

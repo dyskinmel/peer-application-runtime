@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "name": "par/1-draft-2+local-wire-00.04.00",
+  "inputs": [
+    "baseline/spec-00.02.00/protocol/par-v1.cddl",
+    "baseline/spec-00.02.00/protocol/registry.json",
+    "baseline/spec-00.02.00/protocol/limits.json",
+    "docs/decisions/ADR-WIRE-0001.ja.md",
+    "docs/decisions/ADR-WIRE-0002.ja.md"
+  ],
+  "sha256": "2917d8d4da1e5906455d34f847c0b1012130258c5e04497d262d01589d416197",
+  "frozen": false,
+  "production_qualified": false
+}

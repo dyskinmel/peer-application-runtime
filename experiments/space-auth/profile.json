@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "name": "auth-local-v0.1",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "artifact_version": "00.07.00",
+  "baseline": "00.02.00",
+  "independent_review": "NOT_RUN",
+  "test_counts": {
+    "membership": 26,
+    "chain": 50,
+    "activation": 41,
+    "admission": 21,
+    "receiver": 19,
+    "replay": 14,
+    "vectors": 17
+  },
+  "max_members": 256,
+  "members_per_page": 64,
+  "max_controls_default": 1024,
+  "max_history_bytes": 786432,
+  "emergency_fork_bytes": 66000,
+  "max_seed_total_bytes": 4194304,
+  "authority_store_atomic": false,
+  "automerge_validation": false,
+  "pinned_inputs": [
+    {
+      "path": "baseline/spec-00.02.00/protocol/par-v1.cddl",
+      "sha256": "b94ee7b8e6f8fc88658fd825825caaf39d5f9ea47818dab4de2ce88a66c54775"
+    },
+    {
+      "path": "baseline/spec-00.02.00/protocol/registry.json",
+      "sha256": "2f8bd0770fd50df72fea5eefef585466c2d84a9baeaf9f9fcc2a02a10c57ea68"
+    },
+    {
+      "path": "docs/decisions/ADR-AUTH-0001.ja.md",
+      "sha256": "798b82c5a62624c39e3bca0b3036b0a34f7b94f2dcbaa3456162534785f9496e"
+    },
+    {
+      "path": "docs/decisions/ADR-AUTH-0002.ja.md",
+      "sha256": "3adff61ca685727f277b3b8031cd07d92de400534a973c01d507cff9eb7c60a0"
+    },
+    {
+      "path": "docs/decisions/ADR-AUTH-0003.ja.md",
+      "sha256": "754b6c8d76e597bf1cb170fb95f3b855dd382ef49fff3f11b1c33f18846c63df"
+    },
+    {
+      "path": "experiments/space-auth/fixtures/authority-candidate.json",
+      "sha256": "bc5c68e6c9e4a15af9c05a3b533b799b593edc709d0cb7d2b873db7f5de76f2b"
+    }
+  ]
+}

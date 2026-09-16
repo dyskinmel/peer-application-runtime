@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "provider": "libsodium-ctypes-local-candidate",
+  "version": "1.0.18",
+  "sha256": "85e2e494494f4f50c4b6d2b4ae90e885da1bfdefd52c4cc5767fd10abff62505",
+  "candidate_paths": [
+    "/usr/lib/x86_64-linux-gnu/libsodium.so.23.3.0"
+  ],
+  "security_qualified": false,
+  "auto_fallback": false
+}

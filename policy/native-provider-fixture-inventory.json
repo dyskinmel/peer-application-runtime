@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scope": "LOCAL_PROVIDER_HANDOFF_SOURCE_SHAPE_NOT_NATIVE_QUALIFICATION",
+  "case_ids": [
+    "test_fixture.FixtureTests.test_cleanup_failure_is_not_closed",
+    "test_fixture.FixtureTests.test_default_operations_are_readonly",
+    "test_fixture.FixtureTests.test_epoch_transition_is_fail_closed",
+    "test_fixture.FixtureTests.test_exact_profile_and_states",
+    "test_fixture.FixtureTests.test_native_status_not_promoted",
+    "test_fixture.FixtureTests.test_write_operations_require_explicit_provider"
+  ]
+}

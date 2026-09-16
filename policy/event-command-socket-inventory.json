@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_command_transport.CommandSocketTests.test_ack_cannot_cross_to_command_port",
+    "test_command_transport.CommandSocketTests.test_duplicate_frame_key_refused",
+    "test_command_transport.CommandSocketTests.test_inquiry_only_fd_cannot_publish",
+    "test_command_transport.CommandSocketTests.test_oversize_frame_refused_before_body",
+    "test_command_transport.CommandSocketTests.test_parent_close_closes_idle_fd",
+    "test_command_transport.CommandSocketTests.test_real_socket_publish_then_inquire",
+    "test_command_transport.CommandSocketTests.test_reused_transport_id_cannot_replay_command",
+    "test_command_transport.CommandSocketTests.test_socket_invalid_payload_rejected_without_nonce",
+    "test_command_transport.CommandSocketTests.test_wrong_frame_version_has_no_effect"
+  ]
+}

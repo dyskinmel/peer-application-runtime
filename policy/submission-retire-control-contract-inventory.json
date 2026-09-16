@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_retire_control_contract.ContractTests.test_bad_inner_signature_refused",
+    "test_retire_control_contract.ContractTests.test_connection_replay_refused",
+    "test_retire_control_contract.ContractTests.test_dual_approval_does_not_authorize_wrong_connection_revision",
+    "test_retire_control_contract.ContractTests.test_dual_signature_roundtrip",
+    "test_retire_control_contract.ContractTests.test_legacy_request_not_accepted_as_extension",
+    "test_retire_control_contract.ContractTests.test_limits_preserve_existing_endpoint",
+    "test_retire_control_contract.ContractTests.test_mutation_without_authorization_rejected",
+    "test_retire_control_contract.ContractTests.test_namespace_cannot_be_changed_without_resigning",
+    "test_retire_control_contract.ContractTests.test_oversize_and_truncated_requests_rejected",
+    "test_retire_control_contract.ContractTests.test_pending_view_cannot_release_capacity",
+    "test_retire_control_contract.ContractTests.test_profile_separate_and_methods_exact",
+    "test_retire_control_contract.ContractTests.test_read_rejects_extra_authorization",
+    "test_retire_control_contract.ContractTests.test_read_roundtrip",
+    "test_retire_control_contract.ContractTests.test_request_unknown_field_refused_even_when_signed",
+    "test_retire_control_contract.ContractTests.test_response_correspondence_and_strict_result",
+    "test_retire_control_contract.ContractTests.test_response_replay_refused",
+    "test_retire_control_contract.ContractTests.test_response_same_count_other_job_rejected",
+    "test_retire_control_contract.ContractTests.test_rotation_allows_old_descriptor_with_new_dual_request",
+    "test_retire_control_contract.ContractTests.test_terminal_view_cannot_claim_job_cancelled_or_record_gc",
+    "test_retire_control_contract.ContractTests.test_unknown_method_rejected",
+    "test_retire_control_contract.ContractTests.test_unsigned_proposal_file_not_a_signed_exchange",
+    "test_retire_control_contract.ContractTests.test_version_bool_refused",
+    "test_retire_control_contract.ContractTests.test_wrong_job_refused",
+    "test_retire_control_contract.ContractTests.test_wrong_origin_refused",
+    "test_retire_control_contract.ContractTests.test_wrong_outer_key_refused",
+    "test_retire_control_contract.ContractTests.test_wrong_response_kind_rejected_even_with_keeper_signature"
+  ]
+}

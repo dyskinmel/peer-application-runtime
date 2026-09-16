@@ -1,0 +1,83 @@
+{
+  "status": "EXPECTED_CASES_NOT_PRODUCT_EXECUTED",
+  "generator": "fixed examples and minimal deterministic encoder used at authoring; not shipped as runtime codec",
+  "cases": [
+    {
+      "id": "WF-001",
+      "scope": "frame",
+      "hex": "00000035a600010118ff02500000000000000000000000000000000003f604a4001903e901666465636f646502000367696e76616c69640500",
+      "expected": "ACCEPT_STRUCTURE_ONLY",
+      "note": "Pre-auth ERROR. No signature or authorization claim."
+    },
+    {
+      "id": "WF-002",
+      "scope": "frame",
+      "hex": "00000000",
+      "expected": "REJECT",
+      "reason": "zero-body-length"
+    },
+    {
+      "id": "WF-003",
+      "scope": "frame",
+      "hex": "00000035a600010118ff02500000000000000000000000000000000003f604a4001903e901666465636f646502000367696e76616c696405",
+      "expected": "REJECT",
+      "reason": "truncated-frame"
+    },
+    {
+      "id": "WF-004",
+      "scope": "cbor",
+      "hex": "a200010002",
+      "expected": "REJECT",
+      "reason": "duplicate-map-key"
+    },
+    {
+      "id": "WF-005",
+      "scope": "cbor",
+      "hex": "1817",
+      "expected": "REJECT",
+      "reason": "nonminimal-integer"
+    },
+    {
+      "id": "WF-006",
+      "scope": "cbor",
+      "hex": "61ff",
+      "expected": "REJECT",
+      "reason": "invalid-utf8"
+    },
+    {
+      "id": "WF-007",
+      "scope": "cbor",
+      "hex": "a201000001",
+      "expected": "REJECT",
+      "reason": "map-keys-out-of-order"
+    },
+    {
+      "id": "WF-008",
+      "scope": "cbor",
+      "hex": "9f01ff",
+      "expected": "REJECT",
+      "reason": "indefinite-array"
+    },
+    {
+      "id": "WF-009",
+      "scope": "cbor",
+      "hex": "0000",
+      "expected": "REJECT",
+      "reason": "trailing-cbor-item"
+    },
+    {
+      "id": "WF-010",
+      "scope": "cbor",
+      "hex": "c001",
+      "expected": "REJECT",
+      "reason": "tag-forbidden-in-header"
+    },
+    {
+      "id": "WF-011",
+      "scope": "cbor",
+      "hex": "fa3f800000",
+      "expected": "REJECT",
+      "reason": "float-forbidden-in-header"
+    }
+  ]
+}

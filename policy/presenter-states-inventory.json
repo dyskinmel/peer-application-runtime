@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "presenter.states.authority_denied",
+    "presenter.states.authority_fork",
+    "presenter.states.authority_pending",
+    "presenter.states.authority_rebase-required",
+    "presenter.states.authority_seed-pending",
+    "presenter.states.browser_copy_not_durable",
+    "presenter.states.bytes_not_crdt",
+    "presenter.states.catalog_partial_not_absent",
+    "presenter.states.complete_download_not_recovery",
+    "presenter.states.copies_stale",
+    "presenter.states.copies_unknown",
+    "presenter.states.duplicate_peer_reject",
+    "presenter.states.integer_progress_no_precision_loss",
+    "presenter.states.keys_missing",
+    "presenter.states.keys_unknown",
+    "presenter.states.local_unknown_not_failure",
+    "presenter.states.post_commit_cancel_keeps_commit",
+    "presenter.states.presence_unknown_not_offline",
+    "presenter.states.progress_over_total_reject",
+    "presenter.states.read_absent-local",
+    "presenter.states.read_only_never_writer",
+    "presenter.states.read_quarantined",
+    "presenter.states.read_tombstoned",
+    "presenter.states.read_waiting-data",
+    "presenter.states.unknown_total_indeterminate",
+    "presenter.states.wrong_root_not_counted"
+  ]
+}

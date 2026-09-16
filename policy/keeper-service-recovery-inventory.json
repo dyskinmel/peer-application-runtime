@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_service_recovery.ServiceRecovery.test_authority_updated_between_restarts_invalidates_old_client",
+    "test_service_recovery.ServiceRecovery.test_corrupt_object_blocks_recovery",
+    "test_service_recovery.ServiceRecovery.test_fresh_capability_after_known_authority_update",
+    "test_service_recovery.ServiceRecovery.test_keeper_restart_during_partial_receive",
+    "test_service_recovery.ServiceRecovery.test_missing_object_blocks_recovery",
+    "test_service_recovery.ServiceRecovery.test_reclaimed_keeper_does_not_serve_removed_data",
+    "test_service_recovery.ServiceRecovery.test_released_keeper_does_not_serve_to_reconnecting_client",
+    "test_service_recovery.ServiceRecovery.test_remote_provider_rejects_unknown_object_before_request",
+    "test_service_recovery.ServiceRecovery.test_remote_provider_rejects_wrong_pin",
+    "test_service_recovery.ServiceRecovery.test_repaired_keeper_serves_only_valid_replacement",
+    "test_service_recovery.ServiceRecovery.test_separate_recipient_after_donor_removed",
+    "test_service_recovery.ServiceRecovery.test_sigkill_recipient_after_ack_reuses_received_objects"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "profile": "par-application-embedding-0053",
+  "local_experiment_required": true,
+  "original_before_prepare": true,
+  "dispatch_marker_before_send": true,
+  "one_view_per_embedding": true,
+  "detach_deletes_records": false,
+  "automatic_retry": false,
+  "automatic_reconnect": false,
+  "automatic_ack": false,
+  "production_apply_exposed": false,
+  "real_core_executed": false,
+  "browser_executed": false,
+  "product_qualified": false,
+  "metadata_encrypted": false,
+  "hardware_rollback_protected": false,
+  "status": "IMPLEMENTED_REQUIRES_FRESH_VERIFICATION"
+}

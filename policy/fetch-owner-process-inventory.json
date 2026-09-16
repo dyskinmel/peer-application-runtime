@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_owner_process.OwnerProcessTests.test_accept_response_loss_keeps_external_plan_sha",
+    "test_owner_process.OwnerProcessTests.test_cancel_stalled_tls_reaps_worker",
+    "test_owner_process.OwnerProcessTests.test_deadline_stalled_tls_reaps_worker",
+    "test_owner_process.OwnerProcessTests.test_readonly_owner_rejects_raw_propose",
+    "test_owner_process.OwnerProcessTests.test_save_response_loss_offline_resume_then_missing_only",
+    "test_owner_process.OwnerProcessTests.test_two_rounds_three_level_and_core_blocked"
+  ]
+}

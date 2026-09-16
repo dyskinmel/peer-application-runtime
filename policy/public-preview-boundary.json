@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "publishable": false,
+  "classification": "OSS_DEVELOPER_PREVIEW_CANDIDATE_NOT_RELEASE_AUTHORIZATION",
+  "display_name": {
+    "kind": "PROVISIONAL_FUNCTIONAL_DESCRIPTOR",
+    "value": "Peer Application Runtime"
+  },
+  "unresolved_gates": [
+    "license",
+    "project_name",
+    "security_contact",
+    "public_repository",
+    "release_version"
+  ],
+  "included_roots": [
+    "baseline",
+    "docs",
+    "examples",
+    "experiments",
+    "harness",
+    "policy",
+    "product",
+    "templates",
+    "tests",
+    "tools"
+  ],
+  "included_top_level_files": [
+    "README.md",
+    "SPEC.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "excluded_roots": [
+    ".git",
+    ".harness",
+    "evidence",
+    "plan",
+    "release",
+    "knowledge",
+    "node_modules",
+    "target",
+    ".venv",
+    "__pycache__"
+  ],
+  "scan": {
+    "secret_patterns": [
+      "OPENSSH PRIVATE KEY",
+      "BEGIN PRIVATE KEY",
+      "AWS_SECRET_ACCESS_KEY"
+    ],
+    "local_path_prefixes": [
+      "/mnt/data/",
+      "/home/oai/",
+      "/Users/"
+    ],
+    "max_text_bytes": 2097152
+  },
+  "nonclaims": [
+    "not a public release authorization",
+    "license is intentionally undecided for final human/Codex review",
+    "no production qualification",
+    "no security contact is published by this candidate"
+  ],
+  "excluded_prefixes": [
+    "docs/history/"
+  ],
+  "scan_exempt_paths": {
+    "policy/public-preview-boundary.json": "scanner policy necessarily contains its own signatures and local-path patterns",
+    "product/wp15/PUBLIC_PREVIEW_BOUNDARY.json": "public copy of scanner policy contains signatures by definition",
+    "tests/product/wp14/test_doctor.py": "negative fixture intentionally contains fake key/path material for doctor redaction tests",
+    "tests/test_local_closure_sprint_a.py": "negative scanner fixture intentionally contains a local path and constructed fake token"
+  },
+  "excluded_path_components": [
+    "__pycache__"
+  ],
+  "excluded_suffixes": [
+    ".pyc",
+    ".pyo"
+  ],
+  "public_source_policy": "oss/PUBLIC_SOURCE_POLICY.json",
+  "policy_transition": "00.68 uses fail-closed classified public source policy; legacy fields retained for WP15 regression compatibility"
+}

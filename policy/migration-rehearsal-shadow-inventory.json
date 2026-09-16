@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "suite": "migration-rehearsal-shadow",
+  "case_ids": [
+    "test_shadow.ShadowTests.test_ack_unknown_operation_is_not_replayed_or_rewritten",
+    "test_shadow.ShadowTests.test_backup_is_required_before_shadow",
+    "test_shadow.ShadowTests.test_incomplete_shadow_pending_is_rebuilt",
+    "test_shadow.ShadowTests.test_manifest_tamper_or_extra_file_is_rejected",
+    "test_shadow.ShadowTests.test_missing_outbox_or_changed_signed_bytes_is_rejected",
+    "test_shadow.ShadowTests.test_schema_or_unknown_codec_resign_mutant_is_rejected",
+    "test_shadow.ShadowTests.test_seed_frontier_and_converter_are_pinned",
+    "test_shadow.ShadowTests.test_shadow_preserves_ledger_outbox_and_drafts_exactly",
+    "test_shadow.ShadowTests.test_unknown_mandatory_codec_is_opaque_upgrade_required"
+  ]
+}

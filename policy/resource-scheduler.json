@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "scheduler_mode": "RESOURCE_SAFE_V1",
+  "max_workers": 3,
+  "cpu_capacity_units": 3,
+  "memory_capacity_units": 3,
+  "io_capacity_units": 3,
+  "max_load_per_cpu": 2.0,
+  "min_free_memory_mb": 512,
+  "min_free_disk_mb": 1024,
+  "foreign_process_patterns": [
+    "PAR_HARNESS_FOREIGN_TEST_SENTINEL",
+    "tools/test_runner.py"
+  ],
+  "preflight_failure_action": "DRAIN_AND_PACKAGE",
+  "product_qualified": false
+}

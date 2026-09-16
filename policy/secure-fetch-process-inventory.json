@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_process_fetch.ProcessFetchTests.test_actual_two_process_fetch_save_reopen",
+    "test_process_fetch.ProcessFetchTests.test_demo_is_executable",
+    "test_process_fetch.ProcessFetchTests.test_kill_after_dirsync_reconcile_without_refetch",
+    "test_process_fetch.ProcessFetchTests.test_kill_after_publish_reconcile_without_refetch",
+    "test_process_fetch.ProcessFetchTests.test_kill_before_publish_not_stored",
+    "test_process_fetch.ProcessFetchTests.test_kill_before_receipt_reconcile_without_refetch",
+    "test_process_fetch.ProcessFetchTests.test_new_inbox_same_scope_does_not_reuse_plan",
+    "test_process_fetch.ProcessFetchTests.test_provider_restart_requires_explicit_new_snapshot",
+    "test_process_fetch.ProcessFetchTests.test_wrong_external_plan_digest_blocks_resume"
+  ]
+}

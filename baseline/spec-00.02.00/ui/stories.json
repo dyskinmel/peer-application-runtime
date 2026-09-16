@@ -1,0 +1,558 @@
+[
+  {
+    "id": "UI-001",
+    "surface": "workspace",
+    "state": "empty",
+    "required_text": "この端末で始める",
+    "allowed_actions": [
+      "create-space",
+      "import-data"
+    ],
+    "forbidden_claims": [
+      "接続済み",
+      "バックアップ済み"
+    ],
+    "facts": {
+      "peers": 0,
+      "documents": 0
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-002",
+    "surface": "protection",
+    "state": "local-only",
+    "required_text": "この端末に保存済み",
+    "allowed_actions": [
+      "add-copy",
+      "open-details"
+    ],
+    "forbidden_claims": [
+      "すべて安全",
+      "同期完了"
+    ],
+    "facts": {
+      "local": "committed",
+      "remoteCopies": 0,
+      "keys": "available"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-003",
+    "surface": "protection",
+    "state": "pending-local",
+    "required_text": "この端末への保存中",
+    "allowed_actions": [
+      "open-details"
+    ],
+    "forbidden_claims": [
+      "保存済み"
+    ],
+    "facts": {
+      "local": "pending",
+      "remoteCopies": 0
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-004",
+    "surface": "protection",
+    "state": "two-observed-copies",
+    "required_text": "他の2台で保管を確認",
+    "allowed_actions": [
+      "open-details",
+      "export"
+    ],
+    "forbidden_claims": [
+      "永久保存",
+      "物理的に独立した2台"
+    ],
+    "facts": {
+      "local": "committed",
+      "remoteCopies": 2,
+      "semantic": "verified",
+      "freshness": "fresh",
+      "independence": "unknown"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-005",
+    "surface": "protection",
+    "state": "stale",
+    "required_text": "保管確認が古くなっています",
+    "allowed_actions": [
+      "retry-connect",
+      "open-details"
+    ],
+    "forbidden_claims": [
+      "現在取得可能",
+      "データ消失"
+    ],
+    "facts": {
+      "local": "committed",
+      "remoteCopies": 2,
+      "freshness": "stale"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-006",
+    "surface": "protection",
+    "state": "byte-only",
+    "required_text": "データの保管を確認。復元できるかは未確認です",
+    "allowed_actions": [
+      "verify-recovery",
+      "open-details"
+    ],
+    "forbidden_claims": [
+      "復元可能"
+    ],
+    "facts": {
+      "local": "committed",
+      "remoteCopies": 1,
+      "semantic": "unknown"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-007",
+    "surface": "invite",
+    "state": "approval-pending",
+    "required_text": "参加の承認を待っています",
+    "allowed_actions": [
+      "copy-request",
+      "dismiss"
+    ],
+    "forbidden_claims": [
+      "参加済み"
+    ],
+    "facts": {
+      "approval": "pending"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-008",
+    "surface": "invite",
+    "state": "review",
+    "required_text": "この端末に閲覧・編集を許可します",
+    "allowed_actions": [
+      "approve-invite",
+      "dismiss"
+    ],
+    "forbidden_claims": [
+      "すべての端末を信頼"
+    ],
+    "facts": {
+      "role": "editor",
+      "fingerprint": "fixture-only",
+      "confirmation": "preview"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-009",
+    "surface": "invite",
+    "state": "stale-preview",
+    "required_text": "共有設定が変わりました。内容を確認し直してください",
+    "allowed_actions": [
+      "review-invite",
+      "dismiss"
+    ],
+    "forbidden_claims": [
+      "承認済み"
+    ],
+    "facts": {
+      "revisionMismatch": true
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-010",
+    "surface": "editor",
+    "state": "offline-conflict",
+    "required_text": "両方の変更を保存しています",
+    "allowed_actions": [
+      "review-conflict",
+      "export"
+    ],
+    "forbidden_claims": [
+      "競合を自動解決済み"
+    ],
+    "facts": {
+      "conflictValues": [
+        "旅行A",
+        "旅行B"
+      ]
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-011",
+    "surface": "editor",
+    "state": "rebase-required",
+    "required_text": "共有設定の更新前の編集があります",
+    "allowed_actions": [
+      "review-rebase",
+      "export"
+    ],
+    "forbidden_claims": [
+      "変更は反映済み"
+    ],
+    "facts": {
+      "sharedWrite": false,
+      "privateDraft": true
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-012",
+    "surface": "workspace",
+    "state": "control-fork",
+    "required_text": "共有設定の不一致を検出しました",
+    "allowed_actions": [
+      "inspect-fork",
+      "export"
+    ],
+    "forbidden_claims": [
+      "最新版を自動選択",
+      "通常どおり共有中"
+    ],
+    "facts": {
+      "sharedWrite": false,
+      "localRead": true
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-013",
+    "surface": "recovery",
+    "state": "downloading",
+    "required_text": "データを取得しています",
+    "allowed_actions": [
+      "pause-recovery"
+    ],
+    "forbidden_claims": [
+      "復旧完了"
+    ],
+    "facts": {
+      "phase": "fetching",
+      "bytesProgress": 0.7
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-014",
+    "surface": "recovery",
+    "state": "verifying",
+    "required_text": "取得完了。内容を検証しています",
+    "allowed_actions": [
+      "open-details"
+    ],
+    "forbidden_claims": [
+      "復旧完了"
+    ],
+    "facts": {
+      "phase": "verifying",
+      "bytesProgress": 1.0,
+      "verificationComplete": false
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-015",
+    "surface": "recovery",
+    "state": "missing-key",
+    "required_text": "復旧用の鍵が必要です",
+    "allowed_actions": [
+      "provide-key",
+      "export-diagnostics"
+    ],
+    "forbidden_claims": [
+      "データが壊れています"
+    ],
+    "facts": {
+      "phase": "obtaining-keys"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-016",
+    "surface": "recovery",
+    "state": "partial",
+    "required_text": "一部のデータを復元できませんでした",
+    "allowed_actions": [
+      "export-partial",
+      "retry-connect"
+    ],
+    "forbidden_claims": [
+      "すべて復旧済み"
+    ],
+    "facts": {
+      "missingObjects": 3
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-017",
+    "surface": "recovery",
+    "state": "review",
+    "required_text": "検証済みのデータへ切り替えます",
+    "allowed_actions": [
+      "activate-recovery",
+      "dismiss"
+    ],
+    "forbidden_claims": [
+      "すでに切替済み"
+    ],
+    "facts": {
+      "phase": "review",
+      "verificationComplete": true,
+      "confirmation": "preview"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-018",
+    "surface": "contribution",
+    "state": "disabled",
+    "required_text": "ほかの人向けの保管・中継は無効です",
+    "allowed_actions": [
+      "review-contribution"
+    ],
+    "forbidden_claims": [
+      "端末を提供中"
+    ],
+    "facts": {
+      "storageBudget": 0,
+      "relayBudget": 0
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-019",
+    "surface": "contribution",
+    "state": "forced-stop",
+    "required_text": "ほかの端末から取得できなくなる可能性があります",
+    "allowed_actions": [
+      "force-stop",
+      "dismiss"
+    ],
+    "forbidden_claims": [
+      "影響はありません"
+    ],
+    "facts": {
+      "activeLeases": 2,
+      "confirmation": "explicit-risk"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-020",
+    "surface": "diagnostics",
+    "state": "storage-full",
+    "required_text": "空き容量が不足しています",
+    "allowed_actions": [
+      "choose-folder",
+      "export-diagnostics"
+    ],
+    "forbidden_claims": [
+      "保存済み",
+      "データを自動削除"
+    ],
+    "facts": {
+      "local": "failed",
+      "preservesPending": true
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-021",
+    "surface": "connectivity",
+    "state": "relay-required",
+    "required_text": "直接接続できません。許可した中継先を確認してください",
+    "allowed_actions": [
+      "review-relay",
+      "retry-connect"
+    ],
+    "forbidden_claims": [
+      "公式サーバーへ接続します"
+    ],
+    "facts": {
+      "automaticExternalFallback": false
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-022",
+    "surface": "rpc",
+    "state": "outcome-unknown",
+    "required_text": "処理結果を確認できません",
+    "allowed_actions": [
+      "inspect-operation"
+    ],
+    "forbidden_claims": [
+      "処理失敗。自動再実行します"
+    ],
+    "facts": {
+      "outcome": "unknown",
+      "autoRetry": false
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-023",
+    "surface": "browser",
+    "state": "storage-best-effort",
+    "required_text": "ブラウザー内に保存。長期保管は別の端末を推奨します",
+    "allowed_actions": [
+      "add-copy",
+      "export"
+    ],
+    "forbidden_claims": [
+      "恒久保存"
+    ],
+    "facts": {
+      "storageClass": "browser-best-effort"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  },
+  {
+    "id": "UI-024",
+    "surface": "presence",
+    "state": "expired",
+    "required_text": "最近の状態を確認できません",
+    "allowed_actions": [
+      "open-details"
+    ],
+    "forbidden_claims": [
+      "オフライン確定"
+    ],
+    "facts": {
+      "presence": "unknown"
+    },
+    "fixture_kind": "SYNTHETIC_PRESENTATION_ONLY",
+    "execution_status": "NOT_RUN",
+    "requirements": [
+      "PAR-DS-003",
+      "PAR-UX-001"
+    ]
+  }
+]

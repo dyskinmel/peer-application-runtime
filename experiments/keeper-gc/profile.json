@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "name": "keeper-gc-local-v1",
+  "artifact_version": "00.13.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "test_counts": {
+    "contract": 15,
+    "lifecycle": 20,
+    "audit": 21,
+    "faults": 32
+  },
+  "sigkill_scenarios": 22,
+  "schema_version_keeper_db": 2,
+  "independent_review": "NOT_RUN",
+  "automatic_gc": false,
+  "network_verified": false,
+  "crdt_validated": false,
+  "physical_power_loss_tested": false,
+  "secure_erasure": false,
+  "product_qualified": false,
+  "eligibility": "EXPLICIT_SIGNED_GC_REQUEST_FOR_RELEASED_LEASE",
+  "pins": "SAME_INSTANCE_CONTEXT_NO_FD_LENDING",
+  "quota_contract": "RELEASE_OBJECT_RESERVATION_RETAIN_INDEX_AUDIT_CHARGE",
+  "max_gc_jobs": 256,
+  "metadata_compaction": false,
+  "pinned_inputs": [
+    {
+      "path": "experiments/keeper-gc/schema.sql",
+      "sha256": "49604d09cf06606cdda94131088f9870ecb988fece1049cd9c4a2233a7a4dc5f"
+    },
+    {
+      "path": "experiments/keeper-retention/par_keeper/store.py",
+      "sha256": "fe9b8d24e32a56b051e6729b89336c72f1e0dec4bdab8a7b8fc08d458ecbf317"
+    },
+    {
+      "path": "experiments/keeper-retention/par_keeper/contract.py",
+      "sha256": "85a59a18eca398e7db51356edf8d1716a3a42358c4b89849b90b09c46d879cca"
+    },
+    {
+      "path": "experiments/recovery-closure/par_recovery/contract.py",
+      "sha256": "8edce006278135f8a0e71e9c7dcc645cec745c6a8179571d3df5f2b5b69d3b4e"
+    },
+    {
+      "path": "policy/crypto-provider.json",
+      "sha256": "62cac014fb4a67145eab5462e1d7840e2d01ffef271fa793ce17a0d7a29af63c"
+    }
+  ]
+}

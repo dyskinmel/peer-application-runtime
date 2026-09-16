@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scope": "LOCAL_PROVIDER_HANDOFF_SOURCE_SHAPE_NOT_NATIVE_QUALIFICATION",
+  "case_ids": [
+    "test_doctor.DoctorTests.test_build_not_run_is_not_available",
+    "test_doctor.DoctorTests.test_capability_probe_is_injected_not_shell_magic",
+    "test_doctor.DoctorTests.test_descriptor_epoch_is_redacted_but_bound",
+    "test_doctor.DoctorTests.test_doctor_is_read_only_and_no_egress",
+    "test_doctor.DoctorTests.test_doctor_output_has_no_secret_or_path_values",
+    "test_doctor.DoctorTests.test_export_requires_explicit_request",
+    "test_doctor.DoctorTests.test_missing_provider_is_blocked_not_pass",
+    "test_doctor.DoctorTests.test_result_scope_and_freshness_present"
+  ]
+}

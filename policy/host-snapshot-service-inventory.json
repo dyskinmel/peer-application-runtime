@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_snapshot_host.CachedWindowService.test_begin_uses_gateway_and_binding",
+    "test_snapshot_host.CachedWindowService.test_current_authority_checked_after_handshake",
+    "test_snapshot_host.CachedWindowService.test_delayed_old_request_after_close",
+    "test_snapshot_host.CachedWindowService.test_delayed_old_request_after_next_generation",
+    "test_snapshot_host.CachedWindowService.test_half_request_never_reaches_admission",
+    "test_snapshot_host.CachedWindowService.test_idle_deadline_closes_connection",
+    "test_snapshot_host.CachedWindowService.test_legacy_spool_is_not_a_gateway",
+    "test_snapshot_host.CachedWindowService.test_management_wrapper_rejected_even_valid_outer_signature",
+    "test_snapshot_host.CachedWindowService.test_one_request_per_connection",
+    "test_snapshot_host.CachedWindowService.test_overlarge_frame_rejected_before_allocation",
+    "test_snapshot_host.CachedWindowService.test_phase_is_sent_but_not_auto_advanced",
+    "test_snapshot_host.CachedWindowService.test_raw_legacy_command_no_side_effect",
+    "test_snapshot_host.CachedWindowService.test_response_dropped_after_local_close",
+    "test_snapshot_host.CachedWindowService.test_unknown_method_request_no_mutation"
+  ]
+}

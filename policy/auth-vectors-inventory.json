@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_auth_vectors.VectorTests.test_fixed_corpus_activation",
+    "test_auth_vectors.VectorTests.test_fixed_corpus_all_signatures",
+    "test_auth_vectors.VectorTests.test_fixed_corpus_digest_anchor",
+    "test_auth_vectors.VectorTests.test_fixed_corpus_genesis_hash",
+    "test_auth_vectors.VectorTests.test_fixed_corpus_is_labeled_test_only",
+    "test_auth_vectors.VectorTests.test_fixed_corpus_known_fork_stays_frozen",
+    "test_auth_vectors.VectorTests.test_fixed_corpus_membership_roots",
+    "test_auth_vectors.VectorTests.test_fixed_corpus_replay",
+    "test_auth_vectors.VectorTests.test_fresh_process_replay_requires_reactivation",
+    "test_auth_vectors.VectorTests.test_generated_checkpoint_trace_retains_roots",
+    "test_auth_vectors.VectorTests.test_generated_invalid_signatures_do_not_advance",
+    "test_auth_vectors.VectorTests.test_generated_keeper_toggle_preserves_content_projection",
+    "test_auth_vectors.VectorTests.test_node_canonical_control_bytes_equal",
+    "test_auth_vectors.VectorTests.test_node_domains_equal_fixed_signing_bytes",
+    "test_auth_vectors.VectorTests.test_node_openssl_rejects_mutated_signature",
+    "test_auth_vectors.VectorTests.test_node_openssl_verifies_fixed_signatures",
+    "test_auth_vectors.VectorTests.test_node_rejects_trailing_control_data"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_providers.ProviderTests.test_ack_without_storing_is_detected",
+    "test_providers.ProviderTests.test_external_exception_not_expected_rejection",
+    "test_providers.ProviderTests.test_local_pin_contract_passes_and_reopens",
+    "test_providers.ProviderTests.test_missing_provider_is_blocked_without_fallback",
+    "test_providers.ProviderTests.test_readback_only_memory_does_not_pass_reopen",
+    "test_providers.ProviderTests.test_second_process_owner_and_sigkill_release",
+    "test_providers.ProviderTests.test_unrelated_pin_not_allowed_as_next"
+  ]
+}

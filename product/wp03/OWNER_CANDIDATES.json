@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "work_package": "WP-03",
+  "owner_task": "L-WP03",
+  "candidate_tasks": [
+    "SPACE-AUTH-LOCAL",
+    "AUTH-STORE-LOCAL"
+  ],
+  "residual_nonclaims": [
+    "native authorization/store adapter",
+    "OS trust/key vault",
+    "device key protection"
+  ],
+  "candidate_checks": [
+    "auth-activation",
+    "auth-admission",
+    "auth-chain",
+    "auth-membership",
+    "auth-receiver",
+    "auth-replay",
+    "auth-store-commit",
+    "auth-store-faults",
+    "auth-store-persistence",
+    "auth-store-schema",
+    "auth-vectors"
+  ],
+  "evidence_mode": "REFERENCE_EXISTING_CANDIDATES_NO_CODE_COPY"
+}

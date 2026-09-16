@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_control_contract.ControlContract.test_bool_revision_refused",
+    "test_control_contract.ControlContract.test_bounded_decoder",
+    "test_control_contract.ControlContract.test_error_cannot_leak_traceback",
+    "test_control_contract.ControlContract.test_intent_signature_tamper",
+    "test_control_contract.ControlContract.test_limits_fixed",
+    "test_control_contract.ControlContract.test_noncanonical_and_trailing_refused",
+    "test_control_contract.ControlContract.test_null_job_only_status",
+    "test_control_contract.ControlContract.test_old_policy_revision",
+    "test_control_contract.ControlContract.test_request_new_connection_refused",
+    "test_control_contract.ControlContract.test_request_signature_cannot_be_an_intent_signature",
+    "test_control_contract.ControlContract.test_request_wrong_owner_refused",
+    "test_control_contract.ControlContract.test_revoked_hello_not_usable",
+    "test_control_contract.ControlContract.test_roundtrip_five_actions",
+    "test_control_contract.ControlContract.test_same_intent_across_connections",
+    "test_control_contract.ControlContract.test_signed_error_scope",
+    "test_control_contract.ControlContract.test_unknown_action_rejected",
+    "test_control_contract.ControlContract.test_wrong_controller",
+    "test_control_contract.ControlContract.test_wrong_id_size",
+    "test_control_contract.ControlContract.test_wrong_keeper",
+    "test_control_contract.ControlContract.test_wrong_store"
+  ]
+}

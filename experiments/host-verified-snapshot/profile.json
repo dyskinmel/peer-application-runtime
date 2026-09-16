@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "profile": "par-host-verification-reuse-local-v1",
+  "artifact_version": "00.20.00",
+  "scope": "EXACT_POSITIVE_ED25519_INPUTS_ONLY",
+  "default_mode": "full",
+  "authorization_cached": false,
+  "disk_reads_skipped": false,
+  "persistent_cache": false,
+  "product_qualified": false,
+  "independent_review_completed": false,
+  "physical_power_loss_tested": false,
+  "limits": {
+    "max_entries": 512,
+    "max_key_bytes": 4194304,
+    "max_message_bytes": 65536
+  },
+  "tests": {
+    "contract": 29,
+    "limits": 20,
+    "service": 14,
+    "live": 15,
+    "process": 8,
+    "faults": 10,
+    "io": 12
+  },
+  "test_total": 108,
+  "sigkill_cases": 1,
+  "fork_isolation_test": true,
+  "shared_reader_changed": true,
+  "pinned_inputs": [
+    {
+      "path": "experiments/g0-crypto/par_crypto/provider.py",
+      "sha256": "ebe8b4e47dd84beda6866a6ebcb33321c0f6eeeb69cbeab98cd7fcfbe0983303"
+    },
+    {
+      "path": "policy/crypto-provider.json",
+      "sha256": "62cac014fb4a67145eab5462e1d7840e2d01ffef271fa793ce17a0d7a29af63c"
+    },
+    {
+      "path": "experiments/recovery-closure/par_recovery/transfer.py",
+      "sha256": "dfb81565887eeef2b12c2ecc347744dec757512bd745397323f66123249fba4d"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/protocol.py",
+      "sha256": "698a7b9db72605b8fe6068bbcc2a766d41dd85f5090f817c23d937c8927380c4"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/server.py",
+      "sha256": "e63ae69f16f48b4a21e4a119c027d26aee07fd46baee8c6f4eecf9d170c2f081"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/host.py",
+      "sha256": "40ea5251729eb3d62de8b31134a7da58b2e19d2eeb2a3b67f2722294e16d3289"
+    },
+    {
+      "path": "experiments/host-verified-snapshot/par_verified_host/provider.py",
+      "sha256": "309a52953da83a7ce128e691251fb086dca8be60569ef4baae42dc07137f3f49"
+    },
+    {
+      "path": "experiments/host-verified-snapshot/par_verified_host/host.py",
+      "sha256": "740809723978617b6af7bae8c4981c60c03ec1c9c6802b5e6845a3f5aff8c18b"
+    }
+  ]
+}

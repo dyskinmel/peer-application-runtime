@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "scope": "LOCAL_PROVIDER_HANDOFF_SOURCE_SHAPE_NOT_NATIVE_QUALIFICATION",
+  "case_ids": [
+    "test_native_sources.NativeSourceTests.test_contract_doc_states_source_only_native_status",
+    "test_native_sources.NativeSourceTests.test_no_native_binary_shipped_as_verified",
+    "test_native_sources.NativeSourceTests.test_profile_marks_native_build_not_run",
+    "test_native_sources.NativeSourceTests.test_rust_handoff_source_has_no_unsafe_or_network_fallback",
+    "test_native_sources.NativeSourceTests.test_swift_bridge_has_epoch_and_cleanup_contract",
+    "test_native_sources.NativeSourceTests.test_swift_caller_source_exists_and_uses_device_only_keychain",
+    "test_native_sources.NativeSourceTests.test_swift_source_is_create_only_not_silent_overwrite"
+  ]
+}

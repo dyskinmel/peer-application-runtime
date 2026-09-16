@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_snapshot_limits.SnapshotLimits.test_budget_boolean_invalid",
+    "test_snapshot_limits.SnapshotLimits.test_budget_over_max_invalid",
+    "test_snapshot_limits.SnapshotLimits.test_budget_zero_invalid",
+    "test_snapshot_limits.SnapshotLimits.test_byte_capacity_evicts",
+    "test_snapshot_limits.SnapshotLimits.test_byte_capacity_falls_back",
+    "test_snapshot_limits.SnapshotLimits.test_entry_eviction_keeps_acceptance",
+    "test_snapshot_limits.SnapshotLimits.test_exact_message_limit",
+    "test_snapshot_limits.SnapshotLimits.test_failure_inside_full_does_not_warm",
+    "test_snapshot_limits.SnapshotLimits.test_full_verification_context_bypasses_warm",
+    "test_snapshot_limits.SnapshotLimits.test_invalidate_cold",
+    "test_snapshot_limits.SnapshotLimits.test_lru_access_not_fifo",
+    "test_snapshot_limits.SnapshotLimits.test_negative_message_limit",
+    "test_snapshot_limits.SnapshotLimits.test_nested_full_context",
+    "test_snapshot_limits.SnapshotLimits.test_new_instance_starts_cold",
+    "test_snapshot_limits.SnapshotLimits.test_oversize_valid_not_cached",
+    "test_snapshot_limits.SnapshotLimits.test_repeated_invalid_clears_prior_success",
+    "test_snapshot_limits.SnapshotLimits.test_scope_change_invalidates",
+    "test_snapshot_limits.SnapshotLimits.test_scope_mutable_rejected",
+    "test_snapshot_limits.SnapshotLimits.test_scope_same_preserves",
+    "test_snapshot_limits.SnapshotLimits.test_scope_size_bounded"
+  ]
+}

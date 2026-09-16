@@ -1,0 +1,22 @@
+# ADR-AUTH-0003 — self-reviewで再現した4つの不備
+
+00.07.00 / candidate / 独立レビューではない。
+
+## 1. 同epochの異なる鍵
+空seedのSpaceでは、authorityが受信者ごとに異なるsecretを配った場合でも各packageの署名は有効になり得る。local stateが両方を学んだ際はEPOCH_SECRET_CONFLICTで拒否するよう変更。全受信者が同一secretを持つことのglobal証明ではなく、観測可能な不整合を検出する。
+
+## 2. 非隣接epochでの再利用
+直前のactive secretだけとの比較ではepoch1→2→1の再利用を検出しなかった。localで検証したepochごとの一方向check値を保持して再利用を拒否。replay exportへcheck値を含めず、未知の過去や他端末での鍵生成品質まで保証しない。
+
+## 3. permitフィールドの差し替え
+revisionとinstanceが一致してもdataclasses.replaceでoperation等を変更できた。instance内の一時鍵による全claimのsealを追加し、claim変更・別instance・古いrevisionを拒否。秘密をAPIへ出さず、serialized network capabilityとして利用しない。敵対的な同一Python processを防護するものではない。
+
+## 4. 容量上限時のfork
+履歴budget検査がfork判定より前にあり、正当なfork証拠をRESOURCE_BLOCKEDで処理していた。通常履歴のbudgetは維持し、唯一の終端forkに最大66,000bytesの固定非常枠を設けた。freezeと両branch証拠の保全を先に行い、以後の共有操作を停止する。
+
+4件とも負例で失敗を再現してから修正し、既存テストの条件は弱めていない。最初のfixtureでprovider method名を誤記したことと、固定文字への置換が元byteと一致したことも修正。後者は常に値が変わるXOR変異とした。これらtest側の誤りと本体の4つの不備を区別する。
+
+## 再開契約の容量境界
+追加レビューで、constructorが最大4096controlを許す一方、公開replayは1024control/2049eventの範囲を対象にしている不一致を確認した。1025以上を入口で拒否する負例を先にFAILさせ、constructorの上限を1024へ統一した。大規模履歴は新profile/compactionを設計してから拡張する。既定値は変更しない。
+
+固定corpus作成時のfixture API呼出し誤り（build_membershipの返却型、create_joinの引数順）も本番側を変更せず、定義済みAPIへ合わせた。fixture生成は通常testsから呼ばれない。

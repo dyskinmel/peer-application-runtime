@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submission_retire_contract.RetirementContract.test_both_signatures_required",
+    "test_submission_retire_contract.RetirementContract.test_legacy_requires_explicit_migration",
+    "test_submission_retire_contract.RetirementContract.test_nonbytes_request",
+    "test_submission_retire_contract.RetirementContract.test_old_host_refuses_version_two",
+    "test_submission_retire_contract.RetirementContract.test_old_revision_refused",
+    "test_submission_retire_contract.RetirementContract.test_request_cannot_change_descriptor",
+    "test_submission_retire_contract.RetirementContract.test_request_cannot_change_stage",
+    "test_submission_retire_contract.RetirementContract.test_true_not_integer_revision",
+    "test_submission_retire_contract.RetirementContract.test_wrong_current_signer",
+    "test_submission_retire_contract.RetirementContract.test_wrong_original_signer"
+  ]
+}

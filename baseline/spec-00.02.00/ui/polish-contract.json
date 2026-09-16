@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "NORMATIVE_CANDIDATE",
+  "fixed_layers": [
+    "domain state",
+    "authorization",
+    "commit guarantees",
+    "typed commands",
+    "confirmation and revision guards",
+    "accessibility semantics"
+  ],
+  "replaceable_layers": [
+    "component layout",
+    "semantic tokens",
+    "theme",
+    "density",
+    "typography",
+    "motion with reduced-motion fallback"
+  ],
+  "test_dimensions": {
+    "themes": [
+      "light",
+      "dark",
+      "high-contrast"
+    ],
+    "locales": [
+      "ja-JP",
+      "en-US",
+      "ar-RTL"
+    ],
+    "type_scale": [
+      1,
+      2
+    ],
+    "viewport_class": [
+      "phone",
+      "tablet",
+      "desktop"
+    ],
+    "input": [
+      "keyboard",
+      "pointer",
+      "touch",
+      "screen-reader"
+    ]
+  },
+  "required_components": [
+    "ProtectionStatus",
+    "InviteReview",
+    "RecoveryProgress",
+    "ConflictInspector",
+    "ContributionPanel",
+    "DiagnosticsPanel"
+  ],
+  "promotion_rule": "同じsemantic fixture/command traceで動作・安全情報・a11yを維持し、visual差分をreviewする。全組合せの実UI検証はNOT_RUN。"
+}

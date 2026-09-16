@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "profile": "par-owner-fetch-0049",
+  "channel": "PRECONNECTED_PRIVATE_AF_UNIX_ONLY",
+  "default_operations": [
+    "close",
+    "inquire",
+    "observe"
+  ],
+  "operations": [
+    "accept",
+    "close",
+    "fetch",
+    "inquire",
+    "observe",
+    "propose",
+    "resume",
+    "validate"
+  ],
+  "maximum_channels": 1,
+  "maximum_workers": 1,
+  "proposal_cache": 1,
+  "maximum_plan_entries": 128,
+  "apply_exposed": false,
+  "automatic_retry": false,
+  "automatic_ack": false,
+  "public_network_executed": false,
+  "real_core_executed": false,
+  "real_browser_executed": false,
+  "production_ready": false,
+  "independent_review": "NOT_RUN",
+  "new_product_cases": 79,
+  "ui_integration": "OPTIONAL_MATCHING_SCOPE_CONTROLS_PRESERVE_EDITOR_TESTED_NODE_DOM_CONTRACT",
+  "original_intent": "APPLY_NOT_EXPOSED_UNTIL_DURABLE_INTENT_AND_INQUIRY",
+  "resume": "EXTERNAL_PLAN_SHA_AND_CURRENT_ROOT_TARGET_BINDING_PLUS_ACTUAL_INBOX",
+  "unrecovered_versions": [
+    "00.47.00",
+    "00.48.00"
+  ]
+}

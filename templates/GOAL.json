@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "template_only": true,
+  "task_id": null,
+  "objective": null,
+  "scope_paths": [],
+  "acceptance_ids": [],
+  "implementation_dependencies": [],
+  "verification_dependencies": [],
+  "qualification_dependencies": [],
+  "max_attempts": 3,
+  "repeated_identical_failure_limit": 2,
+  "publish_allowed": false,
+  "external_allowed": false,
+  "exit_evidence_required": true
+}

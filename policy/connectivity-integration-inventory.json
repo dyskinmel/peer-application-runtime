@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_integration.IntegrationTests.test_cancel_during_real_socket_read",
+    "test_integration.IntegrationTests.test_development_demo_reports_fixture_not_public_auth",
+    "test_integration.IntegrationTests.test_explicit_reconnect_is_new_generation_without_implicit_dial",
+    "test_integration.IntegrationTests.test_forbidden_dns_never_creates_child",
+    "test_integration.IntegrationTests.test_network_change_during_real_socket_read",
+    "test_integration.IntegrationTests.test_no_dns_or_ip_socket_egress_in_fixture_integration",
+    "test_integration.IntegrationTests.test_private_fixture_child_stays_in_harness_group",
+    "test_integration.IntegrationTests.test_process_exit_during_auth_not_success",
+    "test_integration.IntegrationTests.test_repeated_explicit_connect_disconnect_no_descriptor_growth",
+    "test_integration.IntegrationTests.test_separate_process_fixture_handshake",
+    "test_integration.IntegrationTests.test_stalled_process_deadline_and_descriptor_cleanup",
+    "test_integration.IntegrationTests.test_wrong_fixture_transcript_not_authenticated"
+  ]
+}

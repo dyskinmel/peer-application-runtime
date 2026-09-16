@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "presenter.hardening.array_hidden_toJSON_not_executed",
+    "presenter.hardening.array_inherited_toJSON_not_executed",
+    "presenter.hardening.composition_editor_status",
+    "presenter.hardening.dictionary_own___proto__",
+    "presenter.hardening.dictionary_own_action.constructor",
+    "presenter.hardening.dictionary_own_constructor",
+    "presenter.hardening.dictionary_own_toString",
+    "presenter.hardening.dirty_editor_never_claims_saved",
+    "presenter.hardening.dirty_flag_cannot_be_forged",
+    "presenter.hardening.no_op_draft_not_new_write",
+    "presenter.hardening.shared_write_cross_product",
+    "presenter.hardening.stable_semantic_theme_boundary"
+  ]
+}

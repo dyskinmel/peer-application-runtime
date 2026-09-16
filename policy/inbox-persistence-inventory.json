@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_inbox.PersistenceTests.test_epoch_update_requires_rebase_without_deleting",
+    "test_inbox.PersistenceTests.test_inspection_does_not_write_source_store",
+    "test_inbox.PersistenceTests.test_no_plaintext_or_semantic_status_in_persisted_record",
+    "test_inbox.PersistenceTests.test_not_activated_owner_never_decrypts",
+    "test_inbox.PersistenceTests.test_permissions_are_private",
+    "test_inbox.PersistenceTests.test_pin_detects_missing_record",
+    "test_inbox.PersistenceTests.test_record_tamper_detected_on_read",
+    "test_inbox.PersistenceTests.test_restart_rederives_waiting_state",
+    "test_inbox.PersistenceTests.test_same_epoch_authority_update_rechecked",
+    "test_inbox.PersistenceTests.test_single_writer_lock",
+    "test_inbox.PersistenceTests.test_unknown_disk_record_refused",
+    "test_inbox.PersistenceTests.test_usage_is_derived_not_trusted_counter",
+    "test_inbox.PersistenceTests.test_wrong_scope_open_refused",
+    "test_inbox.PersistenceTests.test_wrong_thread_does_not_close_owner"
+  ]
+}

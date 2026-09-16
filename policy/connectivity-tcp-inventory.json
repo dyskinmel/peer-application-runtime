@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_tcp.TcpTests.test_adapter_precancel_never_allocates_socket",
+    "test_tcp.TcpTests.test_adapter_refuses_hostname_before_socket_creation",
+    "test_tcp.TcpTests.test_adapter_refuses_unsupported_scheme",
+    "test_tcp.TcpTests.test_cancelled_read_keeps_conservative_byte_charge",
+    "test_tcp.TcpTests.test_close_is_idempotent",
+    "test_tcp.TcpTests.test_close_unblocks_read_and_closes_descriptor",
+    "test_tcp.TcpTests.test_concurrent_reads_refused",
+    "test_tcp.TcpTests.test_io_rejects_bool_sizes_and_untyped_write",
+    "test_tcp.TcpTests.test_io_timeout_is_bounded",
+    "test_tcp.TcpTests.test_native_numeric_tuple_wiring_and_failure_closes_socket",
+    "test_tcp.TcpTests.test_partial_read_detects_eof",
+    "test_tcp.TcpTests.test_read_chunk_budget",
+    "test_tcp.TcpTests.test_real_socketpair_exact_read",
+    "test_tcp.TcpTests.test_real_socketpair_exact_write",
+    "test_tcp.TcpTests.test_total_read_budget_is_not_per_call",
+    "test_tcp.TcpTests.test_total_write_budget_is_not_per_call",
+    "test_tcp.TcpTests.test_unix_socket_not_reported_internet_direct",
+    "test_tcp.TcpTests.test_write_chunk_budget"
+  ]
+}

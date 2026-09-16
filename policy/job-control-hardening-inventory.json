@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_control_hardening.ControlHardening.test_bool_policy_in_external_pin_rejected",
+    "test_control_hardening.ControlHardening.test_error_after_dispatch_is_unknown",
+    "test_control_hardening.ControlHardening.test_fake_cancellable_rejected",
+    "test_control_hardening.ControlHardening.test_fake_journal_state_rejected",
+    "test_control_hardening.ControlHardening.test_fake_reconciliation_flag_rejected",
+    "test_control_hardening.ControlHardening.test_future_signature_does_not_select_old_policy",
+    "test_control_hardening.ControlHardening.test_journal_owner_fork_rejected",
+    "test_control_hardening.ControlHardening.test_journal_path_overlap",
+    "test_control_hardening.ControlHardening.test_pre_dispatch_boundary_interrupt_is_unknown",
+    "test_control_hardening.ControlHardening.test_reconcile_then_retry_is_explicit",
+    "test_control_hardening.ControlHardening.test_unsafe_journal_permissions"
+  ]
+}

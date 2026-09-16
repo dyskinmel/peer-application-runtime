@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_repair_lifecycle.RepairLifecycle.test_authority_update_blocks_pending",
+    "test_repair_lifecycle.RepairLifecycle.test_bad_replacement_rejected_before_intent",
+    "test_repair_lifecycle.RepairLifecycle.test_cancel_healthy_job_then_gc",
+    "test_repair_lifecycle.RepairLifecycle.test_corrupt_object_replaced",
+    "test_repair_lifecycle.RepairLifecycle.test_done_receipt_is_historical_not_current_health",
+    "test_repair_lifecycle.RepairLifecycle.test_empty_object_replaced",
+    "test_repair_lifecycle.RepairLifecycle.test_expired_stays_expired",
+    "test_repair_lifecycle.RepairLifecycle.test_missing_object_restored_without_lease_change",
+    "test_repair_lifecycle.RepairLifecycle.test_multi_object_repair",
+    "test_repair_lifecycle.RepairLifecycle.test_new_cap_can_restart_after_old_job_cancelled",
+    "test_repair_lifecycle.RepairLifecycle.test_new_request_needed_for_new_corruption",
+    "test_repair_lifecycle.RepairLifecycle.test_one_pending_job_per_lease",
+    "test_repair_lifecycle.RepairLifecycle.test_pending_repair_blocks_gc_until_cancel",
+    "test_repair_lifecycle.RepairLifecycle.test_pin_acquired_after_mark_still_blocks_execution",
+    "test_repair_lifecycle.RepairLifecycle.test_reader_pin_blocks_repair",
+    "test_repair_lifecycle.RepairLifecycle.test_receipt_unchanged_after_repair",
+    "test_repair_lifecycle.RepairLifecycle.test_reclaimed_not_resurrected",
+    "test_repair_lifecycle.RepairLifecycle.test_released_not_repaired",
+    "test_repair_lifecycle.RepairLifecycle.test_repeated_damage_and_repair_keeps_retention_constant",
+    "test_repair_lifecycle.RepairLifecycle.test_reserved_not_repaired",
+    "test_repair_lifecycle.RepairLifecycle.test_same_nonce_different_targets_rejected",
+    "test_repair_lifecycle.RepairLifecycle.test_same_request_same_result_after_reopen",
+    "test_repair_lifecycle.RepairLifecycle.test_subset_repair_does_not_claim_all_bytes",
+    "test_repair_lifecycle.RepairLifecycle.test_unknown_stays_unknown",
+    "test_repair_lifecycle.RepairLifecycle.test_wrong_object_set_rejected"
+  ]
+}

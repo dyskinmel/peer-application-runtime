@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_matrix.MatrixTests.test_eight_peers_four_slots",
+    "test_matrix.MatrixTests.test_matrix_campaign_sealed_boundary_resume",
+    "test_matrix.MatrixTests.test_one_slot_status_cancel_remain_available",
+    "test_matrix.MatrixTests.test_real_fd_leak_is_detected",
+    "test_matrix.MatrixTests.test_real_task_leak_is_detected",
+    "test_matrix.MatrixTests.test_two_peers_two_slots"
+  ]
+}

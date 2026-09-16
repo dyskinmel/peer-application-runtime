@@ -1,0 +1,5 @@
+export interface ProviderCapability {status:string;factorySupplied:boolean;atomicity:string;cancellation:string;resume:string;epochBound:boolean}
+export interface ProviderDescriptor {profile:string;providerId:string;providerVersion:string;platform:string;epoch:string;protection:string;osProtectionProven:boolean;rollbackProtectionProven:boolean;nativeBuild:string;versions:Record<'handoff'|'wire'|'suite'|'store'|'sdk'|'ui',string>;capabilities:Record<'pinStore'|'callerIntentStore'|'connectionFactory',ProviderCapability>;productQualified:false}
+export interface NativeProviderPort {epoch():string;observe():Promise<unknown>;inquire(operationId:string):Promise<unknown>;close():Promise<void>}
+export declare function validateDescriptor(raw:unknown):ProviderDescriptor;
+export declare class ProviderLifetime {constructor(descriptor:ProviderDescriptor,port:NativeProviderPort,expectedEpoch:string);status():{closed:boolean;cleanupConfirmed:boolean;productQualified:false};observe(signal?:AbortSignal):Promise<unknown>;inquire(operationId:string,signal?:AbortSignal):Promise<unknown>;close():Promise<boolean>}

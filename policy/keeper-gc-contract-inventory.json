@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_gc_contract.GCContract.test_active_never_collected",
+    "test_gc_contract.GCContract.test_boolean_generation_rejected",
+    "test_gc_contract.GCContract.test_current_authority_required",
+    "test_gc_contract.GCContract.test_expired_never_collected",
+    "test_gc_contract.GCContract.test_malformed_capability_in_request_builder",
+    "test_gc_contract.GCContract.test_nonce_length_checked",
+    "test_gc_contract.GCContract.test_nonowner_denied",
+    "test_gc_contract.GCContract.test_read_only_capability_cannot_collect",
+    "test_gc_contract.GCContract.test_release_does_not_delete",
+    "test_gc_contract.GCContract.test_signature_mutation_rejected",
+    "test_gc_contract.GCContract.test_stale_generation_rejected",
+    "test_gc_contract.GCContract.test_unknown_field_denied",
+    "test_gc_contract.GCContract.test_unknown_never_collected",
+    "test_gc_contract.GCContract.test_wrong_lease_does_not_touch_files",
+    "test_gc_contract.GCContract.test_wrong_release_rejected"
+  ]
+}

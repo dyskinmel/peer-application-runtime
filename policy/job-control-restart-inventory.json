@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_control_restart.ControlHostProcess.test_data_deadline_without_cancel_completes",
+    "test_control_restart.ControlHostProcess.test_existing_upload_read_paths",
+    "test_control_restart.ControlHostProcess.test_live_control_with_incomplete_data_client",
+    "test_control_restart.ControlHostProcess.test_live_status_and_select",
+    "test_control_restart.ControlHostProcess.test_mutation_retry_in_new_client_is_duplicate",
+    "test_control_restart.ControlHostProcess.test_provider_removed_receiver_restores",
+    "test_control_restart.ControlRestart.test_expected_pin_valid_after_pending_becomes_terminal",
+    "test_control_restart.ControlRestart.test_foreign_thread_refused",
+    "test_control_restart.ControlRestart.test_journal_capacity_before_effect",
+    "test_control_restart.ControlRestart.test_journal_sync_failure_blocks_dispatch",
+    "test_control_restart.ControlRestart.test_sigkill_control_after_dispatch",
+    "test_control_restart.ControlRestart.test_sigkill_control_before_dispatch",
+    "test_control_restart.ControlRestart.test_sigkill_control_inflight_after_sync",
+    "test_control_restart.ControlRestart.test_sigkill_control_result_after_sync",
+    "test_control_restart.ControlRestart.test_sigkill_control_result_before_replace",
+    "test_control_restart.ControlRestart.test_signed_record_tamper_rejected",
+    "test_control_restart.ControlRestart.test_unknown_extra_file_refused"
+  ]
+}

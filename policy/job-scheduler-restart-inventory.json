@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_scheduler_restart.SchedulerRestart.test_child_cannot_close_or_tick_parent_scheduler",
+    "test_scheduler_restart.SchedulerRestart.test_external_job_pin_missing_job_rejected",
+    "test_scheduler_restart.SchedulerRestart.test_prepared_job_not_selected_after_restart",
+    "test_scheduler_restart.SchedulerRestart.test_sigkill_job_effect_after_dispatch",
+    "test_scheduler_restart.SchedulerRestart.test_sigkill_job_effect_before_dispatch",
+    "test_scheduler_restart.SchedulerRestart.test_sigkill_job_executing_after_sync",
+    "test_scheduler_restart.SchedulerRestart.test_sigkill_job_executing_before_replace",
+    "test_scheduler_restart.SchedulerRestart.test_sigkill_job_succeeded_after_sync",
+    "test_scheduler_restart.SchedulerRestart.test_sigkill_job_succeeded_before_replace",
+    "test_scheduler_restart.SchedulerRestart.test_sigkill_window_close_after_sync",
+    "test_scheduler_restart.SchedulerRestart.test_success_journal_does_not_autodispatch_after_restart",
+    "test_scheduler_restart.SchedulerRestart.test_unknown_journal_pauses_listeners_at_startup"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "presenter.adapter.bytes_complete_not_recipient_validation",
+    "presenter.adapter.false_claim_applied",
+    "presenter.adapter.false_claim_global_latest_proven",
+    "presenter.adapter.false_claim_inner_validated",
+    "presenter.adapter.false_claim_network_verified",
+    "presenter.adapter.false_claim_product_qualified",
+    "presenter.adapter.false_claim_writable",
+    "presenter.adapter.missing_objects_stay_partial",
+    "presenter.adapter.real_contract_does_not_apply_crdt",
+    "presenter.adapter.unknown_report_state_reject",
+    "presenter.adapter.wrong_root_reject"
+  ]
+}

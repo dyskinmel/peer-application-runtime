@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "requirements": [
+    {
+      "requirement": "PAR-UX-001",
+      "acceptance": [
+        "AT-UX-001"
+      ],
+      "local_scope": "Independent status axes; physical UI still absent",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.contract",
+        "presenter.states"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.contract.default_axes",
+        "presenter.states.bytes_not_crdt",
+        "presenter.states.copies_stale",
+        "presenter.states.copies_unknown",
+        "presenter.states.local_unknown_not_failure"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-UX-002",
+      "acceptance": [
+        "AT-UX-002"
+      ],
+      "local_scope": "Details data is exposed; progressive disclosure and keyboard navigation await renderer",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [],
+      "local_status": "DEFERRED"
+    },
+    {
+      "requirement": "PAR-UX-003",
+      "acceptance": [
+        "AT-UX-003"
+      ],
+      "local_scope": "Manual/file capability data preserved; actual join flows not implemented",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [],
+      "local_status": "DEFERRED"
+    },
+    {
+      "requirement": "PAR-UX-004",
+      "acceptance": [
+        "AT-UX-004"
+      ],
+      "local_scope": "Preflight preview binding; no destructive operation executor",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.commands"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.commands.confirmation_UI-008",
+        "presenter.commands.confirmation_UI-017",
+        "presenter.commands.confirmation_UI-019",
+        "presenter.commands.wrong_confirmation_digest",
+        "presenter.commands.preview_different_target"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-UX-005",
+      "acceptance": [
+        "AT-UX-005"
+      ],
+      "local_scope": "Changed status-message selection only; rendered labels, focus and screen reader checks deferred",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.commands"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.commands.announcements_coalesce"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-UX-006",
+      "acceptance": [
+        "AT-UX-006"
+      ],
+      "local_scope": "Pure volatile reducer; real IME, durable drafts and undo not implemented",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.draft",
+        "presenter.hardening"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.draft.remote_during_composition_preserves",
+        "presenter.draft.dirty_remote_not_auto_apply",
+        "presenter.draft.authority_change_preserves_buffer",
+        "presenter.draft.scalar_position_conversion",
+        "presenter.hardening.dirty_editor_never_claims_saved"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-UX-007",
+      "acceptance": [
+        "AT-UX-007"
+      ],
+      "local_scope": "Byte completion/recipient verification/CRDT application separate",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.adapter",
+        "presenter.states"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.states.complete_download_not_recovery",
+        "presenter.states.read_only_never_writer",
+        "presenter.adapter.real_contract_does_not_apply_crdt"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-DS-001",
+      "acceptance": [
+        "AT-DS-001"
+      ],
+      "local_scope": "Pure Presenter and inert intents; renderer and effect adapter deferred",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.commands",
+        "presenter.draft",
+        "presenter.stories"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.commands.basic_intent_no_effect",
+        "presenter.draft.commit_intent_not_real_save",
+        "presenter.stories.source_fixture_not_imported_by_runtime"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-DS-002",
+      "acceptance": [
+        "AT-DS-002"
+      ],
+      "local_scope": "Baseline tokens preserved; component token consumption not implemented",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [],
+      "local_status": "DEFERRED"
+    },
+    {
+      "requirement": "PAR-DS-003",
+      "acceptance": [
+        "AT-DS-003"
+      ],
+      "local_scope": "All 24 shipped state fixtures against baseline text/actions; no component gallery yet",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.stories"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.stories.UI-001",
+        "presenter.stories.UI-002",
+        "presenter.stories.UI-003",
+        "presenter.stories.UI-004",
+        "presenter.stories.UI-005",
+        "presenter.stories.UI-006",
+        "presenter.stories.UI-007",
+        "presenter.stories.UI-008",
+        "presenter.stories.UI-009",
+        "presenter.stories.UI-010",
+        "presenter.stories.UI-011",
+        "presenter.stories.UI-012",
+        "presenter.stories.UI-013",
+        "presenter.stories.UI-014",
+        "presenter.stories.UI-015",
+        "presenter.stories.UI-016",
+        "presenter.stories.UI-017",
+        "presenter.stories.UI-018",
+        "presenter.stories.UI-019",
+        "presenter.stories.UI-020",
+        "presenter.stories.UI-021",
+        "presenter.stories.UI-022",
+        "presenter.stories.UI-023",
+        "presenter.stories.UI-024"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-DS-004",
+      "acceptance": [
+        "AT-DS-004"
+      ],
+      "local_scope": "Semantic VM independent of locale/theme input; rendered theme comparison deferred",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.hardening"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.hardening.stable_semantic_theme_boundary"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-DS-005",
+      "acceptance": [
+        "AT-DS-005"
+      ],
+      "local_scope": "Japanese/English message dictionary only; RTL, motion and contrast rendering deferred",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.locale"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.locale.all_keys_bilingual",
+        "presenter.locale.unknown_locale_fails"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    },
+    {
+      "requirement": "PAR-DS-006",
+      "acceptance": [
+        "AT-DS-006"
+      ],
+      "local_scope": "Latest snapshot preflight only; commit-time domain revalidation still required",
+      "full_acceptance_status": "NOT_RUN",
+      "test_groups": [
+        "presenter.commands"
+      ],
+      "remaining": "Rendered components, device/browser interactions and qualification evidence required",
+      "test_ids": [
+        "presenter.commands.stale_revision_reject",
+        "presenter.commands.stale_sequence_reject",
+        "presenter.commands.other_scope_reject",
+        "presenter.commands.changed_role_same_revision_recheck"
+      ],
+      "local_status": "SUBSET_VERIFIED"
+    }
+  ],
+  "product_gate_promoted": false
+}

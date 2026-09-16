@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "claimed_release": "00.43.00",
+  "status": "NOT_LOCATED_NOT_ADOPTED",
+  "observed": "Active runtime contains 00.39 through 00.42 attachments, not 00.43 ZIP/report/sidecar/verification. Two Files searches across conversation/library did not locate 00.43.",
+  "previous_response_errors": ["FileNotFoundError on ZIP/report validation", "subsequent completion/test claims not supported by accessible artifacts"],
+  "does_not_prove": "Permanent deletion or absence from every possible user storage location",
+  "verified_parent": "00.42.00",
+  "verified_parent_head": "ee1613d0914fe101f1a6f732387afb8a7418bec5",
+  "action": "New implementation on isolated branch; do not fabricate missing commits, cases, or 00.43 source",
+  "output_version": "00.44.00"
+}

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_store_recovery.BackupResourceTests.test_failed_backup_configuration_closes_real_target_connection",
+    "test_store_recovery.PublicationOutcomeTests.test_export_failure_after_publish_is_outcome_unknown",
+    "test_store_recovery.PublicationOutcomeTests.test_restore_parent_sync_failure_is_outcome_unknown",
+    "test_store_recovery.RecoveryTests.test_consistent_snapshot_and_restore",
+    "test_store_recovery.RecoveryTests.test_corrupted_snapshot_block_rejected",
+    "test_store_recovery.RecoveryTests.test_corrupted_snapshot_db_rejected",
+    "test_store_recovery.RecoveryTests.test_duplicate_manifest_keys_rejected",
+    "test_store_recovery.RecoveryTests.test_export_refuses_corrupt_source_without_modifying_it",
+    "test_store_recovery.RecoveryTests.test_export_refuses_existing_destination",
+    "test_store_recovery.RecoveryTests.test_extra_snapshot_file_rejected",
+    "test_store_recovery.RecoveryTests.test_incomplete_export_not_published_as_complete",
+    "test_store_recovery.RecoveryTests.test_manifest_path_traversal_rejected",
+    "test_store_recovery.RecoveryTests.test_missing_manifest_rejected",
+    "test_store_recovery.RecoveryTests.test_orphan_files_are_not_exported",
+    "test_store_recovery.RecoveryTests.test_restore_does_not_modify_source_snapshot",
+    "test_store_recovery.RecoveryTests.test_restore_refuses_existing_destination",
+    "test_store_recovery.RecoveryTests.test_restored_writer_cannot_reuse_stale_nonce_history",
+    "test_store_recovery.RecoveryTests.test_snapshot_excludes_later_writes",
+    "test_store_recovery.RecoveryTests.test_snapshot_is_self_contained_without_wal",
+    "test_store_recovery.RecoveryTests.test_snapshot_symlink_rejected",
+    "test_store_recovery.SnapshotReviewTests.test_snapshot_malformed_digest_types_rejected",
+    "test_store_recovery.SnapshotReviewTests.test_snapshot_rejects_broken_schema_even_with_recomputed_file_hash",
+    "test_store_recovery.SnapshotReviewTests.test_unknown_snapshot_profile_rejected"
+  ]
+}

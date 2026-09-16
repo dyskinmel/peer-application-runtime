@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_store_blocks.BlockTests.test_block_file_size_cap",
+    "test_store_blocks.BlockTests.test_block_paths_only_accept_fixed_ids",
+    "test_store_blocks.BlockTests.test_blocks_published_before_references",
+    "test_store_blocks.BlockTests.test_corrupted_block_rejected_on_read",
+    "test_store_blocks.BlockTests.test_duplicate_block_ids_within_commit_rejected",
+    "test_store_blocks.BlockTests.test_gc_does_not_delete_unrecognized_files",
+    "test_store_blocks.BlockTests.test_gc_preserves_pending_and_retained_references",
+    "test_store_blocks.BlockTests.test_gc_refuses_structurally_corrupt_database",
+    "test_store_blocks.BlockTests.test_identical_block_bytes_deduplicated",
+    "test_store_blocks.BlockTests.test_missing_referenced_block_fails_audit",
+    "test_store_blocks.BlockTests.test_preexisting_corrupt_hash_path_not_overwritten",
+    "test_store_blocks.BlockTests.test_stage_bytes_not_counted_as_published",
+    "test_store_blocks.BlockTests.test_symlink_block_rejected",
+    "test_store_blocks.BlockTests.test_symlink_database_rejected",
+    "test_store_blocks.BlockTests.test_symlink_root_rejected",
+    "test_store_blocks.BlockTests.test_uncommitted_published_block_is_orphan",
+    "test_store_blocks.PublishReviewTests.test_existing_orphan_is_synced_before_reference_commit",
+    "test_store_blocks.PublishReviewTests.test_existing_unflushed_file_sync_failure_not_success"
+  ]
+}

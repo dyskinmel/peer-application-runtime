@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_control_lifecycle.ControlLifecycle.test_cancel_before_dispatch",
+    "test_control_lifecycle.ControlLifecycle.test_cancel_too_late_is_rejected",
+    "test_control_lifecycle.ControlLifecycle.test_control_pin_detects_missing_record",
+    "test_control_lifecycle.ControlLifecycle.test_duplicate_not_rescheduled",
+    "test_control_lifecycle.ControlLifecycle.test_host_status_without_job",
+    "test_control_lifecycle.ControlLifecycle.test_inflight_never_auto_replayed",
+    "test_control_lifecycle.ControlLifecycle.test_intent_survives_reopen_without_reexecution",
+    "test_control_lifecycle.ControlLifecycle.test_job_pin_in_status",
+    "test_control_lifecycle.ControlLifecycle.test_journal_does_not_contain_secret_key",
+    "test_control_lifecycle.ControlLifecycle.test_key_revocation",
+    "test_control_lifecycle.ControlLifecycle.test_key_rotation",
+    "test_control_lifecycle.ControlLifecycle.test_known_file_disappearance_during_process",
+    "test_control_lifecycle.ControlLifecycle.test_no_arbitrary_job_submission",
+    "test_control_lifecycle.ControlLifecycle.test_operation_id_conflict",
+    "test_control_lifecycle.ControlLifecycle.test_policy_persisted",
+    "test_control_lifecycle.ControlLifecycle.test_policy_revision_must_increase",
+    "test_control_lifecycle.ControlLifecycle.test_response_copy_isolated",
+    "test_control_lifecycle.ControlLifecycle.test_same_select_after_completed_returns_current_status",
+    "test_control_lifecycle.ControlLifecycle.test_select_is_ack_not_completion",
+    "test_control_lifecycle.ControlLifecycle.test_status_does_not_resign_stored_records",
+    "test_control_lifecycle.ControlLifecycle.test_status_is_readonly",
+    "test_control_lifecycle.ControlLifecycle.test_unknown_job_no_journal",
+    "test_control_lifecycle.ControlLifecycle.test_view_rejects_forged_completion_flag",
+    "test_control_lifecycle.ControlLifecycle.test_wrong_controller_rejected"
+  ]
+}

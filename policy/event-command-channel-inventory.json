@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "event-command.channel.abort-before-send-zero-writes",
+    "event-command.channel.aborted-request-keeps-bounded-correlation",
+    "event-command.channel.ack-not-in-command-operation-set",
+    "event-command.channel.authority-mismatch-closes-before-send",
+    "event-command.channel.bound-on-pending-direct-requests",
+    "event-command.channel.canonical-publish-correlation",
+    "event-command.channel.dedicated-hello-incremental-frame",
+    "event-command.channel.duplicate-json-keys-refused",
+    "event-command.channel.subscription-protocol-cannot-be-command-hello",
+    "event-command.channel.unknown-correlation-closes-channel"
+  ]
+}

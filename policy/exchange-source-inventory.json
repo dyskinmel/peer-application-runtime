@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_contract.SourceTests.test_authority_change_requires_new_context",
+    "test_contract.SourceTests.test_catalog_paging",
+    "test_contract.SourceTests.test_changed_catalog_rejects_old_page",
+    "test_contract.SourceTests.test_empty_have",
+    "test_contract.SourceTests.test_equivocation_is_not_resolved_by_provider",
+    "test_contract.SourceTests.test_exact_get_preserves_ciphertext",
+    "test_contract.SourceTests.test_get_id_pair_cannot_be_substituted",
+    "test_contract.SourceTests.test_keeper_role_cannot_read",
+    "test_contract.SourceTests.test_missing_or_corrupt_bytes_never_served",
+    "test_contract.SourceTests.test_need_not_observed_is_not_global_absence",
+    "test_contract.SourceTests.test_next_epoch_denies_old_scope",
+    "test_contract.SourceTests.test_no_plaintext_no_application_write",
+    "test_contract.SourceTests.test_paging_requires_token",
+    "test_contract.SourceTests.test_private_owner_thread_required",
+    "test_contract.SourceTests.test_store_backed_input_is_served",
+    "test_contract.SourceTests.test_unknown_certificate_cannot_read"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "scope": "CANDIDATE_SAME_DB_APPLICATION",
+  "requirements": [
+    {
+      "id": "PAR-CORE-003",
+      "tests": [
+        "test_apply_contract.ContractTests.test_default_rejects_double_before_nonce",
+        "test_apply_contract.ContractTests.test_false_report_never_promotes_applied"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real Automerge execution, native implementation, public transport and independent qualification are pending."
+    },
+    {
+      "id": "PAR-SYNC-002",
+      "tests": [
+        "test_apply_storage.StorageTests.test_union_preserves_concurrent_head"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real Automerge execution, native implementation, public transport and independent qualification are pending."
+    },
+    {
+      "id": "PAR-SYNC-005",
+      "tests": [
+        "test_apply_storage.StorageTests.test_reopen_requires_authority_reactivation",
+        "test_apply_hardening.HardeningTests.test_lost_commit_reply_is_not_failure_and_recovery_has_no_new_nonce"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real Automerge execution, native implementation, public transport and independent qualification are pending."
+    },
+    {
+      "id": "PAR-SYNC-004",
+      "tests": [
+        "test_apply_contract.ContractTests.test_report_omits_change",
+        "test_apply_contract.ContractTests.test_report_wrong_actor"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real Automerge execution, native implementation, public transport and independent qualification are pending."
+    },
+    {
+      "id": "PAR-SYNC-006",
+      "tests": [
+        "test_apply_hardening.HardeningTests.test_nonce_capacity_refused",
+        "test_apply_hardening.HardeningTests.test_oversized_note_refused_before_nonce"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real Automerge execution, native implementation, public transport and independent qualification are pending."
+    },
+    {
+      "id": "PAR-DATA-001",
+      "tests": [
+        "test_apply_storage.StorageTests.test_exact_atomic_set_and_encrypted_note",
+        "test_apply_storage.StorageTests.test_new_operation_rejects_after_authority_change"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real Automerge execution, native implementation, public transport and independent qualification are pending."
+    }
+  ]
+}

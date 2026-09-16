@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "name": "keeper-retention-local-v0.1",
+  "artifact_version": "00.12.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "test_counts": {
+    "contract": 28,
+    "store": 37,
+    "lifecycle": 26,
+    "faults": 47
+  },
+  "sigkill_scenarios": 40,
+  "independent_review": "NOT_RUN",
+  "automatic_gc": false,
+  "network_verified": false,
+  "recipient_decryption_by_keeper": false,
+  "crdt_validated": false,
+  "physical_power_loss_tested": false,
+  "product_qualified": false,
+  "unknown_expiry_action": "RETAIN_BYTES_AND_QUOTA",
+  "quota_contract": "PAYLOAD_RESERVATION_NOT_FILESYSTEM_LIMIT",
+  "max_payload_quota_bytes": 536870912,
+  "default_max_leases": 32,
+  "default_max_operations": 4096,
+  "max_lease_seconds": 86400,
+  "pinned_inputs": [
+    {
+      "path": "experiments/keeper-retention/schema.sql",
+      "sha256": "e2e88aecf6db3c68d7248da0efe169f65da0bb5c6c8bf611027fc9f91dcb94c4"
+    },
+    {
+      "path": "experiments/recovery-closure/par_recovery/contract.py",
+      "sha256": "8edce006278135f8a0e71e9c7dcc645cec745c6a8179571d3df5f2b5b69d3b4e"
+    },
+    {
+      "path": "experiments/recovery-closure/par_recovery/transfer.py",
+      "sha256": "dfb81565887eeef2b12c2ecc347744dec757512bd745397323f66123249fba4d"
+    },
+    {
+      "path": "experiments/space-auth/par_auth/chain.py",
+      "sha256": "7104f00ae81f3aabdf209a3d82ec934f4e0ed609c98ceddd5425010e59c3eb29"
+    },
+    {
+      "path": "experiments/keeper-retention/fixtures/retention-receipt.json",
+      "sha256": "f6139269f62242fb8942537f353478e8125888e17688978cd4d5cea9736ba698"
+    },
+    {
+      "path": "policy/crypto-provider.json",
+      "sha256": "62cac014fb4a67145eab5462e1d7840e2d01ffef271fa793ce17a0d7a29af63c"
+    }
+  ]
+}

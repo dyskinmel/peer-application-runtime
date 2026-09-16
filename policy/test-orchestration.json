@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "selection_mode": "IMPACT_SAFE_V1",
+  "tiers": [
+    "S0",
+    "S1",
+    "S2",
+    "S3"
+  ],
+  "default_loop_max_tier": "S1",
+  "duration_history_path": ".harness/test-duration-history.json",
+  "budget_policy": "policy/artifact-survival.json",
+  "parallel_scheduler_implemented": false,
+  "impact_analysis_implemented": true,
+  "product_qualified": false,
+  "impact_policy": "policy/impact-selection.json",
+  "normal_loop": "IMPLEMENT_FOCUSED_S0_IMPACT_S1_CHECKPOINT",
+  "s2_trigger": "IMPACT_OR_MILESTONE",
+  "s3_trigger": "MILESTONE_MERGE_RELEASE_ONLY",
+  "package_required_per_cycle": false,
+  "durability_mode": "GIT_CHECKPOINT_PRIMARY"
+}

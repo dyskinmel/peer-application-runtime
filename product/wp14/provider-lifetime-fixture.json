@@ -1,0 +1,15 @@
+{
+  "profile": "par-native-provider-lifetime-0056",
+  "states": ["NEW", "ACTIVE", "DRAINING", "CLOSED", "STALE", "CLEANUP_UNCONFIRMED"],
+  "defaultAllowed": ["observe", "inquire", "close"],
+  "writeOperations": ["pinAdvance", "callerSave", "callerMarkDispatch", "connect"],
+  "rules": {
+    "epochChange": "STALE_CLOSE_RETURNED_RESOURCE",
+    "closeFailure": "CLEANUP_UNCONFIRMED_RETAIN",
+    "automaticRetry": "FORBIDDEN",
+    "missingProvider": "BLOCKED_NO_FALLBACK"
+  },
+  "nativeBuild": "BUILD_NOT_RUN",
+  "deviceVerification": "DEVICE_UNVERIFIED",
+  "productQualified": false
+}

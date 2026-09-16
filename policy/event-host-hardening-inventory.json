@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_hardening.HardeningTests.test_closed_host_drops_all_waits_timers_and_buffers",
+    "test_hardening.HardeningTests.test_failed_host_still_allows_subscription_cleanup",
+    "test_hardening.HardeningTests.test_fork_inherits_neither_owner_nor_host",
+    "test_hardening.HardeningTests.test_future_cancelled_after_ack_commit_does_not_rollback",
+    "test_hardening.HardeningTests.test_publish_between_empty_poll_and_ticket_does_not_hide_event",
+    "test_hardening.HardeningTests.test_publish_postcheck_failure_does_not_report_success",
+    "test_hardening.HardeningTests.test_queue_byte_limit_before_consumer_effect",
+    "test_hardening.HardeningTests.test_returned_ticket_mutation_does_not_change_owner_checkpoint",
+    "test_hardening.HardeningTests.test_wrong_session_cancel_does_not_kill_wait"
+  ]
+}

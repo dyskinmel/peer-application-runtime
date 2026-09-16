@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_window_lifecycle.WindowLifecycle.test_active_upload_blocks_close",
+    "test_window_lifecycle.WindowLifecycle.test_archive_keeps_exact_old_metadata",
+    "test_window_lifecycle.WindowLifecycle.test_closed_cannot_start_next_until_compacted",
+    "test_window_lifecycle.WindowLifecycle.test_closed_commands_rejected_before_cleanup",
+    "test_window_lifecycle.WindowLifecycle.test_committed_close_cleanup_survives_authority_change",
+    "test_window_lifecycle.WindowLifecycle.test_committed_handoff_allows_close_without_keeper_change",
+    "test_window_lifecycle.WindowLifecycle.test_compaction_idempotent",
+    "test_window_lifecycle.WindowLifecycle.test_current_authority_needed_to_close",
+    "test_window_lifecycle.WindowLifecycle.test_delayed_chunk_rejected_after_new_window",
+    "test_window_lifecycle.WindowLifecycle.test_keeper_database_bytes_unchanged_by_cleanup",
+    "test_window_lifecycle.WindowLifecycle.test_new_signed_window_can_reuse_operation_id",
+    "test_window_lifecycle.WindowLifecycle.test_no_automatic_new_window",
+    "test_window_lifecycle.WindowLifecycle.test_old_begin_replay_after_new_window",
+    "test_window_lifecycle.WindowLifecycle.test_old_seal_rejected_before_destination_lookup",
+    "test_window_lifecycle.WindowLifecycle.test_open_retry_idempotent",
+    "test_window_lifecycle.WindowLifecycle.test_retired_stage_allows_close",
+    "test_window_lifecycle.WindowLifecycle.test_retirement_replay_rejected_after_new_window",
+    "test_window_lifecycle.WindowLifecycle.test_sequence_jump_denied",
+    "test_window_lifecycle.WindowLifecycle.test_snapshot_stale_on_new_stage",
+    "test_window_lifecycle.WindowLifecycle.test_state_survives_restart",
+    "test_window_lifecycle.WindowLifecycle.test_wrong_predecessor_denied"
+  ]
+}

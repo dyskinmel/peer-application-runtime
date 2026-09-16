@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_writer.SharedWriterTests.test_authority_changes_after_prepare_commit_rejects",
+    "test_writer.SharedWriterTests.test_authority_changes_during_core_call",
+    "test_writer.SharedWriterTests.test_backend_changed_inside_crypto_prepare_stops_single_write",
+    "test_writer.SharedWriterTests.test_bad_decoded_actor_before_nonce",
+    "test_writer.SharedWriterTests.test_broken_core_receipt_no_nonce",
+    "test_writer.SharedWriterTests.test_candidate_from_other_writer_refused",
+    "test_writer.SharedWriterTests.test_close_refuses",
+    "test_writer.SharedWriterTests.test_commit_response_lost_can_recover_original",
+    "test_writer.SharedWriterTests.test_contract_report_not_shown_as_materialized_document",
+    "test_writer.SharedWriterTests.test_contract_success_always_pending_not_applied",
+    "test_writer.SharedWriterTests.test_corrupt_dependency_signature_rejected",
+    "test_writer.SharedWriterTests.test_dependency_missing_before_engine_and_nonce",
+    "test_writer.SharedWriterTests.test_dependency_other_doc_does_not_satisfy",
+    "test_writer.SharedWriterTests.test_identity_change_during_call_rejected",
+    "test_writer.SharedWriterTests.test_mutable_header_unchanged_mid_call",
+    "test_writer.SharedWriterTests.test_no_engine_no_nonce_no_write",
+    "test_writer.SharedWriterTests.test_pending_candidate_no_persisted_applied_flag",
+    "test_writer.SharedWriterTests.test_previous_must_be_causal_dependency",
+    "test_writer.SharedWriterTests.test_readonly_restore_refused",
+    "test_writer.SharedWriterTests.test_reentrant_core_rejected",
+    "test_writer.SharedWriterTests.test_replay_preserves_envelope_and_nonces",
+    "test_writer.SharedWriterTests.test_same_operation_different_payload_refused",
+    "test_writer.SharedWriterTests.test_same_process_copy_not_transferable",
+    "test_writer.SharedWriterTests.test_signed_dependency_read_and_decrypted",
+    "test_writer.SharedWriterTests.test_waiting_has_no_new_operation_intent",
+    "test_writer.SharedWriterTests.test_wrong_owner_thread_rejected",
+    "test_writer.SharedWriterTests.test_wrong_scope_before_core"
+  ]
+}

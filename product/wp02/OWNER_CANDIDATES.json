@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "work_package": "WP-02",
+  "owner_task": "L-WP02",
+  "candidate_tasks": [
+    "G0-STORE-LOCAL"
+  ],
+  "residual_nonclaims": [
+    "Rust/native store adapter",
+    "target SQLite qualification",
+    "physical power-loss/media-loss durability"
+  ],
+  "candidate_checks": [
+    "store-blocks",
+    "store-core",
+    "store-faults",
+    "store-recovery"
+  ],
+  "evidence_mode": "REFERENCE_EXISTING_CANDIDATES_NO_CODE_COPY"
+}

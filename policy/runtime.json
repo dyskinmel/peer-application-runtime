@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "max_context_bytes": 24000,
+  "max_attempts": 3,
+  "max_session_seconds": 7200,
+  "max_log_bytes": 2097152,
+  "check_timeout_seconds": 120,
+  "network_enforcement": "NOT_PROVIDED",
+  "execution_model": "TRUSTED_LOCAL_COMMANDS_ONLY",
+  "external_tasks": "OPERATOR_ONLY",
+  "knowledge_max_cards": 3
+}

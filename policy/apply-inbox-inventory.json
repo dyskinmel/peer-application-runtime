@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_apply_inbox.InboxTests.test_inbox_inputs_copied_atomically_not_committed_as_local_operations",
+    "test_apply_inbox.InboxTests.test_input_mutation_after_prepare_is_rejected",
+    "test_apply_inbox.InboxTests.test_materialization_read_does_not_need_inbox_after_copy",
+    "test_apply_inbox.InboxTests.test_nonce_is_consumed_even_when_commit_is_cancelled",
+    "test_apply_inbox.InboxTests.test_reverse_dependency_arrival",
+    "test_apply_inbox.InboxTests.test_seen_valid_equivocation_prevents_apply",
+    "test_apply_inbox.InboxTests.test_store_plus_inbox_dependency_union"
+  ]
+}

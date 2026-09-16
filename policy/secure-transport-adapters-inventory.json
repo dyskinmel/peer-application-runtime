@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_tls_adapters.AdapterTests.test_authenticator_changed_authority_rejected",
+    "test_tls_adapters.AdapterTests.test_authenticator_requires_real_tls_stream",
+    "test_tls_adapters.AdapterTests.test_authenticator_stale_generation_rejected",
+    "test_tls_adapters.AdapterTests.test_authenticator_wrong_expected_peer_rejected",
+    "test_tls_adapters.AdapterTests.test_authenticator_wrong_space_rejected",
+    "test_tls_adapters.AdapterTests.test_connector_actual_tls_auth_with_fixture_ip_label",
+    "test_tls_adapters.AdapterTests.test_no_grant_does_not_attempt_tls_dial",
+    "test_tls_adapters.AdapterTests.test_no_plaintext_fallback_after_tls_failure",
+    "test_tls_adapters.AdapterTests.test_numeric_dial_failure_closes_fd_and_uses_exact_tuple",
+    "test_tls_adapters.AdapterTests.test_numeric_dial_never_resolves_a_hostname",
+    "test_tls_adapters.AdapterTests.test_numeric_dial_unknown_peer_prevents_socket_creation",
+    "test_tls_adapters.AdapterTests.test_real_tls_facts_and_current_authority_produce_peerproof",
+    "test_tls_adapters.AdapterTests.test_sni_cannot_be_substituted"
+  ]
+}

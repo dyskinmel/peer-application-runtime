@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_lifecycle_presenter.PresenterTests.test_counts_by_ledger",
+    "test_lifecycle_presenter.PresenterTests.test_does_not_expose_physical_deletion_action",
+    "test_lifecycle_presenter.PresenterTests.test_live_requires_migration_even_all_terminal",
+    "test_lifecycle_presenter.PresenterTests.test_model_is_labeled_not_runtime_qualified",
+    "test_lifecycle_presenter.PresenterTests.test_multiple_generations_obey_total_archive_budget",
+    "test_lifecycle_presenter.PresenterTests.test_no_mutation",
+    "test_lifecycle_presenter.PresenterTests.test_pending_staging_not_free_space",
+    "test_lifecycle_presenter.PresenterTests.test_registered_reference_into_archive_must_match",
+    "test_lifecycle_presenter.PresenterTests.test_revoked_controller_blocks_model_plan",
+    "test_lifecycle_presenter.PresenterTests.test_unknown_needs_resolution"
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "schema_version": 3,
+  "policy_id": "PAR-OSS-PUBLIC-SOURCE-00.68",
+  "publishable": false,
+  "classification": "PERSONAL_OSS_SOURCE_ONLY_ALPHA_NOT_RELEASE_AUTHORIZATION",
+  "release_profile": "oss/PUBLIC_ALPHA_RELEASE.json",
+  "display_name": {
+    "kind": "PROVISIONAL_FUNCTIONAL_DESCRIPTOR",
+    "value": "Peer Application Runtime"
+  },
+  "unresolved_gates": [
+    "public_repository",
+    "github_private_vulnerability_reporting",
+    "hosted_ci"
+  ],
+  "classification_precedence": [
+    "GENERATED_EXCLUDE",
+    "PUBLIC_DEVELOPMENT",
+    "INTERNAL_ONLY",
+    "PUBLIC"
+  ],
+  "classifications": {
+    "PUBLIC": {
+      "roots": [
+        "baseline",
+        "docs",
+        "examples",
+        "harness",
+        "policy",
+        "product",
+        "templates",
+        "tools",
+        "oss",
+        ".github"
+      ],
+      "exact": [
+        ".gitignore",
+        "Makefile",
+        "SPEC.md",
+        "CHANGELOG.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "NOTICE",
+        "README.md",
+        "RELEASE_NOTES.md",
+        "SECURITY.md"
+      ]
+    },
+    "PUBLIC_DEVELOPMENT": {
+      "roots": [
+        "experiments"
+      ],
+      "exact": [
+        "tests/__init__.py",
+        "tests/test_oss_prerelease.py",
+        "tests/test_public_alpha_release.py",
+        "tests/test_public_alpha_smoke.py"
+      ],
+      "prefixes": [
+        "tests/product/"
+      ]
+    },
+    "INTERNAL_ONLY": {
+      "roots": [
+        ".agents",
+        "evidence",
+        "handoff",
+        "knowledge",
+        "plan",
+        "release",
+        "tests"
+      ],
+      "exact": [
+        "AGENTS.md",
+        "PLANS.md",
+        "START_HERE.ja.md"
+      ],
+      "prefixes": [
+        "docs/history/",
+        "docs/superpowers/",
+        "baseline/spec-00.02.00/history/"
+      ]
+    },
+    "GENERATED_EXCLUDE": {
+      "roots": [
+        ".git",
+        ".harness",
+        "node_modules",
+        "target",
+        ".venv",
+        "__pycache__"
+      ],
+      "exact": [
+        "PUBLIC_PREVIEW_STATUS.json",
+        "PUBLIC_SOURCE_MANIFEST.json",
+        "SHA256SUMS"
+      ],
+      "components": [
+        "__pycache__"
+      ],
+      "suffixes": [
+        ".pyc",
+        ".pyo"
+      ]
+    }
+  },
+  "public_aliases": {
+    "oss/public/README.md": "README.md",
+    "oss/public/CONTRIBUTING.md": "CONTRIBUTING.md",
+    "oss/public/SECURITY.md": "SECURITY.md",
+    "oss/public/RELEASE_NOTES.md": "RELEASE_NOTES.md",
+    "oss/public/CHANGELOG.md": "CHANGELOG.md",
+    "oss/public/ARCHITECTURE.md": "docs/ARCHITECTURE.md",
+    "oss/public/GETTING_STARTED.md": "docs/GETTING_STARTED.md",
+    "oss/public/KNOWN_LIMITATIONS.md": "docs/KNOWN_LIMITATIONS.md",
+    "oss/public/ROADMAP.md": "docs/ROADMAP.md"
+  },
+  "scan": {
+    "max_text_bytes": 2097152,
+    "max_public_file_bytes": 10485760,
+    "secret_patterns": [
+      "OPENSSH PRIVATE KEY",
+      "BEGIN PRIVATE KEY",
+      "AWS_SECRET_ACCESS_KEY"
+    ],
+    "local_path_prefixes": [
+      "/mnt/data/",
+      "/home/oai/",
+      "/Users/"
+    ],
+    "allowlist_file": "oss/SCAN_ALLOWLIST.json",
+    "allowed_binary_suffixes": [],
+    "email_domains_allowed": [
+      "example.invalid"
+    ]
+  },
+  "nonclaims": [
+    "not a public release authorization",
+    "local source-only alpha selections do not authorize publication",
+    "no production qualification",
+    "no production crypto provider qualification",
+    "no security contact is published by this candidate"
+  ]
+}

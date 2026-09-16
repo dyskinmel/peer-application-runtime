@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_apply_crash.CrashTests.test_actual_sqlite_full",
+    "test_apply_crash.CrashTests.test_actual_sqlite_writer_contention",
+    "test_apply_crash.CrashTests.test_sigkill_apply_after_begin",
+    "test_apply_crash.CrashTests.test_sigkill_apply_after_commit",
+    "test_apply_crash.CrashTests.test_sigkill_apply_after_encrypt",
+    "test_apply_crash.CrashTests.test_sigkill_apply_after_event",
+    "test_apply_crash.CrashTests.test_sigkill_apply_after_frontier",
+    "test_apply_crash.CrashTests.test_sigkill_apply_after_inputs",
+    "test_apply_crash.CrashTests.test_sigkill_apply_after_nonce_link",
+    "test_apply_crash.CrashTests.test_sigkill_apply_before_begin",
+    "test_apply_crash.CrashTests.test_sigkill_apply_before_commit",
+    "test_apply_crash.CrashTests.test_sigkill_apply_nonce_after_commit",
+    "test_apply_crash.CrashTests.test_sigkill_apply_nonce_before_commit"
+  ]
+}

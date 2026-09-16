@@ -1,0 +1,54 @@
+name: OSS prerelease checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: oss-prerelease-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  local-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+      - name: Python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Public alpha standard tests
+        run: python3 tools/test_runner.py
+      - name: Public boundary scan
+        run: python3 tools/check_public_preview_boundary.py
+      - name: Source inventory reproducibility
+        run: python3 tools/build_oss_inventory.py --check
+      - name: Build source-only alpha archive
+        run: python3 tools/build_public_preview_candidate.py --output /tmp/peer-application-runtime-0.1.0-alpha.1-source.zip --sha256-file /tmp/peer-application-runtime-0.1.0-alpha.1-source.zip.sha256
+      - name: Verify source-only alpha archive
+        run: python3 tools/verify_oss_prerelease_candidate.py /tmp/peer-application-runtime-0.1.0-alpha.1-source.zip --sha256-file /tmp/peer-application-runtime-0.1.0-alpha.1-source.zip.sha256
+
+  native-readiness:
+    if: ${{ vars.PAR_NATIVE_CI_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+      - name: Python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Require pre-provisioned native toolchain
+        run: |
+          rustc --version --verbose
+          cargo --version --verbose
+      - name: Native source/environment preflight
+        run: python3 tools/harness.py native-resume

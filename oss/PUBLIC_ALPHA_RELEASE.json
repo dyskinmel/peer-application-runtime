@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "release_type": "SOURCE_ONLY_ALPHA",
+  "project": {
+    "name": "Peer Application Runtime",
+    "short_name": "PAR",
+    "name_stability": "CURRENT_NAME_MAY_CHANGE",
+    "trademark_claim": false
+  },
+  "version": "0.1.0-alpha.1",
+  "intended_tag": "v0.1.0-alpha.1",
+  "repository": {
+    "provider": "GITHUB",
+    "slug": "dyskinmel/peer-application-runtime",
+    "status": "EXTERNAL_ACTION_REQUIRED",
+    "import_source": "VERIFIED_SOURCE_ARCHIVE_CONTENTS",
+    "preserve_development_git_history": false,
+    "development_checkout_push_allowed": false
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "license_file": "LICENSE",
+    "notice_file": "NOTICE"
+  },
+  "copyright": {
+    "public_holder": "dyskinmel",
+    "notice": "Copyright 2026 dyskinmel"
+  },
+  "security_reporting": {
+    "provider": "GITHUB_PRIVATE_VULNERABILITY_REPORTING",
+    "email_published": false,
+    "status": "EXTERNAL_ACTION_REQUIRED"
+  },
+  "source_only": {
+    "included_artifact_types": ["source"],
+    "excluded_artifact_types": ["compiled_binary", "wheel", "container_image", "native_artifact", "native_dependency_bundle"],
+    "native_dependency_sbom": {
+      "status": "NOT_APPLICABLE",
+      "rationale": "This alpha contains no native artifact or native dependency bundle.",
+      "required_before": ["native_artifact_distribution", "binary_distribution"]
+    }
+  },
+  "external_publish_prerequisites": [
+    {"id": "public_repository", "status": "EXTERNAL_ACTION_REQUIRED"},
+    {"id": "github_private_vulnerability_reporting", "status": "EXTERNAL_ACTION_REQUIRED"},
+    {"id": "hosted_ci", "status": "EXTERNAL_ACTION_REQUIRED"}
+  ],
+  "publication": {
+    "publishable": false,
+    "release_authorized": false
+  }
+}

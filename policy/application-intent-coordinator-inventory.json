@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_intent_coordinator.IntentCoordinatorTests.test_absence_cannot_demote_prior_receipt",
+    "test_intent_coordinator.IntentCoordinatorTests.test_absent_core_blocks_without_apply",
+    "test_intent_coordinator.IntentCoordinatorTests.test_cancel_after_dispatch_does_not_apply_or_replay",
+    "test_intent_coordinator.IntentCoordinatorTests.test_cancel_before_dispatch_does_not_poison",
+    "test_intent_coordinator.IntentCoordinatorTests.test_changed_expected_revision_same_id_rejected",
+    "test_intent_coordinator.IntentCoordinatorTests.test_commit_response_loss_reopen_original_inquiry",
+    "test_intent_coordinator.IntentCoordinatorTests.test_current_authority_checked_for_inquiry",
+    "test_intent_coordinator.IntentCoordinatorTests.test_default_core_blocks_before_dispatch",
+    "test_intent_coordinator.IntentCoordinatorTests.test_dispatch_without_apply_requires_inquiry_forever",
+    "test_intent_coordinator.IntentCoordinatorTests.test_explicit_abandon_before_dispatch",
+    "test_intent_coordinator.IntentCoordinatorTests.test_generation_change_before_dispatch",
+    "test_intent_coordinator.IntentCoordinatorTests.test_input_digest_change_before_dispatch_rejected",
+    "test_intent_coordinator.IntentCoordinatorTests.test_inquiry_failure_does_not_unlock",
+    "test_intent_coordinator.IntentCoordinatorTests.test_invalid_cancel_argument_does_not_write_dispatch",
+    "test_intent_coordinator.IntentCoordinatorTests.test_matching_receipt_explicit_retire_preserves_record",
+    "test_intent_coordinator.IntentCoordinatorTests.test_new_id_cannot_bypass_unknown",
+    "test_intent_coordinator.IntentCoordinatorTests.test_prepare_records_original_without_nonce",
+    "test_intent_coordinator.IntentCoordinatorTests.test_prepared_reopen_can_explicitly_execute",
+    "test_intent_coordinator.IntentCoordinatorTests.test_retire_checks_current_record_not_old_observation",
+    "test_intent_coordinator.IntentCoordinatorTests.test_same_intent_after_retire_never_reexecutes",
+    "test_intent_coordinator.IntentCoordinatorTests.test_store_generation_mismatch_blocks_binding",
+    "test_intent_coordinator.IntentCoordinatorTests.test_synchronous_timeout_after_commit_remains_unknown",
+    "test_intent_coordinator.IntentCoordinatorTests.test_synthetic_transaction_after_dispatch_only",
+    "test_intent_coordinator.IntentCoordinatorTests.test_task_cancel_after_commit_still_inquiry_only",
+    "test_intent_coordinator.IntentCoordinatorTests.test_wrong_digest_inquiry_is_not_sent"
+  ]
+}

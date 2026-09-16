@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_bridge_process.BridgeProcessTests.test_changed_external_pin_blocks_offline_reopen",
+    "test_bridge_process.BridgeProcessTests.test_kill_after_directory_sync_preserves_parent",
+    "test_bridge_process.BridgeProcessTests.test_kill_after_publish_does_not_refetch_saved_parent",
+    "test_bridge_process.BridgeProcessTests.test_kill_before_publish_retries_only_explicit_missing_round",
+    "test_bridge_process.BridgeProcessTests.test_kill_before_receipt_preserves_parent",
+    "test_bridge_process.BridgeProcessTests.test_three_level_reverse_rounds_and_explicit_core_block"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submit_contract.SubmitContract.test_close_needs_archive",
+    "test_submit_contract.SubmitContract.test_compact_no_payload",
+    "test_submit_contract.SubmitContract.test_corrupt_archive",
+    "test_submit_contract.SubmitContract.test_descriptor_big_size",
+    "test_submit_contract.SubmitContract.test_descriptor_bool_revision",
+    "test_submit_contract.SubmitContract.test_descriptor_bool_size",
+    "test_submit_contract.SubmitContract.test_descriptor_hash_length",
+    "test_submit_contract.SubmitContract.test_descriptor_roundtrip",
+    "test_submit_contract.SubmitContract.test_descriptor_signature",
+    "test_submit_contract.SubmitContract.test_descriptor_unknown_field",
+    "test_submit_contract.SubmitContract.test_header_boolean_archive_size",
+    "test_submit_contract.SubmitContract.test_header_size",
+    "test_submit_contract.SubmitContract.test_large_archive_pack_not_frame",
+    "test_submit_contract.SubmitContract.test_pack_roundtrip",
+    "test_submit_contract.SubmitContract.test_profile_boundary",
+    "test_submit_contract.SubmitContract.test_trailing_bytes",
+    "test_submit_contract.SubmitContract.test_unknown_action",
+    "test_submit_contract.SubmitContract.test_wrong_magic"
+  ]
+}

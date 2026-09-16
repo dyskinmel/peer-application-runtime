@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_service_faults.ServiceFaults.test_backend_failure_is_sanitized",
+    "test_service_faults.ServiceFaults.test_bad_signature_response_no_secret_or_traceback",
+    "test_service_faults.ServiceFaults.test_clock_deadline_bad_values",
+    "test_service_faults.ServiceFaults.test_coalesced_requests_never_dispatch_twice",
+    "test_service_faults.ServiceFaults.test_connection_limit_bad_values",
+    "test_service_faults.ServiceFaults.test_connection_replay_rejected",
+    "test_service_faults.ServiceFaults.test_denied_os_peer_does_not_stop_service",
+    "test_service_faults.ServiceFaults.test_fragmented_frame",
+    "test_service_faults.ServiceFaults.test_max_connections_and_buffer_bound",
+    "test_service_faults.ServiceFaults.test_oversize_header_rejected_without_body",
+    "test_service_faults.ServiceFaults.test_partial_request_eof",
+    "test_service_faults.ServiceFaults.test_recovery_refuses_active_endpoint",
+    "test_service_faults.ServiceFaults.test_request_noncanonical_cbor_refused",
+    "test_service_faults.ServiceFaults.test_same_owner_second_server_cannot_steal",
+    "test_service_faults.ServiceFaults.test_shutdown_does_not_unlink_substituted_endpoint",
+    "test_service_faults.ServiceFaults.test_sigkill_server_body",
+    "test_service_faults.ServiceFaults.test_sigkill_server_header",
+    "test_service_faults.ServiceFaults.test_sigkill_server_hello",
+    "test_service_faults.ServiceFaults.test_sigkill_server_received",
+    "test_service_faults.ServiceFaults.test_sigkill_server_response",
+    "test_service_faults.ServiceFaults.test_sigkill_server_submitted",
+    "test_service_faults.ServiceFaults.test_slow_peer_does_not_block_other_process_client",
+    "test_service_faults.ServiceFaults.test_socket_send_error_releases_pin",
+    "test_service_faults.ServiceFaults.test_stale_socket_requires_explicit_recovery",
+    "test_service_faults.ServiceFaults.test_timeout_releases_pending_response_pin",
+    "test_service_faults.ServiceFaults.test_trickle_does_not_extend_deadline",
+    "test_service_faults.ServiceFaults.test_wrong_stale_identity_never_deletes",
+    "test_service_faults.ServiceFaults.test_zero_header_rejected"
+  ]
+}

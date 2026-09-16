@@ -1,0 +1,17 @@
+# ADR 0028 — L-WP11を純粋Presenterのスライスから実装
+
+状態: ローカル候補。元仕様00.02.00不変。
+
+管理subsystemを追加せず、product/wp11にTS純粋moduleを実装。dataの真正性はdomain adapterの責任。Presenterは型・相互整合性・scope/revision/previewを検査するが、それをcryptographic authorizationと呼ばない。
+
+L-WP11はPARTIAL_IMPLEMENTEDのまま全UIのdone条件を維持する。V-WP11にPRESENTER_CONTRACT_ONLYという局所的check scopeを登録する。V-WP11の実装/検証依存はこのスライスだけH0へ接続し、未実装のrendererを待たずテストする。全体資格依存G6と元の149要件は不変。V-WP11のPASSは全WPの合格ではなく、今後renderer試験を追加すると旧証拠は失効する。
+
+既存check_planの「製品実装がNOT_STARTEDなら未認定」という条件は、部品実装が進んだら不正確になる。製品状態をPARTIAL_LOCAL_COMPONENTSとし、native_runtime NOT_STARTED・qualified_profiles空・Gate NOT_RUNを分離する。未認定チェックは資格の状態を検査し、部品が実装されたことを禁止しない。過去Blob試験の状態expectationもこの分離に更新する。
+
+UI-004等のsemantic recoveryの観測はCRDT適用と無関係。draftがdirtyな場合、保存済みsnapshotは根拠として残すが画面の主表示は「未保存」。実IMeのイベント順・browser rendererは後続検証。
+
+正常/負例は元24fixtureの期待値をテスト側で読む。runtimeにstory IDや期待文言の転記によるstub判定を入れない。実装の辞書と判定は独立。
+
+入口案内の版番号をbranding正本へ揃えた。旧登録試験が過去の成果物版を固定していた箇所は、現版との一致を検査するよう更新した。AGENTSの4,000 bytes上限は維持し、本文を短くした。Gate非昇格・旧機能件数・テストID集合の条件は変更していない。
+
+追加レビューでarrayの非enumerable/継承toJSONがvalidation後のcloneで動く不備を再現。plain arrayと正確なown-property集合を要求し、二つの負例を追加した。24storyは同梱fixtureの実stateを直接検証する。traceabilityは実test IDに結び付け、未実装のtokens/導入flowなどをDEFERREDに分ける。

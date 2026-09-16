@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_jobs_integration.JobIntegration.test_close_compact_open_new_upload_then_old_refused",
+    "test_jobs_integration.JobIntegration.test_keeper_objects_and_retention_not_mutated",
+    "test_jobs_integration.JobIntegration.test_prepare_does_not_use_generic_admin_dispatch",
+    "test_jobs_integration.JobIntegration.test_real_keeper_read_pin_blocks_prepared_job",
+    "test_jobs_integration.JobIntegration.test_two_jobs_prepared_on_same_target_second_blocked",
+    "test_jobs_integration.JobIntegration.test_warm_cache_does_not_cache_authority",
+    "test_jobs_integration.JobIntegration.test_warm_cache_rechecks_archive_bytes",
+    "test_jobs_integration.JobIntegration.test_warm_cache_rechecks_job_bytes"
+  ],
+  "scope": "LOCAL_EXPERIMENT_ONLY"
+}

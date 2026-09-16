@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scope": "LOSSLESS_HISTORICAL_EVIDENCE_AND_DUPLICATE_BUNDLES_ONLY",
+  "input_file_count": 1612,
+  "input_bytes": 90199479,
+  "compressed_bytes": 3641816,
+  "archive_sha256": "4774612abf4c29cfba500a5c23478b26a8e39eb09a28571f25621e401ee1bdb4",
+  "roundtrip": "ALL_FILES_BYTE_IDENTICAL",
+  "current_sources_removed": false,
+  "current_specs_and_tests_removed": false,
+  "current_bundle": "Regenerated from final checkpoint; historical input bundles inside archive.",
+  "existing_history_archive": "release/archives/historical-evidence-through-00.25.00.tar.xz (preserved unchanged)",
+  "known_old_missing_artifacts": 457,
+  "previous_resume_missing_renderer": "Documented separately; not recreated by compression",
+  "manifest": "release/archives/history-through-00.29.00.tar.xz.manifest.json"
+}

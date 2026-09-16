@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_host_roundtrip.HostRoundtrip.test_next_window_rejects_old_client_and_request",
+    "test_host_roundtrip.HostRoundtrip.test_retire_close_compact_next_generation",
+    "test_host_roundtrip.HostRoundtrip.test_retry_same_bundle_same_lease_receipt",
+    "test_host_roundtrip.HostRoundtrip.test_roundtrip_upload_and_read",
+    "test_host_roundtrip.HostRoundtrip.test_separate_donor_keeper_recipient_after_rollover",
+    "test_host_roundtrip.HostRoundtrip.test_uploaded_handoff_compacts_and_next_generation_uses_new_ids"
+  ]
+}

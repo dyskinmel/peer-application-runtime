@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "statuses": [
+    "UNVERIFIED",
+    "PARTIAL",
+    "VERIFIED",
+    "FAILED_VERIFICATION",
+    "ENVIRONMENT_BLOCKED"
+  ],
+  "default_packaging_reserve_seconds": 300,
+  "default_checkpoint_reserve_seconds": 120,
+  "default_emergency_threshold_seconds": 60,
+  "verified_inferred_from_package_success": false,
+  "verified_requires_clean_git": true,
+  "verified_scope": "FULL_LOCAL_REGISTERED_TASKS",
+  "promotion_contract": "P6_RELEASE_EVIDENCE_V1",
+  "product_qualified": false,
+  "durability_mode": "GIT_CHECKPOINT_PRIMARY",
+  "package_required_per_cycle": false,
+  "default_optional_packaging_reserve_seconds": 0,
+  "github_remote_preferred_when_available": true
+}

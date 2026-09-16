@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_pin_anchor.PinAnchorTests.test_anchor_ahead_of_truncated_journal_rejected",
+    "test_pin_anchor.PinAnchorTests.test_anchor_disk_sync_failure_is_unknown",
+    "test_pin_anchor.PinAnchorTests.test_anchor_inside_journal_is_refused",
+    "test_pin_anchor.PinAnchorTests.test_anchored_prepare_updates_external_pin",
+    "test_pin_anchor.PinAnchorTests.test_broad_permissions_rejected",
+    "test_pin_anchor.PinAnchorTests.test_compare_swap_advances_real_bytes",
+    "test_pin_anchor.PinAnchorTests.test_corrupt_file_rejected",
+    "test_pin_anchor.PinAnchorTests.test_create_is_never_upsert",
+    "test_pin_anchor.PinAnchorTests.test_different_metadata_rejected",
+    "test_pin_anchor.PinAnchorTests.test_foreign_thread_denied",
+    "test_pin_anchor.PinAnchorTests.test_idempotent_pin_has_no_write",
+    "test_pin_anchor.PinAnchorTests.test_initial_pin_survives_reopen",
+    "test_pin_anchor.PinAnchorTests.test_lease_permissions_changed_after_open_are_rejected",
+    "test_pin_anchor.PinAnchorTests.test_missing_adapter_refuses_anchored_open",
+    "test_pin_anchor.PinAnchorTests.test_missing_store_not_enrolled_on_open",
+    "test_pin_anchor.PinAnchorTests.test_observed_pin_rollback_rejected",
+    "test_pin_anchor.PinAnchorTests.test_old_expected_pin_rejected",
+    "test_pin_anchor.PinAnchorTests.test_partial_write_is_not_empty_pin",
+    "test_pin_anchor.PinAnchorTests.test_pin_failure_poisoned_before_dispatch",
+    "test_pin_anchor.PinAnchorTests.test_pin_regression_rejected",
+    "test_pin_anchor.PinAnchorTests.test_provider_ack_without_durable_readback_is_rejected",
+    "test_pin_anchor.PinAnchorTests.test_reopen_resyncs_valid_journal_ahead_of_anchor",
+    "test_pin_anchor.PinAnchorTests.test_same_sequence_different_hash_rejected",
+    "test_pin_anchor.PinAnchorTests.test_second_owner_denied",
+    "test_pin_anchor.PinAnchorTests.test_symlink_rejected",
+    "test_pin_anchor.PinAnchorTests.test_wrong_binding_rejected"
+  ]
+}

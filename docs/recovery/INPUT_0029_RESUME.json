@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "input": "peer-application-runtime-devkit-00.29.00-resume.zip",
+  "sha256": "3e31895fd366266851299378490f72ac1b6a62b603597512f166316124fd624f",
+  "crc_valid": true,
+  "payload_matches_0028_files": 2807,
+  "added": [
+    "RESUME-MANIFEST.json",
+    "RESUME_NOTICE.ja.md",
+    "RESUME_STATUS.json"
+  ],
+  "changed_from_0028": [],
+  "renderer_source_present": false,
+  "bundle_head": "bc0fd47875ef23ab055225b0df67412c4dc9302a",
+  "not_established": [
+    "location of the previously reported renderer source",
+    "cause of prior one-off upload test failure"
+  ],
+  "decision": "Rebuild renderer and add persistence from verified 00.28 code. Never claim previous browser result as current evidence."
+}

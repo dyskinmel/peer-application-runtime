@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_blob_bindings.BindingTests.test_app_substitution_rejected",
+    "test_blob_bindings.BindingTests.test_changed_ciphertext_rejected_even_with_updated_id",
+    "test_blob_bindings.BindingTests.test_epoch_substitution_rejected",
+    "test_blob_bindings.BindingTests.test_header_fields_roundtrip",
+    "test_blob_bindings.BindingTests.test_header_replacement_rejected",
+    "test_blob_bindings.BindingTests.test_incorrect_id_width_rejected",
+    "test_blob_bindings.BindingTests.test_invalid_header_type_rejected",
+    "test_blob_bindings.BindingTests.test_maximum_plain_chunk_is_valid",
+    "test_blob_bindings.BindingTests.test_mutable_bytes_rejected",
+    "test_blob_bindings.BindingTests.test_non_blob_kind_rejected",
+    "test_blob_bindings.BindingTests.test_raw_locator_cannot_be_used_as_typed_id",
+    "test_blob_bindings.BindingTests.test_repr_does_not_dump_ciphertext",
+    "test_blob_bindings.BindingTests.test_space_substitution_rejected",
+    "test_blob_bindings.BindingTests.test_trailing_bytes_rejected",
+    "test_blob_bindings.BindingTests.test_truncated_block_rejected",
+    "test_blob_bindings.BindingTests.test_typed_and_raw_ids_are_distinct",
+    "test_blob_bindings.BindingTests.test_wrong_secret_rejected",
+    "test_blob_bindings.BindingTests.test_wrong_typed_id_rejected",
+    "test_blob_bindings.BindingTests.test_zero_length_chunk_is_valid"
+  ]
+}

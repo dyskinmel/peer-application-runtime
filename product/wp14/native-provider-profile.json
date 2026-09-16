@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "profile": "par-native-provider-handoff-0056",
+  "defaultProvider": "BLOCKED",
+  "autoFallback": false,
+  "nativeBuildExecuted": false,
+  "deviceVerificationExecuted": false,
+  "productQualified": false,
+  "experimentalLocal": {
+    "profile": "par-native-provider-handoff-0056",
+    "providerId": "experimental-posix-local",
+    "providerVersion": "0056",
+    "platform": "posix-local",
+    "epoch": "11111111111111111111111111111111",
+    "protection": "LOCAL_UNPROTECTED",
+    "osProtectionProven": false,
+    "rollbackProtectionProven": false,
+    "nativeBuild": "NOT_APPLICABLE",
+    "versions": {"handoff":"0056","wire":"draft-2","suite":"local-synthetic","store":"local-v1","sdk":"0055","ui":"0053"},
+    "capabilities": {
+      "pinStore": {"status":"AVAILABLE","factorySupplied":true,"atomicity":"DURABLE_CAS_LOCAL_FS","cancellation":"NOT_APPLICABLE","resume":"REOPEN_AND_READBACK","epochBound":true},
+      "callerIntentStore": {"status":"AVAILABLE","factorySupplied":true,"atomicity":"CREATE_ONLY_LOCAL_FS","cancellation":"NOT_APPLICABLE","resume":"REOPEN_AND_READBACK","epochBound":true},
+      "connectionFactory": {"status":"INJECTED_REQUIRED","factorySupplied":false,"atomicity":"NOT_APPLICABLE","cancellation":"COOPERATIVE_EVENT","resume":"NEW_CONNECTION_REQUIRED","epochBound":true}
+    },
+    "productQualified": false
+  },
+  "appleSourceCandidate": {
+    "profile": "par-native-provider-handoff-0056",
+    "providerId": "apple-keychain-source-candidate",
+    "providerVersion": "0056",
+    "platform": "apple-security-framework",
+    "epoch": "22222222222222222222222222222222",
+    "protection": "UNVERIFIED",
+    "osProtectionProven": false,
+    "rollbackProtectionProven": false,
+    "nativeBuild": "BUILD_NOT_RUN",
+    "versions": {"handoff":"0056","wire":"draft-2","suite":"local-synthetic","store":"local-v1","sdk":"0055","ui":"0053"},
+    "capabilities": {
+      "pinStore": {"status":"INTERFACE_ONLY","factorySupplied":false,"atomicity":"CAS_NOT_IMPLEMENTED","cancellation":"NOT_APPLICABLE","resume":"UNVERIFIED","epochBound":true},
+      "callerIntentStore": {"status":"SOURCE_AUTHORED_BUILD_NOT_RUN","factorySupplied":false,"atomicity":"CREATE_ONLY_KEYCHAIN_CANDIDATE","cancellation":"NOT_APPLICABLE","resume":"UNVERIFIED","epochBound":true},
+      "connectionFactory": {"status":"INTERFACE_ONLY","factorySupplied":false,"atomicity":"NOT_APPLICABLE","cancellation":"COOPERATIVE","resume":"NEW_CONNECTION_REQUIRED","epochBound":true}
+    },
+    "productQualified": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "profile": "par-local-migration-rehearsal-0057",
+  "artifactVersion": "00.57.00",
+  "scope": "LOCAL_PYTHON_SQLITE_POSIX_MIGRATION_REHEARSAL_ONLY",
+  "sourceStoreVersion": 1,
+  "targetStoreVersion": 2,
+  "sourceSchemaId": "par-local-migration-v1",
+  "targetSchemaId": "par-local-migration-v2",
+  "caseCount": 45,
+  "checkGroups": [
+    "planner",
+    "backup",
+    "shadow",
+    "activation",
+    "process"
+  ],
+  "sigkillStages": [
+    "backup.before_copy",
+    "backup.after_copy",
+    "shadow.after_rows",
+    "verify.after_shadow",
+    "switch.before_replace",
+    "switch.after_replace"
+  ],
+  "sourceGenerationReadOnly": true,
+  "verifiedBackupRequired": true,
+  "atomicPointerSwitch": true,
+  "oldGenerationAutoDelete": false,
+  "networkAllowed": false,
+  "nativeBuildExecuted": false,
+  "deviceVerificationExecuted": false,
+  "physicalPowerLossTested": false,
+  "g9Qualified": false,
+  "realCrdtMigrationExecuted": false,
+  "productQualified": false
+}

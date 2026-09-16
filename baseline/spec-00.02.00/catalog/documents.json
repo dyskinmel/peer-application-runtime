@@ -1,0 +1,177 @@
+[
+  {
+    "domain": "CORE",
+    "path": "spec/01-product-contract.ja.md",
+    "title": "01 — プロダクト契約・品質の定義",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "ARCH",
+    "path": "spec/02-architecture.ja.md",
+    "title": "02 — 内部構造・責務境界",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "ID",
+    "path": "spec/03-identity.ja.md",
+    "title": "03 — ID・鍵保管・端末復旧",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "AUTH",
+    "path": "spec/04-authority.ja.md",
+    "title": "04 — Space・認可・鍵更新・所有者移管",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 7
+  },
+  {
+    "domain": "CRYPTO",
+    "path": "spec/05-cryptography.ja.md",
+    "title": "05 — 暗号スイート・署名対象・鍵導出",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "WIRE",
+    "path": "spec/06-wire.ja.md",
+    "title": "06 — Wire format・状態遷移・上限",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "DATA",
+    "path": "spec/07-data-model.ja.md",
+    "title": "07 — 文書・スキーマ・検索・イベント・RPC",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 7
+  },
+  {
+    "domain": "SYNC",
+    "path": "spec/08-synchronization.ja.md",
+    "title": "08 — 同期・因果関係・検証・再開",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "STORE",
+    "path": "spec/09-local-storage.ja.md",
+    "title": "09 — ローカル保存・原子性・破損・容量",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "REP",
+    "path": "spec/10-replication.ja.md",
+    "title": "10 — Keeper・復旧集合・lease・自動修復",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 7
+  },
+  {
+    "domain": "REC",
+    "path": "spec/11-recovery.ja.md",
+    "title": "11 — 初期成功条件・復旧・可搬性",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "GC",
+    "path": "spec/12-retention-gc.ja.md",
+    "title": "12 — 履歴・削除・GC・チェックポイント",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 5
+  },
+  {
+    "domain": "NET",
+    "path": "spec/13-connectivity.ja.md",
+    "title": "13 — 発見・NAT・Relay・接続ポリシー",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "SDK",
+    "path": "spec/14-sdk-contract.ja.md",
+    "title": "14 — SDK API・言語境界・開発体験",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "PLAT",
+    "path": "spec/15-platforms.ja.md",
+    "title": "15 — プラットフォーム能力・実機資格",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "BUDGET",
+    "path": "spec/16-resource-policy.ja.md",
+    "title": "16 — 資源制御・負荷・保管の公平性",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 5
+  },
+  {
+    "domain": "UX",
+    "path": "spec/17-experience.ja.md",
+    "title": "17 — UX・操作flow・状態説明",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 7
+  },
+  {
+    "domain": "DS",
+    "path": "spec/18-polishable-ui.ja.md",
+    "title": "18 — Polish可能なUI構造・デザインシステム",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "OPS",
+    "path": "spec/19-operations.ja.md",
+    "title": "19 — 運用・診断・プライバシー",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "SEC",
+    "path": "spec/20-security-assurance.ja.md",
+    "title": "20 — 脅威モデル・安全性評価・検証責務",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "PERF",
+    "path": "spec/21-performance.ja.md",
+    "title": "21 — 性能・規模・長期運用の検証計画",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 5
+  },
+  {
+    "domain": "MIG",
+    "path": "spec/22-compatibility-migration.ja.md",
+    "title": "22 — 互換性・更新・schema/storage移行",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "OSS",
+    "path": "spec/23-oss-release.ja.md",
+    "title": "23 — 完全OSS・供給網・公開と維持",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "QUAL",
+    "path": "spec/24-production-qualification.ja.md",
+    "title": "24 — 適合性・証跡・Production Ready判定",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 6
+  },
+  {
+    "domain": "EXT",
+    "path": "spec/25-extension-strategy.ja.md",
+    "title": "25 — 拡張余地と領域内の高い到達目標",
+    "maturity": "NORMATIVE_CANDIDATE",
+    "requirements": 4
+  }
+]

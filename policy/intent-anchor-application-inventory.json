@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_anchored_application.AnchoredApplicationTests.test_anchor_dropped_after_binding_refuses_effect",
+    "test_anchored_application.AnchoredApplicationTests.test_anchor_response_lost_after_durable_write_never_calls_apply",
+    "test_anchored_application.AnchoredApplicationTests.test_closed_anchor_blocks_effects",
+    "test_anchored_application.AnchoredApplicationTests.test_commit_response_loss_reconciles_without_core",
+    "test_anchored_application.AnchoredApplicationTests.test_core_unavailable_stays_prepared",
+    "test_anchored_application.AnchoredApplicationTests.test_dispatch_anchor_failure_never_calls_apply",
+    "test_anchored_application.AnchoredApplicationTests.test_dispatch_pin_exists_before_nonce",
+    "test_anchored_application.AnchoredApplicationTests.test_idempotent_inquiry_does_not_write_pin",
+    "test_anchored_application.AnchoredApplicationTests.test_inquiry_anchor_failure_preserves_saved_record",
+    "test_anchored_application.AnchoredApplicationTests.test_prepare_is_anchored_before_ack",
+    "test_anchored_application.AnchoredApplicationTests.test_retirement_anchor_failure_does_not_reopen_operation",
+    "test_anchored_application.AnchoredApplicationTests.test_unanchored_mutation_capability_refused"
+  ]
+}

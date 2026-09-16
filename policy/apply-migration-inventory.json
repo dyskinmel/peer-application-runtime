@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_apply_migration.MigrationTests.test_migration_explicit_preserves_pending_commits",
+    "test_apply_migration.MigrationTests.test_migration_failure_keeps_v3",
+    "test_apply_migration.MigrationTests.test_old_blob_store_refuses_schema4",
+    "test_apply_migration.MigrationTests.test_snapshot_preserves_encrypted_application_and_is_read_only"
+  ]
+}

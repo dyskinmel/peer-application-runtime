@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_host_process.HostProcess.test_admin_cannot_acquire_running_host",
+    "test_host_process.HostProcess.test_admin_data_command_cannot_be_retirement",
+    "test_host_process.HostProcess.test_admin_unknown_action_rejected",
+    "test_host_process.HostProcess.test_closed_host_does_not_auto_open",
+    "test_host_process.HostProcess.test_config_permissions_rejected",
+    "test_host_process.HostProcess.test_data_client_rejected_read_socket",
+    "test_host_process.HostProcess.test_host_cannot_acquire_active_local_gateway",
+    "test_host_process.HostProcess.test_legacy_client_rejected_new_socket",
+    "test_host_process.HostProcess.test_lost_reserve_response_retry_same_id",
+    "test_host_process.HostProcess.test_missing_spool_rejected_without_creation",
+    "test_host_process.HostProcess.test_partial_request_no_operation",
+    "test_host_process.HostProcess.test_partial_upload_survives_restart",
+    "test_host_process.HostProcess.test_wrong_keeper_key_rejected",
+    "test_host_process.HostProcess.test_wrong_store_before_connection"
+  ]
+}

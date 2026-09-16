@@ -1,0 +1,27 @@
+{
+  "bundle_version": "00.02.00",
+  "date": "2026-09-05",
+  "artifact_kind": "SPECIFICATION_ONLY",
+  "specification_maturity": "NORMATIVE_CANDIDATE_NOT_FROZEN",
+  "product_implementation": "NOT_STARTED",
+  "product_runtime_tests_executed": 0,
+  "independent_security_reviews_completed": 0,
+  "qualified_profiles": [],
+  "gates": {
+    "G0": "NOT_RUN",
+    "G1": "NOT_RUN",
+    "G2": "NOT_RUN",
+    "G3": "NOT_RUN",
+    "G4": "NOT_RUN",
+    "G5": "NOT_RUN",
+    "G6": "NOT_RUN",
+    "G7": "NOT_RUN",
+    "G8": "NOT_RUN",
+    "G9": "NOT_RUN",
+    "G10": "NOT_RUN",
+    "G11": "NOT_RUN"
+  },
+  "support_checks": "see evidence/support-checks.json; not product conformance",
+  "source_tree": null,
+  "next_step": "WP-01 / OD-01..OD-04 compatibility and contract probes"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_socket.SocketTests.test_close_is_idempotent_and_removes_own_socket",
+    "test_socket.SocketTests.test_corruption_after_dispatch_drops_reply",
+    "test_socket.SocketTests.test_disconnected_peer_releases_connection_slot",
+    "test_socket.SocketTests.test_get_over_real_socket",
+    "test_socket.SocketTests.test_have_pages_over_socket",
+    "test_socket.SocketTests.test_incomplete_header_does_not_stall_other_client",
+    "test_socket.SocketTests.test_need_over_real_socket",
+    "test_socket.SocketTests.test_nonowner_close_cannot_mutate_server",
+    "test_socket.SocketTests.test_old_snapshot_get_refused",
+    "test_socket.SocketTests.test_oversized_frame_refused_without_allocation",
+    "test_socket.SocketTests.test_permission_change_between_dispatch_and_send_drops_reply",
+    "test_socket.SocketTests.test_real_receiver_pending_only",
+    "test_socket.SocketTests.test_requester_key_mismatch",
+    "test_socket.SocketTests.test_unauthorized_reader_refused",
+    "test_socket.SocketTests.test_unrecognized_method_refused_before_connect",
+    "test_socket.SocketTests.test_wrong_server_pin_refused_before_request"
+  ]
+}

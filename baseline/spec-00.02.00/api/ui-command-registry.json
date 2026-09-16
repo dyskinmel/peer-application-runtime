@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "commands": [
+    "activate-recovery",
+    "add-copy",
+    "approve-invite",
+    "choose-folder",
+    "copy-request",
+    "create-space",
+    "dismiss",
+    "export",
+    "export-diagnostics",
+    "export-partial",
+    "force-stop",
+    "import-data",
+    "inspect-fork",
+    "inspect-operation",
+    "open-details",
+    "pause-recovery",
+    "provide-key",
+    "retry-connect",
+    "review-conflict",
+    "review-contribution",
+    "review-invite",
+    "review-rebase",
+    "review-relay",
+    "verify-recovery"
+  ],
+  "note": "Semantic flow commands; concrete payload discriminants are finalized per Presenter/binding at G6."
+}

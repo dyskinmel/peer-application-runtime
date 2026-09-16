@@ -1,0 +1,8 @@
+# ADR: Optional experimental application controls and lifetime boundary
+
+既存0052のowner profileとcaller slotを維持する。別の公開通信・暗号・保存形式は導入しない。
+画面のprepareは保存済みoriginalがある場合だけ有効。stageは元ID/targets/期待revisionをcaller slotへ先に保存し再読込する。prepare自身の既存保存検査も維持する。
+dispatchは準備後の別の明示確認。slotのdispatch markerは結果不明/不在で解除しない。
+画面destroyはconnection releaseでありretire/abandon/slot削除ではない。rendererは元本文/IME DOMを作り直さず、状態のみ別panelへ表示する。
+ApplicationEmbeddingはcaller storeとportのpending Promiseを追跡し、close完了とpending zeroを確認するまで再attachしない。close失敗はcleanup unconfirmedで、同じオブジェクトへ無条件再試行しない。
+同じUIDの悪意、非協力処理のsandbox、保管領域全体巻戻し、OS-safe provider、実core/browser/製品認定は範囲外。

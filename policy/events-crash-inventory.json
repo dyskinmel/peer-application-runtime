@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_event_crash.CrashTests.test_fork_handle_refused",
+    "test_event_crash.CrashTests.test_kill_ack_ack_after_begin",
+    "test_event_crash.CrashTests.test_kill_ack_ack_after_commit",
+    "test_event_crash.CrashTests.test_kill_ack_ack_after_update",
+    "test_event_crash.CrashTests.test_kill_ack_ack_before_commit",
+    "test_event_crash.CrashTests.test_kill_publish_event_after_begin",
+    "test_event_crash.CrashTests.test_kill_publish_event_after_commit",
+    "test_event_crash.CrashTests.test_kill_publish_event_after_encrypt",
+    "test_event_crash.CrashTests.test_kill_publish_event_after_frontier",
+    "test_event_crash.CrashTests.test_kill_publish_event_after_insert",
+    "test_event_crash.CrashTests.test_kill_publish_event_before_commit",
+    "test_event_crash.CrashTests.test_kill_publish_nonce_after_begin",
+    "test_event_crash.CrashTests.test_kill_publish_nonce_after_commit",
+    "test_event_crash.CrashTests.test_kill_publish_nonce_before_commit"
+  ]
+}

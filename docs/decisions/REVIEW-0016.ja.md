@@ -1,0 +1,9 @@
+# 00.16.00 自己レビュー
+
+他モデル・第三者による独立reviewではない。既存のread profile/ソース/Pin/receipt/Keeper schema3と元85fileを変更しないことを確認。新しいupload固有profileとprivate spoolだけを追加。署名commandのop IDは接続challengeと独立。
+
+確認点: scope前のquota消費をしない、partial tailとack prefixを分ける、destination確定後にcleanupする、duplicate要求で期限やcapacityを増やさない、stale authorityを既知のまま成功にしない、admin方法を許可しない。
+
+発見/修正: sealed後の同一begin再試行と新stage作成を区別。client型不正で内部TypeErrorを漏らさない。stage directory/fileのmode/ownerを起動・操作時に再検証。新TestCaseのimportによる重複収集とfault hook名の誤りは試験側問題として修正し、実装の欠陥と混同しない。
+
+残るリスク: 中断/失効stageは自動回収せずbounded保持。全体巻戻しと同UID任意変更は防げない。二つのjournalは本当のatomic transactionではない。backend stallはsocket期限で中断できない。既存providerは旧版・局所synthetic opt-inのみ。CRDT/実環境/修正版provider/独立reviewは未完。

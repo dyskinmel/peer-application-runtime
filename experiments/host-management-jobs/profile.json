@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "profile": "host-management-jobs-local-v1",
+  "artifact_version": "00.21.00",
+  "scope": "COOPERATIVE_OWNER_API_TARGET_EVIDENCE_RECONCILIATION",
+  "management_ipc": false,
+  "background_worker": false,
+  "preemptive_cancellation": false,
+  "cross_store_atomicity": false,
+  "product_qualified": false,
+  "independent_review_completed": false,
+  "physical_power_loss_tested": false,
+  "limits": {
+    "jobs": 32,
+    "events_per_job": 32,
+    "archive_bytes": 16777216,
+    "logical_bytes": 67108864
+  },
+  "tests": {
+    "contract": 18,
+    "lifecycle": 22,
+    "audit": 27,
+    "faults": 32,
+    "integration": 8
+  },
+  "test_total": 107,
+  "sigkill_cases": 25,
+  "pinned_inputs": [
+    {
+      "path": "experiments/host-management-jobs/par_management_jobs/__init__.py",
+      "sha256": "9db963979a7622b712b32de7845ff892c9cfd478632cc169e4b5fed68cfb9329"
+    },
+    {
+      "path": "experiments/host-management-jobs/par_management_jobs/backend.py",
+      "sha256": "b95b74736e1bc360e0e934a345eab31a9f0d83de978f8cde70df2297a32d8da5"
+    },
+    {
+      "path": "experiments/host-management-jobs/par_management_jobs/contract.py",
+      "sha256": "638017b494910fcd34752e77719b5b6bf54209fe4942ce3accbcba58a40d445e"
+    },
+    {
+      "path": "experiments/host-management-jobs/par_management_jobs/jobs.py",
+      "sha256": "a3b012bde9e991eca8bbc0558a7693b80edfbf6311c9bf8a47316de285af4843"
+    },
+    {
+      "path": "experiments/host-management-jobs/par_management_jobs/journal.py",
+      "sha256": "bcb8d0a044df38849bd0c845b9d8593df06aec8852b9947860c8f3272bc7f0f8"
+    },
+    {
+      "path": "experiments/host-management-jobs/par_management_jobs/presenter.py",
+      "sha256": "05981e30af15b68e8856815541b5dc97fd7f76d0f958ff7e4680c89d7861ee3a"
+    },
+    {
+      "path": "experiments/upload-replay-window/par_upload_window/store.py",
+      "sha256": "bae885feae81c51a944223dfabf20992938a5d79fdbdc0437ab28f578f9d367e"
+    },
+    {
+      "path": "experiments/upload-replay-window/par_upload_window/contract.py",
+      "sha256": "3d5b320693e9b4bfc72803f9ce61b119502160cd4982a0abb46b96dc4d988d0f"
+    },
+    {
+      "path": "experiments/keeper-upload-retire/par_keeper_upload_retire/spool.py",
+      "sha256": "5fc375c2b7508498a34de224ecc2f48cbea96b4e1e62e95de05b684b8abf9d8b"
+    },
+    {
+      "path": "experiments/recovery-closure/par_recovery/transfer.py",
+      "sha256": "dfb81565887eeef2b12c2ecc347744dec757512bd745397323f66123249fba4d"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/server.py",
+      "sha256": "e63ae69f16f48b4a21e4a119c027d26aee07fd46baee8c6f4eecf9d170c2f081"
+    },
+    {
+      "path": "experiments/host-verified-snapshot/par_verified_host/provider.py",
+      "sha256": "309a52953da83a7ce128e691251fb086dca8be60569ef4baae42dc07137f3f49"
+    }
+  ]
+}

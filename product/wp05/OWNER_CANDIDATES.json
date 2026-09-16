@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "work_package": "WP-05",
+  "owner_task": "L-WP05",
+  "candidate_tasks": [
+    "BLOB-STORE-LOCAL",
+    "BLOB-MANIFEST-LOCAL",
+    "RECOVERY-CLOSURE-LOCAL"
+  ],
+  "residual_nonclaims": [
+    "full 256MiB product file profile",
+    "native constant-memory commit adapter",
+    "cross-epoch closure beyond external pin"
+  ],
+  "candidate_checks": [
+    "blob-store-bindings",
+    "blob-store-commit",
+    "blob-store-faults",
+    "blob-store-incoming",
+    "blob-store-recovery",
+    "file-faults",
+    "file-manifest",
+    "file-pipeline",
+    "recovery-contract",
+    "recovery-faults",
+    "recovery-pipeline",
+    "recovery-transfer"
+  ],
+  "evidence_mode": "REFERENCE_EXISTING_CANDIDATES_NO_CODE_COPY"
+}

@@ -1,0 +1,7 @@
+{
+ "schema_version":1,"profile":"par-reference-runtime-observation-v1","status":"CANDIDATE",
+ "source":"owned authenticated Python Store; no readonly opener that resets authority",
+ "supported":["observe","inspect-operation"],"shared_mutations":false,"production_transport":false,"json_is_proof":false,
+ "global_latest_proven":false,"crdt_applied":false,"max_store_envelopes":4096,"max_document_envelopes":256,
+ "keys_required":["local receipt/cache secret only"],"signing_or_content_secret_required":false
+}

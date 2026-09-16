@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_repair_contract.RepairContract.test_cancel_cannot_be_used_as_repair",
+    "test_repair_contract.RepairContract.test_cancel_requires_release_permission",
+    "test_repair_contract.RepairContract.test_cancel_roundtrip",
+    "test_repair_contract.RepairContract.test_cancel_wrong_signer",
+    "test_repair_contract.RepairContract.test_different_subject_cannot_sign",
+    "test_repair_contract.RepairContract.test_domain_separation_from_put",
+    "test_repair_contract.RepairContract.test_duplicate_targets_rejected",
+    "test_repair_contract.RepairContract.test_empty_targets_rejected",
+    "test_repair_contract.RepairContract.test_generation_bool_rejected",
+    "test_repair_contract.RepairContract.test_generation_zero_rejected",
+    "test_repair_contract.RepairContract.test_get_only_cannot_repair",
+    "test_repair_contract.RepairContract.test_job_identity_is_nonce_bound",
+    "test_repair_contract.RepairContract.test_maximum_target_count",
+    "test_repair_contract.RepairContract.test_mutated_grant_id_rejected",
+    "test_repair_contract.RepairContract.test_nonce_type_rejected",
+    "test_repair_contract.RepairContract.test_other_keeper_rejected",
+    "test_repair_contract.RepairContract.test_put_only_can_request_repair",
+    "test_repair_contract.RepairContract.test_release_only_cannot_repair",
+    "test_repair_contract.RepairContract.test_signature_mutation",
+    "test_repair_contract.RepairContract.test_signed_roundtrip",
+    "test_repair_contract.RepairContract.test_stale_authority_rejected",
+    "test_repair_contract.RepairContract.test_target_count_limit",
+    "test_repair_contract.RepairContract.test_unknown_field_rejected",
+    "test_repair_contract.RepairContract.test_unsorted_targets_rejected",
+    "test_repair_contract.RepairContract.test_wrong_index_rejected"
+  ]
+}

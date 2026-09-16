@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_upload_contract.UploadContract.test_begin_bad_hash",
+    "test_upload_contract.UploadContract.test_begin_boolean",
+    "test_upload_contract.UploadContract.test_begin_extra",
+    "test_upload_contract.UploadContract.test_begin_path",
+    "test_upload_contract.UploadContract.test_begin_too_big",
+    "test_upload_contract.UploadContract.test_begin_unknown_kind",
+    "test_upload_contract.UploadContract.test_begin_zero",
+    "test_upload_contract.UploadContract.test_changed_stable_command",
+    "test_upload_contract.UploadContract.test_denied_method_collect",
+    "test_upload_contract.UploadContract.test_denied_method_exec",
+    "test_upload_contract.UploadContract.test_denied_method_get",
+    "test_upload_contract.UploadContract.test_denied_method_release",
+    "test_upload_contract.UploadContract.test_denied_method_renew",
+    "test_upload_contract.UploadContract.test_denied_method_repair",
+    "test_upload_contract.UploadContract.test_denied_method_updatexauthority",
+    "test_upload_contract.UploadContract.test_denied_method_xxdictxx",
+    "test_upload_contract.UploadContract.test_fixed_methods",
+    "test_upload_contract.UploadContract.test_hello_signature",
+    "test_upload_contract.UploadContract.test_hello_wrong_keeper",
+    "test_upload_contract.UploadContract.test_read_allowlist_unchanged",
+    "test_upload_contract.UploadContract.test_read_protocol_not_accepted",
+    "test_upload_contract.UploadContract.test_replayed_connection_rejected",
+    "test_upload_contract.UploadContract.test_response_binding",
+    "test_upload_contract.UploadContract.test_roundtrip",
+    "test_upload_contract.UploadContract.test_signed_error",
+    "test_upload_contract.UploadContract.test_wrong_subject"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_hardening.HardeningTests.test_catalog_bound_reports_resource_not_invalid_data",
+    "test_hardening.HardeningTests.test_current_source_key_must_match_certificate",
+    "test_hardening.HardeningTests.test_mutable_need_id_rejected",
+    "test_hardening.HardeningTests.test_overload_bounded_and_other_client_recovers",
+    "test_hardening.HardeningTests.test_page_limit_bool_rejected",
+    "test_hardening.HardeningTests.test_refuses_symlink_endpoint_parent",
+    "test_hardening.HardeningTests.test_signed_get_cannot_substitute_a_different_scope",
+    "test_hardening.HardeningTests.test_signed_get_tamper_fails_identity",
+    "test_hardening.HardeningTests.test_signed_have_cannot_alias_two_inner_ids_to_one_envelope",
+    "test_hardening.HardeningTests.test_signed_need_cannot_omit_requested_id",
+    "test_hardening.HardeningTests.test_signed_need_cannot_reorder_ids",
+    "test_hardening.HardeningTests.test_signed_page_cannot_hide_more_rows",
+    "test_hardening.HardeningTests.test_signed_page_cannot_make_no_progress",
+    "test_hardening.HardeningTests.test_source_scope_returned_copy",
+    "test_hardening.HardeningTests.test_storage_only_member_cannot_run_source",
+    "test_hardening.HardeningTests.test_total_deadline_does_not_extend_on_partial_progress"
+  ]
+}

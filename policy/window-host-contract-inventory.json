@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_host_contract.HostContract.test_admin_rebind_denied",
+    "test_host_contract.HostContract.test_admin_retire_denied",
+    "test_host_contract.HostContract.test_boolean_sequence_rejected_even_signed",
+    "test_host_contract.HostContract.test_boolean_version_rejected_even_signed",
+    "test_host_contract.HostContract.test_challenge_replay_rejected",
+    "test_host_contract.HostContract.test_cleaned_hello_cannot_start_request",
+    "test_host_contract.HostContract.test_closed_hello_cannot_start_request",
+    "test_host_contract.HostContract.test_corrupt_request_signature",
+    "test_host_contract.HostContract.test_explicit_closed_hello",
+    "test_host_contract.HostContract.test_explicit_remote_window_closed",
+    "test_host_contract.HostContract.test_hello_roundtrip_binds_store_and_generation",
+    "test_host_contract.HostContract.test_legacy_hello_rejected",
+    "test_host_contract.HostContract.test_no_arbitrary_remote_error",
+    "test_host_contract.HostContract.test_profile_distinct_from_legacy",
+    "test_host_contract.HostContract.test_raw_upload_command_rejected",
+    "test_host_contract.HostContract.test_request_cannot_exceed_fixed_limit",
+    "test_host_contract.HostContract.test_request_roundtrip",
+    "test_host_contract.HostContract.test_response_challenge_binding",
+    "test_host_contract.HostContract.test_response_request_binding",
+    "test_host_contract.HostContract.test_response_roundtrip",
+    "test_host_contract.HostContract.test_unknown_hello_field_rejected",
+    "test_host_contract.HostContract.test_unknown_phase_rejected",
+    "test_host_contract.HostContract.test_window_open_grant_not_a_data_command",
+    "test_host_contract.HostContract.test_wrong_generation",
+    "test_host_contract.HostContract.test_wrong_keeper",
+    "test_host_contract.HostContract.test_wrong_store",
+    "test_host_contract.HostContract.test_wrong_subject_cannot_sign",
+    "test_host_contract.HostContract.test_zero_challenge_length_rejected"
+  ]
+}

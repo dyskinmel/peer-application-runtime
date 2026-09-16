@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "event-command.integration.before-send-abort-has-no-nonce-no-event",
+    "event-command.integration.commit-sigkill-reconciles-by-original-operation-without-replay",
+    "event-command.integration.current-reader-membership-cannot-be-upgraded-by-command-grant",
+    "event-command.integration.inquiry-only-descriptor-refuses-bypassing-sdk-grant",
+    "event-command.integration.nonce-sigkill-keeps-reservation-and-never-auto-republishes",
+    "event-command.integration.owner-cancel-after-nonce-is-uncertain-remotely-and-absent-after-reopen",
+    "event-command.integration.postcommit-owner-error-is-unknown-then-found",
+    "event-command.integration.precommit-sigkill-rolls-back-event-not-nonce",
+    "event-command.integration.publish-notifies-subscription-and-only-explicit-ack-advances",
+    "event-command.integration.restart-idempotency-keeps-one-event-with-new-host-incarnation",
+    "event-command.integration.same-operation-input-is-idempotent-and-conflicting-input-refused",
+    "event-command.integration.wrong-stream-context-refused-before-reservation"
+  ]
+}

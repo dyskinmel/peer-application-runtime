@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "selection_mode": "IMPACT_SAFE_V1",
+  "baseline_max_tier": "S1",
+  "unknown_behavior": "CONSERVATIVE_FULL",
+  "stale_mapping_behavior": "CONSERVATIVE_FULL",
+  "binding_paths": [
+    "plan/tasks.json",
+    "policy/checks.json",
+    "policy/test-registry.json",
+    "policy/test-inventory.json"
+  ],
+  "bindings": {
+    "plan/tasks.json": "8bcea17404496409ba6221939db681a612acfe0189ea17b171db1fbd5d3805cb",
+    "policy/checks.json": "f5a25ab5df2ea3338a6877e0c9ba3182e2259232c2911dbd3c952abae7c37aeb",
+    "policy/test-registry.json": "bf32062ed6a28ea6b293b5e5f8b2ce6f7d2e3892f8bb8f0e39267c2430f8b997",
+    "policy/test-inventory.json": "140095e689c20e29b3a68623fecbbcef1c702d8ac121ea175b67732f748a9a73"
+  },
+  "check_aliases": {
+    "apply": "document_apply",
+    "exchange": "causal_exchange",
+    "inbox": "sync_inbox",
+    "host_snapshot": "snapshot",
+    "native_provider": "native_provider_handoff",
+    "presenter": "reference_presenter",
+    "private_draft": "reference_presenter",
+    "baseline": [
+      "core",
+      "execution",
+      "testguards"
+    ],
+    "plan": [
+      "core",
+      "execution",
+      "testguards"
+    ],
+    "harness_tests": [
+      "artifact_survival",
+      "advanced_optimization",
+      "core",
+      "execution",
+      "impact_selection",
+      "resource_scheduler",
+      "test_orchestration",
+      "testguards",
+      "verification_ledger",
+      "evidence_promotion"
+    ],
+    "public_preview_boundary": "local_closure_sprint_a",
+    "wp15_harness_result_contract": "local_closure_sprint_a",
+    "qualification_closure_local": "qualification_closure",
+    "wp16_local_registration": "qualification_closure"
+  },
+  "critical_rules": [
+    {
+      "id": "crypto-critical",
+      "class": "crypto",
+      "patterns": [
+        "experiments/g0-crypto/**",
+        "tests/product/g0-crypto/**"
+      ],
+      "mandatory_modules": [
+        "tests.test_crypto_probe",
+        "tests.test_auth_registration",
+        "tests.test_auth_store_registration"
+      ]
+    },
+    {
+      "id": "auth-critical",
+      "class": "authentication",
+      "patterns": [
+        "experiments/space-auth/**",
+        "experiments/auth-store/**",
+        "tests/product/*auth*/**",
+        "product/wp03/**"
+      ],
+      "mandatory_modules": [
+        "tests.test_crypto_probe",
+        "tests.test_auth_registration",
+        "tests.test_auth_store_registration"
+      ]
+    },
+    {
+      "id": "persistence-critical",
+      "class": "persistence",
+      "patterns": [
+        "experiments/g0-store/**",
+        "experiments/auth-store/**",
+        "experiments/blob-store/**",
+        "experiments/blob-manifest/**",
+        "experiments/recovery-closure/**",
+        "experiments/keeper-*/**",
+        "product/wp02/**",
+        "product/wp04/**"
+      ],
+      "mandatory_modules": [
+        "tests.test_store_registration",
+        "tests.test_auth_store_registration",
+        "tests.test_blob_store_registration",
+        "tests.test_file_registration",
+        "tests.test_recovery_registration",
+        "tests.test_migration_rehearsal_registration"
+      ]
+    },
+    {
+      "id": "migration-critical",
+      "class": "migration",
+      "patterns": [
+        "product/wp14/par_migration/**",
+        "tests/product/wp14_migration/**",
+        "tools/check_migration_rehearsal.py",
+        "examples/migration_rehearsal_demo.py",
+        "policy/migration-rehearsal-*.json"
+      ],
+      "mandatory_modules": [
+        "tests.test_migration_rehearsal_registration",
+        "tests.test_native_provider_handoff_registration",
+        "tests.test_store_registration"
+      ]
+    },
+    {
+      "id": "digest-critical",
+      "class": "signature_digest",
+      "patterns": [
+        "harness/verification_ledger.py",
+        "harness/artifact_survival.py",
+        "harness/impact_selection.py",
+        "policy/test-inventory.json",
+        "policy/test-registry.json",
+        "policy/impact-selection.json",
+        "release/**",
+        "harness/evidence_promotion.py",
+        "policy/evidence-promotion.json",
+        "tests/test_evidence_promotion.py"
+      ],
+      "mandatory_modules": [
+        "tests.test_crypto_probe",
+        "tests.test_verification_ledger",
+        "tests.test_artifact_survival",
+        "tests.test_packaging",
+        "tests.test_impact_selection",
+        "tests.test_evidence_promotion"
+      ]
+    },
+    {
+      "id": "fail-closed-critical",
+      "class": "fail_closed",
+      "patterns": [
+        "*hardening*",
+        "tests/test_testguards.py"
+      ],
+      "mandatory_modules": [
+        "tests.test_hardening",
+        "tests.test_testguards",
+        "tests.test_impact_selection"
+      ]
+    },
+    {
+      "id": "harness-critical",
+      "class": "harness_evidence",
+      "patterns": [
+        "harness/**",
+        "docs/HARNESS_CONTRACT.ja.md",
+        "plan/tasks.json",
+        "policy/artifact-survival.json",
+        "policy/checks.json",
+        "policy/impact-selection.json",
+        "policy/resource-scheduler.json",
+        "policy/test-*.json",
+        "tests/test_artifact_survival.py",
+        "tests/test_impact_selection.py",
+        "tests/test_resource_scheduler.py",
+        "tests/test_test_orchestration.py",
+        "tests/test_verification_ledger.py",
+        "tools/harness.py",
+        "policy/advanced-optimization.json",
+        "tests/test_advanced_optimization.py",
+        "policy/evidence-promotion.json",
+        "tests/test_evidence_promotion.py",
+        "harness/public_preview.py",
+        "tools/check_public_preview_boundary.py",
+        "tools/check_local_closure_sprint_a.py",
+        "tests/test_local_closure_sprint_a.py",
+        "plan/OWNER_CANDIDATE_MAPPING_0060.json",
+        "plan/DEVICE_HANDOFF_MANIFEST_0060.json",
+        "plan/LOCAL_COMPLETION_0060.json"
+      ],
+      "mandatory_modules": [
+        "tests.test_advanced_optimization",
+        "tests.test_artifact_survival",
+        "tests.test_core",
+        "tests.test_execution",
+        "tests.test_impact_selection",
+        "tests.test_resource_scheduler",
+        "tests.test_test_orchestration",
+        "tests.test_testguards",
+        "tests.test_verification_ledger",
+        "tests.test_evidence_promotion",
+        "tests.test_local_closure_sprint_a"
+      ]
+    },
+    {
+      "id": "release-critical",
+      "class": "packaging_release",
+      "patterns": [
+        "release/**",
+        "harness/artifact_survival.py",
+        "tools/preflight_delivery.py",
+        "tests/test_packaging.py",
+        "policy/branding.json",
+        "harness/evidence_promotion.py",
+        "policy/evidence-promotion.json",
+        "tests/test_evidence_promotion.py",
+        "product/wp15/**",
+        "policy/public-preview-boundary.json",
+        "tools/build_public_preview_candidate.py",
+        "tools/check_public_preview_boundary.py"
+      ],
+      "mandatory_modules": [
+        "tests.test_packaging",
+        "tests.test_artifact_survival",
+        "tests.test_impact_selection",
+        "tests.test_evidence_promotion",
+        "tests.test_local_closure_sprint_a"
+      ]
+    },
+    {
+      "id": "native-readiness-critical",
+      "class": "native_readiness",
+      "patterns": [
+        "harness/native_readiness.py",
+        "handoff/native_readiness/**",
+        "tools/check_native_readiness.py",
+        "tests/test_native_readiness.py",
+        "docs/decisions/G0_CRYPTO_PROVIDER_DECISION_0066.json"
+      ],
+      "mandatory_modules": [
+        "tests.test_native_readiness",
+        "tests.test_impact_selection"
+      ]
+    }
+  ],
+  "product_qualified": false,
+  "low_risk_path_classes": [
+    {
+      "id": "planning-docs",
+      "class": "DOCUMENTATION_ONLY",
+      "patterns": [
+        "docs/superpowers/plans/**",
+        "docs/superpowers/specs/**",
+        "docs/history/**"
+      ],
+      "selection": "BASELINE_ONLY"
+    },
+    {
+      "id": "checkpoint-metadata",
+      "class": "CHECKPOINT_METADATA",
+      "patterns": [
+        "docs/checkpoints/**"
+      ],
+      "selection": "BASELINE_ONLY"
+    },
+    {
+      "id": "packaging-notes",
+      "class": "PACKAGING_ONLY",
+      "patterns": [
+        "docs/packaging/**",
+        "PACKAGING_NOTES*.md"
+      ],
+      "selection": "BASELINE_ONLY"
+    }
+  ]
+}

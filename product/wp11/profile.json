@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "artifact_version": "00.31.00",
+  "task": "L-WP11",
+  "verification_task": "V-WP11",
+  "status": "PARTIAL_CANDIDATE",
+  "scope": "PRESENTER_RENDERER_DRAFT_AND_READ_ONLY_OWNER_OBSERVATION",
+  "runtime_effects": false,
+  "rendered_ui": true,
+  "wcag_qualified": false,
+  "automerge_applied": false,
+  "product_qualified": false,
+  "pinned_inputs": [
+    {
+      "path": "baseline/spec-00.02.00/spec/14-sdk-contract.ja.md",
+      "sha256": "253b3bea22024083dd9e3b90acdb751146f39e3e915b9cdf29d8e22752028ee6"
+    },
+    {
+      "path": "baseline/spec-00.02.00/spec/17-experience.ja.md",
+      "sha256": "63488008bf01fb18c47cd09f5d294e9060fb53723e3f615768224511efa158b4"
+    },
+    {
+      "path": "baseline/spec-00.02.00/spec/18-polishable-ui.ja.md",
+      "sha256": "12d535e1141e36fd89bee7a22090068b7040b7bbf59444f767d7a27e395d6671"
+    },
+    {
+      "path": "baseline/spec-00.02.00/ui/stories.json",
+      "sha256": "a3444abfcae7f2fcafbb5eb959ebd1ed687dd394594ae59486d6cce257c3f274"
+    },
+    {
+      "path": "baseline/spec-00.02.00/api/ui-command-registry.json",
+      "sha256": "3daf0c956afce7a4134d8dc5e73c013aedf4817bbc632d2bd6605794bbb5099e"
+    },
+    {
+      "path": "baseline/spec-00.02.00/api/par-contracts.d.ts",
+      "sha256": "624e6a8d21281fd57de13c851451f9c15bc8fcdcec7ab7b00f79e819230491fb"
+    },
+    {
+      "path": "experiments/recovery-closure/par_recovery/view.py",
+      "sha256": "e95667cce68cf199a19c8c281ae93f27c8f60d71c9ada3b0c594411a59b82801"
+    },
+    {
+      "path": "experiments/recovery-closure/par_recovery/transfer.py",
+      "sha256": "dfb81565887eeef2b12c2ecc347744dec757512bd745397323f66123249fba4d"
+    }
+  ],
+  "limits": {
+    "text_utf8": 1048576,
+    "title_utf8": 1024,
+    "conflict_values": 32,
+    "observations": 256,
+    "previews": 24
+  },
+  "known_tools": {
+    "node": "22.16.0",
+    "typescript": "5.8.3"
+  },
+  "test_count": 153,
+  "persistent_private_draft": "NODE_FILE_CANDIDATE",
+  "indexeddb_runtime_verified": false,
+  "http_delivery_verified": false,
+  "private_draft_node_tests": 48,
+  "offline_browser_tests": 48,
+  "indexeddb_transactions_executed": false,
+  "runtime_observation_binding": true,
+  "runtime_binding_node_checks": 43,
+  "runtime_binding_python_checks": 27
+}

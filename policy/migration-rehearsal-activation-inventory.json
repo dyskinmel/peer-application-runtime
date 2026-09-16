@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "suite": "migration-rehearsal-activation",
+  "case_ids": [
+    "test_activation.ActivationTests.test_cross_device_publish_is_refused",
+    "test_activation.ActivationTests.test_invalid_active_pointer_is_rejected_without_repair",
+    "test_activation.ActivationTests.test_live_migration_lease_blocks_a_second_writer",
+    "test_activation.ActivationTests.test_normal_activation_is_atomic_and_retains_old_generation",
+    "test_activation.ActivationTests.test_open_refuses_downgrade_unknown_and_forced_version",
+    "test_activation.ActivationTests.test_open_source_v1_readonly_before_migration",
+    "test_activation.ActivationTests.test_repeated_resume_is_idempotent",
+    "test_activation.ActivationTests.test_resume_after_pointer_replace_converges",
+    "test_activation.ActivationTests.test_resume_after_publish_before_pointer_converges",
+    "test_activation.ActivationTests.test_resume_before_pointer_replace_discards_owned_temp_and_converges",
+    "test_activation.ActivationTests.test_source_digest_change_blocks_publish_and_switch",
+    "test_activation.ActivationTests.test_unverified_shadow_is_never_published"
+  ]
+}

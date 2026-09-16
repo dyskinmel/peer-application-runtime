@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_events.ContractTests.test_bool_not_uint64",
+    "test_events.ContractTests.test_causal_parent_retained",
+    "test_events.ContractTests.test_ciphertext_hides_payload",
+    "test_events.ContractTests.test_closed_journal",
+    "test_events.ContractTests.test_duplicate_parent",
+    "test_events.ContractTests.test_invalid_operation_id",
+    "test_events.ContractTests.test_legacy_consent_required",
+    "test_events.ContractTests.test_missing_parent",
+    "test_events.ContractTests.test_operation_payload_conflict",
+    "test_events.ContractTests.test_payload_size_bound",
+    "test_events.ContractTests.test_publish_is_local_only",
+    "test_events.ContractTests.test_reader_cannot_publish",
+    "test_events.ContractTests.test_same_operation_same_result",
+    "test_events.ContractTests.test_schema_rejects_extra",
+    "test_events.ContractTests.test_schema_rejects_missing",
+    "test_events.ContractTests.test_uint64_exact_roundtrip",
+    "test_events.ContractTests.test_uint64_overflow",
+    "test_events.ContractTests.test_unsigned_negative",
+    "test_events.ContractTests.test_wrong_signing_seed",
+    "test_events.ContractTests.test_wrong_thread"
+  ]
+}

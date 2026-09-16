@@ -1,0 +1,22 @@
+{
+  "profile": "par-sdk-events-local-0038",
+  "stage": "PARTIAL_IMPLEMENTED_LOCAL_ONLY",
+  "owner_injected_port": true,
+  "async_iterable_unit": "EXPLICITLY_ACKNOWLEDGED_BATCH",
+  "automatic_ack": false,
+  "automatic_ack_retry": false,
+  "events_coalesce": false,
+  "snapshot_pending_capacity": 1,
+  "canonical_decimal_u64_i64": true,
+  "default_batch_limit": 16,
+  "maximum_batch_limit": 32,
+  "maximum_payload_batch_bytes": 524288,
+  "minimum_spurious_wake_delay_ms": 25,
+  "default_cleanup_timeout_ms": 1000,
+  "native_effect_preemption": false,
+  "production_transport": false,
+  "remote_event_ingest": false,
+  "real_crdt_executed": false,
+  "exactly_once_side_effects": false,
+  "production_ready": false
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "scope": "LOCAL_PROVIDER_HANDOFF_SOURCE_SHAPE_NOT_NATIVE_QUALIFICATION",
+  "case_ids": [
+    "test_process.ProcessTests.test_doctor_child_has_no_socket_egress",
+    "test_process.ProcessTests.test_epoch_change_while_factory_waits_closes_returned_connection",
+    "test_process.ProcessTests.test_missing_provider_child_is_blocked"
+  ]
+}

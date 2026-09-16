@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "suite": "migration-rehearsal-backup",
+  "case_ids": [
+    "test_backup.BackupTests.test_backup_is_copied_fsynced_manifested_and_read_back",
+    "test_backup.BackupTests.test_incomplete_owned_backup_is_replaced_on_resume",
+    "test_backup.BackupTests.test_missing_backup_is_a_hard_prerequisite",
+    "test_backup.BackupTests.test_plan_identity_tamper_is_rejected",
+    "test_backup.BackupTests.test_source_digest_change_refuses_journal_reuse",
+    "test_backup.BackupTests.test_symlink_in_backup_is_rejected",
+    "test_backup.BackupTests.test_tampered_backup_file_is_rejected",
+    "test_backup.BackupTests.test_tampered_manifest_or_extra_file_is_rejected"
+  ]
+}

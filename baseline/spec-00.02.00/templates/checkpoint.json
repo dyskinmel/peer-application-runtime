@@ -1,0 +1,24 @@
+{
+  "format_version": 1,
+  "kind": "TEMPLATE_NOT_EXECUTION",
+  "source_tree_digest": null,
+  "spec_bundle_version": "00.02.00",
+  "dependency_lock_digest": null,
+  "work_package": "WP-01",
+  "completed_requirement_ids": [],
+  "executed_tests": [],
+  "not_run_tests": [
+    "G0 full composed crypto vectors",
+    "G0 independent CDDL/codec"
+  ],
+  "blockers": [
+    "product source/toolchain lock not created"
+  ],
+  "next_action": "probe actual toolchains, then implement OD-01..04 experiments",
+  "allowed_change_scope": [
+    "experimental probes",
+    "test fixtures",
+    "ADR-backed spec corrections"
+  ],
+  "secrets_included": false
+}

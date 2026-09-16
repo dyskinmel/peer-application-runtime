@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_factory.FactoryTests.test_cancelled_factory_must_not_allocate",
+    "test_factory.FactoryTests.test_close_failure_is_retained",
+    "test_factory.FactoryTests.test_duplicate_connection_rejected_single_close",
+    "test_factory.FactoryTests.test_explicit_busy_is_allowed_not_offline",
+    "test_factory.FactoryTests.test_missing_provider_blocked_zero",
+    "test_factory.FactoryTests.test_offline_not_successful_busy",
+    "test_factory.FactoryTests.test_probe_failure_is_not_pass",
+    "test_factory.FactoryTests.test_probe_run_is_one_shot",
+    "test_factory.FactoryTests.test_real_private_socket_contract",
+    "test_factory.FactoryTests.test_timeout_retains_task_and_late_connection",
+    "test_factory.FactoryTests.test_wrong_peer_closed"
+  ]
+}

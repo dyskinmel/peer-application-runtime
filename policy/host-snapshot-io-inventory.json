@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_snapshot_io.SnapshotIO.test_empty_file_rejected",
+    "test_snapshot_io.SnapshotIO.test_growth_between_stat_and_read_rejected",
+    "test_snapshot_io.SnapshotIO.test_maximum_valid_file_reads_exact_bytes",
+    "test_snapshot_io.SnapshotIO.test_missing_file_rejected",
+    "test_snapshot_io.SnapshotIO.test_over_limit_rejected",
+    "test_snapshot_io.SnapshotIO.test_path_replacement_after_read_rejected",
+    "test_snapshot_io.SnapshotIO.test_read_bound_uses_observed_size_plus_one",
+    "test_snapshot_io.SnapshotIO.test_same_mtime_rewrite_not_trusted",
+    "test_snapshot_io.SnapshotIO.test_same_size_mutation_after_read_rejected",
+    "test_snapshot_io.SnapshotIO.test_small_file_does_not_allocate_limit",
+    "test_snapshot_io.SnapshotIO.test_symlink_rejected",
+    "test_snapshot_io.SnapshotIO.test_truncation_between_stat_and_read_rejected"
+  ]
+}

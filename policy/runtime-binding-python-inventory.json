@@ -1,0 +1,31 @@
+{
+  "case_ids": [
+    "test_store_observation.StoreObservationTest.test_absent_not_failure",
+    "test_store_observation.StoreObservationTest.test_close_blocks",
+    "test_store_observation.StoreObservationTest.test_committed_reply_loss_can_be_inspected_without_replay",
+    "test_store_observation.StoreObservationTest.test_corrupt_cache_rejects",
+    "test_store_observation.StoreObservationTest.test_corrupt_receipt_rejects",
+    "test_store_observation.StoreObservationTest.test_corrupt_signed_payload_rejects",
+    "test_store_observation.StoreObservationTest.test_epoch_change_keeps_local_result_but_no_write",
+    "test_store_observation.StoreObservationTest.test_invalid_operation_id",
+    "test_store_observation.StoreObservationTest.test_new_reader_has_new_stream",
+    "test_store_observation.StoreObservationTest.test_no_operation_query_explicit",
+    "test_store_observation.StoreObservationTest.test_no_plaintext_even_applied_flag_forged",
+    "test_store_observation.StoreObservationTest.test_nonce_only_not_commit",
+    "test_store_observation.StoreObservationTest.test_observation_changes_detected_after_audit",
+    "test_store_observation.StoreObservationTest.test_other_device_operation_hidden",
+    "test_store_observation.StoreObservationTest.test_other_document_operation_hidden",
+    "test_store_observation.StoreObservationTest.test_pending_outbox_never_retention_receipt",
+    "test_store_observation.StoreObservationTest.test_read_has_no_writes_or_signatures",
+    "test_store_observation.StoreObservationTest.test_real_committed_receipt_without_original_plaintext",
+    "test_store_observation.StoreObservationTest.test_restored_reopened_does_not_activate",
+    "test_store_observation.StoreObservationTest.test_result_after_authority_update",
+    "test_store_observation.StoreObservationTest.test_returned_objects_not_shared",
+    "test_store_observation.StoreObservationTest.test_scope_not_enrolled",
+    "test_store_observation.StoreObservationTest.test_sequence_increases",
+    "test_store_observation.StoreObservationTest.test_uncertain_authority_disallows_projection_of_ready",
+    "test_store_observation.StoreObservationTest.test_wrong_process_refused",
+    "test_store_observation.StoreObservationTest.test_wrong_secret_rejects",
+    "test_store_observation.StoreObservationTest.test_wrong_thread_refused"
+  ]
+}

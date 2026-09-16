@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_subscriptions.SubscriptionTests.test_bool_revision_refused",
+    "test_subscriptions.SubscriptionTests.test_callback_closes_itself",
+    "test_subscriptions.SubscriptionTests.test_callback_publishes_next_snapshot",
+    "test_subscriptions.SubscriptionTests.test_callback_reentrant_dispatch_refused",
+    "test_subscriptions.SubscriptionTests.test_callback_throw_isolated",
+    "test_subscriptions.SubscriptionTests.test_close_idempotent_no_future_callback",
+    "test_subscriptions.SubscriptionTests.test_initial_snapshot_delivered",
+    "test_subscriptions.SubscriptionTests.test_maximum_bytes",
+    "test_subscriptions.SubscriptionTests.test_mutable_buffer_refused",
+    "test_subscriptions.SubscriptionTests.test_not_durable_event_delivery",
+    "test_subscriptions.SubscriptionTests.test_older_revision_refused",
+    "test_subscriptions.SubscriptionTests.test_only_latest_pending_value",
+    "test_subscriptions.SubscriptionTests.test_same_revision_different_bytes_refused",
+    "test_subscriptions.SubscriptionTests.test_same_revision_same_bytes_no_duplicate",
+    "test_subscriptions.SubscriptionTests.test_unsigned64_exact",
+    "test_subscriptions.SubscriptionTests.test_wrong_thread_rejected"
+  ]
+}

@@ -1,0 +1,3727 @@
+[
+  {
+    "id": "AT-CORE-001",
+    "domain": "CORE",
+    "title": "中央依存の排除",
+    "requirements": [
+      "PAR-CORE-001"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "設定したA/B/Cのみ到達可能な環境で起動・同期・復旧する。",
+    "negative": "公開DNS seedとanalytics URLを実装へ故意に挿入しegress試験が不合格になること。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CORE-002",
+    "domain": "CORE",
+    "title": "ローカル優先",
+    "requirements": [
+      "PAR-CORE-002"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "全socket接続を拒否しても既知文書を編集して再起動後に読み出す。",
+    "negative": "接続timeoutをlocal commit成功条件へ混入すると試験が失敗する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CORE-003",
+    "domain": "CORE",
+    "title": "保証の区別",
+    "requirements": [
+      "PAR-CORE-003"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "localのみ保存、retainedのみ、appliedありを別fixtureとして比較する。",
+    "negative": "retained receiptだけでdecrypted/applied状態へ昇格させた出力を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CORE-004",
+    "domain": "CORE",
+    "title": "資源同意",
+    "requirements": [
+      "PAR-CORE-004"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "同意なしでは自分の編集のみ、同意後は指定Space内だけ引き受ける。",
+    "negative": "招待受諾だけでrelayが有効になる構成を不合格とする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CORE-005",
+    "domain": "CORE",
+    "title": "可搬性",
+    "requirements": [
+      "PAR-CORE-005"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "公式サービスを遮断し別hostへexport/importする。",
+    "negative": "運営APIからの署名がないとexport不能になる実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CORE-006",
+    "domain": "CORE",
+    "title": "主張の限定",
+    "requirements": [
+      "PAR-CORE-006"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "限定browser資格とnative資格を別のrelease claimとして出力する。",
+    "negative": "native試験だけを根拠にiOS保証を生成したclaimを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ARCH-001",
+    "domain": "ARCH",
+    "title": "host分離",
+    "requirements": [
+      "PAR-ARCH-001"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "nativeとfake hostの両方で同じdomain操作を実行する。",
+    "negative": "coreから外部socketを直接作る依存違反を検査で検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ARCH-002",
+    "domain": "ARCH",
+    "title": "writer排他",
+    "requirements": [
+      "PAR-ARCH-002"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "二つ目のprocessはIPC clientまたは明示拒否となる。",
+    "negative": "leader lease切替直後に古いwriterを再開しfencingで保存を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ARCH-003",
+    "domain": "ARCH",
+    "title": "再現可能性",
+    "requirements": [
+      "PAR-ARCH-003"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "同じseedと全operation集合で同じtraceを再現する。",
+    "negative": "実wall clockを混入した実装で再生digest不一致を検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ARCH-004",
+    "domain": "ARCH",
+    "title": "callback隔離",
+    "requirements": [
+      "PAR-ARCH-004"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "callbackが再びreadしてもdeadlockしない。",
+    "negative": "遅いcallbackに100万通知を与えbounded queueを越えないか確認する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ARCH-005",
+    "domain": "ARCH",
+    "title": "障害局所化",
+    "requirements": [
+      "PAR-ARCH-005"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "悪意peerを隔離中も別Spaceへ100回commitできる。",
+    "negative": "全runtimeをfatalへ遷移させる実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ARCH-006",
+    "domain": "ARCH",
+    "title": "交換可能なUI",
+    "requirements": [
+      "PAR-ARCH-006"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "別rendererで同じaction traceのdomain結果が一致する。",
+    "negative": "画面の色や文言からpermissionを判定する実装を不合格にする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ID-001",
+    "domain": "ID",
+    "title": "鍵用途分離",
+    "requirements": [
+      "PAR-ID-001"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "正しいcertificateでもmembershipなしのpeerを拒否する。",
+    "negative": "別AppIdのcertificateやHPKE keyすり替えを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ID-002",
+    "domain": "ID",
+    "title": "保護等級",
+    "requirements": [
+      "PAR-ID-002"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "各OSで対応classと鍵利用可否をreadbackする。",
+    "negative": "hardware API失敗時に黙ってsoftwareへdowngradeする実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ID-003",
+    "domain": "ID",
+    "title": "復旧世代",
+    "requirements": [
+      "PAR-ID-003"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "同じbackupから2復元し、異なるactorで編集する。",
+    "negative": "古いactor stateを復元して重複sequenceの生成を試み拒否を確認する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ID-004",
+    "domain": "ID",
+    "title": "復旧資格",
+    "requirements": [
+      "PAR-ID-004"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "事前認可B2がCから復元する。",
+    "negative": "事前認可されないDが同じblock一覧を知っても復号・加入できない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ID-005",
+    "domain": "ID",
+    "title": "鍵の分離配布",
+    "requirements": [
+      "PAR-ID-005"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "data ZIPから鍵なしで平文が得られないことを確認する。",
+    "negative": "ログ、clipboard履歴用メタデータ、archive commentに秘密が出るfixtureを検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-ID-006",
+    "domain": "ID",
+    "title": "古いauthorityの停止",
+    "requirements": [
+      "PAR-ID-006"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "古いbackupでread/exportは可能、control writeは停止する。",
+    "negative": "新headを確認できないままseqを継続する操作を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-AUTH-001",
+    "domain": "AUTH",
+    "title": "認可系列",
+    "requirements": [
+      "PAR-AUTH-001"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "正しいchainに従うeditorのみchangeが適用される。",
+    "negative": "sequence飛び、branch差替え、readerからのwriteを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-AUTH-002",
+    "domain": "AUTH",
+    "title": "系列分離",
+    "requirements": [
+      "PAR-AUTH-002"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "Keeper追加で文書headsを保ち、editor除名では新baselineに切替える。",
+    "negative": "reader追加で旧epoch keyを無断配布する実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-AUTH-003",
+    "domain": "AUTH",
+    "title": "baseline一意性",
+    "requirements": [
+      "PAR-AUTH-003"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "並行scalar競合を持つ状態でepoch更新してcarryover集合が一致する。",
+    "negative": "各peerが同じJSONから独立baselineを生成したケースを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-AUTH-004",
+    "domain": "AUTH",
+    "title": "失効の順序",
+    "requirements": [
+      "PAR-AUTH-004"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "新control先行・seed遅延中の編集が失われず旧epochへ送信されない。",
+    "negative": "遅延した除名peerの署名を新epochへ自動変換する処理を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-AUTH-005",
+    "domain": "AUTH",
+    "title": "正常移管",
+    "requirements": [
+      "PAR-AUTH-005"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "A→B移管後にBの次controlだけ受け入れる。",
+    "negative": "old署名のみ、新署名のみ、別entryへの署名の使い回しを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-AUTH-006",
+    "domain": "AUTH",
+    "title": "fork隔離",
+    "requirements": [
+      "PAR-AUTH-006"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "両branchを保存して共有writeを停止しread/exportを残す。",
+    "negative": "hash順の勝者を選んで警告なく続行した結果を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-AUTH-007",
+    "domain": "AUTH",
+    "title": "招待対象",
+    "requirements": [
+      "PAR-AUTH-007"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "受信者鍵を持つ端末だけjoinが完了する。",
+    "negative": "別deviceへの転送と過去JoinRequestの無断再承認を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CRYPTO-001",
+    "domain": "CRYPTO",
+    "title": "suite固定",
+    "requirements": [
+      "PAR-CRYPTO-001"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "全採用primitiveの公開KATと拒否vectorを実行する。",
+    "negative": "未知suite、小位数点、非正規署名を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CRYPTO-002",
+    "domain": "CRYPTO",
+    "title": "context結合",
+    "requirements": [
+      "PAR-CRYPTO-002"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "同一payloadでもSpaceまたはepoch違いで暗号文を流用できない。",
+    "negative": "headerの一要素だけ差替えた全mutationを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CRYPTO-003",
+    "domain": "CRYPTO",
+    "title": "nonce管理",
+    "requirements": [
+      "PAR-CRYPTO-003"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "再送100回でenvelope IDが一致する。",
+    "negative": "nonce重複を注入して別plaintextの暗号化が拒否されること。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CRYPTO-004",
+    "domain": "CRYPTO",
+    "title": "package認証",
+    "requirements": [
+      "PAR-CRYPTO-004"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "正しいpackageでのみepoch secretを有効化する。",
+    "negative": "第三者がrecipient公開鍵で生成した未署名packageを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CRYPTO-005",
+    "domain": "CRYPTO",
+    "title": "生成順",
+    "requirements": [
+      "PAR-CRYPTO-005"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "fixtureの生成依存グラフがDAGになり別codecで同じhashを得る。",
+    "negative": "control hashをpackage infoへ循環導入した仕様変更を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-CRYPTO-006",
+    "domain": "CRYPTO",
+    "title": "保証境界",
+    "requirements": [
+      "PAR-CRYPTO-006"
+    ],
+    "gate": "G7",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "security claimとrunbookが対応する。",
+    "negative": "primitiveの安全性だけを根拠にPAR protocol audit済みと表示するclaimを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-WIRE-001",
+    "domain": "WIRE",
+    "title": "framing",
+    "requirements": [
+      "PAR-WIRE-001"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "accept fixturesをexact bytesでround-tripする。",
+    "negative": "truncated length、duplicate key、非最短integer、invalid UTF-8、末尾itemを全て拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-WIRE-002",
+    "domain": "WIRE",
+    "title": "認証順序",
+    "requirements": [
+      "PAR-WIRE-002"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "HELLO/AUTHからSPACE_OPENを経てのみHAVEを返す。",
+    "negative": "未認証HAVE、別sessionのgrant、全Space列挙を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-WIRE-003",
+    "domain": "WIRE",
+    "title": "negotiation束縛",
+    "requirements": [
+      "PAR-WIRE-003"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "initiator/responderの選択profileが一致する。",
+    "negative": "downgrade、nonce replay、role reflectionのmutationを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-WIRE-004",
+    "domain": "WIRE",
+    "title": "bounded入力",
+    "requirements": [
+      "PAR-WIRE-004"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "上限値ちょうどのframeを処理し使用量を記録する。",
+    "negative": "上限+1、巨大宣言、圧縮codec bombをbudget内で拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-WIRE-005",
+    "domain": "WIRE",
+    "title": "paging整合",
+    "requirements": [
+      "PAR-WIRE-005"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "二ページの一覧を同じtokenで走査できる。",
+    "negative": "page間更新・cursor再利用で未取得文書を不在扱いしない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-WIRE-006",
+    "domain": "WIRE",
+    "title": "互換拒否",
+    "requirements": [
+      "PAR-WIRE-006"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "同digestのpeer間だけsemantic syncが始まる。",
+    "negative": "未知fieldを取り除いて再署名する実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DATA-001",
+    "domain": "DATA",
+    "title": "受理の決定性",
+    "requirements": [
+      "PAR-DATA-001"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "並行の有効追加を全配送順で処理し有効集合が一致する。",
+    "negative": "受信時の総サイズを理由に後着の有効changeだけrejectする実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DATA-002",
+    "domain": "DATA",
+    "title": "競合の露出",
+    "requirements": [
+      "PAR-DATA-002"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "異なるtitle代入の全競合値が全peerで一致する。",
+    "negative": "値の一つだけをexportして競合履歴を消す実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DATA-003",
+    "domain": "DATA",
+    "title": "文書削除",
+    "requirements": [
+      "PAR-DATA-003"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "delete/update並行とlate updateでもtombstonedになる。",
+    "negative": "古いupdateで文書が復活する結果を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DATA-004",
+    "domain": "DATA",
+    "title": "文字位置",
+    "requirements": [
+      "PAR-DATA-004"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "日本語、絵文字、結合文字、RTLをRust/TS/Swift/Kotlinで往復する。",
+    "negative": "UTF-16 indexをscalarと誤読する操作と孤立surrogateを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DATA-005",
+    "domain": "DATA",
+    "title": "検索範囲",
+    "requirements": [
+      "PAR-DATA-005"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "未取得文書の参照がwaiting-for-dataになる。",
+    "negative": "offline timeoutをglobal not-foundへ変換する出力を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DATA-006",
+    "domain": "DATA",
+    "title": "イベント再開",
+    "requirements": [
+      "PAR-DATA-006"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "handler crash後に同event IDで再配信しdedup可能になる。",
+    "negative": "GC済みcursorから無言で末尾開始、過去presence復活を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DATA-007",
+    "domain": "DATA",
+    "title": "RPC副作用",
+    "requirements": [
+      "PAR-DATA-007"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "実行後response消失でOUTCOME_UNKNOWNを返す。",
+    "negative": "違うinputのrequest ID再利用、非冪等の無断retryを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SYNC-001",
+    "domain": "SYNC",
+    "title": "内外author一致",
+    "requirements": [
+      "PAR-SYNC-001"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "正しいsingle-change envelopeを適用する。",
+    "negative": "他actorや複数changeを混入した署名済みenvelopeを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SYNC-002",
+    "domain": "SYNC",
+    "title": "依存先行",
+    "requirements": [
+      "PAR-SYNC-002"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "逆順配送でwaiting→appliedへ進む。",
+    "negative": "dependency欠落のままappliedを返した結果を不合格とする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SYNC-003",
+    "domain": "SYNC",
+    "title": "収束条件",
+    "requirements": [
+      "PAR-SYNC-003"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "dup/drop/reorder後の全操作集合を比較して収束を確認する。",
+    "negative": "件数だけ同じで一操作欠落・別操作重複の結果を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SYNC-004",
+    "domain": "SYNC",
+    "title": "equivocation",
+    "requirements": [
+      "PAR-SYNC-004"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "forkを双方へ配送すると両者ともquarantinedになる。",
+    "negative": "通常のscalar conflictとして警告なくmergeする実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SYNC-005",
+    "domain": "SYNC",
+    "title": "再開冪等性",
+    "requirements": [
+      "PAR-SYNC-005"
+    ],
+    "gate": "G2",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "ACK消失とrestart後のoutbox再送が同じIDになる。",
+    "negative": "再暗号化で別envelopeを生成して二重反映する実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SYNC-006",
+    "domain": "SYNC",
+    "title": "待機容量",
+    "requirements": [
+      "PAR-SYNC-006"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "欠落deps flood下で待機容量を上限内に保つ。",
+    "negative": "capacity pressureで未送信local commitを削除する実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-STORE-001",
+    "domain": "STORE",
+    "title": "原子的保存",
+    "requirements": [
+      "PAR-STORE-001"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "各statement境界でcrashし、全項目反映または全項目未反映になる。",
+    "negative": "outboxだけ失われる、commit成功だけ残る不整合を検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-STORE-002",
+    "domain": "STORE",
+    "title": "耐久性設定",
+    "requirements": [
+      "PAR-STORE-002"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "WAL/FULL設定をreadbackしてprocess/OS failure試験へ結ぶ。",
+    "negative": "NORMALへdowngradeした構成で同じdurability claimを出す実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-STORE-003",
+    "domain": "STORE",
+    "title": "結果不明",
+    "requirements": [
+      "PAR-STORE-003"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "COMMIT後応答消失から同operationの保存済み結果を取り出す。",
+    "negative": "成否不明をdefinite abortとして再適用する実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-STORE-004",
+    "domain": "STORE",
+    "title": "blob公開順",
+    "requirements": [
+      "PAR-STORE-004"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "publish各境界でcrash後、参照のないblockか完全に読める参照のみ残る。",
+    "negative": "DBに成功参照がありbytes未完となる結果を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-STORE-005",
+    "domain": "STORE",
+    "title": "平文漏洩防止",
+    "requirements": [
+      "PAR-STORE-005"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "既知sentinel本文を全通常永続出力から探索する。",
+    "negative": "一時indexやWALにsentinelが平文で残るケースを検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-STORE-006",
+    "domain": "STORE",
+    "title": "破損復旧",
+    "requirements": [
+      "PAR-STORE-006"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "一部block破損をKeeperから補い再構成する。",
+    "negative": "元DBへ無断破壊的repairし欠落を隠す実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REP-001",
+    "domain": "REP",
+    "title": "完全性の二段階",
+    "requirements": [
+      "PAR-REP-001"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "完全closureだけをrecoverable指標へ数える。",
+    "negative": "必要ancestorを省いた正しく署名されたinventoryでfalse recoverableにならない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REP-002",
+    "domain": "REP",
+    "title": "receipt永続化",
+    "requirements": [
+      "PAR-REP-002"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "RETAIN_COMMIT各境界crashでreceipt有りなら必要bytesを取得できる。",
+    "negative": "途中transferやmissing blockでfull receiptを返す実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REP-003",
+    "domain": "REP",
+    "title": "lease鮮度",
+    "requirements": [
+      "PAR-REP-003"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "requester再起動後にunknown→challenge確認済みへ遷移する。",
+    "negative": "7日前のreceiptだけで現在online表示する結果を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REP-004",
+    "domain": "REP",
+    "title": "保管側再起動",
+    "requirements": [
+      "PAR-REP-004"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "Keeper再起動後も未確定lease bytesを保管する。",
+    "negative": "wall clock前進だけでactive leaseを即evictする実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REP-005",
+    "domain": "REP",
+    "title": "冪等予約",
+    "requirements": [
+      "PAR-REP-005"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "ACKを落として100回retryしてもreservation数が1になる。",
+    "negative": "同IDで異なるmanifestへ上書きする要求を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REP-006",
+    "domain": "REP",
+    "title": "認可取得",
+    "requirements": [
+      "PAR-REP-006"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "対象認可peerにだけ指定rootのblocksを返す。",
+    "negative": "別Space、失効を既知のpeer、未認証hash指定の取得を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REP-007",
+    "domain": "REP",
+    "title": "退出の説明",
+    "requirements": [
+      "PAR-REP-007"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "graceful leaveとforce stopを別に実行する。",
+    "negative": "強制停止を選べないUIまたは移管未完を完了表示する結果を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REC-001",
+    "domain": "REC",
+    "title": "M1縦断",
+    "requirements": [
+      "PAR-REC-001"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "本文・競合・削除・添付・operation集合を凍結oracleと照合する。",
+    "negative": "writer data directoryを隠れたsourceとして参照したrunを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REC-002",
+    "domain": "REC",
+    "title": "鍵なしKeeper",
+    "requirements": [
+      "PAR-REC-002"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "Cから既知平文sentinelを検出できずB2だけ復号できる。",
+    "negative": "Cにepoch secretを配布するshortcutを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REC-003",
+    "domain": "REC",
+    "title": "復旧再開",
+    "requirements": [
+      "PAR-REC-003"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "各段階でrestartし最終oracleが一致する。",
+    "negative": "別exportへjournalを無断流用して完了させる実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REC-004",
+    "domain": "REC",
+    "title": "完了の条件",
+    "requirements": [
+      "PAR-REC-004"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "全bytes取得後に検証段階を通ってのみ成功する。",
+    "negative": "最後のchunk破損でも完了になるUI/SDKを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REC-005",
+    "domain": "REC",
+    "title": "import防御",
+    "requirements": [
+      "PAR-REC-005"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "正常exportを別directoryへ復元する。",
+    "negative": "../、絶対path、symlink、case衝突、巨大展開入力を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-REC-006",
+    "domain": "REC",
+    "title": "部分結果",
+    "requirements": [
+      "PAR-REC-006"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "missing blobとmissing keyを異なる理由で出力する。",
+    "negative": "本文が読めるだけでcomplete=trueとする実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-GC-001",
+    "domain": "GC",
+    "title": "削除の区別",
+    "requirements": [
+      "PAR-GC-001"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "各操作後にlocal/remote/key状態が契約どおり異なる。",
+    "negative": "cache削除を共有削除として伝えるUIを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-GC-002",
+    "domain": "GC",
+    "title": "GC根保護",
+    "requirements": [
+      "PAR-GC-002"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "全root種別にfixtureを置きorphanだけ消える。",
+    "negative": "唯一の未送信コピーが消えるmutationを検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-GC-003",
+    "domain": "GC",
+    "title": "GC競合",
+    "requirements": [
+      "PAR-GC-003"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "mark後に新commitから参照したblockをsweepが残す。",
+    "negative": "旧snapshotの参照countだけで削除する実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-GC-004",
+    "domain": "GC",
+    "title": "履歴短縮",
+    "requirements": [
+      "PAR-GC-004"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "長期offline変更をcheckpoint後にrebase候補として回収する。",
+    "negative": "30日前という理由だけで必要ancestorを消す実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-GC-005",
+    "domain": "GC",
+    "title": "秘密の消去境界",
+    "requirements": [
+      "PAR-GC-005"
+    ],
+    "gate": "G7",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "削除確認に対象範囲と未保証範囲を含める。",
+    "negative": "全世界から完全消去済みという根拠のないclaimを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-NET-001",
+    "domain": "NET",
+    "title": "明示経路",
+    "requirements": [
+      "PAR-NET-001"
+    ],
+    "gate": "G5",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "relayあり/なしで接続結果とegress先がpolicyどおりになる。",
+    "negative": "hidden STUN、DNS bootstrapを検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-NET-002",
+    "domain": "NET",
+    "title": "到達性観測",
+    "requirements": [
+      "PAR-NET-002"
+    ],
+    "gate": "G5",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "UDP遮断時にTCP/relayへ切替えた経路を記録する。",
+    "negative": "設定上QUICがあるだけでdirectと表示する結果を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-NET-003",
+    "domain": "NET",
+    "title": "relay入口認可",
+    "requirements": [
+      "PAR-NET-003"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "事前登録peerだけ予約できる。",
+    "negative": "未認可peerがPAR handshake前に帯域relayを使う攻撃を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-NET-004",
+    "domain": "NET",
+    "title": "dial宛先防御",
+    "requirements": [
+      "PAR-NET-004"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "許可されたLAN routeだけ接続する。",
+    "negative": "loopback、metadata IP、DNS rebinding相当の宛先を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-NET-005",
+    "domain": "NET",
+    "title": "回線切替",
+    "requirements": [
+      "PAR-NET-005"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "Wi-Fiからcellularへ切替え、第三者転送は停止し利用者dataはpolicy通り再開する。",
+    "negative": "socket切断でcommitを失う実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-NET-006",
+    "domain": "NET",
+    "title": "発見の最小化",
+    "requirements": [
+      "PAR-NET-006"
+    ],
+    "gate": "G5",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "packet captureにprivate label sentinelが含まれない。",
+    "negative": "DHT announcementへSpace会員一覧を埋めた実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SDK-001",
+    "domain": "SDK",
+    "title": "型付き結果",
+    "requirements": [
+      "PAR-SDK-001"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "2^53を超えるu64、nullとabsent、各errorを全bindingで比較する。",
+    "negative": "u64をNumberへ丸めるbindingを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SDK-002",
+    "domain": "SDK",
+    "title": "取消し境界",
+    "requirements": [
+      "PAR-SDK-002"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "commit前後にcancelを挿入して結果状態とledgerが一致する。",
+    "negative": "cancelされたのでlocal保存も消えたと誤表示する実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SDK-003",
+    "domain": "SDK",
+    "title": "購読契約",
+    "requirements": [
+      "PAR-SDK-003"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "遅いUIに最新revisionが届きmemoryが上限内になる。",
+    "negative": "通知欠落をdurable eventの配送完了とする実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SDK-004",
+    "domain": "SDK",
+    "title": "安全なautomation",
+    "requirements": [
+      "PAR-SDK-004"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "preview後に状態が変わると再確認を要求する。",
+    "negative": "peer本文に含む命令を管理操作として実行するagent経路を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SDK-005",
+    "domain": "SDK",
+    "title": "導入再現性",
+    "requirements": [
+      "PAR-SDK-005"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "未登録環境で二台同期とdoctorまで到達する。",
+    "negative": "隠れた既存設定・API keyがないと動かない手順を不合格にする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SDK-006",
+    "domain": "SDK",
+    "title": "binding所有権",
+    "requirements": [
+      "PAR-SDK-006"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "close後callback、buffer移譲、並行readをstress試験する。",
+    "negative": "use-after-freeやUI main-thread blockingを検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PLAT-001",
+    "domain": "PLAT",
+    "title": "能力表",
+    "requirements": [
+      "PAR-PLAT-001"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "各hostが実際に利用可能なfeatureだけadvertiseする。",
+    "negative": "browserがnative QUIC対応済みを偽る出力を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PLAT-002",
+    "domain": "PLAT",
+    "title": "mobile再開",
+    "requirements": [
+      "PAR-PLAT-002"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "実iOS/Androidでoffline編集→suspend→resumeを検証する。",
+    "negative": "simulator試験だけを実機PASSへ昇格させるclaimを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PLAT-003",
+    "domain": "PLAT",
+    "title": "browser保存",
+    "requirements": [
+      "PAR-PLAT-003"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "quota拒否、persistent拒否、origin削除で正しいstatusになる。",
+    "negative": "browserを既定の長期Keeperコピーとして数える実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PLAT-004",
+    "domain": "PLAT",
+    "title": "最小権限",
+    "requirements": [
+      "PAR-PLAT-004"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "全optional permissionを拒否してmanual join/local利用する。",
+    "negative": "通知拒否でアプリ全体が使えなくなるflowを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PLAT-005",
+    "domain": "PLAT",
+    "title": "web供給経路",
+    "requirements": [
+      "PAR-PLAT-005"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "offline asset bundleを読み既知peer構成で動かす。",
+    "negative": "外部CDNへ無断requestするbuildを検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PLAT-006",
+    "domain": "PLAT",
+    "title": "版別資格",
+    "requirements": [
+      "PAR-PLAT-006"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "qualified rowごとに対応test resultを解決できる。",
+    "negative": "空欄のdevice情報で実機保証を出すclaimを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-BUDGET-001",
+    "domain": "BUDGET",
+    "title": "二予算",
+    "requirements": [
+      "PAR-BUDGET-001"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "contribution offでもlocal編集が成功する。",
+    "negative": "保管同意なしのdisk使用を検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-BUDGET-002",
+    "domain": "BUDGET",
+    "title": "scope制限",
+    "requirements": [
+      "PAR-BUDGET-002"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "並行offerで予約総量が上限を超えない。",
+    "negative": "多DeviceIdによるSpace budget迂回を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-BUDGET-003",
+    "domain": "BUDGET",
+    "title": "劣化時公平性",
+    "requirements": [
+      "PAR-BUDGET-003"
+    ],
+    "gate": "G8",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "同時大転送中の小change latencyと検証数を測る。",
+    "negative": "負荷時にcrypto validationをskipするshortcutを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-BUDGET-004",
+    "domain": "BUDGET",
+    "title": "使用量表示",
+    "requirements": [
+      "PAR-BUDGET-004"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "同一blockの共有参照を二重に解放見積もりしない。",
+    "negative": "pinned最後のcopyをreclaimableと表示するUIを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-BUDGET-005",
+    "domain": "BUDGET",
+    "title": "電力と回線",
+    "requirements": [
+      "PAR-BUDGET-005"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "充電解除/metered切替で新規協力転送を停止する。",
+    "negative": "設定上metered禁止なのに転送継続する実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-UX-001",
+    "domain": "UX",
+    "title": "状態の独立表示",
+    "requirements": [
+      "PAR-UX-001"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "代表的な混合状態fixtureを全componentで表示する。",
+    "negative": "green一色で未保護local変更を安全と伝える画面を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-UX-002",
+    "domain": "UX",
+    "title": "段階的開示",
+    "requirements": [
+      "PAR-UX-002"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "保存バッジからcopy根拠と最後の確認へkeyboardで進める。",
+    "negative": "network graphしかなく文字情報にアクセスできないUIを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-UX-003",
+    "domain": "UX",
+    "title": "導入の代替経路",
+    "requirements": [
+      "PAR-UX-003"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "カメラ/LANを拒否して同じjoin確認を完了する。",
+    "negative": "QRなし利用者を行き止まりにするflowを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-UX-004",
+    "domain": "UX",
+    "title": "破壊操作の確認",
+    "requirements": [
+      "PAR-UX-004"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "preview後のmembership変更を検知してconfirmを再要求する。",
+    "negative": "古いconfirmで別対象の鍵を失効する操作を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-UX-005",
+    "domain": "UX",
+    "title": "アクセシビリティ",
+    "requirements": [
+      "PAR-UX-005"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "screen reader/keyboard/200% text/狭幅の主要flowを実行する。",
+    "negative": "色だけの状態、隠れるfocus、keyboard不能の復旧ボタンを検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-UX-006",
+    "domain": "UX",
+    "title": "編集意図の保全",
+    "requirements": [
+      "PAR-UX-006"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "日本語変換中にremote insertionとepoch更新を入れて未確定入力を保つ。",
+    "negative": "rebase確認でoriginal draftが消える実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-UX-007",
+    "domain": "UX",
+    "title": "真の完了",
+    "requirements": [
+      "PAR-UX-007"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "download100%でverification未完の状態を表示する。",
+    "negative": "missing keyでもrecovered表示になる画面を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DS-001",
+    "domain": "DS",
+    "title": "層分離",
+    "requirements": [
+      "PAR-DS-001"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "異なるlayoutで同じcommand replay結果になる。",
+    "negative": "componentから直接DBを書き換える経路を依存検査で拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DS-002",
+    "domain": "DS",
+    "title": "tokens契約",
+    "requirements": [
+      "PAR-DS-002"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "light/dark/densityを同じsemantic keyで切替える。",
+    "negative": "critical状態をthemeで非表示にするoverrideを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DS-003",
+    "domain": "DS",
+    "title": "状態fixture",
+    "requirements": [
+      "PAR-DS-003"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "story catalogの全状態をcomponent galleryで開く。",
+    "negative": "成功状態しかないgalleryをqualification対象として認めない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DS-004",
+    "domain": "DS",
+    "title": "Polish不変条件",
+    "requirements": [
+      "PAR-DS-004"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "旧新themeでinteraction traceとaccessibility必須要素が一致する。",
+    "negative": "装飾変更でforce-stop警告が消える差分を検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DS-005",
+    "domain": "DS",
+    "title": "localeと動き",
+    "requirements": [
+      "PAR-DS-005"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "狭幅と長文localeで確認文と操作が欠けない。",
+    "negative": "animation終了を待たないと状態が読めない設計を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-DS-006",
+    "domain": "DS",
+    "title": "VM鮮度",
+    "requirements": [
+      "PAR-DS-006"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "action表示後にrole変更するとdispatchが拒否または再確認となる。",
+    "negative": "画面で有効だったという理由だけで失効後操作を通す実装を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OPS-001",
+    "domain": "OPS",
+    "title": "診断根拠",
+    "requirements": [
+      "PAR-OPS-001"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "接続中だが保管していないpeerと停止した保管peerを区別する。",
+    "negative": "ping成功だけでprotectedになる出力を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OPS-002",
+    "domain": "OPS",
+    "title": "秘密を記録しない",
+    "requirements": [
+      "PAR-OPS-002"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "全エラー経路のlogにcanary secretが存在しないことを検索する。",
+    "negative": "decode失敗したraw payloadをlogするmutantを検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OPS-003",
+    "domain": "OPS",
+    "title": "read-only診断",
+    "requirements": [
+      "PAR-OPS-003"
+    ],
+    "gate": "G1",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "前後のlogical state集合とegressを比較する。",
+    "negative": "診断が無断repair/外部probeする実装を失格とする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OPS-004",
+    "domain": "OPS",
+    "title": "修復の安全性",
+    "requirements": [
+      "PAR-OPS-004"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "途中停止したrepairから元領域を読める。",
+    "negative": "未検証storeへのポインタ切替を注入して拒否を確認する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OPS-005",
+    "domain": "OPS",
+    "title": "停止の説明",
+    "requirements": [
+      "PAR-OPS-005"
+    ],
+    "gate": "G6",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "通常pauseとforced stopの差を実UIとCLIで確認する。",
+    "negative": "forced stopを無影響なpauseと表現したfixtureを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OPS-006",
+    "domain": "OPS",
+    "title": "無送信観測",
+    "requirements": [
+      "PAR-OPS-006"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "全外部宛先を遮断したdoctor/exportが完了する。",
+    "negative": "診断起動時の隠れたanalytics送信をegress oracleが検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SEC-001",
+    "domain": "SEC",
+    "title": "脅威の網羅",
+    "requirements": [
+      "PAR-SEC-001"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "各外部inputとprivilege transitionがthreat tableに登場する。",
+    "negative": "新しいRPC capabilityに脅威/試験が無い変更を拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SEC-002",
+    "domain": "SEC",
+    "title": "悪意あるeditor",
+    "requirements": [
+      "PAR-SEC-002"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "signed malformed changeを隔離し正当な他Space編集を継続する。",
+    "negative": "signature validだけでapplyするmutantを失格とする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SEC-003",
+    "domain": "SEC",
+    "title": "fuzz evidence",
+    "requirements": [
+      "PAR-SEC-003"
+    ],
+    "gate": "G7",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "固定seed replayとfresh campaignの結果を別記する。",
+    "negative": "古いcommitのfuzz PASSを新releaseへ流用したpacketを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SEC-004",
+    "domain": "SEC",
+    "title": "独立review",
+    "requirements": [
+      "PAR-SEC-004"
+    ],
+    "gate": "G7",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "finding closureにoriginal failと修正後independent retestを添付する。",
+    "negative": "作者の自己検査のみをindependentとして宣言したpacketを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SEC-005",
+    "domain": "SEC",
+    "title": "未解決リスク",
+    "requirements": [
+      "PAR-SEC-005"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "open findingがclaim gateをBLOCKEDにする。",
+    "negative": "severity欄を空にして合格させようとするとfailする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-SEC-006",
+    "domain": "SEC",
+    "title": "disclosure",
+    "requirements": [
+      "PAR-SEC-006"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "模擬報告の受領・triage・advisory準備を担当者が実施する。",
+    "negative": "存在しないメール先や無担当のpolicyを完了としない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PERF-001",
+    "domain": "PERF",
+    "title": "性能の前提",
+    "requirements": [
+      "PAR-PERF-001"
+    ],
+    "gate": "G8",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "同じfixtureを2回実行しraw latency系列を比較する。",
+    "negative": "異なるCPUの結果を同一baselineとして合算するpacketを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PERF-002",
+    "domain": "PERF",
+    "title": "正しさ優先",
+    "requirements": [
+      "PAR-PERF-002"
+    ],
+    "gate": "G8",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "負荷後にrootとoperation-setを再取得して比較する。",
+    "negative": "throughputだけgreenで1commit欠損の結果を失格にする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PERF-003",
+    "domain": "PERF",
+    "title": "規模の表示",
+    "requirements": [
+      "PAR-PERF-003"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "64member/8writerの結果からその条件だけをclaimする。",
+    "negative": "64 connectionsの試験だけで256 active editors対応を称したclaimを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PERF-004",
+    "domain": "PERF",
+    "title": "長期soak",
+    "requirements": [
+      "PAR-PERF-004"
+    ],
+    "gate": "G8",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "7日Keeper試験の最後にwriterなしで復元する。",
+    "negative": "clockを進めただけの7日を実soakとして採用しない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-PERF-005",
+    "domain": "PERF",
+    "title": "条件付き可用性",
+    "requirements": [
+      "PAR-PERF-005"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "未複製write喪失を保護対象外として正しく表示する。",
+    "negative": "全peer offlineでも取得保証というclaimをrejectする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-MIG-001",
+    "domain": "MIG",
+    "title": "version分離",
+    "requirements": [
+      "PAR-MIG-001"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "SDK版同じでも異suiteのpeerを明示拒否する。",
+    "negative": "数値の大小だけでunknown formatを読む実装を検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-MIG-002",
+    "domain": "MIG",
+    "title": "migration原子性",
+    "requirements": [
+      "PAR-MIG-002"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "各stepでcrashし元storeか完成新storeの一方から復旧する。",
+    "negative": "壊れたshadowをactivateするfaultを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-MIG-003",
+    "domain": "MIG",
+    "title": "outbox保持",
+    "requirements": [
+      "PAR-MIG-003"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "ACK不明operationを移行後にID照会し二重writeしない。",
+    "negative": "cacheだけ移しoutboxを落とすmutantを失格にする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-MIG-004",
+    "domain": "MIG",
+    "title": "unknown保護",
+    "requirements": [
+      "PAR-MIG-004"
+    ],
+    "gate": "G4",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "未知codec objectを保存してもapplied ACKを出さない。",
+    "negative": "unknown fieldを削除した再署名を禁止する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-MIG-005",
+    "domain": "MIG",
+    "title": "seed共有",
+    "requirements": [
+      "PAR-MIG-005"
+    ],
+    "gate": "G9",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "異なるOSで同じseedを読み同じheadsを得る。",
+    "negative": "同じJSONから異なるCRDTを生成したpeerを同じseed扱いしない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-MIG-006",
+    "domain": "MIG",
+    "title": "互換証拠",
+    "requirements": [
+      "PAR-MIG-006"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "Rust共通coreの3binding結果を一つのimplementation familyとして記録する。",
+    "negative": "共通coreだけで独立3実装の合意と称したreportを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OSS-001",
+    "domain": "OSS",
+    "title": "全機能OSS",
+    "requirements": [
+      "PAR-OSS-001"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "project domainを遮断してrelease sourcesから参加者限定構成を構築する。",
+    "negative": "非公開endpoint/SDKがないと復旧できない構成を失格にする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OSS-002",
+    "domain": "OSS",
+    "title": "artifact provenance",
+    "requirements": [
+      "PAR-OSS-002"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "clean build出力のhashを配布artifactと照合する。",
+    "negative": "source digest不一致の署名済みbinaryを採用しない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OSS-003",
+    "domain": "OSS",
+    "title": "update trust",
+    "requirements": [
+      "PAR-OSS-003"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "offline利用を保ったまま期限切れupdate metadataを拒否する。",
+    "negative": "license/update server不通でlocal文書を開けなくなるhostを非適合とする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OSS-004",
+    "domain": "OSS",
+    "title": "公開claim",
+    "requirements": [
+      "PAR-OSS-004"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "nativeのみ合格のreleaseにBrowser未検証表示が残る。",
+    "negative": "全platform production readyの一括表示をrejectする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OSS-005",
+    "domain": "OSS",
+    "title": "保守体制",
+    "requirements": [
+      "PAR-OSS-005"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "模擬critical advisoryの対応/署名鍵rotationを実施する。",
+    "negative": "担当者が未定なのにstable supportを約束するpacketを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-OSS-006",
+    "domain": "OSS",
+    "title": "導入再現",
+    "requirements": [
+      "PAR-OSS-006"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "offline docsとreleaseのみでreference flowを完了する。",
+    "negative": "作者環境の未記載tokenやcacheに依存するquickstartを失格にする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-QUAL-001",
+    "domain": "QUAL",
+    "title": "追跡可能性",
+    "requirements": [
+      "PAR-QUAL-001"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "未実装要件はtest contractがあってもNOT_RUNに留まる。",
+    "negative": "test ID存在だけでPASSにするvalidatorをnegative controlで検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-QUAL-002",
+    "domain": "QUAL",
+    "title": "証跡binding",
+    "requirements": [
+      "PAR-QUAL-002"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "変更後のsourceに旧runを適用するとstaleになる。",
+    "negative": "同じfilenameだが異なるbytesのartifactを混入するとrejectする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-QUAL-003",
+    "domain": "QUAL",
+    "title": "結果の意味",
+    "requirements": [
+      "PAR-QUAL-003"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "試験選択0件とOS前提不足がPASSでないことを確認する。",
+    "negative": "後続BLOCKEDで既存FAILを消すresult reducerを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-QUAL-004",
+    "domain": "QUAL",
+    "title": "初成功のoracle",
+    "requirements": [
+      "PAR-QUAL-004"
+    ],
+    "gate": "G3",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "A/B消失後にpreauthorized B2がCのみから正確な集合を復元する。",
+    "negative": "test fixtureから平文を隠れて注入したrestoreをhash/egress oracleで検出する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-QUAL-005",
+    "domain": "QUAL",
+    "title": "検証器の負例",
+    "requirements": [
+      "PAR-QUAL-005"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "missing requirement/bad checksum/false claimを各々rejectする。",
+    "negative": "常時exit0のrunnerを合格として使わない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-QUAL-006",
+    "domain": "QUAL",
+    "title": "claim gate",
+    "requirements": [
+      "PAR-QUAL-006"
+    ],
+    "gate": "G11",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "未実施G7が一件でもあるprofileはrelease不可になる。",
+    "negative": "大半のtest PASSを理由に独立review不足を無視するpacketを拒否する。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-EXT-001",
+    "domain": "EXT",
+    "title": "拡張の分離",
+    "requirements": [
+      "PAR-EXT-001"
+    ],
+    "gate": "G10",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "未対応extension必須Spaceへのjoinが明示拒否される。",
+    "negative": "任意JSONで未知実行機能を有効化するpathをrejectする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-EXT-002",
+    "domain": "EXT",
+    "title": "上限の扱い",
+    "requirements": [
+      "PAR-EXT-002"
+    ],
+    "gate": "G8",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "大規模実験結果をstable supported matrixと分離する。",
+    "negative": "一度の1,000peer demoをstable guaranteeへ昇格しない。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-EXT-003",
+    "domain": "EXT",
+    "title": "暗号拡張",
+    "requirements": [
+      "PAR-EXT-003"
+    ],
+    "gate": "G7",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "FSを求めるprofileでarchive key保持の影響をreviewする。",
+    "negative": "MLS採用名だけで全履歴FS/復旧を同時保証するclaimをrejectする。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  },
+  {
+    "id": "AT-EXT-004",
+    "domain": "EXT",
+    "title": "実験の評価",
+    "requirements": [
+      "PAR-EXT-004"
+    ],
+    "gate": "G0",
+    "profile": "common",
+    "setup": "当該仕様の固定profile、鍵・入力fixture、制御head、障害条件をrun manifestへ保存する。実機条件はplatform matrixから選択する。",
+    "positive": "libp2pと代替の同条件probe結果と不採用理由を保存する。",
+    "negative": "実測なしに双方を同時必須としてcoreへ組み込む変更を避ける。",
+    "oracle": "規範の期待状態・出力と、保存前後のobject集合／副作用を比較する。対象実装の成功文字列だけをoracleにしない。",
+    "evidence": [
+      "source_tree_digest",
+      "spec_digest",
+      "toolchain_identity",
+      "fixture_digest",
+      "command",
+      "raw_observations",
+      "exit_code"
+    ],
+    "execution_status": "NOT_RUN",
+    "implementation_path": null
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_gc_audit.GCAudit.test_authority_change_between_mark_and_collect_stops",
+    "test_gc_audit.GCAudit.test_completed_lease_slot_reusable",
+    "test_gc_audit.GCAudit.test_corruption_after_mark_stops_sweep",
+    "test_gc_audit.GCAudit.test_done_credit_tamper_rejected",
+    "test_gc_audit.GCAudit.test_done_file_reappearance_rejected_on_restart",
+    "test_gc_audit.GCAudit.test_done_payload_reappears_before_diagnostics_rejected",
+    "test_gc_audit.GCAudit.test_done_payload_reappears_before_reserve_rejected",
+    "test_gc_audit.GCAudit.test_done_payload_reappears_before_retry_rejected",
+    "test_gc_audit.GCAudit.test_empty_reservation_can_be_cancelled",
+    "test_gc_audit.GCAudit.test_gc_limit_keeps_payload_and_credit",
+    "test_gc_audit.GCAudit.test_gc_receipt_bitflip_rejected",
+    "test_gc_audit.GCAudit.test_gc_receipt_wrong_request_rejected",
+    "test_gc_audit.GCAudit.test_intent_request_mismatch_rejected",
+    "test_gc_audit.GCAudit.test_intent_signature_changed_rejected",
+    "test_gc_audit.GCAudit.test_legacy_release_request_cannot_delete",
+    "test_gc_audit.GCAudit.test_marked_credit_forgery_rejected",
+    "test_gc_audit.GCAudit.test_missing_recorded_before_mark_not_claimed_deleted",
+    "test_gc_audit.GCAudit.test_pending_no_get_pin",
+    "test_gc_audit.GCAudit.test_schema_extra_table_rejected",
+    "test_gc_audit.GCAudit.test_unknown_file_after_mark_stops_sweep",
+    "test_gc_audit.GCAudit.test_unrecorded_valid_publication_is_collected"
+  ]
+}

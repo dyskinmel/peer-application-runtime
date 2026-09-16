@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "name": "keeper-upload-local-v1",
+  "artifact_version": "00.16.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "test_counts": {
+    "contract": 26,
+    "spool": 31,
+    "service": 18,
+    "faults": 36
+  },
+  "sigkill_scenarios": 31,
+  "keeper_schema_version": 3,
+  "spool_schema_version": 1,
+  "transport": "AF_UNIX_PRIVATE_LINUX",
+  "methods": [
+    "begin",
+    "chunk",
+    "progress",
+    "put",
+    "reserve",
+    "seal"
+  ],
+  "chunk_bytes": 32768,
+  "request_bytes": 65536,
+  "response_bytes": 1048576,
+  "max_staging_bytes": 16777216,
+  "max_staging_records": 1024,
+  "private_upload_processes_tested": true,
+  "public_listener": false,
+  "automatic_retry": false,
+  "automatic_staging_retirement": false,
+  "crdt_validated": false,
+  "writable_recovery": false,
+  "physical_power_loss_tested": false,
+  "product_qualified": false,
+  "native_network_qualified": false,
+  "transport_encryption": false,
+  "two_journal_atomic_transaction": false,
+  "independent_review": "NOT_RUN",
+  "pinned_inputs": [
+    {
+      "path": "experiments/keeper-upload/par_keeper_upload/protocol.py",
+      "sha256": "a423684182095b1a987a94db7956bdef63298634ff28cd73867134625c797813"
+    },
+    {
+      "path": "experiments/keeper-upload/par_keeper_upload/spool.py",
+      "sha256": "4375611b8183485683b7a7ad95ee65888ef477c4199490e40c3ddc547af276e1"
+    },
+    {
+      "path": "experiments/keeper-upload/par_keeper_upload/server.py",
+      "sha256": "32b9dc44db1b9991639f3398de3ec313c69b9c41d9122713564838e143f25410"
+    },
+    {
+      "path": "experiments/keeper-upload/par_keeper_upload/client.py",
+      "sha256": "b45b019e4cfdcb3015321a0952d6fccada241e8c8e53763faedfe873a6e5c77f"
+    },
+    {
+      "path": "tools/keeper_upload_host.py",
+      "sha256": "d2e499bb4f64d531417c0c4f0ff967ba36e80d14bfa33b127d958961ca732df5"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/transport.py",
+      "sha256": "e24ab88b442e0a9f7bcf5dcc42ce0de8b2b1a95e0ad8c1c09ea15179c546ddf6"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/server.py",
+      "sha256": "23f593792ed436711a610d35053f82f65b67341309b039c00593173df225b63a"
+    },
+    {
+      "path": "experiments/keeper-repair/par_keeper_repair/store.py",
+      "sha256": "db842c17eb1ae42e7848a7bce55b8a694feb129f5c5a3684130422a759d8c5c4"
+    },
+    {
+      "path": "experiments/keeper-retention/par_keeper/store.py",
+      "sha256": "fe9b8d24e32a56b051e6729b89336c72f1e0dec4bdab8a7b8fc08d458ecbf317"
+    },
+    {
+      "path": "policy/crypto-provider.json",
+      "sha256": "62cac014fb4a67145eab5462e1d7840e2d01ffef271fa793ce17a0d7a29af63c"
+    }
+  ]
+}

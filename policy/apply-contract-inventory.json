@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_apply_contract.ContractTests.test_absent_input_refused",
+    "test_apply_contract.ContractTests.test_boolean_revision_refused",
+    "test_apply_contract.ContractTests.test_closed_applier_rejected",
+    "test_apply_contract.ContractTests.test_core_identity_changed_during_call",
+    "test_apply_contract.ContractTests.test_core_missing_does_not_write",
+    "test_apply_contract.ContractTests.test_core_throw_does_not_allocate_nonce",
+    "test_apply_contract.ContractTests.test_default_rejects_double_before_nonce",
+    "test_apply_contract.ContractTests.test_duplicate_targets_refused",
+    "test_apply_contract.ContractTests.test_empty_targets_refused",
+    "test_apply_contract.ContractTests.test_false_report_never_promotes_applied",
+    "test_apply_contract.ContractTests.test_invalid_operation_id",
+    "test_apply_contract.ContractTests.test_missing_dependency_before_core",
+    "test_apply_contract.ContractTests.test_modified_prepared_rejected",
+    "test_apply_contract.ContractTests.test_owner_thread_enforced",
+    "test_apply_contract.ContractTests.test_prepared_from_other_instance_rejected",
+    "test_apply_contract.ContractTests.test_reentry_rejected",
+    "test_apply_contract.ContractTests.test_report_duplicate_change",
+    "test_apply_contract.ContractTests.test_report_has_wrong_context",
+    "test_apply_contract.ContractTests.test_report_invalid_note",
+    "test_apply_contract.ContractTests.test_report_missing_dependency",
+    "test_apply_contract.ContractTests.test_report_omits_change",
+    "test_apply_contract.ContractTests.test_report_wrong_actor",
+    "test_apply_contract.ContractTests.test_report_wrong_heads",
+    "test_apply_contract.ContractTests.test_wrong_document_refused",
+    "test_apply_contract.ContractTests.test_wrong_schema_refused"
+  ]
+}

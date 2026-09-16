@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_scheduler_host.SchedulerHostProcess.test_explicit_selected_job_closes_without_host_restart",
+    "test_scheduler_host.SchedulerHostProcess.test_host_cli_has_no_generic_management_method",
+    "test_scheduler_host.SchedulerHostProcess.test_provider_removed_donor_receiver_restores",
+    "test_scheduler_host.SchedulerHostProcess.test_real_upload_and_read_remain_compatible",
+    "test_scheduler_host.SchedulerHostProcess.test_unselected_job_does_not_run_in_live_host"
+  ]
+}

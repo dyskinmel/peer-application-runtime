@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submission_retire_process.RetirementHostProcess.test_separate_process_register_select_and_schema2",
+    "test_submission_retire_process.RetirementHostProcess.test_separate_process_upload_read_source_removed_recovery"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_apply_storage.StorageTests.test_apply_descendant_collects_ancestors",
+    "test_apply_storage.StorageTests.test_authority_changes_during_core",
+    "test_apply_storage.StorageTests.test_core_change_after_prepare",
+    "test_apply_storage.StorageTests.test_current_application_mode_cannot_mix_synthetic",
+    "test_apply_storage.StorageTests.test_epoch_change_prevents_read",
+    "test_apply_storage.StorageTests.test_event_ciphertext_corruption_refused",
+    "test_apply_storage.StorageTests.test_exact_atomic_set_and_encrypted_note",
+    "test_apply_storage.StorageTests.test_extra_schema_refused",
+    "test_apply_storage.StorageTests.test_missing_frontier_refused",
+    "test_apply_storage.StorageTests.test_missing_input_refused",
+    "test_apply_storage.StorageTests.test_new_operation_rejects_after_authority_change",
+    "test_apply_storage.StorageTests.test_nonce_record_missing_refused",
+    "test_apply_storage.StorageTests.test_noop_new_operation_refused",
+    "test_apply_storage.StorageTests.test_pin_rejects_missing_known_history",
+    "test_apply_storage.StorageTests.test_prepare_is_not_applied",
+    "test_apply_storage.StorageTests.test_reopen_requires_authority_reactivation",
+    "test_apply_storage.StorageTests.test_retry_does_not_reencrypt_or_reinvoke_core",
+    "test_apply_storage.StorageTests.test_retry_old_operation_after_new_frontier",
+    "test_apply_storage.StorageTests.test_retry_wrong_revision_refused",
+    "test_apply_storage.StorageTests.test_retry_wrong_target_refused",
+    "test_apply_storage.StorageTests.test_stale_expected_revision",
+    "test_apply_storage.StorageTests.test_two_preparations_only_first_can_commit",
+    "test_apply_storage.StorageTests.test_union_preserves_concurrent_head",
+    "test_apply_storage.StorageTests.test_wrong_local_key_refused"
+  ]
+}

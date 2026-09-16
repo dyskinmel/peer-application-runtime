@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_lease_contract.LeaseContract.test_bool_authority_sequence",
+    "test_lease_contract.LeaseContract.test_bool_duration",
+    "test_lease_contract.LeaseContract.test_capability_deterministic",
+    "test_lease_contract.LeaseContract.test_capability_roundtrip",
+    "test_lease_contract.LeaseContract.test_changed_signature",
+    "test_lease_contract.LeaseContract.test_duplicate_methods",
+    "test_lease_contract.LeaseContract.test_empty_methods",
+    "test_lease_contract.LeaseContract.test_excess_duration",
+    "test_lease_contract.LeaseContract.test_frozen_retention_vector",
+    "test_lease_contract.LeaseContract.test_invalid_method",
+    "test_lease_contract.LeaseContract.test_keeper_clock_returns_bounded_tick",
+    "test_lease_contract.LeaseContract.test_possession_request",
+    "test_lease_contract.LeaseContract.test_readonly_cap_cannot_release",
+    "test_lease_contract.LeaseContract.test_request_action_swap",
+    "test_lease_contract.LeaseContract.test_request_binds_grant_nonce",
+    "test_lease_contract.LeaseContract.test_request_lease_swap",
+    "test_lease_contract.LeaseContract.test_request_payload_swap",
+    "test_lease_contract.LeaseContract.test_request_signature_change",
+    "test_lease_contract.LeaseContract.test_request_wrong_subject",
+    "test_lease_contract.LeaseContract.test_short_nonce",
+    "test_lease_contract.LeaseContract.test_stale_head",
+    "test_lease_contract.LeaseContract.test_trailing_bytes",
+    "test_lease_contract.LeaseContract.test_unknown_fields",
+    "test_lease_contract.LeaseContract.test_wrong_authority_key",
+    "test_lease_contract.LeaseContract.test_wrong_keeper",
+    "test_lease_contract.LeaseContract.test_wrong_seed_for_issuer",
+    "test_lease_contract.LeaseContract.test_wrong_space",
+    "test_lease_contract.LeaseContract.test_zero_duration"
+  ]
+}

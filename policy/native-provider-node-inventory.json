@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "scope": "LOCAL_PROVIDER_HANDOFF_SOURCE_SHAPE_NOT_NATIVE_QUALIFICATION",
+  "case_ids": [
+    "native-provider.node.close-failure-is-retained-not-retried",
+    "native-provider.node.close-is-one-shot",
+    "native-provider.node.default-write-operations-not-exposed",
+    "native-provider.node.descriptor-roundtrip",
+    "native-provider.node.inquire-operation-id-is-copied-before-await",
+    "native-provider.node.precancelled-observe-does-not-call-port",
+    "native-provider.node.shared-fixture-defaults-readonly",
+    "native-provider.node.stale-epoch-after-observe-rejected",
+    "native-provider.node.types",
+    "native-provider.node.unknown-descriptor-field-rejected",
+    "native-provider.node.wrong-inquiry-id-rejected"
+  ]
+}

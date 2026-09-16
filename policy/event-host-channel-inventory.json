@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "event-host.channel.abort-before-write",
+    "event-host.channel.aborted-correlation-retained-until-owner-reply",
+    "event-host.channel.bounded-pending-requests",
+    "event-host.channel.duplicate-json-key",
+    "event-host.channel.explicit-reply-only-resolves-matching-call",
+    "event-host.channel.hello-split-at-every-byte",
+    "event-host.channel.invalid-utf8",
+    "event-host.channel.oversize-length",
+    "event-host.channel.oversize-request-does-not-grow-queue",
+    "event-host.channel.response-cap-cannot-be-raised-by-peer",
+    "event-host.channel.timeout-is-not-a-success-response",
+    "event-host.channel.unexposed-operation",
+    "event-host.channel.wrong-context",
+    "event-host.channel.wrong-correlation-terminates-channel",
+    "event-host.channel.wrong-operation-terminates-channel",
+    "event-host.channel.zero-length"
+  ]
+}

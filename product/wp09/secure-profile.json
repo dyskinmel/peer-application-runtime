@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "version": "00.44.00",
+  "real_tls_executed": true,
+  "mutual_certificate_verification": true,
+  "tls_version": "TLSv1.3",
+  "verification_path": "AF_UNIX_SOCKETPAIR_REAL_MTLS_SEPARATE_PROCESS_SQLITE_READ_ONLY",
+  "enrollment": "EXPLICIT_TRUSTED_OWNER_INPUT_NOT_AUTO_ENROLLMENT",
+  "public_network_executed": false,
+  "system_dns_executed": false,
+  "real_ip_dial_executed": false,
+  "production_ready": false,
+  "automatic_replay": false,
+  "automatic_ack": false,
+  "independent_review_passed": false,
+  "crdt_applied": false,
+  "pkix_revocation_online": false,
+  "ca_rotation": false,
+  "original_read_signature": "REUSES_PRODUCT_WP04_EXCHANGE_UNCHANGED",
+  "full_scope_complete": false,
+  "registered_product_tests": 90
+}

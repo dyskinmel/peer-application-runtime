@@ -1,0 +1,2386 @@
+[
+  {
+    "id": "PAR-CORE-001",
+    "domain": "CORE",
+    "title": "中央依存の排除",
+    "statement": "SDKと参照アプリは、設定外のbootstrap・relay・telemetry・認証サービスへ通信してはならない。",
+    "normative": "MUST",
+    "spec": "spec/01-product-contract.ja.md",
+    "anchor": "PAR-CORE-001",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-CORE-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CORE-002",
+    "domain": "CORE",
+    "title": "ローカル優先",
+    "statement": "起動と既存データの読書きは、他peerの接続完了を待たず利用可能とする。",
+    "normative": "MUST",
+    "spec": "spec/01-product-contract.ja.md",
+    "anchor": "PAR-CORE-002",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-CORE-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CORE-003",
+    "domain": "CORE",
+    "title": "保証の区別",
+    "statement": "local保存・他端末保管・適用・取得・認可鮮度を別の機械可読状態で公開する。",
+    "normative": "MUST",
+    "spec": "spec/01-product-contract.ja.md",
+    "anchor": "PAR-CORE-003",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-CORE-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CORE-004",
+    "domain": "CORE",
+    "title": "資源同意",
+    "statement": "他人向けの保管・中継・RPCは機能別の明示同意と上限設定を必要とする。",
+    "normative": "MUST",
+    "spec": "spec/01-product-contract.ja.md",
+    "anchor": "PAR-CORE-004",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-CORE-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CORE-005",
+    "domain": "CORE",
+    "title": "可搬性",
+    "statement": "認可されたデータと復旧資料を公開形式で取り出せ、運営者の承認なく第三者実装へ移行できる設計とする。",
+    "normative": "MUST",
+    "spec": "spec/01-product-contract.ja.md",
+    "anchor": "PAR-CORE-005",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-CORE-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CORE-006",
+    "domain": "CORE",
+    "title": "主張の限定",
+    "statement": "対応表示はversion、profile、機能、環境、残る制約に結び付け、未実行gateを合格扱いしない。",
+    "normative": "MUST",
+    "spec": "spec/01-product-contract.ja.md",
+    "anchor": "PAR-CORE-006",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-CORE-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ARCH-001",
+    "domain": "ARCH",
+    "title": "host分離",
+    "statement": "portable coreはOS・GUI・transport実装へ直接依存せず、Clock/Randomを含む狭いportへ依存する。",
+    "normative": "MUST",
+    "spec": "spec/02-architecture.ja.md",
+    "anchor": "PAR-ARCH-001",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-ARCH-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ARCH-002",
+    "domain": "ARCH",
+    "title": "writer排他",
+    "statement": "同じdata directory・actorを同時に複数writerへ割当てない。",
+    "normative": "MUST",
+    "spec": "spec/02-architecture.ja.md",
+    "anchor": "PAR-ARCH-002",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-ARCH-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ARCH-003",
+    "domain": "ARCH",
+    "title": "再現可能性",
+    "statement": "時刻・乱数・配送・保存障害を制御できる試験hostを提供する。",
+    "normative": "MUST",
+    "spec": "spec/02-architecture.ja.md",
+    "anchor": "PAR-ARCH-003",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-ARCH-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ARCH-004",
+    "domain": "ARCH",
+    "title": "callback隔離",
+    "statement": "callback内でdomain lockを保持せず、queue上限と再入・取消し規則を公開する。",
+    "normative": "MUST",
+    "spec": "spec/02-architecture.ja.md",
+    "anchor": "PAR-ARCH-004",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-ARCH-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ARCH-005",
+    "domain": "ARCH",
+    "title": "障害局所化",
+    "statement": "peerの不正入力で別Spaceの健全なlocal保存を止めない。",
+    "normative": "MUST",
+    "spec": "spec/02-architecture.ja.md",
+    "anchor": "PAR-ARCH-005",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-ARCH-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ARCH-006",
+    "domain": "ARCH",
+    "title": "交換可能なUI",
+    "statement": "business stateとpermission判定はpresenter/domainへ置き、visual layerはtyped commandとviewだけで操作する。",
+    "normative": "MUST",
+    "spec": "spec/02-architecture.ja.md",
+    "anchor": "PAR-ARCH-006",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-ARCH-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ID-001",
+    "domain": "ID",
+    "title": "鍵用途分離",
+    "statement": "account/device/transport/HPKE/local/authority鍵を目的別に管理し、証明書とmembershipの両方を認可時に確認する。",
+    "normative": "MUST",
+    "spec": "spec/03-identity.ja.md",
+    "anchor": "PAR-ID-001",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-ID-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ID-002",
+    "domain": "ID",
+    "title": "保護等級",
+    "statement": "実測・設定したkey protection classを返し、未検証hardware対応を表示しない。",
+    "normative": "MUST",
+    "spec": "spec/03-identity.ja.md",
+    "anchor": "PAR-ID-002",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-ID-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ID-003",
+    "domain": "ID",
+    "title": "復旧世代",
+    "statement": "clone/import後のwriterは新actor generationを使い、過去sequenceを再利用しない。",
+    "normative": "MUST",
+    "spec": "spec/03-identity.ja.md",
+    "anchor": "PAR-ID-003",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-ID-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ID-004",
+    "domain": "ID",
+    "title": "復旧資格",
+    "statement": "authority不在の新規環境復旧には、事前に認可された復旧IDと有効なkey packageを要求する。",
+    "normative": "MUST",
+    "spec": "spec/03-identity.ja.md",
+    "anchor": "PAR-ID-004",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-ID-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ID-005",
+    "domain": "ID",
+    "title": "鍵の分離配布",
+    "statement": "data exportへ平文復旧秘密を同梱せず、secret表示・印刷・コピーは独立同意とする。",
+    "normative": "MUST",
+    "spec": "spec/03-identity.ja.md",
+    "anchor": "PAR-ID-005",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-ID-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-ID-006",
+    "domain": "ID",
+    "title": "古いauthorityの停止",
+    "statement": "authority backup復元から既存Spaceのcontrol writeを無条件に再開しない。",
+    "normative": "MUST",
+    "spec": "spec/03-identity.ja.md",
+    "anchor": "PAR-ID-006",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-ID-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-AUTH-001",
+    "domain": "AUTH",
+    "title": "認可系列",
+    "statement": "membershipを通常CRDTから分離し、prev hash・sequence・署名を検証する。",
+    "normative": "MUST",
+    "spec": "spec/04-authority.ja.md",
+    "anchor": "PAR-AUTH-001",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-AUTH-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-AUTH-002",
+    "domain": "AUTH",
+    "title": "系列分離",
+    "statement": "保管権限変更だけでcontent epochを不要に再生成せず、read/write membership変更ではepochを更新する。",
+    "normative": "MUST",
+    "spec": "spec/04-authority.ja.md",
+    "anchor": "PAR-AUTH-002",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-AUTH-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-AUTH-003",
+    "domain": "AUTH",
+    "title": "baseline一意性",
+    "statement": "epoch baselineはauthorityが生成した同一bytesを配布し、競合値の出典も保全する。",
+    "normative": "MUST",
+    "spec": "spec/04-authority.ja.md",
+    "anchor": "PAR-AUTH-003",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-AUTH-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-AUTH-004",
+    "domain": "AUTH",
+    "title": "失効の順序",
+    "statement": "新しいcontent epochを伴うcontrolを観測したら旧epoch共有writeを止め、未確定の編集はprivate draftとして保持する。",
+    "normative": "MUST",
+    "spec": "spec/04-authority.ja.md",
+    "anchor": "PAR-AUTH-004",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-AUTH-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-AUTH-005",
+    "domain": "AUTH",
+    "title": "正常移管",
+    "statement": "authority rotationは有効old署名とnew proof of possessionの両方で結び、SpaceIdを保持する。",
+    "normative": "MUST",
+    "spec": "spec/04-authority.ja.md",
+    "anchor": "PAR-AUTH-005",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-AUTH-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-AUTH-006",
+    "domain": "AUTH",
+    "title": "fork隔離",
+    "statement": "同じcontrol位置への異なる有効署名を検出したらfork evidenceを保持し、自動勝者選択を行わない。",
+    "normative": "MUST",
+    "spec": "spec/04-authority.ja.md",
+    "anchor": "PAR-AUTH-006",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-AUTH-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-AUTH-007",
+    "domain": "AUTH",
+    "title": "招待対象",
+    "statement": "JoinRequestとInviteは対象device鍵・AppId・SpaceId・要求nonceへ束縛する。",
+    "normative": "MUST",
+    "spec": "spec/04-authority.ja.md",
+    "anchor": "PAR-AUTH-007",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-AUTH-007"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CRYPTO-001",
+    "domain": "CRYPTO",
+    "title": "suite固定",
+    "statement": "暗号suiteとstrict verify基準をprofileへ固定し、未対応suiteをsilent downgradeしない。",
+    "normative": "MUST",
+    "spec": "spec/05-cryptography.ja.md",
+    "anchor": "PAR-CRYPTO-001",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-CRYPTO-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CRYPTO-002",
+    "domain": "CRYPTO",
+    "title": "context結合",
+    "statement": "署名・AAD・KDFには型付きdomainとapp/space/epoch/object/recipientを結び付ける。",
+    "normative": "MUST",
+    "spec": "spec/05-cryptography.ja.md",
+    "anchor": "PAR-CRYPTO-002",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-CRYPTO-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CRYPTO-003",
+    "domain": "CRYPTO",
+    "title": "nonce管理",
+    "statement": "CSPRNG失敗時は書込みを失敗させ、再送では保存済みciphertextを再使用する。",
+    "normative": "MUST",
+    "spec": "spec/05-cryptography.ja.md",
+    "anchor": "PAR-CRYPTO-003",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-CRYPTO-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CRYPTO-004",
+    "domain": "CRYPTO",
+    "title": "package認証",
+    "statement": "HPKE base packageはauthority署名とcontrol上のrecipient・manifest rootの両方を検証する。",
+    "normative": "MUST",
+    "spec": "spec/05-cryptography.ja.md",
+    "anchor": "PAR-CRYPTO-004",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-CRYPTO-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CRYPTO-005",
+    "domain": "CRYPTO",
+    "title": "生成順",
+    "statement": "自己参照hashを作らず、package-set ID→package→root→controlの順を固定する。",
+    "normative": "MUST",
+    "spec": "spec/05-cryptography.ja.md",
+    "anchor": "PAR-CRYPTO-005",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-CRYPTO-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-CRYPTO-006",
+    "domain": "CRYPTO",
+    "title": "保証境界",
+    "statement": "基本profileにFS・PCS・匿名性を主張せず、侵害時の鍵更新・データ退避を公開する。",
+    "normative": "MUST",
+    "spec": "spec/05-cryptography.ja.md",
+    "anchor": "PAR-CRYPTO-006",
+    "gate": "G7",
+    "profile": "common",
+    "test_ids": [
+      "AT-CRYPTO-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-WIRE-001",
+    "domain": "WIRE",
+    "title": "framing",
+    "statement": "length、UTF-8、canonical encoding、map key、trailing bytesを検証してからtyped messageを受理する。",
+    "normative": "MUST",
+    "spec": "spec/06-wire.ja.md",
+    "anchor": "PAR-WIRE-001",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-WIRE-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-WIRE-002",
+    "domain": "WIRE",
+    "title": "認証順序",
+    "statement": "session stateに合わないmessageと未認可Spaceの一覧要求を拒否する。",
+    "normative": "MUST",
+    "spec": "spec/06-wire.ja.md",
+    "anchor": "PAR-WIRE-002",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-WIRE-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-WIRE-003",
+    "domain": "WIRE",
+    "title": "negotiation束縛",
+    "statement": "version/suite/両nonce/両peer/roleを認証transcriptに含める。",
+    "normative": "MUST",
+    "spec": "spec/06-wire.ja.md",
+    "anchor": "PAR-WIRE-003",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-WIRE-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-WIRE-004",
+    "domain": "WIRE",
+    "title": "bounded入力",
+    "statement": "frame/envelope/依存数等のhard limitsをallocationと展開の前後で検査する。",
+    "normative": "MUST",
+    "spec": "spec/06-wire.ja.md",
+    "anchor": "PAR-WIRE-004",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-WIRE-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-WIRE-005",
+    "domain": "WIRE",
+    "title": "paging整合",
+    "statement": "inventoryにsnapshot tokenと完了境界を持たせ、途中変更時のcoverageを未完として返す。",
+    "normative": "MUST",
+    "spec": "spec/06-wire.ja.md",
+    "anchor": "PAR-WIRE-005",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-WIRE-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-WIRE-006",
+    "domain": "WIRE",
+    "title": "互換拒否",
+    "statement": "未freeze版はprofile digest一致を要求し、未知の意味を持つdataを適用・再署名しない。",
+    "normative": "MUST",
+    "spec": "spec/06-wire.ja.md",
+    "anchor": "PAR-WIRE-006",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-WIRE-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DATA-001",
+    "domain": "DATA",
+    "title": "受理の決定性",
+    "statement": "change validityを宣言された依存状態とimmutable schemaで評価し、配送順で正当な操作を捨てない。",
+    "normative": "MUST",
+    "spec": "spec/07-data-model.ja.md",
+    "anchor": "PAR-DATA-001",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-DATA-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DATA-002",
+    "domain": "DATA",
+    "title": "競合の露出",
+    "statement": "registerの競合値・由来とsoft policy違反を返し、暗黙の業務的正解を選ばない。",
+    "normative": "MUST",
+    "spec": "spec/07-data-model.ja.md",
+    "anchor": "PAR-DATA-002",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-DATA-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DATA-003",
+    "domain": "DATA",
+    "title": "文書削除",
+    "statement": "同epochの有効tombstoneを文書全体へ適用し、復元は新IDとする。",
+    "normative": "MUST",
+    "spec": "spec/07-data-model.ja.md",
+    "anchor": "PAR-DATA-003",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-DATA-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DATA-004",
+    "domain": "DATA",
+    "title": "文字位置",
+    "statement": "text indexの単位とfrontierを明示し、binding差をfixtureで検証する。",
+    "normative": "MUST",
+    "spec": "spec/07-data-model.ja.md",
+    "anchor": "PAR-DATA-004",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-DATA-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DATA-005",
+    "domain": "DATA",
+    "title": "検索範囲",
+    "statement": "queryはcoverage/frontierを返し、同期不能を全体の不存在と扱わない。",
+    "normative": "MUST",
+    "spec": "spec/07-data-model.ja.md",
+    "anchor": "PAR-DATA-005",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-DATA-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DATA-006",
+    "domain": "DATA",
+    "title": "イベント再開",
+    "statement": "durable cursorの再配送・期限切れを明示し、presenceを永続eventとして再配送しない。",
+    "normative": "MUST",
+    "spec": "spec/07-data-model.ja.md",
+    "anchor": "PAR-DATA-006",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-DATA-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DATA-007",
+    "domain": "DATA",
+    "title": "RPC副作用",
+    "statement": "同一requestとinput digestを束縛し、結果不明を成功/失敗確定へ変換しない。",
+    "normative": "MUST",
+    "spec": "spec/07-data-model.ja.md",
+    "anchor": "PAR-DATA-007",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-DATA-007"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SYNC-001",
+    "domain": "SYNC",
+    "title": "内外author一致",
+    "statement": "各changeを単一authorとして検証し、inner actor/seq/deps/hashが外側宣言に一致することを要求する。",
+    "normative": "MUST",
+    "spec": "spec/08-synchronization.ja.md",
+    "anchor": "PAR-SYNC-001",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-SYNC-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SYNC-002",
+    "domain": "SYNC",
+    "title": "依存先行",
+    "statement": "control/epoch/causal depsが揃う前に適用済みACKを返さない。",
+    "normative": "MUST",
+    "spec": "spec/08-synchronization.ja.md",
+    "anchor": "PAR-SYNC-002",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-SYNC-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SYNC-003",
+    "domain": "SYNC",
+    "title": "収束条件",
+    "statement": "同じ有効集合・epoch・codecの非equivocating入力でvalues/conflicts/tombstonesが一致する。",
+    "normative": "MUST",
+    "spec": "spec/08-synchronization.ja.md",
+    "anchor": "PAR-SYNC-003",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-SYNC-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SYNC-004",
+    "domain": "SYNC",
+    "title": "equivocation",
+    "statement": "同actor同sequenceの異なる有効署名を検出した文書は隔離して証拠を保持する。",
+    "normative": "MUST",
+    "spec": "spec/08-synchronization.ja.md",
+    "anchor": "PAR-SYNC-004",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-SYNC-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SYNC-005",
+    "domain": "SYNC",
+    "title": "再開冪等性",
+    "statement": "restart/retryでCommitIdとenvelope bytesを保ち新しい変更を重複作成しない。",
+    "normative": "MUST",
+    "spec": "spec/08-synchronization.ja.md",
+    "anchor": "PAR-SYNC-005",
+    "gate": "G2",
+    "profile": "common",
+    "test_ids": [
+      "AT-SYNC-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SYNC-006",
+    "domain": "SYNC",
+    "title": "待機容量",
+    "statement": "quarantineとfetch queueをscope別に制限し、正当データのresource-blockedをinvalidと区別する。",
+    "normative": "MUST",
+    "spec": "spec/08-synchronization.ja.md",
+    "anchor": "PAR-SYNC-006",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-SYNC-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-STORE-001",
+    "domain": "STORE",
+    "title": "原子的保存",
+    "statement": "commit ledger・actor state・暗号化change・outboxを一つの原子的transactionで保存する。",
+    "normative": "MUST",
+    "spec": "spec/09-local-storage.ja.md",
+    "anchor": "PAR-STORE-001",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-STORE-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-STORE-002",
+    "domain": "STORE",
+    "title": "耐久性設定",
+    "statement": "実際のjournal/synchronous/host storage classを確認してからreceiptを発行する。",
+    "normative": "MUST",
+    "spec": "spec/09-local-storage.ja.md",
+    "anchor": "PAR-STORE-002",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-STORE-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-STORE-003",
+    "domain": "STORE",
+    "title": "結果不明",
+    "statement": "commit成否不明はoperation IDで照会・再開し、新IDによる盲目的再実行をしない。",
+    "normative": "MUST",
+    "spec": "spec/09-local-storage.ja.md",
+    "anchor": "PAR-STORE-003",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-STORE-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-STORE-004",
+    "domain": "STORE",
+    "title": "blob公開順",
+    "statement": "blockの永続化をDB参照公開より先に完了させ、stagingを完成扱いしない。",
+    "normative": "MUST",
+    "spec": "spec/09-local-storage.ja.md",
+    "anchor": "PAR-STORE-004",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-STORE-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-STORE-005",
+    "domain": "STORE",
+    "title": "平文漏洩防止",
+    "statement": "本文・索引・cache・temp・SQLログの永続保存は暗号化または非保存にする。",
+    "normative": "MUST",
+    "spec": "spec/09-local-storage.ja.md",
+    "anchor": "PAR-STORE-005",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-STORE-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-STORE-006",
+    "domain": "STORE",
+    "title": "破損復旧",
+    "statement": "corruption時は元データを保全し、別保存先へ検証付き再構築する。",
+    "normative": "MUST",
+    "spec": "spec/09-local-storage.ja.md",
+    "anchor": "PAR-STORE-006",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-STORE-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REP-001",
+    "domain": "REP",
+    "title": "完全性の二段階",
+    "statement": "byte retentionと認可済みsemantic recovery closureを区別し、最後のchangeだけを復旧可能と数えない。",
+    "normative": "MUST",
+    "spec": "spec/10-replication.ja.md",
+    "anchor": "PAR-REP-001",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REP-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REP-002",
+    "domain": "REP",
+    "title": "receipt永続化",
+    "statement": "全対象bytesとmanifestを永続化後にのみfull retention receiptを発行する。",
+    "normative": "MUST",
+    "spec": "spec/10-replication.ja.md",
+    "anchor": "PAR-REP-002",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REP-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REP-003",
+    "domain": "REP",
+    "title": "lease鮮度",
+    "statement": "fresh challengeとboot/monotonic状態でreceipt鮮度を管理し、古いreceiptを現在可用性としない。",
+    "normative": "MUST",
+    "spec": "spec/10-replication.ja.md",
+    "anchor": "PAR-REP-003",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REP-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REP-004",
+    "domain": "REP",
+    "title": "保管側再起動",
+    "statement": "lease期限が不明な再起動では、既存予約を安全側へ保持して明示解放または再確認を要する。",
+    "normative": "MUST",
+    "spec": "spec/10-replication.ja.md",
+    "anchor": "PAR-REP-004",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REP-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REP-005",
+    "domain": "REP",
+    "title": "冪等予約",
+    "statement": "同じoperation IDとdigestのoffer/commitはquotaを二重消費せず、異なるdigestの再利用を拒否する。",
+    "normative": "MUST",
+    "spec": "spec/10-replication.ja.md",
+    "anchor": "PAR-REP-005",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REP-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REP-006",
+    "domain": "REP",
+    "title": "認可取得",
+    "statement": "GETはcontent hash知識だけで許可せず、session/Space/capability/controlのscopeを照合する。",
+    "normative": "MUST",
+    "spec": "spec/10-replication.ja.md",
+    "anchor": "PAR-REP-006",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REP-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REP-007",
+    "domain": "REP",
+    "title": "退出の説明",
+    "statement": "資源提供者が退出でき、保管約束と移管未完の影響を明示する。",
+    "normative": "MUST",
+    "spec": "spec/10-replication.ja.md",
+    "anchor": "PAR-REP-007",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-REP-007"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REC-001",
+    "domain": "REC",
+    "title": "M1縦断",
+    "statement": "A/B停止後、事前認可B2がCと別保管の復旧材料だけから完全な対象frontierを復元できる。",
+    "normative": "MUST",
+    "spec": "spec/11-recovery.ja.md",
+    "anchor": "PAR-REC-001",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REC-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REC-002",
+    "domain": "REC",
+    "title": "鍵なしKeeper",
+    "statement": "opaque Keeperには閲覧keyを渡さず、通常保存・診断に本文が残らない。",
+    "normative": "MUST",
+    "spec": "spec/11-recovery.ja.md",
+    "anchor": "PAR-REC-002",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REC-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REC-003",
+    "domain": "REC",
+    "title": "復旧再開",
+    "statement": "recovery journalをroot・identity・input digestに束縛し、中断後に検証済みblockを再利用する。",
+    "normative": "MUST",
+    "spec": "spec/11-recovery.ja.md",
+    "anchor": "PAR-REC-003",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REC-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REC-004",
+    "domain": "REC",
+    "title": "完了の条件",
+    "statement": "download完了ではなく署名・AEAD・dependency・schema・local commit完了でactivatedにする。",
+    "normative": "MUST",
+    "spec": "spec/11-recovery.ja.md",
+    "anchor": "PAR-REC-004",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-REC-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REC-005",
+    "domain": "REC",
+    "title": "import防御",
+    "statement": "export path・総bytes・展開比・重複名を検査し、既存保存先へ無断上書きしない。",
+    "normative": "MUST",
+    "spec": "spec/11-recovery.ja.md",
+    "anchor": "PAR-REC-005",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-REC-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-REC-006",
+    "domain": "REC",
+    "title": "部分結果",
+    "statement": "部分サルベージは欠落集合を示し、完全復旧や全権限回復と表示しない。",
+    "normative": "MUST",
+    "spec": "spec/11-recovery.ja.md",
+    "anchor": "PAR-REC-006",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-REC-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-GC-001",
+    "domain": "GC",
+    "title": "削除の区別",
+    "statement": "cache eviction、shared delete、forget、retention releaseを別commandと表示にする。",
+    "normative": "MUST",
+    "spec": "spec/12-retention-gc.ja.md",
+    "anchor": "PAR-GC-001",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-GC-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-GC-002",
+    "domain": "GC",
+    "title": "GC根保護",
+    "statement": "active/pinned/outbox/lease/recovery/export/quarantine rootsに到達するblockをGCしない。",
+    "normative": "MUST",
+    "spec": "spec/12-retention-gc.ja.md",
+    "anchor": "PAR-GC-002",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-GC-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-GC-003",
+    "domain": "GC",
+    "title": "GC競合",
+    "statement": "mark/sweep間の新pin・commitをgeneration確認で保護する。",
+    "normative": "MUST",
+    "spec": "spec/12-retention-gc.ja.md",
+    "anchor": "PAR-GC-003",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-GC-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-GC-004",
+    "domain": "GC",
+    "title": "履歴短縮",
+    "statement": "causal履歴短縮は署名checkpoint/epochとrebase経路を使い、壁時計の古さだけで破棄しない。",
+    "normative": "MUST",
+    "spec": "spec/12-retention-gc.ja.md",
+    "anchor": "PAR-GC-004",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-GC-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-GC-005",
+    "domain": "GC",
+    "title": "秘密の消去境界",
+    "statement": "remote releaseやlocal key削除を、既配布平文の回収証明と表示しない。",
+    "normative": "MUST",
+    "spec": "spec/12-retention-gc.ja.md",
+    "anchor": "PAR-GC-005",
+    "gate": "G7",
+    "profile": "common",
+    "test_ids": [
+      "AT-GC-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-NET-001",
+    "domain": "NET",
+    "title": "明示経路",
+    "statement": "接続候補は設定された参加者・許可されたdiscoveryから生成し、無断の公開サービスへfallbackしない。",
+    "normative": "MUST",
+    "spec": "spec/13-connectivity.ja.md",
+    "anchor": "PAR-NET-001",
+    "gate": "G5",
+    "profile": "common",
+    "test_ids": [
+      "AT-NET-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-NET-002",
+    "domain": "NET",
+    "title": "到達性観測",
+    "statement": "direct/relayed/unreachableを実際の経路に基づき報告する。",
+    "normative": "MUST",
+    "spec": "spec/13-connectivity.ja.md",
+    "anchor": "PAR-NET-002",
+    "gate": "G5",
+    "profile": "common",
+    "test_ids": [
+      "AT-NET-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-NET-003",
+    "domain": "NET",
+    "title": "relay入口認可",
+    "statement": "Relay reservation段階でtransport peerとresource grantを制限し、内側Space認可も行う。",
+    "normative": "MUST",
+    "spec": "spec/13-connectivity.ja.md",
+    "anchor": "PAR-NET-003",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-NET-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-NET-004",
+    "domain": "NET",
+    "title": "dial宛先防御",
+    "statement": "広告されたrouteにscheme/address範囲policyを適用し、任意proxyやSSRF相当の経路を開かない。",
+    "normative": "MUST",
+    "spec": "spec/13-connectivity.ja.md",
+    "anchor": "PAR-NET-004",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-NET-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-NET-005",
+    "domain": "NET",
+    "title": "回線切替",
+    "statement": "ネットワーク変更とmetered制約で接続を再評価し、durable outboxを保つ。",
+    "normative": "MUST",
+    "spec": "spec/13-connectivity.ja.md",
+    "anchor": "PAR-NET-005",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-NET-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-NET-006",
+    "domain": "NET",
+    "title": "発見の最小化",
+    "statement": "private Space名・membership・文書名をLAN/global discoveryへ公開しない。",
+    "normative": "MUST",
+    "spec": "spec/13-connectivity.ja.md",
+    "anchor": "PAR-NET-006",
+    "gate": "G5",
+    "profile": "common",
+    "test_ids": [
+      "AT-NET-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SDK-001",
+    "domain": "SDK",
+    "title": "型付き結果",
+    "statement": "read/commit/cancel/errorをdiscriminated unionで公開し、u64を損失なく往復する。",
+    "normative": "MUST",
+    "spec": "spec/14-sdk-contract.ja.md",
+    "anchor": "PAR-SDK-001",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-SDK-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SDK-002",
+    "domain": "SDK",
+    "title": "取消し境界",
+    "statement": "cancelはcommit前後と結果不明を区別し、保存済み操作を消さない。",
+    "normative": "MUST",
+    "spec": "spec/14-sdk-contract.ja.md",
+    "anchor": "PAR-SDK-002",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-SDK-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SDK-003",
+    "domain": "SDK",
+    "title": "購読契約",
+    "statement": "snapshot通知はrevision付きでbounded/coalescingとし、unsubscribeは冪等にする。",
+    "normative": "MUST",
+    "spec": "spec/14-sdk-contract.ja.md",
+    "anchor": "PAR-SDK-003",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-SDK-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SDK-004",
+    "domain": "SDK",
+    "title": "安全なautomation",
+    "statement": "破壊的管理commandにはpreviewと対象revisionの再確認を要する。",
+    "normative": "MUST",
+    "spec": "spec/14-sdk-contract.ja.md",
+    "anchor": "PAR-SDK-004",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-SDK-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SDK-005",
+    "domain": "SDK",
+    "title": "導入再現性",
+    "statement": "配布したquickstartのコマンドとサンプルをクリーン環境で試験する。",
+    "normative": "MUST",
+    "spec": "spec/14-sdk-contract.ja.md",
+    "anchor": "PAR-SDK-005",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-SDK-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SDK-006",
+    "domain": "SDK",
+    "title": "binding所有権",
+    "statement": "FFI/JS境界でbuffer・callback・key handleの生存期間とthread制約を定義する。",
+    "normative": "MUST",
+    "spec": "spec/14-sdk-contract.ja.md",
+    "anchor": "PAR-SDK-006",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-SDK-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PLAT-001",
+    "domain": "PLAT",
+    "title": "能力表",
+    "statement": "platformごとのstorage/crypto/transport/background能力を機械可読にし、非対応を明示する。",
+    "normative": "MUST",
+    "spec": "spec/15-platforms.ja.md",
+    "anchor": "PAR-PLAT-001",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-PLAT-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PLAT-002",
+    "domain": "PLAT",
+    "title": "mobile再開",
+    "statement": "mobileで常時networkを前提とせず、suspend/restart後に未送信commitから再開する。",
+    "normative": "MUST",
+    "spec": "spec/15-platforms.ja.md",
+    "anchor": "PAR-PLAT-002",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-PLAT-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PLAT-003",
+    "domain": "PLAT",
+    "title": "browser保存",
+    "statement": "browser transaction完了と保存永続化許可・evictionリスクを分離して返す。",
+    "normative": "MUST",
+    "spec": "spec/15-platforms.ja.md",
+    "anchor": "PAR-PLAT-003",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-PLAT-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PLAT-004",
+    "domain": "PLAT",
+    "title": "最小権限",
+    "statement": "LAN/カメラ/通知の拒否時も代替導入とlocal操作を提供し、無関係権限を要求しない。",
+    "normative": "MUST",
+    "spec": "spec/15-platforms.ja.md",
+    "anchor": "PAR-PLAT-004",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-PLAT-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PLAT-005",
+    "domain": "PLAT",
+    "title": "web供給経路",
+    "statement": "browser assetの配布依存を公開し、defaultで外部script/font/telemetryを読まない。",
+    "normative": "MUST",
+    "spec": "spec/15-platforms.ja.md",
+    "anchor": "PAR-PLAT-005",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-PLAT-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PLAT-006",
+    "domain": "PLAT",
+    "title": "版別資格",
+    "statement": "実際のOS build・device・browser versionをevidenceへ束縛し、support matrixをreleaseごとに更新する。",
+    "normative": "MUST",
+    "spec": "spec/15-platforms.ja.md",
+    "anchor": "PAR-PLAT-006",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-PLAT-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-BUDGET-001",
+    "domain": "BUDGET",
+    "title": "二予算",
+    "statement": "interactiveとcontributionを別予算にし、第三者負担を既定0とする。",
+    "normative": "MUST",
+    "spec": "spec/16-resource-policy.ja.md",
+    "anchor": "PAR-BUDGET-001",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-BUDGET-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-BUDGET-002",
+    "domain": "BUDGET",
+    "title": "scope制限",
+    "statement": "runtime/Space/peer/operationの階層quotaを適用し、予約を原子的に管理する。",
+    "normative": "MUST",
+    "spec": "spec/16-resource-policy.ja.md",
+    "anchor": "PAR-BUDGET-002",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-BUDGET-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-BUDGET-003",
+    "domain": "BUDGET",
+    "title": "劣化時公平性",
+    "statement": "大blob/repair圧力下でもcontrolとinteractiveを優先し、署名検証を省略しない。",
+    "normative": "MUST",
+    "spec": "spec/16-resource-policy.ja.md",
+    "anchor": "PAR-BUDGET-003",
+    "gate": "G8",
+    "profile": "common",
+    "test_ids": [
+      "AT-BUDGET-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-BUDGET-004",
+    "domain": "BUDGET",
+    "title": "使用量表示",
+    "statement": "used/reserved/pinned/lease-protected/reclaimableを区別し、削除前に影響を示す。",
+    "normative": "MUST",
+    "spec": "spec/16-resource-policy.ja.md",
+    "anchor": "PAR-BUDGET-004",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-BUDGET-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-BUDGET-005",
+    "domain": "BUDGET",
+    "title": "電力と回線",
+    "statement": "条件変更でcontributionをpauseし、再開条件をtyped statusにする。",
+    "normative": "MUST",
+    "spec": "spec/16-resource-policy.ja.md",
+    "anchor": "PAR-BUDGET-005",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-BUDGET-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-UX-001",
+    "domain": "UX",
+    "title": "状態の独立表示",
+    "statement": "local保存・remote保管・現在接続・認可・復旧進捗を独立した意味で表示する。",
+    "normative": "MUST",
+    "spec": "spec/17-experience.ja.md",
+    "anchor": "PAR-UX-001",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-UX-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-UX-002",
+    "domain": "UX",
+    "title": "段階的開示",
+    "statement": "通常画面では作業を優先し、詳細panelで根拠・時点・原因に到達できる。",
+    "normative": "MUST",
+    "spec": "spec/17-experience.ja.md",
+    "anchor": "PAR-UX-002",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-UX-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-UX-003",
+    "domain": "UX",
+    "title": "導入の代替経路",
+    "statement": "QR以外のmanual/file flowを用意し、権限拒否やauthority不在でもlocal作業を保つ。",
+    "normative": "MUST",
+    "spec": "spec/17-experience.ja.md",
+    "anchor": "PAR-UX-003",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-UX-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-UX-004",
+    "domain": "UX",
+    "title": "破壊操作の確認",
+    "statement": "破壊的・機密操作は影響previewをplan digestとrevisionに結び、変更時は再確認する。",
+    "normative": "MUST",
+    "spec": "spec/17-experience.ja.md",
+    "anchor": "PAR-UX-004",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-UX-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-UX-005",
+    "domain": "UX",
+    "title": "アクセシビリティ",
+    "statement": "意味的ラベル・keyboard・拡大・RTL・reduced motionを提供し、webはWCAG 2.2 AAをqualification対象とする。",
+    "normative": "MUST",
+    "spec": "spec/17-experience.ja.md",
+    "anchor": "PAR-UX-005",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-UX-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-UX-006",
+    "domain": "UX",
+    "title": "編集意図の保全",
+    "statement": "IME・selection・private draft・rebase/undoをremote更新で無断消去しない。",
+    "normative": "MUST",
+    "spec": "spec/17-experience.ja.md",
+    "anchor": "PAR-UX-006",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-UX-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-UX-007",
+    "domain": "UX",
+    "title": "真の完了",
+    "statement": "download率・receipt数だけで復旧/全体保護の完了を表示しない。",
+    "normative": "MUST",
+    "spec": "spec/17-experience.ja.md",
+    "anchor": "PAR-UX-007",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-UX-007"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DS-001",
+    "domain": "DS",
+    "title": "層分離",
+    "statement": "rendererはViewModelとtyped commandにだけ依存し、network/storage/cryptoを直接呼ばない。",
+    "normative": "MUST",
+    "spec": "spec/18-polishable-ui.ja.md",
+    "anchor": "PAR-DS-001",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-DS-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DS-002",
+    "domain": "DS",
+    "title": "tokens契約",
+    "statement": "visual値をprimitive/semantic/component tokenへ分離し、意味付きaliasを保つ。",
+    "normative": "MUST",
+    "spec": "spec/18-polishable-ui.ja.md",
+    "anchor": "PAR-DS-002",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-DS-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DS-003",
+    "domain": "DS",
+    "title": "状態fixture",
+    "statement": "主要surfaceの正常/空/失敗/権限/復旧状態をオフラインfixtureで再現する。",
+    "normative": "MUST",
+    "spec": "spec/18-polishable-ui.ja.md",
+    "anchor": "PAR-DS-003",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-DS-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DS-004",
+    "domain": "DS",
+    "title": "Polish不変条件",
+    "statement": "見た目変更後もcommand意味、保護状態、確認、アクセシビリティを維持する。",
+    "normative": "MUST",
+    "spec": "spec/18-polishable-ui.ja.md",
+    "anchor": "PAR-DS-004",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-DS-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DS-005",
+    "domain": "DS",
+    "title": "localeと動き",
+    "statement": "文字拡大・RTL・reduced motion・high contrastで同じ操作を提供する。",
+    "normative": "MUST",
+    "spec": "spec/18-polishable-ui.ja.md",
+    "anchor": "PAR-DS-005",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-DS-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-DS-006",
+    "domain": "DS",
+    "title": "VM鮮度",
+    "statement": "ViewModelにrevisionとaction可否理由を持ち、古い画面からのcommandは再検証する。",
+    "normative": "MUST",
+    "spec": "spec/18-polishable-ui.ja.md",
+    "anchor": "PAR-DS-006",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-DS-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OPS-001",
+    "domain": "OPS",
+    "title": "診断根拠",
+    "statement": "保護・同期・接続の診断をscope/root/観測時点/freshnessに結び付ける。",
+    "normative": "MUST",
+    "spec": "spec/19-operations.ja.md",
+    "anchor": "PAR-OPS-001",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-OPS-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OPS-002",
+    "domain": "OPS",
+    "title": "秘密を記録しない",
+    "statement": "通常ログと既定診断exportに秘密鍵・平文本文・招待secretを含めない。",
+    "normative": "MUST",
+    "spec": "spec/19-operations.ja.md",
+    "anchor": "PAR-OPS-002",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-OPS-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OPS-003",
+    "domain": "OPS",
+    "title": "read-only診断",
+    "statement": "local doctorとrepair planはDB/鍵/接続設定を変更せず外部通信しない。",
+    "normative": "MUST",
+    "spec": "spec/19-operations.ja.md",
+    "anchor": "PAR-OPS-003",
+    "gate": "G1",
+    "profile": "common",
+    "test_ids": [
+      "AT-OPS-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OPS-004",
+    "domain": "OPS",
+    "title": "修復の安全性",
+    "statement": "修復は元領域を保全し、新領域の検証後だけactivateする。",
+    "normative": "MUST",
+    "spec": "spec/19-operations.ja.md",
+    "anchor": "PAR-OPS-004",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-OPS-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OPS-005",
+    "domain": "OPS",
+    "title": "停止の説明",
+    "statement": "Keeper/Relay停止前に有効lease・進行中転送・不足コピーへの影響を表示する。",
+    "normative": "MUST",
+    "spec": "spec/19-operations.ja.md",
+    "anchor": "PAR-OPS-005",
+    "gate": "G6",
+    "profile": "common",
+    "test_ids": [
+      "AT-OPS-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OPS-006",
+    "domain": "OPS",
+    "title": "無送信観測",
+    "statement": "telemetryなしでも同じlocal diagnosticsを使え、exportは明示操作に限定する。",
+    "normative": "MUST",
+    "spec": "spec/19-operations.ja.md",
+    "anchor": "PAR-OPS-006",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-OPS-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SEC-001",
+    "domain": "SEC",
+    "title": "脅威の網羅",
+    "statement": "各trust boundaryに攻撃、制御、残余リスク、検証IDを対応付ける。",
+    "normative": "MUST",
+    "spec": "spec/20-security-assurance.ja.md",
+    "anchor": "PAR-SEC-001",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-SEC-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SEC-002",
+    "domain": "SEC",
+    "title": "悪意あるeditor",
+    "statement": "署名が有効でもactor/deps/seq/schemaと資源境界を検証する。",
+    "normative": "MUST",
+    "spec": "spec/20-security-assurance.ja.md",
+    "anchor": "PAR-SEC-002",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-SEC-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SEC-003",
+    "domain": "SEC",
+    "title": "fuzz evidence",
+    "statement": "公開入力ごとのfuzzとモデル試験をsource/corpus/toolchainへbindingする。",
+    "normative": "MUST",
+    "spec": "spec/20-security-assurance.ja.md",
+    "anchor": "PAR-SEC-003",
+    "gate": "G7",
+    "profile": "common",
+    "test_ids": [
+      "AT-SEC-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SEC-004",
+    "domain": "SEC",
+    "title": "独立review",
+    "statement": "公開profileのcrypto/auth/recoveryは独立reviewと修正retestを必要とする。",
+    "normative": "MUST",
+    "spec": "spec/20-security-assurance.ja.md",
+    "anchor": "PAR-SEC-004",
+    "gate": "G7",
+    "profile": "common",
+    "test_ids": [
+      "AT-SEC-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SEC-005",
+    "domain": "SEC",
+    "title": "未解決リスク",
+    "statement": "Critical/High/未分類security findingがある対象profileをreleaseしない。",
+    "normative": "MUST",
+    "spec": "spec/20-security-assurance.ja.md",
+    "anchor": "PAR-SEC-005",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-SEC-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-SEC-006",
+    "domain": "SEC",
+    "title": "disclosure",
+    "statement": "稼働するprivate報告窓口とsupported versionsを公開し運用演習する。",
+    "normative": "MUST",
+    "spec": "spec/20-security-assurance.ja.md",
+    "anchor": "PAR-SEC-006",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-SEC-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PERF-001",
+    "domain": "PERF",
+    "title": "性能の前提",
+    "statement": "benchmarkにhardware/OS/profile/workload/network/母数と分布を記録し、目標を実測と表現しない。",
+    "normative": "MUST",
+    "spec": "spec/21-performance.ja.md",
+    "anchor": "PAR-PERF-001",
+    "gate": "G8",
+    "profile": "common",
+    "test_ids": [
+      "AT-PERF-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PERF-002",
+    "domain": "PERF",
+    "title": "正しさ優先",
+    "statement": "負荷試験中もACK済みoperationの完全性とauth invariantsを検査する。",
+    "normative": "MUST",
+    "spec": "spec/21-performance.ja.md",
+    "anchor": "PAR-PERF-002",
+    "gate": "G8",
+    "profile": "common",
+    "test_ids": [
+      "AT-PERF-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PERF-003",
+    "domain": "PERF",
+    "title": "規模の表示",
+    "statement": "対応規模を検証profileごとに公開し、membershipとconcurrent connectionsを分ける。",
+    "normative": "MUST",
+    "spec": "spec/21-performance.ja.md",
+    "anchor": "PAR-PERF-003",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-PERF-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PERF-004",
+    "domain": "PERF",
+    "title": "長期soak",
+    "statement": "指定soakの実時間、障害注入、終端のfresh restoreを記録する。",
+    "normative": "MUST",
+    "spec": "spec/21-performance.ja.md",
+    "anchor": "PAR-PERF-004",
+    "gate": "G8",
+    "profile": "common",
+    "test_ids": [
+      "AT-PERF-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-PERF-005",
+    "domain": "PERF",
+    "title": "条件付き可用性",
+    "statement": "uptime/RTO/RPOに対象データ・障害・source/key availabilityの条件を明記する。",
+    "normative": "MUST",
+    "spec": "spec/21-performance.ja.md",
+    "anchor": "PAR-PERF-005",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-PERF-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-MIG-001",
+    "domain": "MIG",
+    "title": "version分離",
+    "statement": "wire/suite/schema/store/SDK/UIのversionを独立識別し互換matrixで判定する。",
+    "normative": "MUST",
+    "spec": "spec/22-compatibility-migration.ja.md",
+    "anchor": "PAR-MIG-001",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-MIG-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-MIG-002",
+    "domain": "MIG",
+    "title": "migration原子性",
+    "statement": "migrationは元storeを保全しshadow検証後にatomic switchする。",
+    "normative": "MUST",
+    "spec": "spec/22-compatibility-migration.ja.md",
+    "anchor": "PAR-MIG-002",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-MIG-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-MIG-003",
+    "domain": "MIG",
+    "title": "outbox保持",
+    "statement": "schema/store migration後もoperation ledger/outboxと未反映draftを保持する。",
+    "normative": "MUST",
+    "spec": "spec/22-compatibility-migration.ja.md",
+    "anchor": "PAR-MIG-003",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-MIG-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-MIG-004",
+    "domain": "MIG",
+    "title": "unknown保護",
+    "statement": "未知の必須意味を持つsigned dataを適用・再署名せずupgrade-requiredとして扱う。",
+    "normative": "MUST",
+    "spec": "spec/22-compatibility-migration.ja.md",
+    "anchor": "PAR-MIG-004",
+    "gate": "G4",
+    "profile": "common",
+    "test_ids": [
+      "AT-MIG-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-MIG-005",
+    "domain": "MIG",
+    "title": "seed共有",
+    "statement": "schema/epoch migrationに一つの承認済みseed bytesとsource frontierを固定する。",
+    "normative": "MUST",
+    "spec": "spec/22-compatibility-migration.ja.md",
+    "anchor": "PAR-MIG-005",
+    "gate": "G9",
+    "profile": "common",
+    "test_ids": [
+      "AT-MIG-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-MIG-006",
+    "domain": "MIG",
+    "title": "互換証拠",
+    "statement": "binding互換と独立codec/protocol互換を分けて試験結果を公開する。",
+    "normative": "MUST",
+    "spec": "spec/22-compatibility-migration.ja.md",
+    "anchor": "PAR-MIG-006",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-MIG-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OSS-001",
+    "domain": "OSS",
+    "title": "全機能OSS",
+    "statement": "利用に必須なSDK/keeper/relay/auth/export/診断のsourceとprotocolを公開対象にする。",
+    "normative": "MUST",
+    "spec": "spec/23-oss-release.ja.md",
+    "anchor": "PAR-OSS-001",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-OSS-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OSS-002",
+    "domain": "OSS",
+    "title": "artifact provenance",
+    "statement": "releaseをsource/toolchain/lock/feature flagsと署名・SBOMへ結び付ける。",
+    "normative": "MUST",
+    "spec": "spec/23-oss-release.ja.md",
+    "anchor": "PAR-OSS-002",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-OSS-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OSS-003",
+    "domain": "OSS",
+    "title": "update trust",
+    "statement": "更新を提供する場合はroot/rollback/freeze/expiry検証を持ち、core起動と分離する。",
+    "normative": "MUST",
+    "spec": "spec/23-oss-release.ja.md",
+    "anchor": "PAR-OSS-003",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-OSS-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OSS-004",
+    "domain": "OSS",
+    "title": "公開claim",
+    "statement": "channel/qualified platform/未検証feature/known limitationsをartifactへ同梱する。",
+    "normative": "MUST",
+    "spec": "spec/23-oss-release.ja.md",
+    "anchor": "PAR-OSS-004",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-OSS-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OSS-005",
+    "domain": "OSS",
+    "title": "保守体制",
+    "statement": "security/crypto reviewとrelease承認に独立担当と公開support policyを持つ。",
+    "normative": "MUST",
+    "spec": "spec/23-oss-release.ja.md",
+    "anchor": "PAR-OSS-005",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-OSS-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-OSS-006",
+    "domain": "OSS",
+    "title": "導入再現",
+    "statement": "新規環境で文書の導入/backup/restore/uninstall手順を実行する。",
+    "normative": "MUST",
+    "spec": "spec/23-oss-release.ja.md",
+    "anchor": "PAR-OSS-006",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-OSS-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-QUAL-001",
+    "domain": "QUAL",
+    "title": "追跡可能性",
+    "statement": "全MUST要件に試験契約を対応させ、実装/実行/claimを別状態で管理する。",
+    "normative": "MUST",
+    "spec": "spec/24-production-qualification.ja.md",
+    "anchor": "PAR-QUAL-001",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-QUAL-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-QUAL-002",
+    "domain": "QUAL",
+    "title": "証跡binding",
+    "statement": "実行結果を正確なsource/spec/toolchain/fixture/platformへbindingする。",
+    "normative": "MUST",
+    "spec": "spec/24-production-qualification.ja.md",
+    "anchor": "PAR-QUAL-002",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-QUAL-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-QUAL-003",
+    "domain": "QUAL",
+    "title": "結果の意味",
+    "statement": "FAIL/BLOCKED/NOT_RUN/NOT_APPLICABLEをPASSと区別し適用範囲を明記する。",
+    "normative": "MUST",
+    "spec": "spec/24-production-qualification.ja.md",
+    "anchor": "PAR-QUAL-003",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-QUAL-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-QUAL-004",
+    "domain": "QUAL",
+    "title": "初成功のoracle",
+    "statement": "M1は暗号/認可/operation集合/復元closure/外部無依存を検証する。",
+    "normative": "MUST",
+    "spec": "spec/24-production-qualification.ja.md",
+    "anchor": "PAR-QUAL-004",
+    "gate": "G3",
+    "profile": "common",
+    "test_ids": [
+      "AT-QUAL-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-QUAL-005",
+    "domain": "QUAL",
+    "title": "検証器の負例",
+    "statement": "validator/test runnerへ意図的な失敗入力を与え、偽PASS防止を確認する。",
+    "normative": "MUST",
+    "spec": "spec/24-production-qualification.ja.md",
+    "anchor": "PAR-QUAL-005",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-QUAL-005"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-QUAL-006",
+    "domain": "QUAL",
+    "title": "claim gate",
+    "statement": "全公表保証の累積gateが満たされたprofileだけをproduction-qualifiedとする。",
+    "normative": "MUST",
+    "spec": "spec/24-production-qualification.ja.md",
+    "anchor": "PAR-QUAL-006",
+    "gate": "G11",
+    "profile": "common",
+    "test_ids": [
+      "AT-QUAL-006"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-EXT-001",
+    "domain": "EXT",
+    "title": "拡張の分離",
+    "statement": "extensionにcapability/threat/resource/migration/test契約を持たせcore保証を黙って変更しない。",
+    "normative": "MUST",
+    "spec": "spec/25-extension-strategy.ja.md",
+    "anchor": "PAR-EXT-001",
+    "gate": "G10",
+    "profile": "common",
+    "test_ids": [
+      "AT-EXT-001"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-EXT-002",
+    "domain": "EXT",
+    "title": "上限の扱い",
+    "statement": "現profileの検証上限を将来の絶対上限とせず、拡大時は独立workloadで再認定する。",
+    "normative": "MUST",
+    "spec": "spec/25-extension-strategy.ja.md",
+    "anchor": "PAR-EXT-002",
+    "gate": "G8",
+    "profile": "common",
+    "test_ids": [
+      "AT-EXT-002"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-EXT-003",
+    "domain": "EXT",
+    "title": "暗号拡張",
+    "statement": "強化暗号profileは復旧/保存との保証衝突と互換migrationを明示する。",
+    "normative": "MUST",
+    "spec": "spec/25-extension-strategy.ja.md",
+    "anchor": "PAR-EXT-003",
+    "gate": "G7",
+    "profile": "common",
+    "test_ids": [
+      "AT-EXT-003"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  },
+  {
+    "id": "PAR-EXT-004",
+    "domain": "EXT",
+    "title": "実験の評価",
+    "statement": "代替技術の採否を依存性/性能/安全性/実装費用の証拠付きADRにする。",
+    "normative": "MUST",
+    "spec": "spec/25-extension-strategy.ja.md",
+    "anchor": "PAR-EXT-004",
+    "gate": "G0",
+    "profile": "common",
+    "test_ids": [
+      "AT-EXT-004"
+    ],
+    "implementation_status": "NOT_STARTED",
+    "evidence_status": "NOT_RUN"
+  }
+]

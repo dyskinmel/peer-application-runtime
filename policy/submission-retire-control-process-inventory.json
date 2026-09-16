@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_retire_control_process.ControlProcess.test_cli_proposal_sign_and_retire",
+    "test_retire_control_process.ControlProcess.test_client_does_not_fallback_to_old_profile",
+    "test_retire_control_process.ControlProcess.test_real_recovery_still_works",
+    "test_retire_control_process.ControlProcess.test_registered_job_survives_and_runs_from_other_client",
+    "test_retire_control_process.ControlProcess.test_separate_process_retires_then_accepts_other_registration",
+    "test_retire_control_process.ControlProcess.test_sigkill_submit_retire_after_payload_sync",
+    "test_retire_control_process.ControlProcess.test_sigkill_submit_retire_after_unlink",
+    "test_retire_control_process.ControlProcess.test_sigkill_submit_retire_before_release",
+    "test_retire_control_process.ControlProcess.test_sigkill_submit_retire_before_unlink",
+    "test_retire_control_process.ControlProcess.test_sigkill_submit_retire_intent_after_sync",
+    "test_retire_control_process.ControlProcess.test_sigkill_submit_retire_removed_after_sync",
+    "test_retire_control_process.ControlProcess.test_sigkill_submit_retire_tombstone_after_sync"
+  ]
+}

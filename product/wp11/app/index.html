@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>PAR · Shared notes</title><link rel="stylesheet" href="./style.css"></head>
+<body><header class="app-header"><strong>PAR</strong><span>Shared notes</span><small>Reference application · 00.30.00</small></header>
+<div class="app-layout"><aside class="app-sidebar"><h2>状態ギャラリー</h2><p>合成データのUI検証用です。共有データへの保存・同期は未接続です。</p>
+<label for="scenario">表示する状態</label><select id="scenario"></select>
+<p class="par-hint">切替時は編集中の内容を確認します。実データは使用しないでください。</p>
+<hr><label for="locale">言語 / Language</label><select id="locale"><option value="ja">日本語</option><option value="en">English</option></select>
+<label for="theme">外観 / Theme</label><select id="theme"><option value="light">ライト</option><option value="dark">ダーク</option></select>
+<label for="direction">表示方向</label><select id="direction"><option value="ltr">左から右</option><option value="rtl">右から左</option></select>
+<details class="vault-settings"><summary>暗号化下書きの鍵</summary><p>保存鍵はこのページやDBに保管しません。別に保管した64桁の鍵で開いてください。紛失すると復号できません。</p>
+<label for="draft-key">保存鍵（64桁の16進数）</label><input id="draft-key" type="password" autocomplete="off" spellcheck="false" maxlength="64"><button id="unlock" type="button">鍵で開く</button><p id="vault-status" role="status"></p></details>
+<p class="par-hint">永続下書きは端末内の別コピーです。ブラウザー側の削除、鍵紛失、本番安全性は保証しません。</p><small>Not production-qualified<br>No remote scripts or telemetry</small></aside>
+<main id="reference-root"></main></div>
+<script type="module" src="./main.mjs"></script></body></html>

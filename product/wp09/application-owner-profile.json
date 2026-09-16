@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "profile": "par-owner-application-0052",
+  "operations": [
+    "observe",
+    "prepare",
+    "dispatch",
+    "inquire",
+    "retire",
+    "abandon",
+    "close"
+  ],
+  "default_operations": [
+    "observe",
+    "inquire",
+    "close"
+  ],
+  "local_experimental_apply_exposed": true,
+  "production_apply_exposed": false,
+  "caller_store_required": true,
+  "prepare_original_before_send": true,
+  "dispatch_marker_before_send": true,
+  "caller_store_single_intent": true,
+  "caller_metadata_encrypted": false,
+  "hardware_rollback_protected": false,
+  "max_channels": 1,
+  "max_workers": 1,
+  "max_request_ms": 120000,
+  "max_client_ms": 60000,
+  "real_core_executed": false,
+  "browser_executed": false,
+  "public_network_executed": false,
+  "automatic_retry": false,
+  "automatic_reconnect": false,
+  "automatic_ack": false,
+  "product_qualified": false,
+  "positive_core_tests": "EXPLICIT_SYNTHETIC_TRANSACTION_CONTRACT",
+  "status": "IMPLEMENTED_REQUIRES_FRESH_LOCAL_VERIFICATION"
+}

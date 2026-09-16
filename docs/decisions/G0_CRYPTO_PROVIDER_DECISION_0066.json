@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "goal": "G0-CRYPTO",
+  "status": "DECISION_REQUIRED",
+  "selected_provider": null,
+  "product_qualified": false,
+  "decision_effort": "EXTRA_HIGH_OR_EQUIVALENT",
+  "baseline": {
+    "head": "f10d514d0bee0f6b7d6de3d4ea54bec41b6eb9a7",
+    "tree": "dcf8d273d05c7280976ae2eae6b781ba7c7a7c11",
+    "sealed_tag": "checkpoint/00.63.01-local-evidence-closure",
+    "source_digest": "d4c0fe78a197ef79939a3d0d0632a1108d752cec114db7ff52859f86383b4210"
+  },
+  "acceptance_ids": [
+    "PAR-ID-001",
+    "PAR-ID-002",
+    "PAR-ID-003",
+    "PAR-ID-004",
+    "PAR-ID-005",
+    "PAR-ID-006",
+    "PAR-CRYPTO-001",
+    "PAR-CRYPTO-002",
+    "PAR-CRYPTO-003",
+    "PAR-CRYPTO-004",
+    "PAR-CRYPTO-005",
+    "PAR-CRYPTO-006"
+  ],
+  "threat_model": {
+    "protected_assets": [
+      "account/device/authority signing keys",
+      "HPKE recipient and epoch secrets",
+      "local encryption keys and plaintext",
+      "signed control/package/envelope integrity",
+      "nonce uniqueness and replay-safe stored ciphertext"
+    ],
+    "adversaries": [
+      "malicious or compromised peer",
+      "tampered wire/store object",
+      "stale or rolled-back local state",
+      "dependency or package substitution",
+      "same-user process compromise is not contained by H0"
+    ],
+    "failure_policy": "FAIL_CLOSED_NO_SILENT_DOWNGRADE",
+    "out_of_scope_until_external_qualification": [
+      "hardware key extraction resistance",
+      "full same-user process isolation",
+      "FS/PCS/anonymity guarantees",
+      "independent protocol security certification"
+    ],
+    "attacker_classes": [
+      "local_attacker",
+      "compromised_process",
+      "stolen_device",
+      "replay_attacker",
+      "network_attacker",
+      "supply_chain_attacker",
+      "rollback_downgrade_attacker"
+    ]
+  },
+  "trust_boundaries": {
+    "provider_binary": "Exact provider image and dependency closure must be identified; file hash alone is not publisher authenticity.",
+    "protocol_context": "Typed domain, app, space, epoch, object and recipient context remain outside primitive trust and must be verified by PAR code.",
+    "authorization": "Valid signatures and HPKE packages do not imply membership/control authorization.",
+    "harness": "Local receipts are integrity-bound evidence, not an independent security attestation.",
+    "platform_keystore": "Hardware/software protection class must be read back on each supported target and may not silently downgrade."
+  },
+  "key_lifecycle": {
+    "role_separation_required": [
+      "account",
+      "device",
+      "transport",
+      "hpke",
+      "local_storage",
+      "authority"
+    ],
+    "restore_rule": "Restored writers use a new actor generation and remain write-disabled until current authority is re-established.",
+    "export_rule": "Data exports do not carry plaintext recovery secrets; secret display/copy is a separate consented operation.",
+    "rotation_rule": "Compromise response must support key replacement and data evacuation without reviving stale authority.",
+    "stages": [
+      "generation",
+      "entropy",
+      "storage",
+      "wrapping",
+      "loading",
+      "use",
+      "rotation",
+      "expiration",
+      "revocation",
+      "backup_recovery",
+      "destruction"
+    ]
+  },
+  "randomness_and_nonce": {
+    "rng": "OS CSPRNG only; RNG failure aborts the write.",
+    "nonce": "Persist reservation before encryption when uniqueness is stateful; never reuse an abandoned nonce.",
+    "retry": "After commit uncertainty, query by stable operation ID and reuse stored ciphertext rather than re-encrypting.",
+    "test_determinism": "Deterministic randomness is allowed only in explicit KAT/test paths."
+  },
+  "serialization_and_migration": {
+    "canonical_context": "Existing typed canonical encoding and domain separation remain authoritative.",
+    "ciphertext_compatibility": "A provider replacement must preserve the frozen PAR suite bytes or ship an explicit versioned migration profile.",
+    "no_resign_unknown": "Unknown semantic fields or suites are preserved/rejected according to compatibility rules and are never stripped and re-signed.",
+    "migration": "Dual-read/single-write migration requires exact suite/provider generation metadata and rollback-safe checkpoints before activation."
+  },
+  "supply_chain": {
+    "requirements": [
+      "reviewed upstream/release identity",
+      "exact source or binary digest",
+      "license and redistribution review",
+      "dependency closure/SBOM",
+      "reproducible or independently cross-checked build where practical",
+      "known-vulnerability and maintenance review at decision time",
+      "no runtime auto-download or auto-fallback"
+    ],
+    "current_legacy_provider": {
+      "name": "libsodium-ctypes-local-candidate",
+      "version": "1.0.18",
+      "status": "EXPERIMENT_ONLY",
+      "security_qualified": false
+    }
+  },
+  "platform_key_protection": {
+    "required_targets": [
+      "macOS",
+      "Windows",
+      "iOS",
+      "Android",
+      "server/native host"
+    ],
+    "rule": "Report the actually verified protection class; hardware-backed claims require target readback/evidence and no silent software fallback.",
+    "current_status": "UNVERIFIED_FOR_NATIVE_FOUNDATION"
+  },
+  "provider_admission": {
+    "module": "experiments/g0-crypto/par_crypto/admission.py",
+    "legacy_provider_status": "EXPERIMENT_ONLY",
+    "native_review_status": "REVIEW_CANDIDATE_ONLY",
+    "security_qualification_source": "INDEPENDENT_EVIDENCE_NOT_PROVIDER_SELF_DECLARATION",
+    "auto_fallback": "FORBIDDEN"
+  },
+  "candidate_families": [
+    {
+      "id": "MAINTAINED_LIBSODIUM_PLUS_REVIEWED_HPKE",
+      "status": "RESEARCH_REQUIRED",
+      "reason": "Minimizes change to existing Ed25519/X25519/XChaCha paths but still needs a maintained provider image, strict-vector review, dependency closure and a separately reviewed HPKE implementation."
+    },
+    {
+      "id": "RUST_NATIVE_CRYPTO_STACK",
+      "status": "RESEARCH_REQUIRED",
+      "reason": "Could unify native wrappers and HPKE in the Rust lane, but exact crates, audit history, interoperability and FFI/key-lifecycle costs must be reviewed before selection."
+    },
+    {
+      "id": "PLATFORM_KEYSTORE_HYBRID",
+      "status": "RESEARCH_REQUIRED",
+      "reason": "May improve device key protection but cannot be assumed to implement the complete frozen PAR primitive suite consistently across platforms."
+    }
+  ],
+  "required_security_evidence": [
+    "maintained provider release/source/binary identity and dependency closure",
+    "public primitive KATs plus strict malformed/non-canonical/low-order reject corpus",
+    "independent HPKE interoperability vectors",
+    "nonce/store crash and retry integration",
+    "control-chain and real CRDT trust-boundary integration",
+    "target key-protection class readback",
+    "supply-chain/license/SBOM review",
+    "independent security review before product promotion"
+  ],
+  "stop_conditions": [
+    "provider choice would change the frozen wire/ciphertext format without an approved migration",
+    "provider requires silent algorithm or implementation fallback",
+    "dependency closure or maintenance status cannot be established",
+    "key-protection class cannot be observed and downgrade would be silent",
+    "security qualification relies only on provider self-declaration or local tests",
+    "legacy libsodium 1.0.18 would be promoted beyond disposable experiment scope"
+  ],
+  "provider_evaluation_matrix": {
+    "status": "DECISION_REQUIRED",
+    "selection_rule": "NO_SELECTION_WITH_UNKNOWN_REQUIRED_FIELD_OR_WITHOUT_INDEPENDENT_SECURITY_REVIEW",
+    "required_fields": [
+      "maintenance_status",
+      "primitives",
+      "platform_support",
+      "certification",
+      "os_integration",
+      "key_protection",
+      "supply_chain_footprint",
+      "dependency_count",
+      "release_cadence",
+      "vulnerability_history",
+      "api_stability",
+      "migration_difficulty",
+      "testing_strategy",
+      "license",
+      "reproducibility",
+      "decision"
+    ],
+    "candidates": [
+      {
+        "id": "MAINTAINED_LIBSODIUM_PLUS_REVIEWED_HPKE",
+        "maintenance_status": "RESEARCH_REQUIRED",
+        "primitives": "RESEARCH_REQUIRED",
+        "platform_support": "RESEARCH_REQUIRED",
+        "certification": "NOT_REQUIRED_UNLESS_PROFILE_DEMANDS",
+        "os_integration": "RESEARCH_REQUIRED",
+        "key_protection": "RESEARCH_REQUIRED",
+        "supply_chain_footprint": "RESEARCH_REQUIRED",
+        "dependency_count": "RESEARCH_REQUIRED",
+        "release_cadence": "RESEARCH_REQUIRED",
+        "vulnerability_history": "RESEARCH_REQUIRED",
+        "api_stability": "RESEARCH_REQUIRED",
+        "migration_difficulty": "RESEARCH_REQUIRED",
+        "testing_strategy": "STRICT_KAT_INTEROP_NEGATIVE_FAULT",
+        "license": "REVIEW_REQUIRED",
+        "reproducibility": "REVIEW_REQUIRED",
+        "decision": "NOT_SELECTED",
+        "rationale": "Minimizes change to existing Ed25519/X25519/XChaCha paths but still needs a maintained provider image, strict-vector review, dependency closure and a separately reviewed HPKE implementation."
+      },
+      {
+        "id": "RUST_NATIVE_CRYPTO_STACK",
+        "maintenance_status": "RESEARCH_REQUIRED",
+        "primitives": "RESEARCH_REQUIRED",
+        "platform_support": "RESEARCH_REQUIRED",
+        "certification": "NOT_REQUIRED_UNLESS_PROFILE_DEMANDS",
+        "os_integration": "RESEARCH_REQUIRED",
+        "key_protection": "RESEARCH_REQUIRED",
+        "supply_chain_footprint": "RESEARCH_REQUIRED",
+        "dependency_count": "RESEARCH_REQUIRED",
+        "release_cadence": "RESEARCH_REQUIRED",
+        "vulnerability_history": "RESEARCH_REQUIRED",
+        "api_stability": "RESEARCH_REQUIRED",
+        "migration_difficulty": "RESEARCH_REQUIRED",
+        "testing_strategy": "STRICT_KAT_INTEROP_NEGATIVE_FAULT",
+        "license": "REVIEW_REQUIRED",
+        "reproducibility": "REVIEW_REQUIRED",
+        "decision": "NOT_SELECTED",
+        "rationale": "Could unify native wrappers and HPKE in the Rust lane, but exact crates, audit history, interoperability and FFI/key-lifecycle costs must be reviewed before selection."
+      },
+      {
+        "id": "PLATFORM_KEYSTORE_HYBRID",
+        "maintenance_status": "RESEARCH_REQUIRED",
+        "primitives": "RESEARCH_REQUIRED",
+        "platform_support": "RESEARCH_REQUIRED",
+        "certification": "NOT_REQUIRED_UNLESS_PROFILE_DEMANDS",
+        "os_integration": "RESEARCH_REQUIRED",
+        "key_protection": "RESEARCH_REQUIRED",
+        "supply_chain_footprint": "RESEARCH_REQUIRED",
+        "dependency_count": "RESEARCH_REQUIRED",
+        "release_cadence": "RESEARCH_REQUIRED",
+        "vulnerability_history": "RESEARCH_REQUIRED",
+        "api_stability": "RESEARCH_REQUIRED",
+        "migration_difficulty": "RESEARCH_REQUIRED",
+        "testing_strategy": "STRICT_KAT_INTEROP_NEGATIVE_FAULT",
+        "license": "REVIEW_REQUIRED",
+        "reproducibility": "REVIEW_REQUIRED",
+        "decision": "NOT_SELECTED",
+        "rationale": "May improve device key protection but cannot be assumed to implement the complete frozen PAR primitive suite consistently across platforms."
+      }
+    ],
+    "selected_provider": null
+  }
+}

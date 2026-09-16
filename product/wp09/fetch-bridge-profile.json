@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "profile": "par-fetch-bridge-local-0046",
+  "dependency_planning": "OBSERVED_FRONTIER_EXPLICIT_ROUNDS_NOT_UNSEEN_TRANSITIVE_CLOSURE",
+  "application_contract_group": "SYNTHETIC_MATERIALIZER_ONLY_NOT_REAL_CORE",
+  "real_core_executed": false,
+  "real_browser_executed": false,
+  "automatic_apply": false,
+  "automatic_retry": false,
+  "automatic_ack": false,
+  "public_network_executed": false,
+  "production_ready": false,
+  "independent_review": "NOT_RUN",
+  "new_cases": 110,
+  "original_intent_latch": "VOLATILE_OWNER_MUST_PERSIST_AND_INQUIRE_AFTER_RESTART",
+  "wire_changed": false,
+  "store_schema_changed": false,
+  "ui_integration": "INDEPENDENT_DOM_STATUS_COMPONENT_WITH_INJECTED_OWNER_READ_PORT"
+}

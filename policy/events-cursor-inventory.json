@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_events.CursorTests.test_ack_advances_only_delivered",
+    "test_events.CursorTests.test_active_duplicate_subscriber_refused",
+    "test_events.CursorTests.test_authority_pending_blocks_read",
+    "test_events.CursorTests.test_backpressure_never_skips",
+    "test_events.CursorTests.test_cancel_is_idempotent",
+    "test_events.CursorTests.test_cancel_then_resubscribe_redelivers",
+    "test_events.CursorTests.test_cross_subscriber_ack",
+    "test_events.CursorTests.test_cursor_pin_export_and_reopen",
+    "test_events.CursorTests.test_cursor_pin_other_consumer_refused",
+    "test_events.CursorTests.test_duplicate_ack",
+    "test_events.CursorTests.test_empty_poll_no_ack",
+    "test_events.CursorTests.test_old_delivery_ack_refused_after_restart",
+    "test_events.CursorTests.test_poll_does_not_ack",
+    "test_events.CursorTests.test_reopen_keeps_acked",
+    "test_events.CursorTests.test_reopen_redelivers_unacked",
+    "test_events.CursorTests.test_stale_authority_invalidates_delivery",
+    "test_events.CursorTests.test_tampered_ack",
+    "test_events.CursorTests.test_too_small_byte_window_no_advance"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "materializer.contract.actor",
+    "materializer.contract.actor_slot",
+    "materializer.contract.bad_bytes",
+    "materializer.contract.branch_frontier",
+    "materializer.contract.compressed",
+    "materializer.contract.deps_missing",
+    "materializer.contract.duplicate",
+    "materializer.contract.empty",
+    "materializer.contract.extra",
+    "materializer.contract.heads_duplicate",
+    "materializer.contract.heads_missing",
+    "materializer.contract.inner_hash",
+    "materializer.contract.oversized",
+    "materializer.contract.profile",
+    "materializer.contract.sequence_boolean",
+    "materializer.contract.sequence_leading_zero",
+    "materializer.contract.sequence_numeric",
+    "materializer.contract.unknown_descriptor",
+    "materializer.contract.valid_shape"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_events_hardening.HardeningTests.test_ack_after_commit_unknown_is_stored",
+    "test_events_hardening.HardeningTests.test_ack_write_failure_reopen_redelivers",
+    "test_events_hardening.HardeningTests.test_acknowledged_cursor_rollback_detected_immediately",
+    "test_events_hardening.HardeningTests.test_after_encrypt_failure_redacted",
+    "test_events_hardening.HardeningTests.test_byte_capacity_no_nonce",
+    "test_events_hardening.HardeningTests.test_commit_then_deleted_event_is_unknown",
+    "test_events_hardening.HardeningTests.test_consumer_capacity",
+    "test_events_hardening.HardeningTests.test_directory_permissions_checked_each_call",
+    "test_events_hardening.HardeningTests.test_event_payload_nested_objects_refused",
+    "test_events_hardening.HardeningTests.test_getitem_side_effect_subclass_refused",
+    "test_events_hardening.HardeningTests.test_guard_change_after_poll_has_no_ack",
+    "test_events_hardening.HardeningTests.test_nonce_operation_tamper_detected",
+    "test_events_hardening.HardeningTests.test_poll_result_immutable",
+    "test_events_hardening.HardeningTests.test_presence_payload_schema_not_event_injection",
+    "test_events_hardening.HardeningTests.test_real_database_lock_refused",
+    "test_events_hardening.HardeningTests.test_real_sqlite_full",
+    "test_events_hardening.HardeningTests.test_reentrant_publish_refused",
+    "test_events_hardening.HardeningTests.test_removed_unused_nonce_is_detected",
+    "test_events_hardening.HardeningTests.test_replaced_database_path",
+    "test_events_hardening.HardeningTests.test_schema_types_int_bool_bytes",
+    "test_events_hardening.HardeningTests.test_uint64_max"
+  ]
+}

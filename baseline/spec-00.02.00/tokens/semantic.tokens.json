@@ -1,0 +1,82 @@
+{
+  "semantic": {
+    "surface": {
+      "canvas": {
+        "$type": "color",
+        "$value": "{base.color.paper}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{base.color.mist}"
+      }
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.ink}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{base.color.slate}"
+      }
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "{base.color.blue}"
+    },
+    "critical": {
+      "$type": "color",
+      "$value": "{base.color.red}"
+    },
+    "warning": {
+      "$type": "color",
+      "$value": "{base.color.amber}"
+    },
+    "information": {
+      "$type": "color",
+      "$value": "{base.color.blue}"
+    },
+    "protection": {
+      "$type": "color",
+      "$value": "{base.color.green}"
+    },
+    "gap": {
+      "normal": {
+        "$type": "dimension",
+        "$value": "{base.space.s16}"
+      }
+    },
+    "motion": {
+      "$type": "duration",
+      "$value": "{base.motion.normal}"
+    }
+  },
+  "component": {
+    "status": {
+      "text": {
+        "$type": "color",
+        "$value": "{semantic.text.primary}"
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{base.space.s8}"
+      }
+    },
+    "confirmation": {
+      "risk": {
+        "$type": "color",
+        "$value": "{semantic.critical}"
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "{base.space.s24}"
+      }
+    },
+    "recovery": {
+      "progress": {
+        "$type": "color",
+        "$value": "{semantic.information}"
+      }
+    }
+  }
+}

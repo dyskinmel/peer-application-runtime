@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submission_retire_host.RetirementHostTests.test_context_is_still_registration_only",
+    "test_submission_retire_host.RetirementHostTests.test_data_socket_activity_unchanged",
+    "test_submission_retire_host.RetirementHostTests.test_in_progress_connection_cannot_resurrect",
+    "test_submission_retire_host.RetirementHostTests.test_new_delete_method_not_exposed",
+    "test_submission_retire_host.RetirementHostTests.test_registered_job_can_be_selected_after_payload_retirement",
+    "test_submission_retire_host.RetirementHostTests.test_registration_after_retirement_on_same_socket",
+    "test_submission_retire_host.RetirementHostTests.test_restart_preserves_refusal",
+    "test_submission_retire_host.RetirementHostTests.test_retired_descriptor_refused_over_socket"
+  ]
+}

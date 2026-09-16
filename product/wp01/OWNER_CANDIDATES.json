@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "work_package": "WP-01",
+  "owner_task": "L-WP01",
+  "candidate_tasks": [
+    "G0-WIRE-LOCAL",
+    "G0-CRYPTO-LOCAL"
+  ],
+  "residual_nonclaims": [
+    "Rust/native codec interoperation",
+    "real Automerge actor extraction",
+    "independent CDDL/security qualification"
+  ],
+  "candidate_checks": [
+    "crypto-hpke",
+    "crypto-interop",
+    "crypto-objects",
+    "crypto-primitives",
+    "crypto-store",
+    "wire-node",
+    "wire-python"
+  ],
+  "evidence_mode": "REFERENCE_EXISTING_CANDIDATES_NO_CODE_COPY"
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submission_retire_audit.RetirementAudit.test_approval_chain_limit",
+    "test_submission_retire_audit.RetirementAudit.test_changed_confirmed_prefix_blocks_intent",
+    "test_submission_retire_audit.RetirementAudit.test_fsync_failure_poisoned_until_reopen",
+    "test_submission_retire_audit.RetirementAudit.test_hardlink_not_unlinked",
+    "test_submission_retire_audit.RetirementAudit.test_known_pin_detects_lost_terminal_record_for_empty_payload",
+    "test_submission_retire_audit.RetirementAudit.test_known_retirement_record_missing",
+    "test_submission_retire_audit.RetirementAudit.test_known_stage_missing",
+    "test_submission_retire_audit.RetirementAudit.test_lost_result_after_tombstone_is_idempotent",
+    "test_submission_retire_audit.RetirementAudit.test_missing_registered_job_refused",
+    "test_submission_retire_audit.RetirementAudit.test_pin_allows_forward_retirement",
+    "test_submission_retire_audit.RetirementAudit.test_pin_detects_missing_whole_record_pair",
+    "test_submission_retire_audit.RetirementAudit.test_pin_phase_bool_is_rejected",
+    "test_submission_retire_audit.RetirementAudit.test_reappeared_payload_not_deleted_on_duplicate",
+    "test_submission_retire_audit.RetirementAudit.test_rebind_cannot_change_target",
+    "test_submission_retire_audit.RetirementAudit.test_reconcile_rejects_unstarted_stage",
+    "test_submission_retire_audit.RetirementAudit.test_registered_job_corruption_after_retirement",
+    "test_submission_retire_audit.RetirementAudit.test_replaced_inode_blocks_delete",
+    "test_submission_retire_audit.RetirementAudit.test_retired_record_still_consumes_record_slot",
+    "test_submission_retire_audit.RetirementAudit.test_rotation_after_unlink_rebinds_without_recreation",
+    "test_submission_retire_audit.RetirementAudit.test_signed_record_byte_flip",
+    "test_submission_retire_audit.RetirementAudit.test_symlink_not_followed",
+    "test_submission_retire_audit.RetirementAudit.test_unacknowledged_tail_accounted_as_observed_bytes",
+    "test_submission_retire_audit.RetirementAudit.test_unknown_file_rejected",
+    "test_submission_retire_audit.RetirementAudit.test_unlink_failure_does_not_release_quota",
+    "test_submission_retire_audit.RetirementAudit.test_wrong_thread_does_not_close_store"
+  ]
+}

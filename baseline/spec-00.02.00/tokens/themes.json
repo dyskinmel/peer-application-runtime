@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "PROVISIONAL",
+  "resolution": "merge base.tokens + semantic.tokens, then replace listed token $value; resolve aliases after merge",
+  "modes": {
+    "light": {},
+    "dark": {
+      "semantic.surface.canvas": "{base.color.charcoal}",
+      "semantic.surface.secondary": "{base.color.ink}",
+      "semantic.text.primary": "{base.color.pale}",
+      "semantic.text.secondary": "{base.color.pale}",
+      "semantic.focus": "{base.color.blueLight}",
+      "semantic.information": "{base.color.blueLight}",
+      "semantic.critical": "{base.color.redLight}",
+      "semantic.warning": "{base.color.amberLight}",
+      "semantic.protection": "{base.color.greenLight}"
+    },
+    "high-contrast": {
+      "semantic.surface.canvas": "{base.color.black}",
+      "semantic.surface.secondary": "{base.color.black}",
+      "semantic.text.primary": "{base.color.paper}",
+      "semantic.text.secondary": "{base.color.paper}",
+      "semantic.focus": "{base.color.yellow}",
+      "semantic.critical": "{base.color.paper}",
+      "semantic.warning": "{base.color.paper}",
+      "semantic.information": "{base.color.paper}",
+      "semantic.protection": "{base.color.paper}"
+    }
+  },
+  "density": {
+    "comfortable": {
+      "semantic.gap.normal": "{base.space.s16}"
+    },
+    "compact": {
+      "semantic.gap.normal": "{base.space.s8}"
+    }
+  },
+  "motion": {
+    "full": {},
+    "reduced": {
+      "semantic.motion": "{base.motion.none}"
+    }
+  }
+}

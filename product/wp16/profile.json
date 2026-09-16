@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "component": "qualification-closure-local",
+  "scope": "LOCAL_FAIL_CLOSED_CLAIM_EVALUATOR_NOT_PRODUCT_QUALIFICATION",
+  "product_qualified": false,
+  "external_promotion_required": true,
+  "covered_acceptance_ids": [
+    "AT-QUAL-001",
+    "AT-QUAL-002",
+    "AT-QUAL-003",
+    "AT-QUAL-005",
+    "AT-QUAL-006",
+    "AT-EXT-001",
+    "AT-EXT-002",
+    "AT-EXT-003"
+  ],
+  "not_claimed": [
+    "AT-QUAL-004 real M1 recovery oracle",
+    "AT-EXT-004 comparative external technology experiment",
+    "external service outage",
+    "release artifact reacquisition",
+    "independent review",
+    "native/device qualification",
+    "G11 production qualification"
+  ]
+}

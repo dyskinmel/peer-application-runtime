@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_auth_admission.AdmissionTests.test_admission_context_0",
+    "test_auth_admission.AdmissionTests.test_admission_context_1",
+    "test_auth_admission.AdmissionTests.test_admission_context_2",
+    "test_auth_admission.AdmissionTests.test_admission_context_3",
+    "test_auth_admission.AdmissionTests.test_admission_context_4",
+    "test_auth_admission.AdmissionTests.test_admission_context_6",
+    "test_auth_admission.AdmissionTests.test_admission_is_not_membership",
+    "test_auth_admission.AdmissionTests.test_admission_tampered_signature",
+    "test_auth_admission.AdmissionTests.test_admission_wrong_trusted_owner",
+    "test_auth_admission.AdmissionTests.test_create_wrong_device_secret",
+    "test_auth_admission.AdmissionTests.test_issue_wrong_owner",
+    "test_auth_admission.AdmissionTests.test_join_duplicate_not_global_once_claim",
+    "test_auth_admission.AdmissionTests.test_minimum_sequence_cannot_be_zero",
+    "test_auth_admission.AdmissionTests.test_opaque_keeper_request_allowed_not_read_grant",
+    "test_auth_admission.AdmissionTests.test_request_app_mismatch",
+    "test_auth_admission.AdmissionTests.test_request_certificate_substitution",
+    "test_auth_admission.AdmissionTests.test_request_nonce_mismatch",
+    "test_auth_admission.AdmissionTests.test_request_proves_device_only",
+    "test_auth_admission.AdmissionTests.test_request_role_mismatch",
+    "test_auth_admission.AdmissionTests.test_request_signature_required",
+    "test_auth_admission.AdmissionTests.test_request_space_mismatch"
+  ]
+}

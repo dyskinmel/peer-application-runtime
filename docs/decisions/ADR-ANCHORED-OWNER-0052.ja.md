@@ -1,0 +1,5 @@
+# ADR: anchor付き適用の私有owner capability（候補）
+継続承認された00.51次工程のlocal overlay。baseline仕様と既存0049操作集合は不変。
+別profile `par-owner-application-0052` をownerが接続済みAF_UNIX fdへ明示付与する。JSON自体は権限ではない。変化する認可は既存controller/DocumentApplierへ委譲する。
+準備はcallerの元ID永続保存後のみ、実行はcallerの一度きりdispatch markerとownerのanchor保存後のみ。復旧は同じIDの照会であり自動実行ではない。失敗/不在/期限/取消しはlatchを消さない。初回OS-safe provider認定は実施しておらずmutating grantは明示local_experiment時のみ。
+read-only既定権限と同時worker1件。coordinator/journal/pinの寿命はembedding所有、owner.close後にcleanupCompleteを確認して閉じる。

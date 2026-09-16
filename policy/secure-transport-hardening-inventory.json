@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_tls_hardening.HardeningTests.test_absolute_deadline_not_extended_by_frame_boundaries",
+    "test_tls_hardening.HardeningTests.test_close_cancellation_does_not_orphan_waiter",
+    "test_tls_hardening.HardeningTests.test_close_timeout_does_not_orphan_waiter",
+    "test_tls_hardening.HardeningTests.test_missing_client_certificate_rejected",
+    "test_tls_hardening.HardeningTests.test_no_alpn_rejected",
+    "test_tls_hardening.HardeningTests.test_tls12_downgrade_rejected",
+    "test_tls_hardening.HardeningTests.test_too_small_chunk_rejected_at_configuration",
+    "test_tls_hardening.HardeningTests.test_wrong_alpn_rejected"
+  ]
+}

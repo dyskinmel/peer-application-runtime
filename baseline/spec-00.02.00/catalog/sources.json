@@ -1,0 +1,235 @@
+[
+  {
+    "id": "S01",
+    "title": "Automerge — core / concepts / conflicts",
+    "urls": [
+      "https://github.com/automerge/automerge",
+      "https://automerge.org/docs/reference/concepts/",
+      "https://automerge.org/docs/reference/documents/conflicts/"
+    ],
+    "use": "CRDT文書/競合の既存機構。PARの認可・復旧・署名wrapperは本仕様の新規設計。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S02",
+    "title": "libp2p — hole punching",
+    "urls": [
+      "https://libp2p.io/docs/hole-punching/"
+    ],
+    "use": "到達性確認とrelay-assisted hole punching。任意NATでの成功保証としない。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S03",
+    "title": "Automerge — Modeling Data",
+    "urls": [
+      "https://automerge.org/docs/cookbook/modeling-data/"
+    ],
+    "use": "共通初期履歴/identityの注意。epoch seedを一度作り配布する設計への参照。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S04",
+    "title": "RFC 9180 — HPKE",
+    "urls": [
+      "https://www.rfc-editor.org/rfc/rfc9180.html"
+    ],
+    "use": "HPKE algorithms/encoding。base modeの採用と外部署名の組合せはPAR側責務。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S05",
+    "title": "RFC 8032 — EdDSA",
+    "urls": [
+      "https://www.rfc-editor.org/rfc/rfc8032.html"
+    ],
+    "use": "Ed25519と公開known-answer vector。strict受理の実装一致は別試験。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S06",
+    "title": "RFC 5869 — HKDF",
+    "urls": [
+      "https://www.rfc-editor.org/rfc/rfc5869.html"
+    ],
+    "use": "HKDF-SHA256と公開known-answer vector。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S07",
+    "title": "libsodium — XChaCha20-Poly1305",
+    "urls": [
+      "https://libsodium.gitbook.io/doc/secret-key_cryptography/aead/chacha20-poly1305/xchacha20-poly1305_construction"
+    ],
+    "use": "24-byte nonce型AEAD。暗号primitive仕様とPAR組合せレビューは別。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S08",
+    "title": "RFC 9420 — Messaging Layer Security",
+    "urls": [
+      "https://www.rfc-editor.org/rfc/rfc9420.html"
+    ],
+    "use": "将来のgroup security profile。基本PARでMLS/FS/PCSを実装済みとしない。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S09",
+    "title": "RFC 8949 — CBOR",
+    "urls": [
+      "https://www.rfc-editor.org/rfc/rfc8949.html"
+    ],
+    "use": "core deterministic encodingに独自の制限subsetを重ねる。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S10",
+    "title": "RFC 8610 — CDDL",
+    "urls": [
+      "https://www.rfc-editor.org/rfc/rfc8610.html"
+    ],
+    "use": "構造記述言語。署名/認可/意味的検証は表現外の追加契約。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S11",
+    "title": "SQLite — WAL and PRAGMA",
+    "urls": [
+      "https://www.sqlite.org/wal.html",
+      "https://sqlite.org/pragma.html"
+    ],
+    "use": "WAL/FULLと接続設定。flush実装/媒体前提を別記。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S12",
+    "title": "SQLite — Atomic Commit",
+    "urls": [
+      "https://sqlite.org/atomiccommit.html"
+    ],
+    "use": "crash/durable filesystem前提。プロセス停止と電源断を区別。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S13",
+    "title": "Apple — Background Execution",
+    "urls": [
+      "https://developer.apple.com/documentation/uikit/extending-your-app-s-background-execution-time",
+      "https://developer.apple.com/documentation/backgroundtasks"
+    ],
+    "use": "mobile lifecycle制約。具体的OS上のqualificationは未実施。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S14",
+    "title": "Android — Doze and App Standby",
+    "urls": [
+      "https://developer.android.com/training/monitoring-device-state/doze-standby"
+    ],
+    "use": "background/network制約。常時サーバーとしてスマートフォンを扱わない。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S15",
+    "title": "W3C — Indexed Database API",
+    "urls": [
+      "https://www.w3.org/TR/IndexedDB/"
+    ],
+    "use": "transaction API。ブラウザー保存の永続性保証はhost仕様/実機で分離。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S16",
+    "title": "W3C — WCAG 2.2",
+    "urls": [
+      "https://www.w3.org/TR/WCAG22/"
+    ],
+    "use": "Web UIのAA目標。nativeは相当するOS accessibilityも試験。準拠認定未実施。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S17",
+    "title": "DTCG — Format Module 2025.10",
+    "urls": [
+      "https://www.designtokens.org/TR/2025.10/format/"
+    ],
+    "use": "stable community specification。W3C Standardではない。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S18",
+    "title": "SLSA v1.2",
+    "urls": [
+      "https://slsa.dev/spec/v1.2/",
+      "https://slsa.dev/spec/v1.2/build-requirements"
+    ],
+    "use": "build provenance/release工程の参照。SLSA level取得を主張しない。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S19",
+    "title": "The Update Framework",
+    "urls": [
+      "https://theupdateframework.io/docs/security/",
+      "https://github.com/theupdateframework/specification/blob/master/tuf-spec.md"
+    ],
+    "use": "更新のrollback/freeze/root鍵脅威。auto-updateは任意host機能。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S20",
+    "title": "NIST SP 800-218 — SSDF 1.1 final",
+    "urls": [
+      "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "https://csrc.nist.gov/pubs/sp/800/218/r1/ipd"
+    ],
+    "use": "final版を工程参考とする。revision draftを最終標準と扱わない。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S21",
+    "title": "W3C — Web Cryptography Level 2",
+    "urls": [
+      "https://www.w3.org/TR/webcrypto-2/"
+    ],
+    "use": "脅威モデルを参照。draft文書のstatusと、script origin侵害の限界を区別。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S22",
+    "title": "Automerge Swift — TextEncoding",
+    "urls": [
+      "https://automerge.org/automerge-swift/documentation/automerge/textencoding/",
+      "https://unicode.org/faq/utf_bom.html"
+    ],
+    "use": "UTF-8/UTF-16/Unicode scalarのindex差。PAR公開offset契約は明示化。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S23",
+    "title": "Apache License 2.0",
+    "urls": [
+      "https://www.apache.org/licenses/LICENSE-2.0"
+    ],
+    "use": "推奨ライセンス。第三者依存の条件は別確認。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S24",
+    "title": "Mozilla — UniFFI",
+    "urls": [
+      "https://mozilla.github.io/uniffi-rs/latest/"
+    ],
+    "use": "Swift/Kotlin binding選択肢。runtime/lifecycleの適合証明ではない。",
+    "checked_date": "2026-09-05"
+  },
+  {
+    "id": "S25",
+    "title": "libp2p — WebRTC browser connectivity",
+    "urls": [
+      "https://libp2p.io/docs/webrtc-browser-connectivity/"
+    ],
+    "use": "browserとnative transportの差を考慮。全組合せの実接続は未実施。",
+    "checked_date": "2026-09-05"
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "scope": "LOCAL_CONTRACTS_ONLY_REAL_SEMANTICS_SIMULATED",
+  "requirements": [
+    {
+      "requirement": "PAR-UX-001",
+      "tests": [
+        "application.observation.application_is_not_commit_receipt",
+        "application.observation.candidate_body_hidden"
+      ],
+      "requirement_complete": false
+    },
+    {
+      "requirement": "PAR-UX-004",
+      "tests": [
+        "application.observation.close_clears_text_and_stops_future_calls",
+        "application.observation.error_clears_text_and_does_not_auto_retry"
+      ],
+      "requirement_complete": false
+    },
+    {
+      "requirement": "PAR-DATA-001",
+      "tests": [
+        "test_application_observation.ApplicationObservationTests.test_candidate_is_persisted_but_never_exposes_plaintext",
+        "test_application_observation.ApplicationObservationTests.test_multiple_application_replay_reconstructs_original_order"
+      ],
+      "requirement_complete": false
+    },
+    {
+      "requirement": "PAR-SYNC-001",
+      "tests": [
+        "test_application_observation.ApplicationObservationTests.test_fixed_scope_mutation_rejected",
+        "application.observation.frontier_regression_refused"
+      ],
+      "requirement_complete": false
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_snapshot_host.SnapshotLiveState.test_database_authority_mismatch_rejected",
+    "test_snapshot_host.SnapshotLiveState.test_foreign_observer_cannot_clear_owner_snapshot",
+    "test_snapshot_host.SnapshotLiveState.test_gatekeeper_provider_mismatch_rejected",
+    "test_snapshot_host.SnapshotLiveState.test_missing_warm_archive_rejected",
+    "test_snapshot_host.SnapshotLiveState.test_mutation_result_equal_in_full_and_cached",
+    "test_snapshot_host.SnapshotLiveState.test_poisoned_gateway_refused",
+    "test_snapshot_host.SnapshotLiveState.test_same_mtime_binding_mutation_rejected",
+    "test_snapshot_host.SnapshotLiveState.test_same_mtime_state_mutation_rejected",
+    "test_snapshot_host.SnapshotLiveState.test_scope_change_discards_signatures",
+    "test_snapshot_host.SnapshotLiveState.test_scope_failure_keeps_state_checks",
+    "test_snapshot_host.SnapshotLiveState.test_scope_unchanged_does_not_imply_authorized",
+    "test_snapshot_host.SnapshotLiveState.test_signed_wrong_state_semantics_still_rejected",
+    "test_snapshot_host.SnapshotLiveState.test_warm_archive_replacement_rejected",
+    "test_snapshot_host.SnapshotLiveState.test_warm_stamp_reuses_crypto_but_rechecks_bytes",
+    "test_snapshot_host.SnapshotLiveState.test_window_scope_change_discards"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_auth_membership.MembershipTests.test_65_entries_page_boundary",
+    "test_auth_membership.MembershipTests.test_bad_member_bool_role",
+    "test_auth_membership.MembershipTests.test_bad_member_extra",
+    "test_auth_membership.MembershipTests.test_bad_member_missing",
+    "test_auth_membership.MembershipTests.test_bad_member_short_cert",
+    "test_auth_membership.MembershipTests.test_bad_member_short_device",
+    "test_auth_membership.MembershipTests.test_bad_member_unknown_role",
+    "test_auth_membership.MembershipTests.test_builder_is_canonical",
+    "test_auth_membership.MembershipTests.test_certificate_not_member",
+    "test_auth_membership.MembershipTests.test_certificate_reissue_not_silent",
+    "test_auth_membership.MembershipTests.test_certificate_signature_required_even_when_digest_matches",
+    "test_auth_membership.MembershipTests.test_certificate_wrong_device_digest",
+    "test_auth_membership.MembershipTests.test_complete_root",
+    "test_auth_membership.MembershipTests.test_content_projection_excludes_keeper",
+    "test_auth_membership.MembershipTests.test_duplicate_member",
+    "test_auth_membership.MembershipTests.test_empty_membership",
+    "test_auth_membership.MembershipTests.test_empty_page_not_alternate_empty_root",
+    "test_auth_membership.MembershipTests.test_member_immutable",
+    "test_auth_membership.MembershipTests.test_member_limit",
+    "test_auth_membership.MembershipTests.test_missing_page",
+    "test_auth_membership.MembershipTests.test_short_nonfinal_page",
+    "test_auth_membership.MembershipTests.test_swapped_pages_rejected",
+    "test_auth_membership.MembershipTests.test_unsorted_members",
+    "test_auth_membership.MembershipTests.test_valid_certificate_bound",
+    "test_auth_membership.MembershipTests.test_view_no_alias_to_input",
+    "test_auth_membership.MembershipTests.test_wrong_root"
+  ]
+}

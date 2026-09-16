@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_retire_control_socket.SocketTests.test_capacity_limit_rejects_extra_connection_not_other_clients",
+    "test_retire_control_socket.SocketTests.test_connection_is_not_counted_as_data_transfer",
+    "test_retire_control_socket.SocketTests.test_data_connection_still_counted",
+    "test_retire_control_socket.SocketTests.test_inflight_reconcile_does_not_register",
+    "test_retire_control_socket.SocketTests.test_legacy_registration_unchanged",
+    "test_retire_control_socket.SocketTests.test_mutation_error_after_dispatch_is_uncertain",
+    "test_retire_control_socket.SocketTests.test_new_controller_can_rebind_same_target",
+    "test_retire_control_socket.SocketTests.test_no_fifth_socket",
+    "test_retire_control_socket.SocketTests.test_old_connection_after_rotation_rejected",
+    "test_retire_control_socket.SocketTests.test_old_registration_connection_cannot_resurrect_after_retirement",
+    "test_retire_control_socket.SocketTests.test_other_descriptor_cannot_be_probed",
+    "test_retire_control_socket.SocketTests.test_oversize_request_is_closed_without_mutation",
+    "test_retire_control_socket.SocketTests.test_partial_request_uses_absolute_deadline",
+    "test_retire_control_socket.SocketTests.test_post_effect_view_failure_is_uncertain",
+    "test_retire_control_socket.SocketTests.test_proposal_then_retirement_and_status",
+    "test_retire_control_socket.SocketTests.test_registered_job_kept_and_selectable",
+    "test_retire_control_socket.SocketTests.test_replay_idempotent_and_legacy_rejected",
+    "test_retire_control_socket.SocketTests.test_stale_target_refused_without_deletion",
+    "test_retire_control_socket.SocketTests.test_status_before_retirement",
+    "test_retire_control_socket.SocketTests.test_status_shape_no_success_conflation",
+    "test_retire_control_socket.SocketTests.test_unsupported_profile_does_not_kill_server"
+  ]
+}

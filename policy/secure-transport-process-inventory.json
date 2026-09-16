@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_process_tls.ProcessTLSTests.test_current_process_group_preserved",
+    "test_process_tls.ProcessTLSTests.test_kill_after_handshake_not_success",
+    "test_process_tls.ProcessTLSTests.test_kill_before_response_not_absence",
+    "test_process_tls.ProcessTLSTests.test_no_dns_or_ip_dial_in_local_tls",
+    "test_process_tls.ProcessTLSTests.test_real_process_have_need_get",
+    "test_process_tls.ProcessTLSTests.test_stalled_child_has_finite_handshake_deadline"
+  ]
+}

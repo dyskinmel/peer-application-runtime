@@ -1,0 +1,256 @@
+; PAR draft 1-draft-2 / spec bundle 00.02.00
+; Normative candidate, NOT independently CDDL-validated or frozen.
+; Wire: u32be(payload length) || deterministic-CBOR(frame)
+; CDDL defines structure, not canonicality/auth/state transitions.
+; IDs/hashes 32 bytes; public keys 32; Ed25519 signatures 64.
+
+id32 = bstr .size 32
+id16 = bstr .size 16
+pk32 = bstr .size 32
+sig64 = bstr .size 64
+nonce24 = bstr .size 24
+nonce32 = bstr .size 32
+u64 = 0..18446744073709551615
+app-id = tstr .size (1..128)
+short-text = tstr .size (0..4096)
+byte-page = bstr .size (1..131072)
+object-kind = 1 / 2 / 3 / 4 / 5
+role = 1 / 2 / 3
+hash-list = [* 256 id32]
+deps = [* 128 id32]
+
+hello-frame = {0: 1, 1: 1, 2: id16, 3: (null), 4: hello-body, 5: 0}
+auth-frame = {0: 1, 1: 2, 2: id16, 3: (null), 4: auth-body, 5: 0}
+space-open-frame = {0: 1, 1: 10, 2: id16, 3: (id32), 4: space-open-body, 5: 0}
+space-accept-frame = {0: 1, 1: 11, 2: id16, 3: (id32), 4: space-accept-body, 5: 0}
+control-get-frame = {0: 1, 1: 12, 2: id16, 3: (id32), 4: control-get-body, 5: 0}
+control-page-frame = {0: 1, 1: 13, 2: id16, 3: (id32), 4: control-page-body, 5: 0}
+have-frame = {0: 1, 1: 20, 2: id16, 3: (id32), 4: have-body, 5: 0}
+need-frame = {0: 1, 1: 21, 2: id16, 3: (id32), 4: need-body, 5: 0}
+change-frame = {0: 1, 1: 22, 2: id16, 3: (id32), 4: change-body, 5: 0}
+apply-result-frame = {0: 1, 1: 23, 2: id16, 3: (id32), 4: apply-result-body, 5: 0}
+manifest-get-frame = {0: 1, 1: 30, 2: id16, 3: (id32), 4: manifest-get-body, 5: 0}
+manifest-data-frame = {0: 1, 1: 31, 2: id16, 3: (id32), 4: manifest-data-body, 5: 0}
+block-get-frame = {0: 1, 1: 32, 2: id16, 3: (id32), 4: block-get-body, 5: 0}
+block-data-frame = {0: 1, 1: 33, 2: id16, 3: (id32), 4: block-data-body, 5: 0}
+retain-offer-frame = {0: 1, 1: 40, 2: id16, 3: (id32), 4: retain-offer-body, 5: 0}
+retain-accept-frame = {0: 1, 1: 41, 2: id16, 3: (id32), 4: retain-accept-body, 5: 0}
+retain-commit-frame = {0: 1, 1: 42, 2: id16, 3: (id32), 4: retain-commit-body, 5: 0}
+retain-receipt-frame = {0: 1, 1: 43, 2: id16, 3: (id32), 4: retain-receipt-body, 5: 0}
+retain-release-frame = {0: 1, 1: 44, 2: id16, 3: (id32), 4: retain-release-body, 5: 0}
+retain-release-result-frame = {0: 1, 1: 45, 2: id16, 3: (id32), 4: retain-release-result-body, 5: 0}
+presence-frame = {0: 1, 1: 50, 2: id16, 3: (id32), 4: presence-body, 5: 0}
+rpc-call-frame = {0: 1, 1: 60, 2: id16, 3: (id32), 4: rpc-call-body, 5: 0}
+rpc-result-frame = {0: 1, 1: 61, 2: id16, 3: (id32), 4: rpc-result-body, 5: 0}
+rpc-cancel-frame = {0: 1, 1: 62, 2: id16, 3: (id32), 4: rpc-cancel-body, 5: 0}
+rpc-cancel-result-frame = {0: 1, 1: 63, 2: id16, 3: (id32), 4: rpc-cancel-result-body, 5: 0}
+error-frame = {0: 1, 1: 255, 2: id16, 3: (id32 / null), 4: error-body, 5: 0}
+
+frame = hello-frame /
+        auth-frame /
+        space-open-frame /
+        space-accept-frame /
+        control-get-frame /
+        control-page-frame /
+        have-frame /
+        need-frame /
+        change-frame /
+        apply-result-frame /
+        manifest-get-frame /
+        manifest-data-frame /
+        block-get-frame /
+        block-data-frame /
+        retain-offer-frame /
+        retain-accept-frame /
+        retain-commit-frame /
+        retain-receipt-frame /
+        retain-release-frame /
+        retain-release-result-frame /
+        presence-frame /
+        rpc-call-frame /
+        rpc-result-frame /
+        rpc-cancel-frame /
+        rpc-cancel-result-frame /
+        error-frame
+
+
+; Body maps are closed: unknown fields are rejected in this draft.
+hello-body = {
+  0: app-id, 1: bstr .size (1..4096), ; certificate bytes
+  2: nonce32, 3: [1*8 short-text],    ; supported wire IDs
+  4: [1*8 uint], 5: id32,           ; suites, exact profile digest
+  6: bstr .size (1..128)            ; authenticated transport PeerId bytes
+}
+auth-body = {0: id32, 1: sig64} ; transcript digest, device signature
+space-open-body = {
+  0: id32,                         ; pinned genesis body digest = SpaceId
+  1: bstr .size (1..65536),         ; signed admission record
+  2: id32 / null, 3: role,          ; known control head, requested role
+  4: nonce32, 5: sig64,             ; challenge, session-bound device proof
+  6: [*64 bstr .size (1..65536)]     ; bounded authority chain proof
+}
+space-accept-body = {0: id32, 1: u64, 2: u64, 3: id32, 4: sig64}
+; control head, sequence, epoch, session grant digest, responder signature
+control-get-body = {0: id32 / null, 1: 1..128, 2: id32 / null}
+; after head, limit, snapshot token
+control-page-body = {
+  0: id32, 1: [*128 bstr .size (1..65536)], 2: id32 / null, 3: bool
+}
+; snapshot head, ordered signed entries, next cursor, done
+have-body = {0: id32, 1: id32 / null, 2: [*256 catalog-item], 3: bool}
+catalog-item = {0: id32, 1: object-kind, 2: u64, 3: hash-list, 4: bool, 5: id32}
+; object, kind, epoch, heads, tombstone, schema-id digest
+need-body = {0: id32, 1: deps}
+change-body = {0: id32, 1: id32, 2: bstr .size (1..786432)}
+; object ID, envelope ID, signed envelope bytes
+apply-result-body = {
+  0: id32, 1: (0 / 1 / 2 / 3 / 4), 2: hash-list, 3: uint / null
+}
+; envelope, 0=applied/1=duplicate/2=pending/3=invalid/4=resource-blocked
+manifest-get-body = {0: id32, 1: id32} ; manifest ID, session grant ID
+manifest-data-body = {0: id32, 1: bstr .size (1..131072)}
+block-get-body = {0: id32, 1: id32, 2: id32} ; block, retention root, grant
+block-data-body = {0: id32, 1: bstr .size (1..786432)}
+retain-offer-body = {
+  0: id16, 1: id32, 2: bstr .size (1..65536),
+  3: 1..604800, 4: u64, 5: id32
+}
+; durable op ID, input digest, signed manifest, duration, bytes, capability
+retain-accept-body = {
+  0: id16, 1: 1..604800, 2: [*128 id32], 3: id32 / null, 4: bool
+}
+; reservation ID, duration, missing page/block IDs, cursor, complete list
+retain-commit-body = {0: id16, 1: id32, 2: nonce32}
+retain-receipt-body = {0: bstr .size (1..65536)}
+retain-release-body = {0: id16, 1: id32, 2: bool, 3: id32}
+; durable op, manifest, force, capability
+retain-release-result-body = {0: id16, 1: (0 / 1 / 2), 2: short-text}
+; released / deferred-active-reference / not-found-in-scope
+presence-body = {0: id32, 1: u64, 2: 1..60, 3: bstr .size (1..8192)}
+; sender DeviceId, session sequence, TTL, encrypted application hint
+rpc-call-body = {
+  0: id16, 1: id32, 2: tstr .size (1..128), 3: id32,
+  4: bstr .size (0..524288), 5: 1..300000, 6: (0 / 1 / 2)
+}
+; operation, target device, handler, input digest, E2EE payload, timeout ms,
+; 0=pure, 1=local-idempotent, 2=external-side-effect
+rpc-result-body = {0: id16, 1: (0 / 1 / 2), 2: bstr .size (0..524288), 3: uint / null}
+; completed / failed-known / outcome-unknown
+rpc-cancel-body = {0: id16}
+rpc-cancel-result-body = {0: id16, 1: (0 / 1 / 2)}
+; cancelled-before-start / requested-running / too-late-or-unknown
+error-body = {0: uint, 1: tstr .size (1..64), 2: (0 / 1 / 2 / 3 / 4), 3: short-text}
+; registered code, phase, retry enum none/same-operation/reconnect/user-action/rebase
+
+; Portable immutable objects. All signed body bytes MUST decode canonically.
+signed-object = {0: bstr .size (1..65536), 1: pk32, 2: sig64}
+certificate-body = {0: 1, 1: app-id, 2: pk32, 3: pk32, 4: pk32, 5: id16}
+; format, app, account PK, device signing PK, recipient HPKE PK, serial
+join-request-body = {0: app-id, 1: id32, 2: id32, 3: nonce32, 4: role}
+; app, space, certificate digest, request nonce, role
+admission-body = {0: app-id, 1: id32, 2: id32, 3: id32, 4: nonce32, 5: u64, 6: role}
+; app, space, device, certificate digest, joined request nonce, minimum seq, role
+; Admission is proof for bounded control retrieval, NOT override of current membership.
+
+genesis-body = {
+  0: 1, 1: app-id, 2: pk32, 3: nonce32,
+  4: id32, 5: id32
+}
+; format, app, initial authority PK, random salt, initial membership root, policy digest
+; SpaceId depends on genesis body; initial encrypted seeds/packages are in first control.
+control-body = {
+  0: app-id, 1: id32, 2: u64, 3: u64, 4: id32,
+  5: (1 / 2 / 3 / 4 / 5), 6: id32, 7: id32,
+  8: id32 / null, 9: id32 / null, 10: id16 / null,
+  11: pk32, 12: pk32 / null, 13: id32
+}
+; app, space, sequence, content epoch, previous control hash (or genesis SpaceId)
+; action init/permission-only/content-transition/authority-rotation/checkpoint
+; membership root, resource-policy root, key-package root, seed root,
+; package-set ID, current signer PK, next authority PK, feature-policy digest
+control-entry = {0: bstr .size (1..65536), 1: sig64, ? 2: sig64}
+; body, current authority signature, new authority proof only for rotation
+member-entry = {0: id32, 1: id32, 2: role}
+; DeviceId, certificate digest, role
+member-page = [*256 member-entry]
+root-pages = [*1024 id32]
+key-package-body = {
+  0: app-id, 1: id32, 2: u64, 3: id16, 4: id32,
+  5: id32, 6: id32, 7: 1, 8: bstr .size 32, 9: bstr .size (16..4096)
+}
+; app, space, epoch, set-ID, recipient DeviceId, certificate digest, membership root,
+; suite, HPKE enc, HPKE ciphertext. Signed with key-package-sign.
+epoch-secret-plaintext = {0: bstr .size 32, 1: app-id, 2: id32, 3: u64, 4: id16, 5: id32}
+; secret plus context matching package
+
+change-header = {
+  0: app-id, 1: id32, 2: u64, 3: id32, 4: object-kind,
+  5: id32, 6: id16, 7: u64, 8: id32 / null,
+  9: id32, 10: deps, 11: 0..524288, 12: id32,
+  13: id32, 14: (1 / 2), 15: u64
+}
+; app, space, epoch, object, kind, author DeviceId, actor generation,
+; actor sequence, previous envelope, schema digest, CRDT deps,
+; plain length, CRDT change hash, control head, codec, key generation
+change-envelope = {
+  0: bstr .size (1..16384), 1: nonce24,
+  2: bstr .size (16..524304), 3: sig64
+}
+block-header = {0: app-id, 1: id32, 2: u64, 3: id32, 4: object-kind, 5: u64, 6: u64, 7: 0..262144}
+; app, space, epoch, object, kind, chunk index, key generation, plain length
+sealed-block = {0: bstr .size (1..4096), 1: nonce24, 2: bstr .size (16..262160)}
+
+inventory-entry = {0: id32, 1: u64, 2: uint}
+inventory-page = [*1024 inventory-entry]
+inventory-root = {0: 1, 1: [*1024 id32], 2: u64, 3: u64}
+; version, page IDs, unique object count, total bytes
+retention-body = {
+  0: app-id, 1: id32, 2: u64, 3: id32, 4: id32,
+  5: id32, 6: id32, 7: u64, 8: id16, 9: id32
+}
+; app, space, epoch, requester, control head, encrypted semantic root,
+; inventory root, bytes, durable operation, profile digest
+receipt-body = {
+  0: id32, 1: id32, 2: id32, 3: id32,
+  4: (1 / 2 / 3), 5: id32, 6: 1..604800, 7: nonce32,
+  8: id16, 9: u64, 10: id16
+}
+; keeper, space, retention manifest ID, inventory root,
+; storage class (1=native-tested,2=native-candidate,3=browser-best-effort),
+; control head, lease duration, fresh challenge, boot reference,
+; keeper monotonic counter milliseconds (NOT globally comparable), reservation ID
+
+recovery-descriptor = {
+  0: 1, 1: app-id, 2: id32, 3: id32, 4: u64,
+  5: [*256 recovery-object], 6: [*256 id32], 7: id32 / null
+}
+; format, app, space, control head, epoch, objects, auxiliary immutable refs,
+; next encrypted descriptor page (acyclic). Root digest commits the entire chain.
+recovery-object = {
+  0: id32, 1: object-kind, 2: hash-list,
+  3: [*1024 id32], 4: id32, 5: bool
+}
+; object, kind, frontier, manifest refs for envelopes/history/blobs/seed,
+; schema digest, tombstone
+export-manifest = {
+  0: 1, 1: app-id, 2: id32, 3: id32, 4: id32,
+  5: [*1024 export-entry], 6: id32 / null
+}
+export-entry = {0: tstr .size (1..512), 1: u64, 2: id32}
+; portable relative path, size, SHA-256 of file bytes; no symlink/absolute/.. paths
+
+; Event codec2 and ephemeral/encrypted RPC data.
+event-payload = {0: tstr .size (1..128), 1: id32, 2: bstr .size (0..65536), 3: [*128 id32]}
+activity-header = {
+  0: app-id, 1: id32, 2: u64, 3: (1 / 2 / 3), 4: id32,
+  5: id32, 6: id32 / null, 7: id32 / null, 8: u64,
+  9: id16 / null, 10: id32, 11: u64, 12: id32 / null, 13: (1..60) / null
+}
+; app,space,epoch,family,channel,sender,target,SessionId,session counter,
+; RPC operation ID,control head,key generation,RPC input digest, signed presence TTL (null for RPC)
+activity-envelope = {0: bstr .size (1..4096), 1: nonce24, 2: bstr .size (16..524304), 3: sig64}
+rpc-plaintext = {
+  0: tstr .size (1..128), 1: id32, 2: bstr .size (0..500000),
+  3: (0 / 1 / 2), 4: 1..300000
+}
+; handler ID, handler schema digest, application input/output, mode, duration ms

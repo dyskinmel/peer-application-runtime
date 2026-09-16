@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "profile": "host-job-control-local-v1",
+  "artifact_version": "00.23.00",
+  "scope": "EXPLICIT_CONTROLLER_PRE_REGISTERED_JOB_CONTROL_PRIVATE_IPC",
+  "management_ipc": true,
+  "new_job_submission": false,
+  "preemptive_cancellation": false,
+  "automatic_retry": false,
+  "cross_store_atomicity": false,
+  "product_qualified": false,
+  "independent_review_completed": false,
+  "physical_power_loss_tested": false,
+  "tests": {
+    "contract": 20,
+    "lifecycle": 24,
+    "socket": 17,
+    "restart": 17,
+    "hardening": 11
+  },
+  "test_total": 89,
+  "sigkill_cases": 5,
+  "limits": {
+    "request_bytes": 16384,
+    "response_bytes": 65536,
+    "connections_default": 4,
+    "connections_max": 8,
+    "operation_records": 128,
+    "record_bytes": 8192,
+    "policy_revisions": 32
+  },
+  "pinned_inputs": [
+    {
+      "path": "experiments/host-job-control/par_job_control/__init__.py",
+      "sha256": "c6e7a0cd3c6238eb7b536bd31e3d68a1c2dca429ae9857d6d7f6f00029bd8737"
+    },
+    {
+      "path": "experiments/host-job-control/par_job_control/client.py",
+      "sha256": "f5f96457739aeb08662046caafd1b2d5a9d365471be5ba98cbd7833352d7cc4e"
+    },
+    {
+      "path": "experiments/host-job-control/par_job_control/controller.py",
+      "sha256": "99eed64f999e021b137e88ed4b010cb147849a9347b6a46aaf0e70c80ea6cd1b"
+    },
+    {
+      "path": "experiments/host-job-control/par_job_control/host.py",
+      "sha256": "b5190584738112782cca65549535adf42ed3d7c541f8c5f023f3444ee3151824"
+    },
+    {
+      "path": "experiments/host-job-control/par_job_control/journal.py",
+      "sha256": "4f11678b17861dfe7571f5fbef8ff2f76a8e2a25495db8107d9a316fabcc3764"
+    },
+    {
+      "path": "experiments/host-job-control/par_job_control/protocol.py",
+      "sha256": "9cc497e5b3c173317bed2c3350fe88b2337a5578c375adb90eb3a6b87dc006cd"
+    },
+    {
+      "path": "experiments/host-job-control/par_job_control/server.py",
+      "sha256": "0587f9ec0bc8bb2f2b258ce3549f593518084e9ff976d686e184a672e463cc94"
+    },
+    {
+      "path": "experiments/host-job-scheduler/par_job_scheduler/__init__.py",
+      "sha256": "dc92e97a0612dec96c5cf4b12a044f07e1120be965eb79a6205d877b0d60b6ed"
+    },
+    {
+      "path": "experiments/host-job-scheduler/par_job_scheduler/activity.py",
+      "sha256": "c2f40e36c4ff1efd1274f755c8e7e893e1faa48b3ab90718d0f09b1643b012f9"
+    },
+    {
+      "path": "experiments/host-job-scheduler/par_job_scheduler/owner_loop.py",
+      "sha256": "a7d212bb39bae13b831337214ad1d6b72421aeef2dd1bb2d105d510cd1df0bf0"
+    },
+    {
+      "path": "experiments/host-job-scheduler/par_job_scheduler/presenter.py",
+      "sha256": "dfba24291a9ff40cf5d54b8e8da68f5cec9890c7c264e4b8c5a61d1a27b5d439"
+    },
+    {
+      "path": "experiments/host-management-jobs/par_management_jobs/jobs.py",
+      "sha256": "a3b012bde9e991eca8bbc0558a7693b80edfbf6311c9bf8a47316de285af4843"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/server.py",
+      "sha256": "23f593792ed436711a610d35053f82f65b67341309b039c00593173df225b63a"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/transport.py",
+      "sha256": "e24ab88b442e0a9f7bcf5dcc42ce0de8b2b1a95e0ad8c1c09ea15179c546ddf6"
+    },
+    {
+      "path": "tools/keeper_control_client.py",
+      "sha256": "e966be6aeb9bd4a590f23e857e54a21c85ad11eaa5c0f5f44ead595e572c3713"
+    },
+    {
+      "path": "tools/keeper_control_host.py",
+      "sha256": "fb1c1181182e4e9111a4d16d47e520c593eeea5fe38cd450e45656bbfef6acca"
+    }
+  ]
+}

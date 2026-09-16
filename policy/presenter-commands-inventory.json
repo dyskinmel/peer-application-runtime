@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "presenter.commands.announcements_coalesce",
+    "presenter.commands.basic_intent_no_effect",
+    "presenter.commands.changed_role_same_revision_recheck",
+    "presenter.commands.changed_stream_reject",
+    "presenter.commands.confirmation_UI-008",
+    "presenter.commands.confirmation_UI-017",
+    "presenter.commands.confirmation_UI-019",
+    "presenter.commands.equal_snapshot_idempotent",
+    "presenter.commands.missing_preview_disables",
+    "presenter.commands.not_offered_reject",
+    "presenter.commands.observation_no_automatic_action",
+    "presenter.commands.other_scope_reject",
+    "presenter.commands.out_of_order_reject",
+    "presenter.commands.preview_different_target",
+    "presenter.commands.rpc_unknown_only_lookup",
+    "presenter.commands.sequence_equivocation_reject",
+    "presenter.commands.stale_revision_reject",
+    "presenter.commands.stale_sequence_reject",
+    "presenter.commands.unavailable_effect_disabled",
+    "presenter.commands.unknown_action_reject",
+    "presenter.commands.wrong_confirmation_digest"
+  ]
+}

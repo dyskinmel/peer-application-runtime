@@ -1,0 +1,8 @@
+# ADR-FETCH-OWNER-0049: 取得操作を私有ownerへ集約
+
+状態: 承認済み0046次工程のlocal candidate。基準仕様は変更しません。
+既存Event framingの再利用を選び、別profileでapply/ACK操作を排除します。独自公開HTTP APIやnew cryptoは追加しません。
+UI側のproposal SHAをaccept前に記録し、owner側のplan/root/target結合をcreate-onlyで保存します。単なる成功フラグの台帳ではなく再開時に実Inboxを再観測する方式を採用します。
+取消しにより保存や同期fsyncが巻き戻るとはしません。workerとcaller Futureを分離し、重複cancelでもcleanup資源を維持します。
+選択肢のうち、揮発intentのままapplyを公開する案は拒否。製品的な永続intent/OS保管は次工程です。単一ownerで最大128entryという制約を明示し、無断GCをしません。
+同一ユーザー悪意コード/全データ巻戻しへの保護は別trust boundary。旧入力00.47/48は取得できず、00.46から新規実装しています。

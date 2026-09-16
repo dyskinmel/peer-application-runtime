@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_auth_receiver.ReceiverTests.test_bad_signature_is_not_mislabeled_rebase",
+    "test_auth_receiver.ReceiverTests.test_candidate_payload_is_not_in_repr",
+    "test_auth_receiver.ReceiverTests.test_candidate_recheck_after_control_change",
+    "test_auth_receiver.ReceiverTests.test_candidate_recheck_same_state",
+    "test_auth_receiver.ReceiverTests.test_ciphertext_re_signed_but_bad_aead",
+    "test_auth_receiver.ReceiverTests.test_expected_object_binding",
+    "test_auth_receiver.ReceiverTests.test_expected_schema_binding",
+    "test_auth_receiver.ReceiverTests.test_keeper_cannot_write",
+    "test_auth_receiver.ReceiverTests.test_old_epoch_is_rebase_not_apply",
+    "test_auth_receiver.ReceiverTests.test_older_control_same_epoch_can_be_used",
+    "test_auth_receiver.ReceiverTests.test_pending_control_prevents_candidate",
+    "test_auth_receiver.ReceiverTests.test_reader_signature_is_not_write_permission",
+    "test_auth_receiver.ReceiverTests.test_revoked_old_valid_change_remains_rebase_candidate",
+    "test_auth_receiver.ReceiverTests.test_seed_wait_on_new_epoch",
+    "test_auth_receiver.ReceiverTests.test_signature_corruption",
+    "test_auth_receiver.ReceiverTests.test_unknown_control",
+    "test_auth_receiver.ReceiverTests.test_valid_change_is_candidate_not_apply",
+    "test_auth_receiver.ReceiverTests.test_wrong_author_certificate",
+    "test_auth_receiver.ReceiverTests.test_wrong_epoch_for_claimed_control"
+  ]
+}

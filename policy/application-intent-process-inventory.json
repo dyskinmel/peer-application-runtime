@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_intent_process.IntentProcessTests.test_commit_response_loss_restart_reads_original_row_without_core",
+    "test_intent_process.IntentProcessTests.test_complete_child_restart_can_only_read_retired_history",
+    "test_intent_process.IntentProcessTests.test_dispatch_fsync_restart_never_replays_absent_row",
+    "test_intent_process.IntentProcessTests.test_nonce_fsync_restart_no_new_nonce_or_replay",
+    "test_intent_process.IntentProcessTests.test_observed_fsync_restart_keeps_original_receipt",
+    "test_intent_process.IntentProcessTests.test_partial_prepare_file_never_becomes_empty",
+    "test_intent_process.IntentProcessTests.test_prepare_fsync_restart_is_prepared_not_dispatched",
+    "test_intent_process.IntentProcessTests.test_readable_observation_reopened_and_resynced",
+    "test_intent_process.IntentProcessTests.test_retire_fsync_restart_keeps_tombstone"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_dependencies.DependencyTests.test_accept_rechecks_generation",
+    "test_dependencies.DependencyTests.test_accept_rechecks_local_view",
+    "test_dependencies.DependencyTests.test_bool_budget_rejected",
+    "test_dependencies.DependencyTests.test_busy_is_rejected",
+    "test_dependencies.DependencyTests.test_byte_budget_rejected",
+    "test_dependencies.DependencyTests.test_cancel_before_open",
+    "test_dependencies.DependencyTests.test_cancel_during_factory_and_no_child_left",
+    "test_dependencies.DependencyTests.test_cancel_during_synchronous_inspection_rejected_on_ready_path",
+    "test_dependencies.DependencyTests.test_deadline_after_synchronous_inspection_rejected_on_ready_path",
+    "test_dependencies.DependencyTests.test_duplicate_targets_rejected",
+    "test_dependencies.DependencyTests.test_empty_targets_rejected",
+    "test_dependencies.DependencyTests.test_existing_cycle_stops_without_remote_queries",
+    "test_dependencies.DependencyTests.test_expiry_before_factory_does_not_allocate",
+    "test_dependencies.DependencyTests.test_generation_change_during_open",
+    "test_dependencies.DependencyTests.test_invalid_identifier_rejected",
+    "test_dependencies.DependencyTests.test_local_change_mid_query_rejected",
+    "test_dependencies.DependencyTests.test_missing_inner_proposal_no_receive",
+    "test_dependencies.DependencyTests.test_missing_offer_does_not_become_empty_plan",
+    "test_dependencies.DependencyTests.test_no_unknown_target",
+    "test_dependencies.DependencyTests.test_previous_only_uses_full_paged_catalog",
+    "test_dependencies.DependencyTests.test_proposal_is_immutable",
+    "test_dependencies.DependencyTests.test_query_budget_finite",
+    "test_dependencies.DependencyTests.test_ready_targets_need_no_network",
+    "test_dependencies.DependencyTests.test_remote_change_between_pages_stops",
+    "test_dependencies.DependencyTests.test_target_input_owned_before_await",
+    "test_dependencies.DependencyTests.test_task_cancel_propagates",
+    "test_dependencies.DependencyTests.test_three_levels_are_explicit_frontier_rounds",
+    "test_dependencies.DependencyTests.test_timeout_during_factory"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "profile": "upload-window-host-local-v1",
+  "local_test_cases": 88,
+  "sigkill_cases": 3,
+  "request_bytes": 65536,
+  "response_bytes": 1048576,
+  "chunk_bytes": 32768,
+  "public_listener": false,
+  "management_ipc": false,
+  "automatic_rollover": false,
+  "product_qualified": false,
+  "physical_power_loss_tested": false,
+  "independent_review": "NOT_RUN",
+  "pinned_inputs": [
+    {
+      "path": "docs/decisions/ADR-UPLOAD-WINDOW-HOST-0019.ja.md",
+      "sha256": "219a9f688526a347d57a2d67443f12c6be0fa6a18f56fe57a59ec80b55e28fdb"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/__init__.py",
+      "sha256": "fb6b137630ef0d27ca032a2836b01b05272d447e9cbfbcb40184aec8412b9567"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/client.py",
+      "sha256": "44fa046f2cbe941c56f93c55f358a514f709f4d547c7825ae39b3323efd10db7"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/host.py",
+      "sha256": "40ea5251729eb3d62de8b31134a7da58b2e19d2eeb2a3b67f2722294e16d3289"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/protocol.py",
+      "sha256": "698a7b9db72605b8fe6068bbcc2a766d41dd85f5090f817c23d937c8927380c4"
+    },
+    {
+      "path": "experiments/upload-window-host/par_window_host/server.py",
+      "sha256": "e63ae69f16f48b4a21e4a119c027d26aee07fd46baee8c6f4eecf9d170c2f081"
+    },
+    {
+      "path": "tools/keeper_window_host.py",
+      "sha256": "de68187534868094994ab91f8f9829927f171e514a6bbe9c5eb8082091cae50a"
+    },
+    {
+      "path": "tools/upload_window_admin.py",
+      "sha256": "60732b54bca2e6fc896333874a4e384b4d83b437dc15e153fd40dfa3c4312ba8"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/server.py",
+      "sha256": "23f593792ed436711a610d35053f82f65b67341309b039c00593173df225b63a"
+    },
+    {
+      "path": "experiments/keeper-upload/par_keeper_upload/protocol.py",
+      "sha256": "a423684182095b1a987a94db7956bdef63298634ff28cd73867134625c797813"
+    },
+    {
+      "path": "experiments/keeper-upload/par_keeper_upload/client.py",
+      "sha256": "b45b019e4cfdcb3015321a0952d6fccada241e8c8e53763faedfe873a6e5c77f"
+    },
+    {
+      "path": "experiments/upload-replay-window/par_upload_window/store.py",
+      "sha256": "bae885feae81c51a944223dfabf20992938a5d79fdbdc0437ab28f578f9d367e"
+    },
+    {
+      "path": "experiments/upload-replay-window/par_upload_window/contract.py",
+      "sha256": "3d5b320693e9b4bfc72803f9ce61b119502160cd4982a0abb46b96dc4d988d0f"
+    }
+  ]
+}

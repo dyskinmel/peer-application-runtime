@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_application_process.ApplicationProcessTests.test_commit_loss_reopen_inquiry_no_core",
+    "test_application_process.ApplicationProcessTests.test_core_blocked_before_dispatch",
+    "test_application_process.ApplicationProcessTests.test_dispatch_loss_reopen_absence_does_not_replay",
+    "test_application_process.ApplicationProcessTests.test_prepare_loss_reopen_original_only",
+    "test_application_process.ApplicationProcessTests.test_readonly_no_caller_original",
+    "test_application_process.ApplicationProcessTests.test_retire_loss_reopen_retired",
+    "test_application_process.ApplicationProcessTests.test_synthetic_complete_one_event_one_nonce"
+  ]
+}

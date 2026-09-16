@@ -1,0 +1,40 @@
+{
+  "scope": "PUBLIC_PRIMITIVE_KATS_ONLY",
+  "result": "PASS",
+  "cryptography_version": "46.0.4",
+  "checks": [
+    {
+      "name": "Ed25519 public key RFC8032 test1",
+      "pass": true
+    },
+    {
+      "name": "Ed25519 signature RFC8032 test1",
+      "pass": true
+    },
+    {
+      "name": "Ed25519 verify RFC8032 test1",
+      "pass": true
+    },
+    {
+      "name": "Ed25519 altered signature rejected",
+      "pass": true
+    },
+    {
+      "name": "HKDF extract RFC5869 A.1",
+      "pass": true
+    },
+    {
+      "name": "HKDF expand RFC5869 A.1",
+      "pass": true
+    }
+  ],
+  "not_tested": [
+    "HPKE",
+    "XChaCha20-Poly1305",
+    "PAR domain separation integration",
+    "PAR authorization",
+    "strict cross-library Ed25519 edge cases"
+  ]
+}
+
+--- STDERR ---

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "status": "BASELINE_ONLY_NO_NEW_IMPLEMENTATION_RECOVERED",
+  "verified_baseline": "00.46.00",
+  "baseline_sha256": "d486b4b71fc9302b348577fe90a6a0c7381132572c9e2c349c2b456c785f01c7",
+  "baseline_head": "dce6fdb25b770f9e4c0ab1fd7980e8963ee872cb",
+  "source_of_truth": "Mounted 0047/0048 recovery manifests only preserve 0046. Historical claims are not used as source or test results.",
+  "new_work": "00.49.00 newly implemented from actual 00.46.00",
+  "permanent_loss_proven": false
+}

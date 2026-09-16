@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_keeper_lifecycle.KeeperLifecycle.test_authority_rollback_rejected",
+    "test_keeper_lifecycle.KeeperLifecycle.test_backward_clock_cannot_issue_receipt",
+    "test_keeper_lifecycle.KeeperLifecycle.test_backward_clock_is_unknown",
+    "test_keeper_lifecycle.KeeperLifecycle.test_challenge_corruption_never_proves_complete",
+    "test_keeper_lifecycle.KeeperLifecycle.test_challenge_signature_binds_nonce",
+    "test_keeper_lifecycle.KeeperLifecycle.test_duplicate_renew_does_not_extend_twice",
+    "test_keeper_lifecycle.KeeperLifecycle.test_expiry_retains_bytes_and_quota",
+    "test_keeper_lifecycle.KeeperLifecycle.test_explicit_renew_after_reboot",
+    "test_keeper_lifecycle.KeeperLifecycle.test_new_authority_revokes_old_capability",
+    "test_keeper_lifecycle.KeeperLifecycle.test_opaque_keeper_feeds_new_recipient_without_donor",
+    "test_keeper_lifecycle.KeeperLifecycle.test_read_capability_with_other_subject_cannot_manage_lease",
+    "test_keeper_lifecycle.KeeperLifecycle.test_reboot_retains_unknown",
+    "test_keeper_lifecycle.KeeperLifecycle.test_reentrant_callback_cannot_mutate_authority",
+    "test_keeper_lifecycle.KeeperLifecycle.test_regrant_old_closure_by_current_authority",
+    "test_keeper_lifecycle.KeeperLifecycle.test_release_is_idempotent",
+    "test_keeper_lifecycle.KeeperLifecycle.test_release_never_deletes_or_refunds",
+    "test_keeper_lifecycle.KeeperLifecycle.test_release_persists_on_restart",
+    "test_keeper_lifecycle.KeeperLifecycle.test_release_stops_get",
+    "test_keeper_lifecycle.KeeperLifecycle.test_release_stops_renew",
+    "test_keeper_lifecycle.KeeperLifecycle.test_renew_increments_generation",
+    "test_keeper_lifecycle.KeeperLifecycle.test_renew_longer_than_cap_denied",
+    "test_keeper_lifecycle.KeeperLifecycle.test_renew_missing_bytes_denied",
+    "test_keeper_lifecycle.KeeperLifecycle.test_renew_shorter_promise_denied",
+    "test_keeper_lifecycle.KeeperLifecycle.test_same_sequence_fork_authority_rejected",
+    "test_keeper_lifecycle.KeeperLifecycle.test_stale_authority_reopen_denied",
+    "test_keeper_lifecycle.KeeperLifecycle.test_wall_clock_does_not_drive_expiry"
+  ]
+}

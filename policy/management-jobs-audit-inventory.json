@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_jobs_audit.JobAudit.test_archive_hash_checked",
+    "test_jobs_audit.JobAudit.test_bad_signature_on_reopen",
+    "test_jobs_audit.JobAudit.test_cancel_file_result_lost_does_not_release_authorization",
+    "test_jobs_audit.JobAudit.test_config_bool_cannot_alias_integer_version",
+    "test_jobs_audit.JobAudit.test_dead_process_job_cannot_be_cancelled",
+    "test_jobs_audit.JobAudit.test_foreign_file_blocks_step",
+    "test_jobs_audit.JobAudit.test_history_budget_reserved_before_effect",
+    "test_jobs_audit.JobAudit.test_job_copy_from_other_id_rejected",
+    "test_jobs_audit.JobAudit.test_job_file_magic_and_size_checked",
+    "test_jobs_audit.JobAudit.test_journal_result_must_match_underlying_state",
+    "test_jobs_audit.JobAudit.test_missing_backend_archive_refuses_historical_success",
+    "test_jobs_audit.JobAudit.test_missing_known_job_blocks_list",
+    "test_jobs_audit.JobAudit.test_owner_thread_cannot_cancel",
+    "test_jobs_audit.JobAudit.test_pin_accepts_later_valid_history",
+    "test_jobs_audit.JobAudit.test_pin_detects_missing_job_after_restart",
+    "test_jobs_audit.JobAudit.test_pin_duplicate_job_rejected",
+    "test_jobs_audit.JobAudit.test_pin_rejects_old_cancelled_history",
+    "test_jobs_audit.JobAudit.test_pin_scope_mismatch",
+    "test_jobs_audit.JobAudit.test_provider_replacement_blocks_execution",
+    "test_jobs_audit.JobAudit.test_public_poll_does_not_expose_plaintext_or_approvals",
+    "test_jobs_audit.JobAudit.test_queued_cancel_reopen_does_not_sign",
+    "test_jobs_audit.JobAudit.test_reentrant_cancel_rejected_before_dispatch",
+    "test_jobs_audit.JobAudit.test_same_session_journal_rollback_detected",
+    "test_jobs_audit.JobAudit.test_signed_skipped_transition_rejected",
+    "test_jobs_audit.JobAudit.test_signed_true_revision_rejected",
+    "test_jobs_audit.JobAudit.test_symlink_refused",
+    "test_jobs_audit.JobAudit.test_wider_permissions_refused"
+  ],
+  "scope": "LOCAL_EXPERIMENT_ONLY"
+}

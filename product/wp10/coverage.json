@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "requirements": [
+    {
+      "id": "PAR-DATA-006",
+      "tests": [
+        "test_events.CursorTests.test_ack_advances_only_delivered",
+        "test_events.CursorTests.test_active_duplicate_subscriber_refused",
+        "test_events.CursorTests.test_authority_pending_blocks_read",
+        "test_events.CursorTests.test_backpressure_never_skips",
+        "test_events.CursorTests.test_cancel_is_idempotent",
+        "test_events.CursorTests.test_cancel_then_resubscribe_redelivers",
+        "test_events.CursorTests.test_cross_subscriber_ack",
+        "test_events.CursorTests.test_cursor_pin_export_and_reopen",
+        "test_events.CursorTests.test_cursor_pin_other_consumer_refused",
+        "test_events.CursorTests.test_duplicate_ack",
+        "test_events.CursorTests.test_empty_poll_no_ack",
+        "test_events.CursorTests.test_old_delivery_ack_refused_after_restart",
+        "test_events.CursorTests.test_poll_does_not_ack",
+        "test_events.CursorTests.test_reopen_keeps_acked",
+        "test_events.CursorTests.test_reopen_redelivers_unacked",
+        "test_events.CursorTests.test_stale_authority_invalidates_delivery",
+        "test_events.CursorTests.test_tampered_ack",
+        "test_events.CursorTests.test_too_small_byte_window_no_advance",
+        "test_subscriptions.PresenceTests.test_changed_duplicate_refused",
+        "test_subscriptions.PresenceTests.test_clock_regression_stops_hints",
+        "test_subscriptions.PresenceTests.test_duplicate_does_not_refresh_ttl",
+        "test_subscriptions.PresenceTests.test_lower_sequence_refused",
+        "test_subscriptions.PresenceTests.test_old_session_refused",
+        "test_subscriptions.PresenceTests.test_peer_limit",
+        "test_subscriptions.PresenceTests.test_presence_not_durable",
+        "test_subscriptions.PresenceTests.test_recent_then_unknown_not_offline",
+        "test_subscriptions.PresenceTests.test_recreated_cache_has_no_history",
+        "test_subscriptions.PresenceTests.test_ttl_upper_bound"
+      ],
+      "requirement_complete": false,
+      "unverified": "network redelivery, explicit GC/CURSOR_EXPIRED, native delivery"
+    },
+    {
+      "id": "PAR-SDK-001",
+      "tests": [
+        "test_events.ContractTests.test_bool_not_uint64",
+        "test_events.ContractTests.test_uint64_exact_roundtrip",
+        "test_events.ContractTests.test_uint64_overflow",
+        "test_subscriptions.SubscriptionTests.test_unsigned64_exact"
+      ],
+      "requirement_complete": false,
+      "unverified": "cross-language/FFI exact types"
+    },
+    {
+      "id": "PAR-SDK-002",
+      "tests": [
+        "test_events.StorageTests.test_cancel_after_commit_keeps_result",
+        "test_events.StorageTests.test_cancel_before_commit_keeps_nonce_burned",
+        "test_events.StorageTests.test_cancel_before_nonce",
+        "test_events.CursorTests.test_cancel_is_idempotent",
+        "test_events.CursorTests.test_cancel_then_resubscribe_redelivers"
+      ],
+      "requirement_complete": false,
+      "unverified": "native lifecycle, preemptive effects"
+    },
+    {
+      "id": "PAR-SDK-003",
+      "tests": [
+        "test_subscriptions.SubscriptionTests.test_bool_revision_refused",
+        "test_subscriptions.SubscriptionTests.test_callback_closes_itself",
+        "test_subscriptions.SubscriptionTests.test_callback_publishes_next_snapshot",
+        "test_subscriptions.SubscriptionTests.test_callback_reentrant_dispatch_refused",
+        "test_subscriptions.SubscriptionTests.test_callback_throw_isolated",
+        "test_subscriptions.SubscriptionTests.test_close_idempotent_no_future_callback",
+        "test_subscriptions.SubscriptionTests.test_initial_snapshot_delivered",
+        "test_subscriptions.SubscriptionTests.test_maximum_bytes",
+        "test_subscriptions.SubscriptionTests.test_mutable_buffer_refused",
+        "test_subscriptions.SubscriptionTests.test_not_durable_event_delivery",
+        "test_subscriptions.SubscriptionTests.test_older_revision_refused",
+        "test_subscriptions.SubscriptionTests.test_only_latest_pending_value",
+        "test_subscriptions.SubscriptionTests.test_same_revision_different_bytes_refused",
+        "test_subscriptions.SubscriptionTests.test_same_revision_same_bytes_no_duplicate",
+        "test_subscriptions.SubscriptionTests.test_unsigned64_exact",
+        "test_subscriptions.SubscriptionTests.test_wrong_thread_rejected"
+      ],
+      "requirement_complete": false,
+      "unverified": "actual UI scheduling, asynchronous bridge"
+    },
+    {
+      "id": "PAR-SDK-006",
+      "tests": [
+        "test_events.ContractTests.test_wrong_thread",
+        "test_subscriptions.SubscriptionTests.test_wrong_thread_rejected",
+        "test_event_crash.CrashTests.test_fork_handle_refused"
+      ],
+      "requirement_complete": false,
+      "unverified": "FFI native memory lifecycle"
+    }
+  ]
+}

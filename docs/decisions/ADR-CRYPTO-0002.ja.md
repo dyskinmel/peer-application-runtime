@@ -1,0 +1,11 @@
+# ADR-CRYPTO-0002 — nonce予約と保存済み暗号文の再利用
+
+候補 / 00.06.00。Storeのopaque契約は保持しCryptoStoreWriterを上に置く。
+
+operation intentはlocal secretから導出したHMAC鍵でheader/payload/cache/operationへ結ぶ。低エントロピー本文の平文hashをintentとして永続化しない。PARのCRDT hash等の仕様metadataが秘匿されるとは主張しない。
+
+最初にStoreの操作台帳を照会する。保存済みならcontext付暗号receiptとenvelope/cacheを検証し同じreceiptを返す。暗号sealを再実行しない。未保存ならcontent/cache/receiptをそれぞれ別keyで暗号化する前に、key実体identityに対するnonceをStoreへ永続予約する。予約を内容commit失敗と一緒に消さない。
+
+予約後に停止し暗号文が保存されなかった場合、再試行は新nonceを予約する。古い予約を再利用するAPIは公開しない。commit成功後応答が失われた場合、同一operation/inputを照会する。reuse/corruptionは自動修復や上書きせず拒否する。
+
+cacheとreceiptはlocal-only AEAD形式、別の用途subkey、AADにstore generation、operation、envelope IDを結ぶ。復元store generationはsnapshot由来のまま復号可能、書込み禁止は維持する。多重writer/clone/rollbackの検出をOSレベルで保証するものではない。

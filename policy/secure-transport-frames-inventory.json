@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_frames.FrameTests.test_binary_roundtrip",
+    "test_frames.FrameTests.test_empty_frame_denied_before_payload",
+    "test_frames.FrameTests.test_frame_count_not_unlimited",
+    "test_frames.FrameTests.test_frame_deadline_not_reset_by_fragments",
+    "test_frames.FrameTests.test_multiple_fragmented_frames",
+    "test_frames.FrameTests.test_outgoing_frame_budget",
+    "test_frames.FrameTests.test_oversize_header_denied_without_body",
+    "test_frames.FrameTests.test_truncated_body_not_success",
+    "test_frames.FrameTests.test_wrong_input_type"
+  ]
+}

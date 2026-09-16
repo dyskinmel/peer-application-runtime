@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "event-host.node.abort-late-empty-poll-does-not-arm-wait",
+    "event-host.node.changed-must-advance-generation",
+    "event-host.node.deadline-is-not-data-or-ack",
+    "event-host.node.empty-poll-ticket-is-sent-to-wait",
+    "event-host.node.generation-rollback-refused",
+    "event-host.node.nonpoll-generation-does-not-overwrite-poll-ticket",
+    "event-host.node.refuse-extra-envelope-key",
+    "event-host.node.refuse-leading-zero-generation",
+    "event-host.node.refuse-number-generation",
+    "event-host.node.refuse-overflow-generation",
+    "event-host.node.refuse-wrong-host",
+    "event-host.node.refuse-wrong-protocol",
+    "event-host.node.sdk-close-aborts-pending-wait",
+    "event-host.node.sdk-next-wakeup-delivers-exact-u64",
+    "event-host.node.single-use-wait-ticket",
+    "event-host.node.wait-without-empty-poll-is-refused"
+  ]
+}

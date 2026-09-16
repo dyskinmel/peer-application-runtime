@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_owner_deadline_regression.OwnerDeadlineRegression.test_expiry_before_factory_does_not_allocate"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_owner_port.OwnerPortTests.test_authority_change_rejects_ack",
+    "test_owner_port.OwnerPortTests.test_bool_limit_is_not_integer",
+    "test_owner_port.OwnerPortTests.test_cancel_does_not_ack",
+    "test_owner_port.OwnerPortTests.test_cancel_is_idempotent",
+    "test_owner_port.OwnerPortTests.test_cancelled_poll_refused",
+    "test_owner_port.OwnerPortTests.test_context_is_a_copy",
+    "test_owner_port.OwnerPortTests.test_context_mismatch_no_consumer_created",
+    "test_owner_port.OwnerPortTests.test_cursor_pin_metadata_mismatch",
+    "test_owner_port.OwnerPortTests.test_duplicate_open_refused",
+    "test_owner_port.OwnerPortTests.test_lost_ack_reopen_observes_committed_cursor",
+    "test_owner_port.OwnerPortTests.test_old_session_ack_refused",
+    "test_owner_port.OwnerPortTests.test_open_context_and_zero_cursor",
+    "test_owner_port.OwnerPortTests.test_poll_and_ack_are_separate",
+    "test_owner_port.OwnerPortTests.test_poll_does_not_publish_nonce",
+    "test_owner_port.OwnerPortTests.test_reopened_unacked_redelivers_new_session",
+    "test_owner_port.OwnerPortTests.test_session_mismatch",
+    "test_owner_port.OwnerPortTests.test_signed_unsigned_bytes_exact",
+    "test_owner_port.OwnerPortTests.test_too_small_window_does_not_skip",
+    "test_owner_port.OwnerPortTests.test_uint64_does_not_round",
+    "test_owner_port.OwnerPortTests.test_unknown_input_key"
+  ]
+}

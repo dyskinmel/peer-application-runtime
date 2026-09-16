@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_jobs_lifecycle.JobLifecycle.test_ack_loss_reconciles_without_redispatch",
+    "test_jobs_lifecycle.JobLifecycle.test_activity_callback_mutates_authority_rechecked",
+    "test_jobs_lifecycle.JobLifecycle.test_activity_waits_at_safe_point",
+    "test_jobs_lifecycle.JobLifecycle.test_cancel_idempotent_and_no_mutation",
+    "test_jobs_lifecycle.JobLifecycle.test_cancel_while_waiting_is_safe",
+    "test_jobs_lifecycle.JobLifecycle.test_close_preserves_then_compact_reclaims",
+    "test_jobs_lifecycle.JobLifecycle.test_close_then_later_generation_historical_result",
+    "test_jobs_lifecycle.JobLifecycle.test_duplicate_after_success_never_signs",
+    "test_jobs_lifecycle.JobLifecycle.test_historical_success_after_authority_change",
+    "test_jobs_lifecycle.JobLifecycle.test_open_second_generation_once",
+    "test_jobs_lifecycle.JobLifecycle.test_presenter_no_false_progress_or_rollback",
+    "test_jobs_lifecycle.JobLifecycle.test_reconcile_stale_pending_refuses_new_effect",
+    "test_jobs_lifecycle.JobLifecycle.test_reopen_cancelled_stays_cancelled",
+    "test_jobs_lifecycle.JobLifecycle.test_reopen_queued_does_not_execute",
+    "test_jobs_lifecycle.JobLifecycle.test_result_before_verified_refused",
+    "test_jobs_lifecycle.JobLifecycle.test_retire_result_after_record_compaction",
+    "test_jobs_lifecycle.JobLifecycle.test_retire_verifies_receipt_and_quota",
+    "test_jobs_lifecycle.JobLifecycle.test_stale_authority_after_preparation",
+    "test_jobs_lifecycle.JobLifecycle.test_stale_authority_before_validation",
+    "test_jobs_lifecycle.JobLifecycle.test_target_changed_after_preparation",
+    "test_jobs_lifecycle.JobLifecycle.test_unfinished_upload_not_accepted_for_close",
+    "test_jobs_lifecycle.JobLifecycle.test_unknown_requires_reconcile_and_explicit_retry"
+  ],
+  "scope": "LOCAL_EXPERIMENT_ONLY"
+}

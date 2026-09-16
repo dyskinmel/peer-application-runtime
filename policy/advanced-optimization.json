@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "harness_version": "p5b-v1",
+  "sharding": {
+    "algorithm": "sha256-rank-round-robin-v1",
+    "max_shards": 64
+  },
+  "sampling": {
+    "algorithm": "sha256-rank-v1",
+    "claim": "SAMPLED_PROXY_NOT_VERIFICATION"
+  },
+  "quarantine": {
+    "statuses": ["INVESTIGATING", "QUARANTINED"]
+  },
+  "cache": {
+    "namespaces": ["BUILD", "FIXTURE"],
+    "verification_status": "NOT_EVIDENCE"
+  },
+  "product_qualified": false
+}

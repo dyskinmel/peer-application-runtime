@@ -1,0 +1,17 @@
+name: Security report notice — do not disclose here
+description: Sensitive vulnerabilities must use the private security route after it is configured.
+title: "[security-routing] "
+labels: [security-routing]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Do not put vulnerability details, exploit steps, credentials, or secrets in a public issue.**
+        This prerelease candidate is not publish-authorized until a private security contact/advisory route is configured.
+  - type: checkboxes
+    id: acknowledge
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I will not disclose sensitive vulnerability details in this public form.
+          required: true

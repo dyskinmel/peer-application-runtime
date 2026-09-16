@@ -1,0 +1,7 @@
+# Fixtureの状態
+
+wire-samplesは11件の形式正例/負例。hex formattingと正例frame長だけを本package支援検査で確認する。CDDL/production codecでの受理/拒否はNOT_RUN。全26messageの完全corpusではなくG0の入口。
+
+primitive-katsはRFC8032 TEST1、RFC5869 A.1の公開値。秘密seedも公知のテスト専用であり利用者鍵ではない。verify_primitives.pyは既存cryptographyのEd25519とstdlib HMACを使い、署名変更の拒否を含む6assertionsを行う。HPKE/XChaCha/全PAR envelope検証や独立暗号レビューは行わない。
+
+catalog/acceptance-tests.jsonは149の正常/異常契約。上記支援fixture検査とは別の製品試験で、すべてNOT_RUN。この違いをtest件数の宣伝で混ぜない。

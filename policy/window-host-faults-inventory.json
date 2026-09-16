@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_host_faults.HostFaults.test_sigkill_after_chunk_ack",
+    "test_host_faults.HostFaults.test_sigkill_after_seal_ack",
+    "test_host_faults.HostFaults.test_sigkill_before_complete_request"
+  ]
+}

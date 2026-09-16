@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_metrics.MetricsTests.test_baseline_no_growth_is_pass",
+    "test_metrics.MetricsTests.test_child_restart_requires_new_baseline",
+    "test_metrics.MetricsTests.test_fd_growth_is_detected",
+    "test_metrics.MetricsTests.test_missing_counter_not_zero",
+    "test_metrics.MetricsTests.test_missing_reserved_descriptor_is_not_subtracted",
+    "test_metrics.MetricsTests.test_negative_boolean_nan_counter_rejected",
+    "test_metrics.MetricsTests.test_node_live_handle_growth_detected",
+    "test_metrics.MetricsTests.test_pending_cleanup_is_not_pass",
+    "test_metrics.MetricsTests.test_python_metrics_are_measured",
+    "test_metrics.MetricsTests.test_reserved_descriptors_accounted_separately",
+    "test_metrics.MetricsTests.test_rss_is_bounded_diagnostic_not_ignored",
+    "test_metrics.MetricsTests.test_task_growth_is_detected"
+  ]
+}

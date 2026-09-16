@@ -1,0 +1,10 @@
+{
+  "scope": "HTML_STRUCTURE_ONLY",
+  "result": "PASS",
+  "chapters": 37,
+  "duplicate_ids": 0,
+  "missing_internal_anchors": 0,
+  "auto_loaded_external_resources": 0,
+  "visual_rendering_test": "NOT_RUN",
+  "product_UI_qualification": "NOT_RUN"
+}

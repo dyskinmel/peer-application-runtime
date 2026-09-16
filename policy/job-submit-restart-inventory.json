@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submit_restart.SubmitHostProcess.test_cli_prepare_stage_submit_separate_processes",
+    "test_submit_restart.SubmitHostProcess.test_existing_upload_read_and_source_removed_recovery",
+    "test_submit_restart.SubmitHostProcess.test_partial_upload_host_restart",
+    "test_submit_restart.SubmitHostProcess.test_real_large_archive_multichunk",
+    "test_submit_restart.SubmitHostProcess.test_separate_process_registration_then_selection",
+    "test_submit_restart.SubmitRestart.test_extra_file_refused",
+    "test_submit_restart.SubmitRestart.test_foreign_payload_without_record",
+    "test_submit_restart.SubmitRestart.test_fsync_failure_does_not_register",
+    "test_submit_restart.SubmitRestart.test_inflight_reopen_does_not_submit",
+    "test_submit_restart.SubmitRestart.test_known_record_disappearance",
+    "test_submit_restart.SubmitRestart.test_registered_reopen_does_not_sign",
+    "test_submit_restart.SubmitRestart.test_settings_type_not_coerced",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_after_dispatch",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_before_dispatch",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_begin_after_replace",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_begin_after_sync",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_chunk_after_payload_sync",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_chunk_after_replace",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_chunk_after_sync",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_inflight_after_sync",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_registered_after_replace",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_registered_after_sync",
+    "test_submit_restart.SubmitRestart.test_sigkill_submit_registered_before_replace",
+    "test_submit_restart.SubmitRestart.test_signed_metadata_corruption",
+    "test_submit_restart.SubmitRestart.test_wrong_thread_refused"
+  ]
+}

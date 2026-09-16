@@ -1,0 +1,12 @@
+# ADR 0045: 明示secure fetchと暗号化Inbox候補の再開
+
+Owner承認済みNEXT_SECURE_FETCH_0044を実装する局所候補。baseline spec/全scope gate不変。
+FetchPlanは全scope・remote snapshot・peer登録・接続generation・受信Inbox generation・最大64descriptor/8MiBをimmutableに固定。
+Plan/Checkpointは秘密を含まないが機微な識別情報のため0700親/0600ファイル、create-only、fsync、上限、外部保持SHAを要求。製品の暗号化plan vaultではない。
+InboxはSQLiteではなく既存の同期済み暗号化record。新しい保存済みフラグDBは作らない。
+明示reconcileは実recordを再検証し、同じrecordをreceiveで再同期する。checkpointのpinは既知recordの欠損検出用であり成功の根拠ではない。古いpin後の追加recordは再導出。pinと全体を戻す攻撃は外部trust要件。
+fetch_oneは一つの既存ReadSessionを消費。executeは明示planの各未保存itemを最大一回、逐次実行。失敗・取消しで停止し自動retryなし。新たなexecuteのみ明示再試行。
+受領前後の認可/generation/descriptor照合。InboxOutcomeUnknownは再open/照合まで成功扱いしない。同期fsync中のremote取消しpreemptionはしない。
+候補保存≠Store commit≠CRDT apply≠remote receipt≠ACK。依存不足/隔離を表示し自動適用しない。
+接続factoryはtrusted ownerの協力的async関数。戻すまでの資源をfactoryが所有し、取消しで清掃する。戻したReadSessionはfetchが所有。非協力/悪意同一process codeをsandbox化しない。
+全local検査とprivate mTLS実測を実IP/物理電源断/独立レビューへ昇格しない。

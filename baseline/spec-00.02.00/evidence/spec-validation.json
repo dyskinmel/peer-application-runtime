@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "scope": "SPECIFICATION_STRUCTURE_ONLY",
+  "result": "PASS",
+  "checks_evaluated": 2602,
+  "counts": {
+    "spec_documents": 25,
+    "requirements": 149,
+    "acceptance_contracts": 149,
+    "positive_scenarios": 149,
+    "negative_scenarios": 149,
+    "gates": 12,
+    "wire_messages": 26,
+    "ui_stories": 24,
+    "tokens": 51
+  },
+  "errors": [],
+  "not_established": [
+    "runtime behavior",
+    "CDDL parser conformance",
+    "composed protocol cryptography",
+    "real device UI",
+    "production readiness"
+  ]
+}

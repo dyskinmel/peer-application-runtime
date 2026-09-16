@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_control_socket.ControlSocket.test_client_pinned_exchange",
+    "test_control_socket.ControlSocket.test_connection_limit",
+    "test_control_socket.ControlSocket.test_control_during_drain",
+    "test_control_socket.ControlSocket.test_control_not_counted_in_data_drain",
+    "test_control_socket.ControlSocket.test_control_socket_alias_refused",
+    "test_control_socket.ControlSocket.test_data_count_not_hidden_by_control",
+    "test_control_socket.ControlSocket.test_fixed_deadline_expires",
+    "test_control_socket.ControlSocket.test_mutation_requires_explicit_operation_id",
+    "test_control_socket.ControlSocket.test_old_connection_after_revocation",
+    "test_control_socket.ControlSocket.test_oversized_length_dropped",
+    "test_control_socket.ControlSocket.test_real_select_and_cancel",
+    "test_control_socket.ControlSocket.test_real_status",
+    "test_control_socket.ControlSocket.test_response_lost_retry_same_intent",
+    "test_control_socket.ControlSocket.test_slow_control_does_not_block_data",
+    "test_control_socket.ControlSocket.test_socket_permissions",
+    "test_control_socket.ControlSocket.test_wrong_key_no_job_effect",
+    "test_control_socket.ControlSocket.test_zero_length_dropped"
+  ]
+}

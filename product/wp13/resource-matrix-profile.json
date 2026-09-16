@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "profile": "par-resource-matrix-0055",
+  "participants": [2, 8],
+  "max_active": 8,
+  "max_queued": 64,
+  "max_peer_queued": 8,
+  "pool_lifetime_submissions": 4096,
+  "matrix_max_cells": 8,
+  "resume_unit": "SEALED_CELL_BOUNDARY",
+  "missing_factory": "BLOCKED",
+  "public_listener": false,
+  "automatic_product_retry": false,
+  "node_matrix_executed": false,
+  "real_core_executed": false,
+  "native_executed": false,
+  "seven_day_soak_qualified": false,
+  "product_qualified": false
+}

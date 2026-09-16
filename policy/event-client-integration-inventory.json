@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "event-client.integration.changed-owner-grant-needs-a-separate-explicit-client",
+    "event-client.integration.cleanup-detaches-real-stream-read-listeners",
+    "event-client.integration.client-close-does-not-ack-or-delete-committed-event",
+    "event-client.integration.commit-error-is-reconciled-with-local-receipt-only",
+    "event-client.integration.commit-sigkill-rebind-original-inquiry-without-replay",
+    "event-client.integration.different-real-journal-generation-cannot-rebind",
+    "event-client.integration.fresh-client-can-restore-caller-retained-original-input",
+    "event-client.integration.killed-inquiry-host-is-unavailable-not-absence",
+    "event-client.integration.nonce-sigkill-not-found-cannot-trigger-republication",
+    "event-client.integration.owner-current-membership-still-rejects-reader-publish",
+    "event-client.integration.precommit-sigkill-reconciliation-keeps-reserved-nonce",
+    "event-client.integration.publish-inquire-and-projection-never-ack-subscription"
+  ]
+}

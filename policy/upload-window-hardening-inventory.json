@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_window_hardening.WindowHardening.test_archive_capacity_reserved_before_acknowledging_begin",
+    "test_window_hardening.WindowHardening.test_archive_sequence_boolean_is_not_integer",
+    "test_window_hardening.WindowHardening.test_binding_only_can_retire_with_current_authority",
+    "test_window_hardening.WindowHardening.test_binding_only_retirement_never_mutates_keeper",
+    "test_window_hardening.WindowHardening.test_binding_only_retirement_requires_current_grant",
+    "test_window_hardening.WindowHardening.test_cleaned_receipt_flags_require_actual_false",
+    "test_window_hardening.WindowHardening.test_old_window_id_cannot_be_renamed_without_subject_resigning",
+    "test_window_hardening.WindowHardening.test_payload_capacity_rejection_does_not_leave_binding",
+    "test_window_hardening.WindowHardening.test_sealed_lease_rejects_new_binding",
+    "test_window_hardening.WindowHardening.test_valid_large_audit_container_exceeds_single_wire_frame"
+  ]
+}

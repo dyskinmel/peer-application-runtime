@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "profile": "par-local-event-client-0041",
+  "stage": "PARTIAL_IMPLEMENTED_LOCAL_ONLY",
+  "operations": [
+    "rebind",
+    "restoreUnknown",
+    "publish",
+    "inquire",
+    "close",
+    "waitForCleanup"
+  ],
+  "full_context_pinned": true,
+  "explicit_connection_generation": true,
+  "caller_retains_original_input": true,
+  "retained_operations": 1,
+  "inflight_operations": 1,
+  "retired_cleanup_limit": 4,
+  "final_close_extra_current_limit": 1,
+  "cleanup_timeout_ms_default": 1000,
+  "cleanup_timeout_ms_range": [
+    10,
+    60000
+  ],
+  "request_timeout_ms_default": 6000,
+  "projection_separates_document_and_draft": true,
+  "known_receipt_is_historical_observation": true,
+  "automatic_reconnect": false,
+  "automatic_retry": false,
+  "automatic_ack": false,
+  "shared_document_commit": false,
+  "remote_protection": false,
+  "persistent_schema_changed": false,
+  "native_qualified": false,
+  "real_crdt_executed": false,
+  "production_ready": false
+}

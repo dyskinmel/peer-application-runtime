@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "scope": "LOCAL_PENDING_INBOX_ONLY",
+  "requirements": [
+    {
+      "id": "PAR-SYNC-002",
+      "tests": [
+        "test_inbox.ReceiveTests.test_out_of_order_waits_then_becomes_ready",
+        "test_inbox.DependencyTests.test_dependency_wait_does_not_call_core"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real CRDT semantics, durable application and end-to-end network profile remain unverified."
+    },
+    {
+      "id": "PAR-SYNC-004",
+      "tests": [
+        "test_inbox.DependencyTests.test_author_fork_quarantines_scope",
+        "test_inbox.HardeningTests.test_local_store_actor_fork_quarantines_received_scope",
+        "test_inbox.HardeningTests.test_reserved_evidence_slot_covers_conflict_with_local_store"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real CRDT semantics, durable application and end-to-end network profile remain unverified."
+    },
+    {
+      "id": "PAR-SYNC-005",
+      "tests": [
+        "test_inbox.ReceiveTests.test_exact_duplicate_does_not_consume_extra_capacity",
+        "test_crash.CrashTests.test_sigkill_04_inbox_after_publish"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real CRDT semantics, durable application and end-to-end network profile remain unverified."
+    },
+    {
+      "id": "PAR-SYNC-006",
+      "tests": [
+        "test_inbox.DependencyTests.test_resource_blocked_is_retryable_not_invalid",
+        "test_inbox.DependencyTests.test_third_fork_does_not_unbound_evidence"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real CRDT semantics, durable application and end-to-end network profile remain unverified."
+    },
+    {
+      "id": "PAR-DATA-001",
+      "tests": [
+        "test_inbox.DependencyTests.test_all_delivery_orders_have_same_readiness"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real CRDT semantics, durable application and end-to-end network profile remain unverified."
+    },
+    {
+      "id": "PAR-CORE-003",
+      "tests": [
+        "test_inbox.ReceiveTests.test_basic_receipt_never_claims_shared_commit_or_apply"
+      ],
+      "requirement_complete": false,
+      "remaining": "Real CRDT semantics, durable application and end-to-end network profile remain unverified."
+    }
+  ]
+}

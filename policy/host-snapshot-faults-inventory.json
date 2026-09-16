@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_snapshot_faults.SnapshotFaults.test_backend_exception_not_cached",
+    "test_snapshot_faults.SnapshotFaults.test_decrypt_failure_clears_success_not_cached",
+    "test_snapshot_faults.SnapshotFaults.test_distinct_provider_instances_do_not_share",
+    "test_snapshot_faults.SnapshotFaults.test_fork_refuses_inherited_warm_provider",
+    "test_snapshot_faults.SnapshotFaults.test_mutable_invalid_clears_prior_success",
+    "test_snapshot_faults.SnapshotFaults.test_no_cache_serialization_method",
+    "test_snapshot_faults.SnapshotFaults.test_non_none_backend_result_rejected",
+    "test_snapshot_faults.SnapshotFaults.test_provider_changes_during_backend_rejected",
+    "test_snapshot_faults.SnapshotFaults.test_provider_failure_does_not_fall_back_to_full",
+    "test_snapshot_faults.SnapshotFaults.test_same_digest_different_bytes_does_not_hit"
+  ]
+}

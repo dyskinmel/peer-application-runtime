@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "publishable": false,
+  "release_authorized": false,
+  "version_strategy": {
+    "recommended": "0.1.0-alpha.1",
+    "alternative": "0.1.0-preview.1",
+    "stable_or_rc_recommended": false,
+    "reason": "native foundation and production qualification are incomplete; public compatibility may still change"
+  },
+  "decisions": {
+    "license": {"status": "RESOLVED_LOCAL", "spdx": "Apache-2.0"},
+    "project_name": {"status": "RESOLVED_LOCAL", "value": "Peer Application Runtime", "may_change": true},
+    "release_version": {"status": "RESOLVED_LOCAL", "value": "0.1.0-alpha.1", "intended_tag": "v0.1.0-alpha.1"},
+    "copyright_notice": {"status": "RESOLVED_LOCAL", "value": "Copyright 2026 dyskinmel"},
+    "final_native_dependency_sbom": {"status": "NOT_APPLICABLE", "scope": "SOURCE_ONLY_ALPHA"},
+    "public_repository": {"status": "EXTERNAL_ACTION_REQUIRED", "slug": "dyskinmel/peer-application-runtime"},
+    "security_reporting": {"status": "EXTERNAL_ACTION_REQUIRED", "provider": "GITHUB_PRIVATE_VULNERABILITY_REPORTING"},
+    "hosted_ci": {"status": "EXTERNAL_ACTION_REQUIRED"},
+    "release_signing": {"status": "NOT_REQUIRED_FOR_SOURCE_ONLY_ALPHA"},
+    "hosted_attestation": {"status": "NOT_REQUIRED_FOR_SOURCE_ONLY_ALPHA"}
+  },
+  "nonclaims": [
+    "no independent security review",
+    "no native, device, or network qualification",
+    "no long-duration soak qualification",
+    "no physical recovery qualification",
+    "no Production Qualification"
+  ]
+}

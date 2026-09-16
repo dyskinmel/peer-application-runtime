@@ -1,0 +1,19 @@
+--- STDERR ---
+test_bad_primitive_vector (__main__.ValidatorControls.test_bad_primitive_vector) ... ok
+test_broken_link (__main__.ValidatorControls.test_broken_link) ... ok
+test_corrupt_history (__main__.ValidatorControls.test_corrupt_history) ... ok
+test_duplicate_json_key (__main__.ValidatorControls.test_duplicate_json_key) ... ok
+test_duplicate_requirement (__main__.ValidatorControls.test_duplicate_requirement) ... ok
+test_false_production_claim (__main__.ValidatorControls.test_false_production_claim) ... ok
+test_false_test_pass (__main__.ValidatorControls.test_false_test_pass) ... ok
+test_gate_cycle (__main__.ValidatorControls.test_gate_cycle) ... ok
+test_missing_acceptance (__main__.ValidatorControls.test_missing_acceptance) ... ok
+test_missing_cddl_rule (__main__.ValidatorControls.test_missing_cddl_rule) ... ok
+test_token_cycle (__main__.ValidatorControls.test_token_cycle) ... ok
+test_unknown_story_action (__main__.ValidatorControls.test_unknown_story_action) ... ok
+test_valid_baseline (__main__.ValidatorControls.test_valid_baseline) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.204s
+
+OK

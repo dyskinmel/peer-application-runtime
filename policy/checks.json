@@ -1,0 +1,2443 @@
+{
+  "version": 1,
+  "checks": {
+    "baseline": {
+      "argv": [
+        "{python}",
+        "tools/check_baseline.py"
+      ],
+      "case_ids": [
+        "baseline.bytes",
+        "baseline.structure"
+      ],
+      "timeout_seconds": 90
+    },
+    "plan": {
+      "argv": [
+        "{python}",
+        "tools/check_plan.py"
+      ],
+      "case_ids": [
+        "plan.references",
+        "plan.coverage",
+        "plan.local_first",
+        "plan.product_unqualified"
+      ],
+      "timeout_seconds": 30
+    },
+    "harness-tests": {
+      "argv": [
+        "{python}",
+        "tools/test_runner.py"
+      ],
+      "case_inventory": "policy/test-inventory.json",
+      "timeout_seconds": 420
+    },
+    "wire-python": {
+      "argv": [
+        "{python}",
+        "tools/check_wire.py",
+        "--suite",
+        "python"
+      ],
+      "case_inventory": "policy/wire-python-inventory.json",
+      "timeout_seconds": 120
+    },
+    "wire-node": {
+      "argv": [
+        "{python}",
+        "tools/check_wire.py",
+        "--suite",
+        "interop"
+      ],
+      "case_inventory": "policy/wire-interop-inventory.json",
+      "timeout_seconds": 120
+    },
+    "store-core": {
+      "argv": [
+        "{python}",
+        "tools/check_store.py",
+        "--suite",
+        "core"
+      ],
+      "case_inventory": "policy/store-core-inventory.json",
+      "timeout_seconds": 120
+    },
+    "store-blocks": {
+      "argv": [
+        "{python}",
+        "tools/check_store.py",
+        "--suite",
+        "blocks"
+      ],
+      "case_inventory": "policy/store-blocks-inventory.json",
+      "timeout_seconds": 120
+    },
+    "store-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_store.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/store-faults-inventory.json",
+      "timeout_seconds": 120
+    },
+    "store-recovery": {
+      "argv": [
+        "{python}",
+        "tools/check_store.py",
+        "--suite",
+        "recovery"
+      ],
+      "case_inventory": "policy/store-recovery-inventory.json",
+      "timeout_seconds": 120
+    },
+    "crypto-primitives": {
+      "argv": [
+        "{python}",
+        "tools/check_crypto.py",
+        "--suite",
+        "primitives"
+      ],
+      "case_inventory": "policy/crypto-primitives-inventory.json",
+      "timeout_seconds": 120
+    },
+    "crypto-hpke": {
+      "argv": [
+        "{python}",
+        "tools/check_crypto.py",
+        "--suite",
+        "hpke"
+      ],
+      "case_inventory": "policy/crypto-hpke-inventory.json",
+      "timeout_seconds": 120
+    },
+    "crypto-objects": {
+      "argv": [
+        "{python}",
+        "tools/check_crypto.py",
+        "--suite",
+        "objects"
+      ],
+      "case_inventory": "policy/crypto-objects-inventory.json",
+      "timeout_seconds": 120
+    },
+    "crypto-store": {
+      "argv": [
+        "{python}",
+        "tools/check_crypto.py",
+        "--suite",
+        "store"
+      ],
+      "case_inventory": "policy/crypto-store-inventory.json",
+      "timeout_seconds": 120
+    },
+    "crypto-interop": {
+      "argv": [
+        "{python}",
+        "tools/check_crypto.py",
+        "--suite",
+        "interop"
+      ],
+      "case_inventory": "policy/crypto-interop-inventory.json",
+      "timeout_seconds": 120
+    },
+    "auth-membership": {
+      "argv": [
+        "{python}",
+        "tools/check_auth.py",
+        "--suite",
+        "membership"
+      ],
+      "case_inventory": "policy/auth-membership-inventory.json",
+      "timeout_seconds": 120
+    },
+    "auth-chain": {
+      "argv": [
+        "{python}",
+        "tools/check_auth.py",
+        "--suite",
+        "chain"
+      ],
+      "case_inventory": "policy/auth-chain-inventory.json",
+      "timeout_seconds": 120
+    },
+    "auth-activation": {
+      "argv": [
+        "{python}",
+        "tools/check_auth.py",
+        "--suite",
+        "activation"
+      ],
+      "case_inventory": "policy/auth-activation-inventory.json",
+      "timeout_seconds": 120
+    },
+    "auth-admission": {
+      "argv": [
+        "{python}",
+        "tools/check_auth.py",
+        "--suite",
+        "admission"
+      ],
+      "case_inventory": "policy/auth-admission-inventory.json",
+      "timeout_seconds": 120
+    },
+    "auth-receiver": {
+      "argv": [
+        "{python}",
+        "tools/check_auth.py",
+        "--suite",
+        "receiver"
+      ],
+      "case_inventory": "policy/auth-receiver-inventory.json",
+      "timeout_seconds": 120
+    },
+    "auth-replay": {
+      "argv": [
+        "{python}",
+        "tools/check_auth.py",
+        "--suite",
+        "replay"
+      ],
+      "case_inventory": "policy/auth-replay-inventory.json",
+      "timeout_seconds": 120
+    },
+    "auth-vectors": {
+      "argv": [
+        "{python}",
+        "tools/check_auth.py",
+        "--suite",
+        "vectors"
+      ],
+      "case_inventory": "policy/auth-vectors-inventory.json",
+      "timeout_seconds": 120
+    },
+    "auth-store-commit": {
+      "argv": [
+        "{python}",
+        "tools/check_auth_store.py",
+        "--suite",
+        "commit"
+      ],
+      "case_inventory": "policy/auth-store-commit-inventory.json",
+      "timeout_seconds": 180
+    },
+    "auth-store-persistence": {
+      "argv": [
+        "{python}",
+        "tools/check_auth_store.py",
+        "--suite",
+        "persistence"
+      ],
+      "case_inventory": "policy/auth-store-persistence-inventory.json",
+      "timeout_seconds": 180
+    },
+    "auth-store-schema": {
+      "argv": [
+        "{python}",
+        "tools/check_auth_store.py",
+        "--suite",
+        "schema"
+      ],
+      "case_inventory": "policy/auth-store-schema-inventory.json",
+      "timeout_seconds": 180
+    },
+    "auth-store-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_auth_store.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/auth-store-faults-inventory.json",
+      "timeout_seconds": 180
+    },
+    "blob-store-bindings": {
+      "argv": [
+        "{python}",
+        "tools/check_blob_store.py",
+        "--suite",
+        "bindings"
+      ],
+      "case_inventory": "policy/blob-store-bindings-inventory.json",
+      "timeout_seconds": 180
+    },
+    "blob-store-commit": {
+      "argv": [
+        "{python}",
+        "tools/check_blob_store.py",
+        "--suite",
+        "commit"
+      ],
+      "case_inventory": "policy/blob-store-commit-inventory.json",
+      "timeout_seconds": 180
+    },
+    "blob-store-recovery": {
+      "argv": [
+        "{python}",
+        "tools/check_blob_store.py",
+        "--suite",
+        "recovery"
+      ],
+      "case_inventory": "policy/blob-store-recovery-inventory.json",
+      "timeout_seconds": 180
+    },
+    "blob-store-incoming": {
+      "argv": [
+        "{python}",
+        "tools/check_blob_store.py",
+        "--suite",
+        "incoming"
+      ],
+      "case_inventory": "policy/blob-store-incoming-inventory.json",
+      "timeout_seconds": 180
+    },
+    "blob-store-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_blob_store.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/blob-store-faults-inventory.json",
+      "timeout_seconds": 180
+    },
+    "file-manifest": {
+      "argv": [
+        "{python}",
+        "tools/check_file.py",
+        "--suite",
+        "manifest"
+      ],
+      "case_inventory": "policy/file-manifest-inventory.json",
+      "timeout_seconds": 180
+    },
+    "file-pipeline": {
+      "argv": [
+        "{python}",
+        "tools/check_file.py",
+        "--suite",
+        "pipeline"
+      ],
+      "case_inventory": "policy/file-pipeline-inventory.json",
+      "timeout_seconds": 180
+    },
+    "file-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_file.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/file-faults-inventory.json",
+      "timeout_seconds": 180
+    },
+    "recovery-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_recovery.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/recovery-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "recovery-pipeline": {
+      "argv": [
+        "{python}",
+        "tools/check_recovery.py",
+        "--suite",
+        "pipeline"
+      ],
+      "case_inventory": "policy/recovery-pipeline-inventory.json",
+      "timeout_seconds": 180
+    },
+    "recovery-transfer": {
+      "argv": [
+        "{python}",
+        "tools/check_recovery.py",
+        "--suite",
+        "transfer"
+      ],
+      "case_inventory": "policy/recovery-transfer-inventory.json",
+      "timeout_seconds": 180
+    },
+    "recovery-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_recovery.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/recovery-faults-inventory.json",
+      "timeout_seconds": 180
+    },
+    "keeper-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/keeper-contract-inventory.json",
+      "timeout_seconds": 90
+    },
+    "keeper-store": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper.py",
+        "--suite",
+        "store"
+      ],
+      "case_inventory": "policy/keeper-store-inventory.json",
+      "timeout_seconds": 90
+    },
+    "keeper-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/keeper-lifecycle-inventory.json",
+      "timeout_seconds": 90
+    },
+    "keeper-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/keeper-faults-inventory.json",
+      "timeout_seconds": 90
+    },
+    "keeper-gc-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_gc.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/keeper-gc-contract-inventory.json",
+      "timeout_seconds": 90
+    },
+    "keeper-gc-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_gc.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/keeper-gc-lifecycle-inventory.json",
+      "timeout_seconds": 90
+    },
+    "keeper-gc-audit": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_gc.py",
+        "--suite",
+        "audit"
+      ],
+      "case_inventory": "policy/keeper-gc-audit-inventory.json",
+      "timeout_seconds": 90
+    },
+    "keeper-gc-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_gc.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/keeper-gc-faults-inventory.json",
+      "timeout_seconds": 90
+    },
+    "keeper-repair-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_repair.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/keeper-repair-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-repair-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_repair.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/keeper-repair-lifecycle-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-repair-audit": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_repair.py",
+        "--suite",
+        "audit"
+      ],
+      "case_inventory": "policy/keeper-repair-audit-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-repair-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_repair.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/keeper-repair-faults-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-service-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_service.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/keeper-service-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-service-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_service.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/keeper-service-lifecycle-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-service-recovery": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_service.py",
+        "--suite",
+        "recovery"
+      ],
+      "case_inventory": "policy/keeper-service-recovery-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-service-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_service.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/keeper-service-faults-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-service-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_service.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/keeper-service-hardening-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-upload-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_upload.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/keeper-upload-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-upload-spool": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_upload.py",
+        "--suite",
+        "spool"
+      ],
+      "case_inventory": "policy/keeper-upload-spool-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-upload-service": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_upload.py",
+        "--suite",
+        "service"
+      ],
+      "case_inventory": "policy/keeper-upload-service-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-upload-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_upload.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/keeper-upload-faults-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-upload-retire-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_upload_retire.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/keeper-upload-retire-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-upload-retire-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_upload_retire.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/keeper-upload-retire-lifecycle-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-upload-retire-audit": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_upload_retire.py",
+        "--suite",
+        "audit"
+      ],
+      "case_inventory": "policy/keeper-upload-retire-audit-inventory.json",
+      "timeout_seconds": 120
+    },
+    "keeper-upload-retire-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_keeper_upload_retire.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/keeper-upload-retire-faults-inventory.json",
+      "timeout_seconds": 120
+    },
+    "upload-window-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_upload_window.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/upload-window-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "upload-window-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_upload_window.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/upload-window-lifecycle-inventory.json",
+      "timeout_seconds": 120
+    },
+    "upload-window-audit": {
+      "argv": [
+        "{python}",
+        "tools/check_upload_window.py",
+        "--suite",
+        "audit"
+      ],
+      "case_inventory": "policy/upload-window-audit-inventory.json",
+      "timeout_seconds": 120
+    },
+    "upload-window-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_upload_window.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/upload-window-faults-inventory.json",
+      "timeout_seconds": 120
+    },
+    "upload-window-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_upload_window.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/upload-window-hardening-inventory.json",
+      "timeout_seconds": 120
+    },
+    "window-host-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_window_host.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/window-host-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "window-host-config": {
+      "argv": [
+        "{python}",
+        "tools/check_window_host.py",
+        "--suite",
+        "config"
+      ],
+      "case_inventory": "policy/window-host-config-inventory.json",
+      "timeout_seconds": 180
+    },
+    "window-host-service": {
+      "argv": [
+        "{python}",
+        "tools/check_window_host.py",
+        "--suite",
+        "service"
+      ],
+      "case_inventory": "policy/window-host-service-inventory.json",
+      "timeout_seconds": 180
+    },
+    "window-host-process": {
+      "argv": [
+        "{python}",
+        "tools/check_window_host.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/window-host-process-inventory.json",
+      "timeout_seconds": 180
+    },
+    "window-host-roundtrip": {
+      "argv": [
+        "{python}",
+        "tools/check_window_host.py",
+        "--suite",
+        "roundtrip"
+      ],
+      "case_inventory": "policy/window-host-roundtrip-inventory.json",
+      "timeout_seconds": 180
+    },
+    "window-host-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_window_host.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/window-host-faults-inventory.json",
+      "timeout_seconds": 180
+    },
+    "window-host-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_window_host.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/window-host-hardening-inventory.json",
+      "timeout_seconds": 180
+    },
+    "host-snapshot-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_host_snapshot.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/host-snapshot-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "host-snapshot-limits": {
+      "argv": [
+        "{python}",
+        "tools/check_host_snapshot.py",
+        "--suite",
+        "limits"
+      ],
+      "case_inventory": "policy/host-snapshot-limits-inventory.json",
+      "timeout_seconds": 180
+    },
+    "host-snapshot-service": {
+      "argv": [
+        "{python}",
+        "tools/check_host_snapshot.py",
+        "--suite",
+        "service"
+      ],
+      "case_inventory": "policy/host-snapshot-service-inventory.json",
+      "timeout_seconds": 180
+    },
+    "host-snapshot-live": {
+      "argv": [
+        "{python}",
+        "tools/check_host_snapshot.py",
+        "--suite",
+        "live"
+      ],
+      "case_inventory": "policy/host-snapshot-live-inventory.json",
+      "timeout_seconds": 180
+    },
+    "host-snapshot-process": {
+      "argv": [
+        "{python}",
+        "tools/check_host_snapshot.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/host-snapshot-process-inventory.json",
+      "timeout_seconds": 180
+    },
+    "host-snapshot-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_host_snapshot.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/host-snapshot-faults-inventory.json",
+      "timeout_seconds": 180
+    },
+    "host-snapshot-io": {
+      "argv": [
+        "{python}",
+        "tools/check_host_snapshot.py",
+        "--suite",
+        "io"
+      ],
+      "case_inventory": "policy/host-snapshot-io-inventory.json",
+      "timeout_seconds": 180
+    },
+    "management-jobs-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_management_jobs.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/management-jobs-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "management-jobs-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_management_jobs.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/management-jobs-lifecycle-inventory.json",
+      "timeout_seconds": 180
+    },
+    "management-jobs-audit": {
+      "argv": [
+        "{python}",
+        "tools/check_management_jobs.py",
+        "--suite",
+        "audit"
+      ],
+      "case_inventory": "policy/management-jobs-audit-inventory.json",
+      "timeout_seconds": 180
+    },
+    "management-jobs-faults": {
+      "argv": [
+        "{python}",
+        "tools/check_management_jobs.py",
+        "--suite",
+        "faults"
+      ],
+      "case_inventory": "policy/management-jobs-faults-inventory.json",
+      "timeout_seconds": 180
+    },
+    "management-jobs-integration": {
+      "argv": [
+        "{python}",
+        "tools/check_management_jobs.py",
+        "--suite",
+        "integration"
+      ],
+      "case_inventory": "policy/management-jobs-integration-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-scheduler-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_job_scheduler.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/job-scheduler-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-scheduler-transfer": {
+      "argv": [
+        "{python}",
+        "tools/check_job_scheduler.py",
+        "--suite",
+        "transfer"
+      ],
+      "case_inventory": "policy/job-scheduler-transfer-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-scheduler-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_job_scheduler.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/job-scheduler-lifecycle-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-scheduler-restart": {
+      "argv": [
+        "{python}",
+        "tools/check_job_scheduler.py",
+        "--suite",
+        "restart"
+      ],
+      "case_inventory": "policy/job-scheduler-restart-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-scheduler-host": {
+      "argv": [
+        "{python}",
+        "tools/check_job_scheduler.py",
+        "--suite",
+        "host"
+      ],
+      "case_inventory": "policy/job-scheduler-host-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-control-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_job_control.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/job-control-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-control-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_job_control.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/job-control-lifecycle-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-control-socket": {
+      "argv": [
+        "{python}",
+        "tools/check_job_control.py",
+        "--suite",
+        "socket"
+      ],
+      "case_inventory": "policy/job-control-socket-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-control-restart": {
+      "argv": [
+        "{python}",
+        "tools/check_job_control.py",
+        "--suite",
+        "restart"
+      ],
+      "case_inventory": "policy/job-control-restart-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-control-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_job_control.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/job-control-hardening-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-submit-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_job_submit.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/job-submit-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-submit-staging": {
+      "argv": [
+        "{python}",
+        "tools/check_job_submit.py",
+        "--suite",
+        "staging"
+      ],
+      "case_inventory": "policy/job-submit-staging-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-submit-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_job_submit.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/job-submit-lifecycle-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-submit-socket": {
+      "argv": [
+        "{python}",
+        "tools/check_job_submit.py",
+        "--suite",
+        "socket"
+      ],
+      "case_inventory": "policy/job-submit-socket-inventory.json",
+      "timeout_seconds": 180
+    },
+    "job-submit-restart": {
+      "argv": [
+        "{python}",
+        "tools/check_job_submit.py",
+        "--suite",
+        "restart"
+      ],
+      "case_inventory": "policy/job-submit-restart-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/submission-retire-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-lifecycle": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire.py",
+        "--suite",
+        "lifecycle"
+      ],
+      "case_inventory": "policy/submission-retire-lifecycle-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-audit": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire.py",
+        "--suite",
+        "audit"
+      ],
+      "case_inventory": "policy/submission-retire-audit-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-restart": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire.py",
+        "--suite",
+        "restart"
+      ],
+      "case_inventory": "policy/submission-retire-restart-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-host": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire.py",
+        "--suite",
+        "host"
+      ],
+      "case_inventory": "policy/submission-retire-host-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-process": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/submission-retire-process-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-control-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire_control.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/submission-retire-control-contract-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-control-socket": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire_control.py",
+        "--suite",
+        "socket"
+      ],
+      "case_inventory": "policy/submission-retire-control-socket-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-control-restart": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire_control.py",
+        "--suite",
+        "restart"
+      ],
+      "case_inventory": "policy/submission-retire-control-restart-inventory.json",
+      "timeout_seconds": 180
+    },
+    "submission-retire-control-process": {
+      "argv": [
+        "{python}",
+        "tools/check_submit_retire_control.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/submission-retire-control-process-inventory.json",
+      "timeout_seconds": 180
+    },
+    "record-lifecycle-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_record_lifecycle.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/record-lifecycle-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "record-lifecycle-model": {
+      "argv": [
+        "{python}",
+        "tools/check_record_lifecycle.py",
+        "--suite",
+        "model"
+      ],
+      "case_inventory": "policy/record-lifecycle-model-inventory.json",
+      "timeout_seconds": 120
+    },
+    "record-lifecycle-inventory": {
+      "argv": [
+        "{python}",
+        "tools/check_record_lifecycle.py",
+        "--suite",
+        "inventory"
+      ],
+      "case_inventory": "policy/record-lifecycle-inventory-inventory.json",
+      "timeout_seconds": 120
+    },
+    "record-lifecycle-property": {
+      "argv": [
+        "{python}",
+        "tools/check_record_lifecycle.py",
+        "--suite",
+        "property"
+      ],
+      "case_inventory": "policy/record-lifecycle-property-inventory.json",
+      "timeout_seconds": 120
+    },
+    "record-lifecycle-presenter": {
+      "argv": [
+        "{python}",
+        "tools/check_record_lifecycle.py",
+        "--suite",
+        "presenter"
+      ],
+      "case_inventory": "policy/record-lifecycle-presenter-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/presenter-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-states": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "states"
+      ],
+      "case_inventory": "policy/presenter-states-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-stories": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "stories"
+      ],
+      "case_inventory": "policy/presenter-stories-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-commands": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "commands"
+      ],
+      "case_inventory": "policy/presenter-commands-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-draft": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "draft"
+      ],
+      "case_inventory": "policy/presenter-draft-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-locale": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "locale"
+      ],
+      "case_inventory": "policy/presenter-locale-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/presenter-hardening-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-adapter": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "adapter"
+      ],
+      "case_inventory": "policy/presenter-adapter-inventory.json",
+      "timeout_seconds": 120
+    },
+    "presenter-types": {
+      "argv": [
+        "{python}",
+        "tools/check_reference_presenter.py",
+        "--suite",
+        "types"
+      ],
+      "case_inventory": "policy/presenter-types-inventory.json",
+      "timeout_seconds": 120
+    },
+    "private-draft-node": {
+      "argv": [
+        "{python}",
+        "tools/check_private_draft.py"
+      ],
+      "case_inventory": "policy/private-draft-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "runtime-binding-python": {
+      "argv": [
+        "{python}",
+        "tools/check_runtime_binding.py",
+        "--suite",
+        "python"
+      ],
+      "case_inventory": "policy/runtime-binding-python-inventory.json",
+      "timeout_seconds": 120
+    },
+    "runtime-binding-node": {
+      "argv": [
+        "{python}",
+        "tools/check_runtime_binding.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/runtime-binding-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "shared-contracts": {
+      "argv": [
+        "{python}",
+        "tools/check_shared_document.py",
+        "--suite",
+        "contracts"
+      ],
+      "case_inventory": "policy/shared-contracts-inventory.json",
+      "timeout_seconds": 60
+    },
+    "shared-store": {
+      "argv": [
+        "{python}",
+        "tools/check_shared_document.py",
+        "--suite",
+        "store"
+      ],
+      "case_inventory": "policy/shared-store-inventory.json",
+      "timeout_seconds": 60
+    },
+    "shared-loader": {
+      "argv": [
+        "{python}",
+        "tools/check_shared_document.py",
+        "--suite",
+        "loader"
+      ],
+      "case_inventory": "policy/shared-loader-inventory.json",
+      "timeout_seconds": 60
+    },
+    "shared-node": {
+      "argv": [
+        "{python}",
+        "tools/check_shared_document.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/shared-node-inventory.json",
+      "timeout_seconds": 60
+    },
+    "inbox-receive": {
+      "argv": [
+        "{python}",
+        "tools/check_sync_inbox.py",
+        "--suite",
+        "receive"
+      ],
+      "case_inventory": "policy/inbox-receive-inventory.json",
+      "timeout_seconds": 60
+    },
+    "inbox-dependencies": {
+      "argv": [
+        "{python}",
+        "tools/check_sync_inbox.py",
+        "--suite",
+        "dependencies"
+      ],
+      "case_inventory": "policy/inbox-dependencies-inventory.json",
+      "timeout_seconds": 60
+    },
+    "inbox-persistence": {
+      "argv": [
+        "{python}",
+        "tools/check_sync_inbox.py",
+        "--suite",
+        "persistence"
+      ],
+      "case_inventory": "policy/inbox-persistence-inventory.json",
+      "timeout_seconds": 60
+    },
+    "inbox-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_sync_inbox.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/inbox-hardening-inventory.json",
+      "timeout_seconds": 60
+    },
+    "inbox-crash": {
+      "argv": [
+        "{python}",
+        "tools/check_sync_inbox.py",
+        "--suite",
+        "crash"
+      ],
+      "case_inventory": "policy/inbox-crash-inventory.json",
+      "timeout_seconds": 60
+    },
+    "exchange-source": {
+      "argv": [
+        "{python}",
+        "tools/check_causal_exchange.py",
+        "--suite",
+        "source"
+      ],
+      "case_inventory": "policy/exchange-source-inventory.json",
+      "timeout_seconds": 120
+    },
+    "exchange-protocol": {
+      "argv": [
+        "{python}",
+        "tools/check_causal_exchange.py",
+        "--suite",
+        "protocol"
+      ],
+      "case_inventory": "policy/exchange-protocol-inventory.json",
+      "timeout_seconds": 120
+    },
+    "exchange-socket": {
+      "argv": [
+        "{python}",
+        "tools/check_causal_exchange.py",
+        "--suite",
+        "socket"
+      ],
+      "case_inventory": "policy/exchange-socket-inventory.json",
+      "timeout_seconds": 120
+    },
+    "exchange-process": {
+      "argv": [
+        "{python}",
+        "tools/check_causal_exchange.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/exchange-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "exchange-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_causal_exchange.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/exchange-hardening-inventory.json",
+      "timeout_seconds": 120
+    },
+    "apply-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_document_apply.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/apply-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "apply-storage": {
+      "argv": [
+        "{python}",
+        "tools/check_document_apply.py",
+        "--suite",
+        "storage"
+      ],
+      "case_inventory": "policy/apply-storage-inventory.json",
+      "timeout_seconds": 120
+    },
+    "apply-inbox": {
+      "argv": [
+        "{python}",
+        "tools/check_document_apply.py",
+        "--suite",
+        "inbox"
+      ],
+      "case_inventory": "policy/apply-inbox-inventory.json",
+      "timeout_seconds": 120
+    },
+    "apply-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_document_apply.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/apply-hardening-inventory.json",
+      "timeout_seconds": 120
+    },
+    "apply-crash": {
+      "argv": [
+        "{python}",
+        "tools/check_document_apply.py",
+        "--suite",
+        "crash"
+      ],
+      "case_inventory": "policy/apply-crash-inventory.json",
+      "timeout_seconds": 120
+    },
+    "apply-migration": {
+      "argv": [
+        "{python}",
+        "tools/check_document_apply.py",
+        "--suite",
+        "migration"
+      ],
+      "case_inventory": "policy/apply-migration-inventory.json",
+      "timeout_seconds": 120
+    },
+    "apply-node": {
+      "argv": [
+        "{python}",
+        "tools/check_document_apply.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/apply-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-observation-python": {
+      "argv": [
+        "{python}",
+        "tools/check_application_observation.py",
+        "--suite",
+        "python"
+      ],
+      "case_inventory": "policy/application-observation-python-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-observation-node": {
+      "argv": [
+        "{python}",
+        "tools/check_application_observation.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/application-observation-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "events-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_events.py",
+        "--suite",
+        "contract"
+      ],
+      "case_inventory": "policy/events-contract-inventory.json",
+      "timeout_seconds": 90
+    },
+    "events-cursor": {
+      "argv": [
+        "{python}",
+        "tools/check_events.py",
+        "--suite",
+        "cursor"
+      ],
+      "case_inventory": "policy/events-cursor-inventory.json",
+      "timeout_seconds": 90
+    },
+    "events-storage": {
+      "argv": [
+        "{python}",
+        "tools/check_events.py",
+        "--suite",
+        "storage"
+      ],
+      "case_inventory": "policy/events-storage-inventory.json",
+      "timeout_seconds": 90
+    },
+    "events-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_events.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/events-hardening-inventory.json",
+      "timeout_seconds": 90
+    },
+    "events-snapshot": {
+      "argv": [
+        "{python}",
+        "tools/check_events.py",
+        "--suite",
+        "snapshot"
+      ],
+      "case_inventory": "policy/events-snapshot-inventory.json",
+      "timeout_seconds": 90
+    },
+    "events-presence": {
+      "argv": [
+        "{python}",
+        "tools/check_events.py",
+        "--suite",
+        "presence"
+      ],
+      "case_inventory": "policy/events-presence-inventory.json",
+      "timeout_seconds": 90
+    },
+    "events-crash": {
+      "argv": [
+        "{python}",
+        "tools/check_events.py",
+        "--suite",
+        "crash"
+      ],
+      "case_inventory": "policy/events-crash-inventory.json",
+      "timeout_seconds": 90
+    },
+    "event-binding-owner": {
+      "argv": [
+        "{python}",
+        "tools/check_event_binding.py",
+        "--suite",
+        "owner"
+      ],
+      "case_inventory": "policy/event-binding-owner-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-binding-node": {
+      "argv": [
+        "{python}",
+        "tools/check_event_binding.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/event-binding-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-binding-integration": {
+      "argv": [
+        "{python}",
+        "tools/check_event_binding.py",
+        "--suite",
+        "integration"
+      ],
+      "case_inventory": "policy/event-binding-integration-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-binding-types": {
+      "argv": [
+        "{python}",
+        "tools/check_event_binding.py",
+        "--suite",
+        "types"
+      ],
+      "case_inventory": "policy/event-binding-types-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-host-owner": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "owner"
+      ],
+      "case_inventory": "policy/event-host-owner-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-host-socket": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "socket"
+      ],
+      "case_inventory": "policy/event-host-socket-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-host-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/event-host-hardening-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-host-node": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/event-host-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-host-channel": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "channel"
+      ],
+      "case_inventory": "policy/event-host-channel-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-host-integration": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "integration"
+      ],
+      "case_inventory": "policy/event-host-integration-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-host-types": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "types"
+      ],
+      "case_inventory": "policy/event-host-types-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-command-owner": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "command-owner"
+      ],
+      "case_inventory": "policy/event-command-owner-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-command-socket": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "command-socket"
+      ],
+      "case_inventory": "policy/event-command-socket-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-command-node": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "command-node"
+      ],
+      "case_inventory": "policy/event-command-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-command-channel": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "command-channel"
+      ],
+      "case_inventory": "policy/event-command-channel-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-command-integration": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "command-integration"
+      ],
+      "case_inventory": "policy/event-command-integration-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-command-types": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "command-types"
+      ],
+      "case_inventory": "policy/event-command-types-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-client-node": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "client-node"
+      ],
+      "case_inventory": "policy/event-client-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-client-integration": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "client-integration"
+      ],
+      "case_inventory": "policy/event-client-integration-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-client-view": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "client-view"
+      ],
+      "case_inventory": "policy/event-client-view-inventory.json",
+      "timeout_seconds": 120
+    },
+    "event-client-types": {
+      "argv": [
+        "{python}",
+        "tools/check_event_host.py",
+        "--suite",
+        "client-types"
+      ],
+      "case_inventory": "policy/event-client-types-inventory.json",
+      "timeout_seconds": 120
+    },
+    "connectivity-policy": {
+      "argv": [
+        "{python}",
+        "tools/check_connectivity.py",
+        "--suite",
+        "policy"
+      ],
+      "case_inventory": "policy/connectivity-policy-inventory.json",
+      "timeout_seconds": 60
+    },
+    "connectivity-controller": {
+      "argv": [
+        "{python}",
+        "tools/check_connectivity.py",
+        "--suite",
+        "controller"
+      ],
+      "case_inventory": "policy/connectivity-controller-inventory.json",
+      "timeout_seconds": 60
+    },
+    "connectivity-tcp": {
+      "argv": [
+        "{python}",
+        "tools/check_connectivity.py",
+        "--suite",
+        "tcp"
+      ],
+      "case_inventory": "policy/connectivity-tcp-inventory.json",
+      "timeout_seconds": 60
+    },
+    "connectivity-integration": {
+      "argv": [
+        "{python}",
+        "tools/check_connectivity.py",
+        "--suite",
+        "integration"
+      ],
+      "case_inventory": "policy/connectivity-integration-inventory.json",
+      "timeout_seconds": 60
+    },
+    "connectivity-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_connectivity.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/connectivity-hardening-inventory.json",
+      "timeout_seconds": 60
+    },
+    "secure-transport-tls": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_transport.py",
+        "--suite",
+        "tls"
+      ],
+      "case_inventory": "policy/secure-transport-tls-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-transport-frames": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_transport.py",
+        "--suite",
+        "frames"
+      ],
+      "case_inventory": "policy/secure-transport-frames-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-transport-read": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_transport.py",
+        "--suite",
+        "read"
+      ],
+      "case_inventory": "policy/secure-transport-read-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-transport-process": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_transport.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/secure-transport-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-transport-adapters": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_transport.py",
+        "--suite",
+        "adapters"
+      ],
+      "case_inventory": "policy/secure-transport-adapters-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-transport-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_transport.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/secure-transport-hardening-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-fetch-plan": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_fetch.py",
+        "--suite",
+        "plan"
+      ],
+      "case_inventory": "policy/secure-fetch-plan-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-fetch-resume": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_fetch.py",
+        "--suite",
+        "resume"
+      ],
+      "case_inventory": "policy/secure-fetch-resume-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-fetch-client": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_fetch.py",
+        "--suite",
+        "client"
+      ],
+      "case_inventory": "policy/secure-fetch-client-inventory.json",
+      "timeout_seconds": 120
+    },
+    "secure-fetch-process": {
+      "argv": [
+        "{python}",
+        "tools/check_secure_fetch.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/secure-fetch-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-bridge-planner": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_bridge.py",
+        "--suite",
+        "planner"
+      ],
+      "case_inventory": "policy/fetch-bridge-planner-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-bridge-controller": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_bridge.py",
+        "--suite",
+        "controller"
+      ],
+      "case_inventory": "policy/fetch-bridge-controller-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-bridge-process": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_bridge.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/fetch-bridge-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-bridge-application-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_bridge.py",
+        "--suite",
+        "application-contract"
+      ],
+      "case_inventory": "policy/fetch-bridge-application-contract-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-bridge-node": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_bridge.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/fetch-bridge-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-owner-owner": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_owner.py",
+        "--suite",
+        "owner"
+      ],
+      "case_inventory": "policy/fetch-owner-owner-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-owner-hardening": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_owner.py",
+        "--suite",
+        "hardening"
+      ],
+      "case_inventory": "policy/fetch-owner-hardening-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-owner-process": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_owner.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/fetch-owner-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "fetch-owner-node": {
+      "argv": [
+        "{python}",
+        "tools/check_fetch_owner.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/fetch-owner-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-intent-journal": {
+      "argv": [
+        "{python}",
+        "tools/check_application_intent.py",
+        "--suite",
+        "journal"
+      ],
+      "case_inventory": "policy/application-intent-journal-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-intent-coordinator": {
+      "argv": [
+        "{python}",
+        "tools/check_application_intent.py",
+        "--suite",
+        "coordinator"
+      ],
+      "case_inventory": "policy/application-intent-coordinator-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-intent-owner-regression": {
+      "argv": [
+        "{python}",
+        "tools/check_application_intent.py",
+        "--suite",
+        "owner-regression"
+      ],
+      "case_inventory": "policy/application-intent-owner-regression-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-intent-process": {
+      "argv": [
+        "{python}",
+        "tools/check_application_intent.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/application-intent-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "intent-anchor-store": {
+      "argv": [
+        "{python}",
+        "tools/check_intent_anchor.py",
+        "--suite",
+        "store"
+      ],
+      "case_inventory": "policy/intent-anchor-store-inventory.json",
+      "timeout_seconds": 120
+    },
+    "intent-anchor-application": {
+      "argv": [
+        "{python}",
+        "tools/check_intent_anchor.py",
+        "--suite",
+        "application"
+      ],
+      "case_inventory": "policy/intent-anchor-application-inventory.json",
+      "timeout_seconds": 120
+    },
+    "intent-anchor-process": {
+      "argv": [
+        "{python}",
+        "tools/check_intent_anchor.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/intent-anchor-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-owner-owner": {
+      "argv": [
+        "{python}",
+        "tools/check_application_owner.py",
+        "--suite",
+        "owner"
+      ],
+      "case_inventory": "policy/application-owner-owner-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-owner-process": {
+      "argv": [
+        "{python}",
+        "tools/check_application_owner.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/application-owner-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-owner-node": {
+      "argv": [
+        "{python}",
+        "tools/check_application_owner.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/application-owner-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "application-embedding-process": {
+      "argv": [
+        "{python}",
+        "tools/check_application_embedding.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/application-embedding-process-inventory.json",
+      "timeout_seconds": 150
+    },
+    "application-embedding-node": {
+      "argv": [
+        "{python}",
+        "tools/check_application_embedding.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/application-embedding-node-inventory.json",
+      "timeout_seconds": 150
+    },
+    "provider-soak-campaign": {
+      "argv": [
+        "{python}",
+        "tools/check_provider_soak.py",
+        "--suite",
+        "campaign"
+      ],
+      "case_inventory": "policy/provider-soak-campaign-inventory.json",
+      "timeout_seconds": 120
+    },
+    "provider-soak-metrics": {
+      "argv": [
+        "{python}",
+        "tools/check_provider_soak.py",
+        "--suite",
+        "metrics"
+      ],
+      "case_inventory": "policy/provider-soak-metrics-inventory.json",
+      "timeout_seconds": 120
+    },
+    "provider-soak-providers": {
+      "argv": [
+        "{python}",
+        "tools/check_provider_soak.py",
+        "--suite",
+        "providers"
+      ],
+      "case_inventory": "policy/provider-soak-providers-inventory.json",
+      "timeout_seconds": 120
+    },
+    "provider-soak-process": {
+      "argv": [
+        "{python}",
+        "tools/check_provider_soak.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/provider-soak-process-inventory.json",
+      "timeout_seconds": 150
+    },
+    "provider-soak-node": {
+      "argv": [
+        "{python}",
+        "tools/check_provider_soak.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/provider-soak-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "resource-matrix-pool": {
+      "argv": [
+        "{python}",
+        "tools/check_resource_matrix.py",
+        "--suite",
+        "pool"
+      ],
+      "case_inventory": "policy/resource-matrix-pool-inventory.json",
+      "timeout_seconds": 120
+    },
+    "resource-matrix-factory": {
+      "argv": [
+        "{python}",
+        "tools/check_resource_matrix.py",
+        "--suite",
+        "factory"
+      ],
+      "case_inventory": "policy/resource-matrix-factory-inventory.json",
+      "timeout_seconds": 120
+    },
+    "resource-matrix-ledger": {
+      "argv": [
+        "{python}",
+        "tools/check_resource_matrix.py",
+        "--suite",
+        "ledger"
+      ],
+      "case_inventory": "policy/resource-matrix-ledger-inventory.json",
+      "timeout_seconds": 120
+    },
+    "resource-matrix-process": {
+      "argv": [
+        "{python}",
+        "tools/check_resource_matrix.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/resource-matrix-process-inventory.json",
+      "timeout_seconds": 150
+    },
+    "native-provider-manifest": {
+      "argv": [
+        "{python}",
+        "tools/check_native_provider_handoff.py",
+        "--suite",
+        "manifest"
+      ],
+      "case_inventory": "policy/native-provider-manifest-inventory.json",
+      "timeout_seconds": 120
+    },
+    "native-provider-handoff": {
+      "argv": [
+        "{python}",
+        "tools/check_native_provider_handoff.py",
+        "--suite",
+        "handoff"
+      ],
+      "case_inventory": "policy/native-provider-handoff-inventory.json",
+      "timeout_seconds": 120
+    },
+    "native-provider-doctor": {
+      "argv": [
+        "{python}",
+        "tools/check_native_provider_handoff.py",
+        "--suite",
+        "doctor"
+      ],
+      "case_inventory": "policy/native-provider-doctor-inventory.json",
+      "timeout_seconds": 120
+    },
+    "native-provider-fixture": {
+      "argv": [
+        "{python}",
+        "tools/check_native_provider_handoff.py",
+        "--suite",
+        "fixture"
+      ],
+      "case_inventory": "policy/native-provider-fixture-inventory.json",
+      "timeout_seconds": 120
+    },
+    "native-provider-native": {
+      "argv": [
+        "{python}",
+        "tools/check_native_provider_handoff.py",
+        "--suite",
+        "native"
+      ],
+      "case_inventory": "policy/native-provider-native-inventory.json",
+      "timeout_seconds": 120
+    },
+    "native-provider-process": {
+      "argv": [
+        "{python}",
+        "tools/check_native_provider_handoff.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/native-provider-process-inventory.json",
+      "timeout_seconds": 120
+    },
+    "native-provider-node": {
+      "argv": [
+        "{python}",
+        "tools/check_native_provider_handoff.py",
+        "--suite",
+        "node"
+      ],
+      "case_inventory": "policy/native-provider-node-inventory.json",
+      "timeout_seconds": 120
+    },
+    "migration-rehearsal-planner": {
+      "argv": [
+        "{python}",
+        "tools/check_migration_rehearsal.py",
+        "--suite",
+        "planner"
+      ],
+      "case_inventory": "policy/migration-rehearsal-planner-inventory.json",
+      "timeout_seconds": 120
+    },
+    "migration-rehearsal-backup": {
+      "argv": [
+        "{python}",
+        "tools/check_migration_rehearsal.py",
+        "--suite",
+        "backup"
+      ],
+      "case_inventory": "policy/migration-rehearsal-backup-inventory.json",
+      "timeout_seconds": 120
+    },
+    "migration-rehearsal-shadow": {
+      "argv": [
+        "{python}",
+        "tools/check_migration_rehearsal.py",
+        "--suite",
+        "shadow"
+      ],
+      "case_inventory": "policy/migration-rehearsal-shadow-inventory.json",
+      "timeout_seconds": 120
+    },
+    "migration-rehearsal-activation": {
+      "argv": [
+        "{python}",
+        "tools/check_migration_rehearsal.py",
+        "--suite",
+        "activation"
+      ],
+      "case_inventory": "policy/migration-rehearsal-activation-inventory.json",
+      "timeout_seconds": 120
+    },
+    "migration-rehearsal-process": {
+      "argv": [
+        "{python}",
+        "tools/check_migration_rehearsal.py",
+        "--suite",
+        "process"
+      ],
+      "case_inventory": "policy/migration-rehearsal-process-inventory.json",
+      "timeout_seconds": 180
+    },
+    "public-preview-boundary": {
+      "argv": [
+        "{python}",
+        "tools/check_public_preview_boundary.py"
+      ],
+      "case_ids": [
+        "public-preview.boundary",
+        "public-preview.scan",
+        "public-preview.unresolved-gates"
+      ],
+      "timeout_seconds": 60
+    },
+    "wp15-harness-result-contract": {
+      "argv": [
+        "{python}",
+        "tools/check_wp15_harness_result_contract.py"
+      ],
+      "case_ids": [
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_boundary_finding_emits_bounded_fail_result",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_checker_emits_nonce_bound_exact_result",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_clean_boundary_only_is_bounded_pass",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_clean_checker_result_is_accepted_by_harness",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_exit_code_alone_cannot_satisfy_result_contract",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_extra_case_is_rejected",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_lwp15_is_explicitly_gated_by_maintenance_goal",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_maintenance_check_is_registered_with_exact_case_set",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_maintenance_goal_is_explicitly_bounded",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_malformed_result_is_rejected",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_missing_case_is_rejected",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_result_path_without_nonce_fails_closed",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_stale_previous_run_result_is_rejected",
+        "tests.test_local_closure_sprint_a.Wp15HarnessResultContractTests.test_wrong_nonce_is_rejected"
+      ],
+      "timeout_seconds": 120
+    },
+    "qualification-closure-local": {
+      "argv": [
+        "{python}",
+        "tests/product/wp16/run_claim_closure_check.py"
+      ],
+      "case_ids": [
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_all_pass_is_only_eligible_for_external_review",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_blocked_gate_keeps_candidate",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_claim_cannot_reference_missing_evidence",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_claim_must_cover_its_required_gates",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_empty_test_selection_is_not_pass",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_fail_dominates_later_blocked",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_missing_required_gate_is_not_silently_ignored",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_not_applicable_requires_approved_exclusion_and_reviewer",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_not_run_gate_keeps_candidate",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_same_filename_style_artifact_without_digest_is_rejected",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_stale_binding_is_rejected",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_support_window_and_known_risks_are_required",
+        "tests.product.wp16.test_claim_closure.ClaimClosureTests.test_unknown_status_is_invalid",
+        "tests.product.wp16.test_claim_closure.CurrentRepositoryBoundaryTests.test_current_not_run_gate_summary_cannot_be_promoted",
+        "tests.product.wp16.test_claim_closure.CurrentRepositoryBoundaryTests.test_current_product_state_remains_unqualified",
+        "tests.product.wp16.test_claim_closure.ExtensionContractTests.test_arbitrary_executable_json_extension_is_rejected",
+        "tests.product.wp16.test_claim_closure.ExtensionContractTests.test_extension_manifest_requires_bounded_contract",
+        "tests.product.wp16.test_claim_closure.ExtensionContractTests.test_forward_secrecy_crypto_extension_requires_recovery_tradeoff_and_migration",
+        "tests.product.wp16.test_claim_closure.ExtensionContractTests.test_scale_experiment_is_not_stable_guarantee"
+      ],
+      "timeout_seconds": 120
+    },
+    "wp16-local-registration": {
+      "argv": [
+        "{python}",
+        "tools/check_wp16_local_registration.py"
+      ],
+      "case_ids": [
+        "tests.test_qualification_closure_registration.QualificationClosureRegistrationTests.test_local_profile_names_unclaimed_external_scope",
+        "tests.test_qualification_closure_registration.QualificationClosureRegistrationTests.test_maintenance_check_has_exact_case_set",
+        "tests.test_qualification_closure_registration.QualificationClosureRegistrationTests.test_maintenance_goal_is_bounded_and_non_product",
+        "tests.test_qualification_closure_registration.QualificationClosureRegistrationTests.test_product_check_has_exact_case_set",
+        "tests.test_qualification_closure_registration.QualificationClosureRegistrationTests.test_product_state_and_gate_semantics_remain_unpromoted",
+        "tests.test_qualification_closure_registration.QualificationClosureRegistrationTests.test_wp16_local_slice_is_registered_without_full_promotion"
+      ],
+      "timeout_seconds": 120
+    }
+  }
+}

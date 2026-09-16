@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "case_ids": [
+    "test_crypto_hpke.HPKETests.test_aad_bound",
+    "test_crypto_hpke.HPKETests.test_ciphertext_bitflip",
+    "test_crypto_hpke.HPKETests.test_derive_keypair_rfc",
+    "test_crypto_hpke.HPKETests.test_ephemeral_is_fresh",
+    "test_crypto_hpke.HPKETests.test_info_bound",
+    "test_crypto_hpke.HPKETests.test_intermediate_rfc_schedule",
+    "test_crypto_hpke.HPKETests.test_low_order_enc",
+    "test_crypto_hpke.HPKETests.test_low_order_recipient",
+    "test_crypto_hpke.HPKETests.test_no_empty_ciphertext",
+    "test_crypto_hpke.HPKETests.test_random_failure_no_result",
+    "test_crypto_hpke.HPKETests.test_rfc9180_single_shot_known_answer",
+    "test_crypto_hpke.HPKETests.test_unsupported_suite",
+    "test_crypto_hpke.HPKETests.test_wrong_recipient_secret"
+  ]
+}

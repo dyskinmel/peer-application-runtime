@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_crash.CrashTests.test_after_publish_failure_requires_reopen_and_preserves_id",
+    "test_crash.CrashTests.test_fresh_process_reads_without_automatic_core_execution",
+    "test_crash.CrashTests.test_real_fork_refuses_parent_inbox_and_does_not_unlock",
+    "test_crash.CrashTests.test_rename_failure_never_publishes",
+    "test_crash.CrashTests.test_sigkill_00_inbox_before_write",
+    "test_crash.CrashTests.test_sigkill_01_inbox_after_write",
+    "test_crash.CrashTests.test_sigkill_02_inbox_after_file_sync",
+    "test_crash.CrashTests.test_sigkill_03_inbox_before_publish",
+    "test_crash.CrashTests.test_sigkill_04_inbox_after_publish",
+    "test_crash.CrashTests.test_sigkill_05_inbox_after_dirsync",
+    "test_crash.CrashTests.test_sigkill_06_inbox_before_receipt",
+    "test_crash.CrashTests.test_write_failure_never_acknowledged"
+  ]
+}

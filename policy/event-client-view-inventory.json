@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "event-client.view.closed-client-does-not-show-actionable-controls",
+    "event-client.view.display-does-not-emit-any-command",
+    "event-client.view.inquiry-failure-is-distinct-from-local-absence",
+    "event-client.view.japanese-and-english-copy-explain-local-only-receipt",
+    "event-client.view.not-found-asks-for-no-automatic-replay",
+    "event-client.view.panel-and-nested-control-state-are-immutable",
+    "event-client.view.status-is-separate-from-shared-note-and-private-draft",
+    "event-client.view.unknown-is-not-failure-or-unsaved",
+    "event-client.view.unknown-locale-is-refused",
+    "event-client.view.wrong-context-is-rejected-before-display"
+  ]
+}

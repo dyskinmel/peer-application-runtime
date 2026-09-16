@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_scheduler_contract.SchedulerContract.test_activity_port_uses_real_pins",
+    "test_scheduler_contract.SchedulerContract.test_close_idempotent_releases_sockets",
+    "test_scheduler_contract.SchedulerContract.test_connection_without_selector_detected",
+    "test_scheduler_contract.SchedulerContract.test_direct_job_dispatch_when_accepting_refused",
+    "test_scheduler_contract.SchedulerContract.test_extra_selector_registration_detected",
+    "test_scheduler_contract.SchedulerContract.test_invalid_drain_timeout",
+    "test_scheduler_contract.SchedulerContract.test_invalid_tick_deadline",
+    "test_scheduler_contract.SchedulerContract.test_one_transition_per_tick",
+    "test_scheduler_contract.SchedulerContract.test_read_and_upload_connections_both_count",
+    "test_scheduler_contract.SchedulerContract.test_real_hello_socket_counts",
+    "test_scheduler_contract.SchedulerContract.test_real_upload_socket_counts",
+    "test_scheduler_contract.SchedulerContract.test_schedule_invalid_job_leaves_accepting",
+    "test_scheduler_contract.SchedulerContract.test_schedule_pauses_both_listeners",
+    "test_scheduler_contract.SchedulerContract.test_schedule_rejects_second_selected_job",
+    "test_scheduler_contract.SchedulerContract.test_selector_orphan_detected_not_fake_zero",
+    "test_scheduler_contract.SchedulerContract.test_starts_serving_without_selecting_job",
+    "test_scheduler_contract.SchedulerContract.test_submission_is_not_automatic_dispatch",
+    "test_scheduler_contract.SchedulerContract.test_wrong_thread_has_no_mutation"
+  ]
+}

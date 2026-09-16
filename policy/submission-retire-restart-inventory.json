@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_registered_submit_retire_after_unlink",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_registered_submit_retire_tombstone_after_sync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_after_payload_sync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_after_unlink",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_before_release",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_before_unlink",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_intent_after_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_intent_after_sync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_intent_before_fsync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_intent_before_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_migration_after_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_migration_after_sync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_migration_before_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_rebind_after_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_rebind_after_sync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_rebind_before_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_reconciled_after_sync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_reconciled_before_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_removed_after_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_removed_after_sync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_removed_before_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_tombstone_after_replace",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_tombstone_after_sync",
+    "test_submission_retire_restart.RetirementRestart.test_sigkill_submit_retire_tombstone_before_replace"
+  ]
+}

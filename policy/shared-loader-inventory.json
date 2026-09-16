@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_core_port.CorePortTests.test_absent_manifest_is_blocked_not_mock",
+    "test_core_port.CorePortTests.test_bool_timeout_refused",
+    "test_core_port.CorePortTests.test_invalid_manifest_refused",
+    "test_core_port.CorePortTests.test_manifest_must_be_absolute",
+    "test_core_port.CorePortTests.test_real_worker_absent_is_exit_78",
+    "test_core_port.CorePortTests.test_timeout_bounded"
+  ]
+}

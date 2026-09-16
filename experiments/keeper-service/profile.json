@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "name": "keeper-service-local-v1",
+  "artifact_version": "00.15.00",
+  "kind": "EXPERIMENT_NOT_APPROVED_PROTOCOL",
+  "test_counts": {
+    "contract": 46,
+    "lifecycle": 23,
+    "recovery": 12,
+    "faults": 28,
+    "hardening": 9
+  },
+  "sigkill_scenarios": 7,
+  "keeper_schema_version": 3,
+  "transport": "AF_UNIX_PRIVATE_LINUX",
+  "methods": [
+    "challenge",
+    "get",
+    "receipt",
+    "status"
+  ],
+  "request_bytes": 65536,
+  "response_bytes": 1048576,
+  "default_connections": 8,
+  "maximum_connections": 32,
+  "default_deadline_ms": 5000,
+  "unix_socket_processes_tested": true,
+  "public_listener": false,
+  "remote_mutations": false,
+  "crdt_validated": false,
+  "physical_power_loss_tested": false,
+  "product_qualified": false,
+  "transport_encryption": false,
+  "native_network_qualified": false,
+  "independent_review": "NOT_RUN",
+  "pinned_inputs": [
+    {
+      "path": "experiments/keeper-service/par_keeper_service/protocol.py",
+      "sha256": "d57df980c3f7302de330623111df1deee99a5789660e3b06d082d4dfb5658d60"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/transport.py",
+      "sha256": "e24ab88b442e0a9f7bcf5dcc42ce0de8b2b1a95e0ad8c1c09ea15179c546ddf6"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/server.py",
+      "sha256": "23f593792ed436711a610d35053f82f65b67341309b039c00593173df225b63a"
+    },
+    {
+      "path": "experiments/keeper-service/par_keeper_service/client.py",
+      "sha256": "77c0e03304e0ce327c10ff20e57ce3d7580addc94a58f12d7b967cd8e173978a"
+    },
+    {
+      "path": "tools/keeper_service_host.py",
+      "sha256": "c2025f222a198e8d9a29e6245579cf6c263ad75c3929f5fa8b13942ce1d000ed"
+    },
+    {
+      "path": "experiments/keeper-repair/par_keeper_repair/store.py",
+      "sha256": "db842c17eb1ae42e7848a7bce55b8a694feb129f5c5a3684130422a759d8c5c4"
+    },
+    {
+      "path": "experiments/keeper-retention/par_keeper/contract.py",
+      "sha256": "85a59a18eca398e7db51356edf8d1716a3a42358c4b89849b90b09c46d879cca"
+    },
+    {
+      "path": "policy/crypto-provider.json",
+      "sha256": "62cac014fb4a67145eab5462e1d7840e2d01ffef271fa793ce17a0d7a29af63c"
+    }
+  ]
+}

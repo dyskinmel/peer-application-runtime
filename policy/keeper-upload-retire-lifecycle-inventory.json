@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_retire_lifecycle.RetireLifecycle.test_changed_begin_same_operation_does_not_resurrect",
+    "test_retire_lifecycle.RetireLifecycle.test_chunk_after_retirement_denied",
+    "test_retire_lifecycle.RetireLifecycle.test_completed_handoff_stage_is_not_cancelled",
+    "test_retire_lifecycle.RetireLifecycle.test_current_grant_cleans_expired_upload_capability",
+    "test_retire_lifecycle.RetireLifecycle.test_destination_commit_before_stage_ack_is_preserved",
+    "test_retire_lifecycle.RetireLifecycle.test_empty_stage_returns_declared_reservation_only",
+    "test_retire_lifecycle.RetireLifecycle.test_full_stage_can_be_abandoned",
+    "test_retire_lifecycle.RetireLifecycle.test_keeper_payload_and_receipt_unchanged",
+    "test_retire_lifecycle.RetireLifecycle.test_original_begin_does_not_resurrect",
+    "test_retire_lifecycle.RetireLifecycle.test_other_stage_unchanged",
+    "test_retire_lifecycle.RetireLifecycle.test_partial_stage_reclaims_after_unlink",
+    "test_retire_lifecycle.RetireLifecycle.test_payload_quota_reusable_record_not_reclaimed",
+    "test_retire_lifecycle.RetireLifecycle.test_pending_object_only_removes_staging",
+    "test_retire_lifecycle.RetireLifecycle.test_progress_is_not_false_upload_success",
+    "test_retire_lifecycle.RetireLifecycle.test_read_wire_methods_unchanged",
+    "test_retire_lifecycle.RetireLifecycle.test_reopen_does_not_expire_staging",
+    "test_retire_lifecycle.RetireLifecycle.test_reopen_preserves_tombstone",
+    "test_retire_lifecycle.RetireLifecycle.test_same_request_idempotent",
+    "test_retire_lifecycle.RetireLifecycle.test_second_distinct_retirement_request_conflicts",
+    "test_retire_lifecycle.RetireLifecycle.test_second_owner_rejected",
+    "test_retire_lifecycle.RetireLifecycle.test_stale_retirement_grant_no_change",
+    "test_retire_lifecycle.RetireLifecycle.test_stamp_rejects_retired_request",
+    "test_retire_lifecycle.RetireLifecycle.test_status_exposes_only_staging_scope",
+    "test_retire_lifecycle.RetireLifecycle.test_unknown_stage_rejected_without_allocation",
+    "test_retire_lifecycle.RetireLifecycle.test_wrong_thread_rejected"
+  ]
+}

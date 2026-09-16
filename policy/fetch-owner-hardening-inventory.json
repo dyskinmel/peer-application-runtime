@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_owner_hardening.HardeningTests.test_close_timeout_keeps_cleanup_reference",
+    "test_owner_hardening.HardeningTests.test_context_replay_across_restart_rejected",
+    "test_owner_hardening.HardeningTests.test_plan_storage_budget_fails_before_new_files",
+    "test_owner_hardening.HardeningTests.test_proposal_expiry",
+    "test_owner_hardening.HardeningTests.test_propose_deadline_reaps_factory",
+    "test_owner_hardening.HardeningTests.test_repeated_cancel_does_not_interrupt_cleanup",
+    "test_owner_hardening.HardeningTests.test_resumed_plan_still_checks_current_permission",
+    "test_owner_hardening.HardeningTests.test_saved_then_cancel_does_not_claim_success"
+  ]
+}

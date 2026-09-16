@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "version": "00.45.00",
+  "registered_tests": 87,
+  "persistence": "EXISTING_SYNCINBOX_FSYNCED_ENCRYPTED_FILES_NOT_SQLITE_LEDGER",
+  "verification_path": "REAL_PRIVATE_MTLS_SEPARATE_PROVIDER_RECEIVER_PROCESSES",
+  "applied": false,
+  "automatic_ack": false,
+  "automatic_retry": false,
+  "public_network_executed": false,
+  "production_ready": false,
+  "independent_review_passed": false,
+  "progress_flags_are_authoritative": false,
+  "checkpoint_atomic_with_inbox": false,
+  "saved_candidates_revalidated": true,
+  "physical_powerloss_tested": false,
+  "renderer_integrated": false
+}

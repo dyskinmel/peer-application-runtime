@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_snapshot_process.SnapshotProcess.test_closed_window_still_rejected",
+    "test_snapshot_process.SnapshotProcess.test_cold_startup_then_warm_upload",
+    "test_snapshot_process.SnapshotProcess.test_full_mode_has_no_hits",
+    "test_snapshot_process.SnapshotProcess.test_invalid_cache_budget_before_opening",
+    "test_snapshot_process.SnapshotProcess.test_provider_pinned_failure_no_fallback",
+    "test_snapshot_process.SnapshotProcess.test_read_receipt_unchanged",
+    "test_snapshot_process.SnapshotProcess.test_sigkill_warm_cache_reopens_cold",
+    "test_snapshot_process.SnapshotProcess.test_warm_retry_same_bundle"
+  ]
+}

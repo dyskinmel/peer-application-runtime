@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_gc_lifecycle.GCLifecycle.test_collect_then_exact_retry",
+    "test_gc_lifecycle.GCLifecycle.test_content_mismatch_rejected_before_mark",
+    "test_gc_lifecycle.GCLifecycle.test_get_after_gc_denied",
+    "test_gc_lifecycle.GCLifecycle.test_hardlink_rejected",
+    "test_gc_lifecycle.GCLifecycle.test_mark_does_not_refund_or_unlink",
+    "test_gc_lifecycle.GCLifecycle.test_migration_explicit_and_old_open_rejects",
+    "test_gc_lifecycle.GCLifecycle.test_nested_pins",
+    "test_gc_lifecycle.GCLifecycle.test_other_lease_remains_readable",
+    "test_gc_lifecycle.GCLifecycle.test_partial_reservation_refund_not_physical_free_claim",
+    "test_gc_lifecycle.GCLifecycle.test_reader_invalid_after_close",
+    "test_gc_lifecycle.GCLifecycle.test_reader_invalid_after_context",
+    "test_gc_lifecycle.GCLifecycle.test_reader_pin_blocks_mark",
+    "test_gc_lifecycle.GCLifecycle.test_renew_after_gc_denied",
+    "test_gc_lifecycle.GCLifecycle.test_reserved_payload_capacity_reusable",
+    "test_gc_lifecycle.GCLifecycle.test_restart_done_no_refund_twice",
+    "test_gc_lifecycle.GCLifecycle.test_restart_mark_then_resume",
+    "test_gc_lifecycle.GCLifecycle.test_result_tamper_detected_on_open",
+    "test_gc_lifecycle.GCLifecycle.test_second_request_conflicts",
+    "test_gc_lifecycle.GCLifecycle.test_symlink_rejected",
+    "test_gc_lifecycle.GCLifecycle.test_unknown_path_blocks_without_refund"
+  ]
+}

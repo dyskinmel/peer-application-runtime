@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_window_contract.WindowContract.test_archive_wrong_signature",
+    "test_window_contract.WindowContract.test_boolean_sequence_denied",
+    "test_window_contract.WindowContract.test_close_binds_archive",
+    "test_window_contract.WindowContract.test_close_wrong_issuer",
+    "test_window_contract.WindowContract.test_existing_upload_methods_unchanged",
+    "test_window_contract.WindowContract.test_first_predecessor_denied",
+    "test_window_contract.WindowContract.test_issuer_grant_roundtrip",
+    "test_window_contract.WindowContract.test_large_sequence_denied",
+    "test_window_contract.WindowContract.test_later_without_predecessor_denied",
+    "test_window_contract.WindowContract.test_no_expiry_clock_based_rollover",
+    "test_window_contract.WindowContract.test_raw_legacy_command_not_admitted",
+    "test_window_contract.WindowContract.test_signed_wrapper_binds_generation",
+    "test_window_contract.WindowContract.test_signed_wrapper_tamper",
+    "test_window_contract.WindowContract.test_unknown_kind_denied",
+    "test_window_contract.WindowContract.test_window_tamper",
+    "test_window_contract.WindowContract.test_wrong_issuer_cannot_issue",
+    "test_window_contract.WindowContract.test_wrong_subject_cannot_wrap",
+    "test_window_contract.WindowContract.test_zero_sequence_denied"
+  ]
+}

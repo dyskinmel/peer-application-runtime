@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_capacity_reusable_records_retained",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_empty_begun_request",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_every_original_entry_refuses_tombstone",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_inflight_requires_separate_reconcile",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_lost_registration_response_preserves_job",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_partial_retirement_frees_only_payload_reservation",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_pending_retirement_stops_new_chunks",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_ready_retirement_does_not_register",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_rebind_exact_target_after_rotation",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_reconcile_after_controller_rotation",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_registered_job_survives_and_can_execute",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_repeated_request_not_double_release_or_sign",
+    "test_submission_retire_lifecycle.RetirementLifecycle.test_restart_never_deletes_pending_payload"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_resume.ResumeTests.test_checkpoint_detects_known_missing_record_after_reopen",
+    "test_resume.ResumeTests.test_checkpoint_hash_mismatch",
+    "test_resume.ResumeTests.test_checkpoint_plan_mismatch",
+    "test_resume.ResumeTests.test_checkpoint_roundtrip",
+    "test_resume.ResumeTests.test_dependency_waiting_then_ready",
+    "test_resume.ResumeTests.test_descriptor_length_mismatch_on_reconcile",
+    "test_resume.ResumeTests.test_generation_change_requires_new_plan",
+    "test_resume.ResumeTests.test_hardlink_rejected",
+    "test_resume.ResumeTests.test_no_plan_overwrite",
+    "test_resume.ResumeTests.test_old_checkpoint_accepts_newly_stored_record",
+    "test_resume.ResumeTests.test_pinned_load_tamper",
+    "test_resume.ResumeTests.test_plan_save_load",
+    "test_resume.ResumeTests.test_progress_is_owned_copy",
+    "test_resume.ResumeTests.test_quarantine_is_not_success",
+    "test_resume.ResumeTests.test_reconcile_empty_does_not_contact_remote",
+    "test_resume.ResumeTests.test_reconcile_resyncs_existing_and_keeps_unapplied",
+    "test_resume.ResumeTests.test_symlink_rejected",
+    "test_resume.ResumeTests.test_unprivate_directory_rejected",
+    "test_resume.ResumeTests.test_unprivate_file_rejected",
+    "test_resume.ResumeTests.test_wrong_inbox_generation"
+  ]
+}

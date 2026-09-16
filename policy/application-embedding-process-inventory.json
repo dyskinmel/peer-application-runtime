@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_embedding_process.EmbeddingProcessTests.test_view_commit_loss_recovers_without_materializer",
+    "test_embedding_process.EmbeddingProcessTests.test_view_complete_retains_original_one_nonce",
+    "test_embedding_process.EmbeddingProcessTests.test_view_core_blocked_keeps_caller_marker",
+    "test_embedding_process.EmbeddingProcessTests.test_view_dispatch_loss_no_replay",
+    "test_embedding_process.EmbeddingProcessTests.test_view_marker_then_detach_before_send",
+    "test_embedding_process.EmbeddingProcessTests.test_view_prepare_loss_reopen_original",
+    "test_embedding_process.EmbeddingProcessTests.test_view_readonly_does_not_create_original",
+    "test_embedding_process.EmbeddingProcessTests.test_view_retire_loss_no_second_dispatch",
+    "test_embedding_process.EmbeddingProcessTests.test_view_stage_detach_without_request"
+  ]
+}

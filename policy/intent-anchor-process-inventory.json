@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_anchor_process.AnchorProcessTests.test_commit_response_loss_is_one_event_no_replay",
+    "test_anchor_process.AnchorProcessTests.test_dispatch_ahead_of_pin_reopens_inquiry_only",
+    "test_anchor_process.AnchorProcessTests.test_dispatch_pin_survives_before_effect",
+    "test_anchor_process.AnchorProcessTests.test_normal_control_one_event_one_nonce",
+    "test_anchor_process.AnchorProcessTests.test_partial_pin_blocks_open_not_empty",
+    "test_anchor_process.AnchorProcessTests.test_prepared_pin_survives_kill",
+    "test_anchor_process.AnchorProcessTests.test_retirement_pin_and_tombstone_survive_kill"
+  ]
+}

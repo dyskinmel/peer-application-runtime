@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "scope": "PRIVATE_CAUSAL_READ_ONLY",
+  "requirements": [
+    {
+      "id": "PAR-SYNC-002",
+      "tests": [
+        "test_socket.SocketTests.test_real_receiver_pending_only"
+      ],
+      "requirement_complete": false,
+      "remaining": "Actual core, durable applied state, native/public transport and independent qualification remain unverified."
+    },
+    {
+      "id": "PAR-SYNC-004",
+      "tests": [
+        "test_contract.SourceTests.test_equivocation_is_not_resolved_by_provider"
+      ],
+      "requirement_complete": false,
+      "remaining": "Actual core, durable applied state, native/public transport and independent qualification remain unverified."
+    },
+    {
+      "id": "PAR-SYNC-005",
+      "tests": [
+        "test_process.ProcessTests.test_receiver_sigkill_then_explicit_missing_only_resume",
+        "test_process.ProcessTests.test_provider_sigkill_no_silent_stale_socket_removal"
+      ],
+      "requirement_complete": false,
+      "remaining": "Actual core, durable applied state, native/public transport and independent qualification remain unverified."
+    },
+    {
+      "id": "PAR-SYNC-006",
+      "tests": [
+        "test_hardening.HardeningTests.test_catalog_bound_reports_resource_not_invalid_data",
+        "test_hardening.HardeningTests.test_overload_bounded_and_other_client_recovers"
+      ],
+      "requirement_complete": false,
+      "remaining": "Actual core, durable applied state, native/public transport and independent qualification remain unverified."
+    },
+    {
+      "id": "PAR-CORE-003",
+      "tests": [
+        "test_contract.ProtocolTests.test_claiming_applied_in_response_rejected",
+        "test_contract.SourceTests.test_need_not_observed_is_not_global_absence"
+      ],
+      "requirement_complete": false,
+      "remaining": "Actual core, durable applied state, native/public transport and independent qualification remain unverified."
+    }
+  ]
+}

@@ -1,0 +1,2971 @@
+[
+  {
+    "sourceStory": "UI-001",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": null
+      },
+      "surface": "workspace",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "unknown",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "absent-local",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": false,
+        "applied": false,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-001"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-002",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "protection",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-002"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-003",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "protection",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "pending",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-003"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-004",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "protection",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [
+          {
+            "deviceId": "peer-1",
+            "manifest": "root-1",
+            "byteComplete": true,
+            "semanticClosure": "verified",
+            "freshness": "fresh",
+            "storageClass": "native-candidate",
+            "reachable": "unknown",
+            "observedAt": "2026-09-06T00:00:00.000Z"
+          },
+          {
+            "deviceId": "peer-2",
+            "manifest": "root-1",
+            "byteComplete": true,
+            "semanticClosure": "verified",
+            "freshness": "fresh",
+            "storageClass": "native-candidate",
+            "reachable": "unknown",
+            "observedAt": "2026-09-06T00:00:00.000Z"
+          }
+        ],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-004"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-005",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "protection",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [
+          {
+            "deviceId": "peer-1",
+            "manifest": "root-1",
+            "byteComplete": true,
+            "semanticClosure": "verified",
+            "freshness": "stale",
+            "storageClass": "native-candidate",
+            "reachable": "unknown",
+            "observedAt": "2026-09-06T00:00:00.000Z"
+          },
+          {
+            "deviceId": "peer-2",
+            "manifest": "root-1",
+            "byteComplete": true,
+            "semanticClosure": "verified",
+            "freshness": "stale",
+            "storageClass": "native-candidate",
+            "reachable": "unknown",
+            "observedAt": "2026-09-06T00:00:00.000Z"
+          }
+        ],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-005"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-006",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "protection",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [
+          {
+            "deviceId": "peer-1",
+            "manifest": "root-1",
+            "byteComplete": true,
+            "semanticClosure": "unknown",
+            "freshness": "fresh",
+            "storageClass": "native-candidate",
+            "reachable": "unknown",
+            "observedAt": "2026-09-06T00:00:00.000Z"
+          }
+        ],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-006"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-007",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "invite",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "pending",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-007"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-008",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "invite",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "review",
+        "role": "editor",
+        "targetDevice": "new-device",
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [
+        {
+          "kind": "approve-invite",
+          "revision": "revision-1",
+          "scopeKey": "[\"org.example.notes\",\"space-1\",\"note-1\"]",
+          "target": "new-device",
+          "planDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "impact": "This changes the specified target."
+        }
+      ],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-008"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-009",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "invite",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "stale",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-009"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-010",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "editor",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [
+          {
+            "value": "旅行A",
+            "provenance": "peer-a"
+          },
+          {
+            "value": "旅行B",
+            "provenance": "peer-b"
+          }
+        ],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-010"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-011",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "editor",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "rebase-required",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": false
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": true,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-011"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-012",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "workspace",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "fork",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": false
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-012"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-013",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "recovery",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "fetching",
+        "received": "7",
+        "total": "10",
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-013"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-014",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "recovery",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "verifying",
+        "received": "10",
+        "total": "10",
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-014"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-015",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "recovery",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "obtaining-keys",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "missing",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-015"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-016",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "recovery",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "partial",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "3"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-016"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-017",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "recovery",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "review",
+        "received": "10",
+        "total": "10",
+        "recipientValidated": true,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [
+        {
+          "kind": "activate-recovery",
+          "revision": "revision-1",
+          "scopeKey": "[\"org.example.notes\",\"space-1\",\"note-1\"]",
+          "target": "root-1",
+          "planDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "impact": "This changes the specified target."
+        }
+      ],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-017"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-018",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "contribution",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-018"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-019",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "contribution",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "review-stop",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 2
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [
+        {
+          "kind": "force-stop",
+          "revision": "revision-1",
+          "scopeKey": "[\"org.example.notes\",\"space-1\",\"note-1\"]",
+          "target": "space-1",
+          "planDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "impact": "This changes the specified target."
+        }
+      ],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-019"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-020",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "diagnostics",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "failed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": "storage-full",
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-020"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-021",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "connectivity",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "relay-required",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-021"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-022",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "rpc",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "unknown",
+        "operationId": "rpc-1"
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-022"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-023",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "browser",
+      "capabilities": {
+        "host": "browser",
+        "storageClass": "browser-best-effort",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "unsupported"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "browser-best-effort",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-023"
+        ]
+      }
+    }
+  },
+  {
+    "sourceStory": "UI-024",
+    "state": {
+      "schemaVersion": 1,
+      "streamId": "stream-1",
+      "sequence": "1",
+      "revision": "revision-1",
+      "snapshotTime": "2026-09-06T00:00:00.000Z",
+      "scope": {
+        "appId": "org.example.notes",
+        "spaceId": "space-1",
+        "documentId": "note-1"
+      },
+      "surface": "presence",
+      "capabilities": {
+        "host": "linux",
+        "storageClass": "native-candidate",
+        "durableKeeperEligible": false,
+        "keyProtection": "software-encrypted",
+        "supportsLocalEffectTransaction": false,
+        "background": "persistent-process"
+      },
+      "supportedCommands": [
+        "activate-recovery",
+        "add-copy",
+        "approve-invite",
+        "choose-folder",
+        "copy-request",
+        "create-space",
+        "dismiss",
+        "export",
+        "export-diagnostics",
+        "export-partial",
+        "force-stop",
+        "import-data",
+        "inspect-fork",
+        "inspect-operation",
+        "open-details",
+        "pause-recovery",
+        "provide-key",
+        "retry-connect",
+        "review-conflict",
+        "review-contribution",
+        "review-invite",
+        "review-rebase",
+        "review-relay",
+        "verify-recovery"
+      ],
+      "local": {
+        "state": "committed",
+        "storageClass": "native-candidate",
+        "operationId": "op-1",
+        "cancellationRequested": false
+      },
+      "protection": {
+        "root": "root-1",
+        "goal": 2,
+        "observations": [],
+        "keys": "available",
+        "physicalIndependence": "unknown"
+      },
+      "connection": {
+        "state": "offline",
+        "peers": 0
+      },
+      "authority": {
+        "state": "ready",
+        "controlHead": "head-1",
+        "epoch": "1",
+        "role": "owner",
+        "sharedWriteAllowed": true
+      },
+      "document": {
+        "read": "found",
+        "title": "旅行",
+        "text": "Hello",
+        "frontier": "frontier-1",
+        "innerValidated": true,
+        "applied": true,
+        "conflicts": [],
+        "privateDraft": false,
+        "knownCatalogComplete": true,
+        "missingObjects": "0"
+      },
+      "recovery": {
+        "phase": "idle",
+        "received": "0",
+        "total": null,
+        "recipientValidated": false,
+        "keys": "available",
+        "missingObjects": "0"
+      },
+      "rpc": {
+        "state": "idle",
+        "operationId": null
+      },
+      "invite": {
+        "phase": "none",
+        "role": "editor",
+        "targetDevice": null,
+        "manualAvailable": true,
+        "fileAvailable": true
+      },
+      "contribution": {
+        "state": "disabled",
+        "storageBudget": "0",
+        "relayBudget": "0",
+        "activeLeases": 0
+      },
+      "presence": "unknown",
+      "diagnostic": null,
+      "previews": [],
+      "evidence": {
+        "kind": "synthetic",
+        "references": [
+          "UI-024"
+        ]
+      }
+    }
+  }
+]

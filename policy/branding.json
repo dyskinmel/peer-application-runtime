@@ -1,0 +1,7 @@
+{
+  "display_name": "Peer Application Runtime",
+  "abbreviation": "PAR",
+  "artifact_version": "00.57.00",
+  "harness_version": "0.1.4",
+  "wire_identity_policy": "Immutable protocol labels are NOT branding. Review a protocol migration separately."
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_retire_control_restart.RestartTests.test_control_socket_not_exposed_to_retirement",
+    "test_retire_control_restart.RestartTests.test_fs_failure_holds_host_until_reopen",
+    "test_retire_control_restart.RestartTests.test_inflight_registered_reconciles_without_selection",
+    "test_retire_control_restart.RestartTests.test_payload_reappearance_refused_after_restart",
+    "test_retire_control_restart.RestartTests.test_pending_retirement_reopen_never_auto_deletes",
+    "test_retire_control_restart.RestartTests.test_restart_tombstone_preserves_job_and_refusal",
+    "test_retire_control_restart.RestartTests.test_same_uid_foreign_file_not_deleted",
+    "test_retire_control_restart.RestartTests.test_socket_overlap_rejected"
+  ]
+}

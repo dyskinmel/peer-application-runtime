@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_process.ProcessTests.test_provider_sigkill_no_silent_stale_socket_removal",
+    "test_process.ProcessTests.test_receiver_sigkill_then_explicit_missing_only_resume",
+    "test_process.ProcessTests.test_separate_process_reads"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_submit_socket.SubmitSocket.test_capacity",
+    "test_submit_socket.SubmitSocket.test_client_real_exchange",
+    "test_submit_socket.SubmitSocket.test_client_rejects_jump_ack",
+    "test_submit_socket.SubmitSocket.test_client_rejects_nonadvancing_ack",
+    "test_submit_socket.SubmitSocket.test_context",
+    "test_submit_socket.SubmitSocket.test_context_revision_must_match_hello",
+    "test_submit_socket.SubmitSocket.test_control_data_limits_unchanged",
+    "test_submit_socket.SubmitSocket.test_data_activity_still_counted",
+    "test_submit_socket.SubmitSocket.test_deadline",
+    "test_submit_socket.SubmitSocket.test_duplicate_after_lost_response",
+    "test_submit_socket.SubmitSocket.test_old_connection_cannot_replay_request",
+    "test_submit_socket.SubmitSocket.test_real_staged_submit",
+    "test_submit_socket.SubmitSocket.test_request_no_generic_method",
+    "test_submit_socket.SubmitSocket.test_request_size_bound",
+    "test_submit_socket.SubmitSocket.test_response_context_not_stage",
+    "test_submit_socket.SubmitSocket.test_revoked_connection_drops_response",
+    "test_submit_socket.SubmitSocket.test_submit_socket_not_data_activity",
+    "test_submit_socket.SubmitSocket.test_wrong_operator_request",
+    "test_submit_socket.SubmitSocket.test_zero_frame"
+  ]
+}

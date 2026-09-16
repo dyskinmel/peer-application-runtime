@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_authority_change_before_effect_is_rejected",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_cache_is_invalidated_at_effect_and_changed_scope",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_cancel_after_effect_not_rollback",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_close_compact_open_keep_both_endpoints_alive",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_competing_close_is_not_overwritten",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_invalid_reconcile_has_no_admission_side_effect",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_journal_failure_leaves_admission_paused",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_old_data_profile_and_limits_unchanged",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_presenter_has_no_fake_percentage_or_preemption",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_reentrant_cancel_from_effect_refused",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_reentrant_tick_from_effect_refused",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_resume_after_provider_swap_is_refused",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_unknown_after_effect_reconciles_without_reexecution",
+    "test_scheduler_lifecycle.SchedulerLifecycle.test_unknown_does_not_auto_reconcile_or_retry"
+  ]
+}

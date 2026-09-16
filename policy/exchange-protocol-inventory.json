@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_ids": [
+    "test_contract.ProtocolTests.test_claiming_applied_in_response_rejected",
+    "test_contract.ProtocolTests.test_duplicate_need_is_rejected",
+    "test_contract.ProtocolTests.test_extra_key_rejected",
+    "test_contract.ProtocolTests.test_hello_pin",
+    "test_contract.ProtocolTests.test_negative_or_bool_offset",
+    "test_contract.ProtocolTests.test_request_is_connection_bound",
+    "test_contract.ProtocolTests.test_response_connection_binding",
+    "test_contract.ProtocolTests.test_too_many_need_is_rejected",
+    "test_contract.ProtocolTests.test_unknown_method_before_signing",
+    "test_contract.ProtocolTests.test_wrong_document_scope",
+    "test_contract.ProtocolTests.test_wrong_request_signature",
+    "test_contract.ProtocolTests.test_wrong_server_key"
+  ]
+}

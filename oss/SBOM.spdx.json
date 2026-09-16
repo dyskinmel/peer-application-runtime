@@ -1,0 +1,127 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "created": "2026-09-16T11:10:49Z",
+    "creators": [
+      "Tool: PAR tools/build_oss_inventory.py"
+    ]
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "urn:par:source-sbom-candidate:5ee76a85bddaada876940e2e289b7d6c717dcbf3b43ba0b31bf9fa4c25f33826",
+  "name": "PAR-SOURCE-SBOM-CANDIDATE",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-PAR-Source-Candidate",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "name": "Peer Application Runtime",
+      "versionInfo": "0.1.0-alpha.1"
+    },
+    {
+      "SPDXID": "SPDXRef-libsodium-ctypes-local-candidate",
+      "comment": "scope=reference_runtime_crypto; inclusion=SOURCE_REFERENCE_ONLY_BINARY_NOT_BUNDLED; maintenance=UNKNOWN",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "ISC",
+      "name": "libsodium-ctypes-local-candidate",
+      "versionInfo": "1.0.18"
+    },
+    {
+      "SPDXID": "SPDXRef-sqlite",
+      "comment": "scope=reference_runtime_store; inclusion=SYSTEM_RUNTIME_NOT_BUNDLED; maintenance=UNKNOWN",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "LicenseRef-SQLite-Public-Domain",
+      "name": "sqlite",
+      "versionInfo": ">=3.37 reference requirement; exact runtime varies"
+    },
+    {
+      "SPDXID": "SPDXRef-typescript-compiler",
+      "comment": "scope=development_build_tool; inclusion=NOT_BUNDLED; maintenance=UNKNOWN",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "name": "typescript-compiler",
+      "versionInfo": "UNKNOWN"
+    },
+    {
+      "SPDXID": "SPDXRef-automerge-native-dependency",
+      "comment": "scope=future_native_actor; inclusion=NOT_SELECTED_NOT_BUNDLED; maintenance=RESEARCH_REQUIRED",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "name": "automerge-native-dependency",
+      "versionInfo": "UNKNOWN"
+    },
+    {
+      "SPDXID": "SPDXRef-production-crypto-provider",
+      "comment": "scope=future_native_crypto; inclusion=DECISION_REQUIRED_NOT_BUNDLED; maintenance=RESEARCH_REQUIRED",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "production-crypto-provider",
+      "versionInfo": "UNKNOWN"
+    }
+  ],
+  "parMetadata": {
+    "classification": "SOURCE_ONLY_ALPHA_DEPENDENCY_INVENTORY",
+    "creationInfoSemantics": "DETERMINISTIC_INVENTORY_SNAPSHOT_NOT_DEVELOPMENT_BASELINE_TIME",
+    "dependencyInventorySha256": "5ee76a85bddaada876940e2e289b7d6c717dcbf3b43ba0b31bf9fa4c25f33826",
+    "developmentBaselineHead": "2452b0ebb5bbc0e4b0322ea67f1c4ff80406100e",
+    "final": false,
+    "nativeArtifactBundled": false,
+    "nativeDependencySbomRequiredBefore": [
+      "native_artifact_distribution",
+      "binary_distribution"
+    ],
+    "nativeDependencySbomStatus": "NOT_APPLICABLE",
+    "networkResolutionPerformed": false,
+    "sourceOnlyRelease": true
+  },
+  "relationships": [
+    {
+      "relatedSpdxElement": "SPDXRef-PAR-Source-Candidate",
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-libsodium-ctypes-local-candidate",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-PAR-Source-Candidate"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-sqlite",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-PAR-Source-Candidate"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-typescript-compiler",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-PAR-Source-Candidate"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-automerge-native-dependency",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-PAR-Source-Candidate"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-production-crypto-provider",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-PAR-Source-Candidate"
+    }
+  ],
+  "spdxVersion": "SPDX-2.3"
+}

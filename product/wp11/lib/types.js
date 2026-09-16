@@ -1,0 +1,2 @@
+/** Portable, inert presentation contracts. Decimal u64 never passes through Number. */
+export const COMMANDS = ['activate-recovery', 'add-copy', 'approve-invite', 'choose-folder', 'copy-request', 'create-space', 'dismiss', 'export', 'export-diagnostics', 'export-partial', 'force-stop', 'import-data', 'inspect-fork', 'inspect-operation', 'open-details', 'pause-recovery', 'provide-key', 'retry-connect', 'review-conflict', 'review-contribution', 'review-invite', 'review-rebase', 'review-relay', 'verify-recovery'];

@@ -1,0 +1,11 @@
+# ADR-0036: 文書適用の読み取りと共有commit照会を分離
+
+候補。元仕様は変更しない。
+
+schema4の適用記録は、元のenvelopes.state=pendingと異なる意味を持つ。schema3向けStoreObserverを改変してpendingをappliedへ読み替える方式は採らない。独立したApplicationObserverで入力/nonce/到達点/本文AEADを検査し、候補本文を非表示にする。
+
+保存されたcore-validatedラベルをUIの信頼根にしない。所有者の独立したengine Pinと実装再検査、全入力の再適用と保存本文の一致を必要とする。現環境では実core取得不能なので正例のポートは明示的な契約ダブルで試す。これらは実CRDT専用gateへ加算しない。
+
+取得開始と失敗時に読取本文を消す安全側の表示を採用。私有下書き、UIの入力変換状態はこの境界から変更しない。最新の認可を永続的に証明しないため、観測時点を表示する。現在の画面への製品transport接続・実core試験は後段。
+
+追加レビューで見つかった問題: 一度観測した適用履歴を同じobserverで失ってもEMPTYへ戻せた。observer固有の既知到達点Pinで検知。また同じ操作IDの確認済み結果をTypeScript側がNOT_OBSERVEDに戻せたため、上限64件の既知結果を固定。負例→修正→回帰を記録。

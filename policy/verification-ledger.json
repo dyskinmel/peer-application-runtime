@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "statuses": ["PASS", "FAIL", "TIMEOUT", "INCOMPLETE", "ENVIRONMENT_BLOCKED", "NOT_RUN"],
+  "receipt_seal": "sha256-canonical-json-v1",
+  "reject_stale_source": true,
+  "reject_stale_test_definition": true,
+  "reject_stale_environment": true,
+  "missing_lane_result": "INCOMPLETE",
+  "duplicate_lane_result": "ERROR",
+  "tamper_result": "ERROR",
+  "reuse_only_status": "PASS"
+}
