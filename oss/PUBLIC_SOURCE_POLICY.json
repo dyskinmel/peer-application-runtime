@@ -1,18 +1,14 @@
 {
   "schema_version": 3,
   "policy_id": "PAR-OSS-PUBLIC-SOURCE-00.68",
-  "publishable": false,
-  "classification": "PERSONAL_OSS_SOURCE_ONLY_ALPHA_NOT_RELEASE_AUTHORIZATION",
+  "publishable": true,
+  "classification": "PERSONAL_OSS_SOURCE_ONLY_ALPHA_PRERELEASE",
   "release_profile": "oss/PUBLIC_ALPHA_RELEASE.json",
   "display_name": {
     "kind": "PROVISIONAL_FUNCTIONAL_DESCRIPTOR",
     "value": "Peer Application Runtime"
   },
-  "unresolved_gates": [
-    "public_repository",
-    "github_private_vulnerability_reporting",
-    "hosted_ci"
-  ],
+  "unresolved_gates": [],
   "classification_precedence": [
     "GENERATED_EXCLUDE",
     "PUBLIC_DEVELOPMENT",
@@ -135,8 +131,7 @@
     ]
   },
   "nonclaims": [
-    "not a public release authorization",
-    "local source-only alpha selections do not authorize publication",
+    "source-only alpha publication does not imply production qualification",
     "no production qualification",
     "no production crypto provider qualification",
     "no security contact is published by this candidate"

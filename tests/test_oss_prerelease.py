@@ -180,17 +180,19 @@ class OssPrereleaseDocumentationTests(unittest.TestCase):
         for link in ['docs/ARCHITECTURE.md','docs/KNOWN_LIMITATIONS.md','docs/ROADMAP.md','SECURITY.md','CONTRIBUTING.md']:
             self.assertIn(link,readme)
 
-    def test_security_and_release_decisions_record_selected_and_external_states(self):
+    def test_security_and_release_decisions_record_completed_external_states(self):
         sec=(ROOT/'SECURITY.md').read_text(encoding='utf-8')
         self.assertIn('GitHub private vulnerability reporting',sec)
         self.assertIn('public issue',sec.lower())
         decisions=json.loads((ROOT/'oss/RELEASE_DECISIONS.json').read_text(encoding='utf-8'))
         for key in ['license','project_name','release_version','copyright_notice']:
             self.assertEqual(decisions['decisions'][key]['status'],'RESOLVED_LOCAL')
-        self.assertEqual(decisions['decisions']['security_reporting']['status'],'EXTERNAL_ACTION_REQUIRED')
+        self.assertEqual(decisions['decisions']['public_repository']['status'],'COMPLETED')
+        self.assertEqual(decisions['decisions']['security_reporting']['status'],'COMPLETED')
+        self.assertEqual(decisions['decisions']['hosted_ci']['status'],'COMPLETED')
         self.assertEqual(decisions['decisions']['final_native_dependency_sbom']['status'],'NOT_APPLICABLE')
-        self.assertFalse(decisions['publishable'])
-        self.assertFalse(decisions['release_authorized'])
+        self.assertTrue(decisions['publishable'])
+        self.assertTrue(decisions['release_authorized'])
 
 
 class OssPrereleaseInventoryTests(unittest.TestCase):
@@ -224,7 +226,7 @@ class OssPrereleaseInventoryTests(unittest.TestCase):
     def test_license_inventory_preserves_release_decision_gate(self):
         lic=json.loads((ROOT/'oss/THIRD_PARTY_INVENTORY.json').read_text(encoding='utf-8'))
         self.assertEqual(lic['release_license_decision'],'Apache-2.0')
-        self.assertFalse(lic['license_authorized_for_publication'])
+        self.assertTrue(lic['license_authorized_for_publication'])
         self.assertEqual(lic['third_party_compatibility'],'REVIEWED_NO_BUNDLED_THIRD_PARTY_ARTIFACTS')
         self.assertEqual(lic['source_only_alpha_dependency_review']['status'],'COMPLETED')
         self.assertEqual(
@@ -301,7 +303,8 @@ class OssPrereleaseExporterTests(unittest.TestCase):
             self.assertEqual(report['secret_privacy_scan'],'PASS')
             self.assertEqual(report['public_boundary'],'PASS')
             self.assertTrue(report['required_docs_present'])
-            self.assertFalse(report['publishable'])
+            self.assertTrue(report['publishable'])
+            self.assertTrue(report['release_authorized'])
 
     def test_verifier_cli_runs_without_tools_harness_shadowing(self):
         import subprocess, sys
@@ -385,9 +388,9 @@ class OssPrereleaseExporterTests(unittest.TestCase):
             build_preview_archive(ROOT,policy,original)
             cases=(
                 ('policy-release-profile', 'oss/PUBLIC_SOURCE_POLICY.json', 'release_profile', 'oss/WRONG_PROFILE.json', 'policy.release_profile'),
-                ('policy-publishable', 'oss/PUBLIC_SOURCE_POLICY.json', 'publishable', True, 'policy.publishable'),
-                ('manifest-gates', 'PUBLIC_SOURCE_MANIFEST.json', 'unresolved_gates', ['hosted_ci','github_private_vulnerability_reporting','public_repository'], 'manifest.unresolved_gates'),
-                ('status-gates', 'PUBLIC_PREVIEW_STATUS.json', 'unresolved_gates', ['hosted_ci','github_private_vulnerability_reporting','public_repository'], 'status.unresolved_gates'),
+                ('policy-publishable', 'oss/PUBLIC_SOURCE_POLICY.json', 'publishable', False, 'policy.publishable'),
+                ('manifest-gates', 'PUBLIC_SOURCE_MANIFEST.json', 'unresolved_gates', ['hosted_ci'], 'manifest.unresolved_gates'),
+                ('status-gates', 'PUBLIC_PREVIEW_STATUS.json', 'unresolved_gates', ['hosted_ci'], 'status.unresolved_gates'),
             )
             for name, record, field, value, expected_error in cases:
                 with self.subTest(name=name):
@@ -526,7 +529,7 @@ class OssPrereleaseCheckerAuthorityTests(unittest.TestCase):
         data=json.loads(cp.stdout)
         policy=json.loads((ROOT/'oss/PUBLIC_SOURCE_POLICY.json').read_text(encoding='utf-8'))
         self.assertEqual(data['unresolved_gates'],policy['unresolved_gates'])
-        self.assertEqual(data['unresolved_gates'],['public_repository','github_private_vulnerability_reporting','hosted_ci'])
+        self.assertEqual(data['unresolved_gates'],[])
 
 
 if __name__ == '__main__':

@@ -4,20 +4,20 @@
   "external_publish_prerequisites": [
     {
       "id": "public_repository",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     },
     {
       "id": "github_private_vulnerability_reporting",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     },
     {
       "id": "hosted_ci",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     }
   ],
   "final_license_text": "LICENSE",
   "notice_finalized": true,
-  "publishable": false,
+  "publishable": true,
   "schema_version": 2,
   "selected_spdx_license": "Apache-2.0",
   "status": "RESOLVED_SOURCE_ONLY_ALPHA"

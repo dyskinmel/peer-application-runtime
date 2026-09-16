@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "publishable": false,
-  "release_authorized": false,
+  "publishable": true,
+  "release_authorized": true,
   "version_strategy": {
     "recommended": "0.1.0-alpha.1",
     "alternative": "0.1.0-preview.1",
@@ -14,9 +14,9 @@
     "release_version": {"status": "RESOLVED_LOCAL", "value": "0.1.0-alpha.1", "intended_tag": "v0.1.0-alpha.1"},
     "copyright_notice": {"status": "RESOLVED_LOCAL", "value": "Copyright 2026 dyskinmel"},
     "final_native_dependency_sbom": {"status": "NOT_APPLICABLE", "scope": "SOURCE_ONLY_ALPHA"},
-    "public_repository": {"status": "EXTERNAL_ACTION_REQUIRED", "slug": "dyskinmel/peer-application-runtime"},
-    "security_reporting": {"status": "EXTERNAL_ACTION_REQUIRED", "provider": "GITHUB_PRIVATE_VULNERABILITY_REPORTING"},
-    "hosted_ci": {"status": "EXTERNAL_ACTION_REQUIRED"},
+    "public_repository": {"status": "COMPLETED", "slug": "dyskinmel/peer-application-runtime", "visibility": "PUBLIC", "verified_on": "2026-09-16"},
+    "security_reporting": {"status": "COMPLETED", "provider": "GITHUB_PRIVATE_VULNERABILITY_REPORTING", "enabled": true, "verified_on": "2026-09-16"},
+    "hosted_ci": {"status": "COMPLETED", "workflow": "OSS prerelease checks", "run_id": 35100244183, "head_sha": "1d34a4dc4c56563438357ced1cb7aa75c0f3b50b", "verified_on": "2026-09-16"},
     "release_signing": {"status": "NOT_REQUIRED_FOR_SOURCE_ONLY_ALPHA"},
     "hosted_attestation": {"status": "NOT_REQUIRED_FOR_SOURCE_ONLY_ALPHA"}
   },

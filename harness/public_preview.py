@@ -156,7 +156,8 @@ def build_public_manifest(root: Path, policy: dict) -> dict:
     if policy.get("release_profile") != PROFILE_RELATIVE_PATH.as_posix():
         raise ValueError("PUBLIC_ALPHA_PROFILE_PATH_MISMATCH")
     prerequisites = profile["external_publish_prerequisites"]
-    if policy.get("unresolved_gates") != [row["id"] for row in prerequisites]:
+    unresolved = [row["id"] for row in prerequisites if row.get("status") != "COMPLETED"]
+    if policy.get("unresolved_gates") != unresolved:
         raise ValueError("PUBLIC_ALPHA_PREREQUISITES_MISMATCH")
     audit = audit_tracked_classification(root, policy) if policy.get("classifications") else {"pass": True, "unclassified": [], "classification_counts": {}}
     if not audit["pass"]:
@@ -165,8 +166,8 @@ def build_public_manifest(root: Path, policy: dict) -> dict:
     body = {
         "schema_version": 3 if policy.get("classifications") else 1,
         "classification": policy.get("classification", "OSS_DEVELOPER_PREVIEW_CANDIDATE_NOT_RELEASE_AUTHORIZATION"),
-        "publishable": False,
-        "release_authorized": False,
+        "publishable": profile["publication"]["publishable"],
+        "release_authorized": profile["publication"]["release_authorized"],
         "product_qualified": False,
         "release_profile": PROFILE_RELATIVE_PATH.as_posix(),
         "external_publish_prerequisites": prerequisites,
@@ -197,8 +198,8 @@ def build_preview_archive(root: Path, policy: dict, output: Path) -> dict:
     manifest = build_public_manifest(root, policy)
     status = {
         "schema_version": 3 if policy.get("classifications") else 1,
-        "publishable": False,
-        "release_authorized": False,
+        "publishable": manifest["publishable"],
+        "release_authorized": manifest["release_authorized"],
         "classification": policy.get("classification"),
         "display_name": policy.get("display_name"),
         "unresolved_gates": list(policy.get("unresolved_gates", [])),
@@ -234,7 +235,8 @@ def build_preview_archive(root: Path, policy: dict, output: Path) -> dict:
         "size_bytes": len(data),
         "sha256": hashlib.sha256(data).hexdigest(),
         "source_files": len(manifest["files"]),
-        "publishable": False,
+        "publishable": status["publishable"],
+        "release_authorized": status["release_authorized"],
         "unresolved_gates": status["unresolved_gates"],
         "manifest_sha256": manifest["manifest_sha256"],
         "source": manifest.get("source"),

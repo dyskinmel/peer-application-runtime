@@ -1,5 +1,5 @@
 {
-  "classification": "PERSONAL_OSS_SOURCE_ONLY_ALPHA_NOT_RELEASE_AUTHORIZATION",
+  "classification": "PERSONAL_OSS_SOURCE_ONLY_ALPHA_PRERELEASE",
   "display_name": {
     "kind": "PROVISIONAL_FUNCTIONAL_DESCRIPTOR",
     "value": "Peer Application Runtime"
@@ -7,34 +7,30 @@
   "external_publish_prerequisites": [
     {
       "id": "public_repository",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     },
     {
       "id": "github_private_vulnerability_reporting",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     },
     {
       "id": "hosted_ci",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     }
   ],
-  "manifest_sha256": "a0c93097d851d7ddbde42b56ebcba202e91a3edd835a9926700de26f51a28282",
+  "manifest_sha256": "e4fca773846384ddadaf24bffb07adc071085fd39b7baa4a22b1ed27bec8b6cc",
   "product_qualified": false,
-  "publishable": false,
-  "release_authorized": false,
+  "publishable": true,
+  "release_authorized": true,
   "release_profile": "oss/PUBLIC_ALPHA_RELEASE.json",
   "schema_version": 3,
   "source": {
     "branch": "main",
     "checkpoint_tags": [],
-    "commit_time": "2026-09-16T08:08:38-05:00",
-    "head": "fc19827ec4b984c0d0907f985f5fa6722e559cdc",
-    "source_digest": "715c07d8edd6f4208f20a7e706182118a6b2f0d614942ad8fbc95688798254d0",
-    "tree": "67f81fc771673025ab0a10a5b2a2d4bd9e94de86"
+    "commit_time": "2026-09-16T09:25:34-05:00",
+    "head": "06077404b61acd3e5fd797d068c1636accfa91dd",
+    "source_digest": "0110531329b4cfc4509b50b0806224242e16a2a9dc531d0ca52d3a52e41e3280",
+    "tree": "a73169bb8933e2508640464b6885cbd4e39b20af"
   },
-  "unresolved_gates": [
-    "public_repository",
-    "github_private_vulnerability_reporting",
-    "hosted_ci"
-  ]
+  "unresolved_gates": []
 }

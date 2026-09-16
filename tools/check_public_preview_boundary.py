@@ -34,7 +34,8 @@ def result_cases(scan: dict, policy: dict) -> list[dict]:
     gates_ok=(
         scan.get('unresolved_gates')==list(policy.get('unresolved_gates',[]))
         and scan.get('publishable') is False
-        and policy.get('publishable') is False
+        and policy.get('publishable') is True
+        and policy.get('unresolved_gates')==[]
     )
     return [
         _case('public-preview.boundary',boundary_ok),

@@ -22,16 +22,16 @@ EXPECTED = {
     'repository.preserve_development_git_history': False,
     'repository.development_checkout_push_allowed': False,
     'source_only.native_dependency_sbom.status': 'NOT_APPLICABLE',
-    'publication.publishable': False,
-    'publication.release_authorized': False,
+    'publication.publishable': True,
+    'publication.release_authorized': True,
 }
 
 _MISSING = object()
-_EXTERNAL_ACTION_REQUIRED = 'EXTERNAL_ACTION_REQUIRED'
+_COMPLETED = 'COMPLETED'
 _PREREQUISITES = [
-    {'id': 'public_repository', 'status': _EXTERNAL_ACTION_REQUIRED},
-    {'id': 'github_private_vulnerability_reporting', 'status': _EXTERNAL_ACTION_REQUIRED},
-    {'id': 'hosted_ci', 'status': _EXTERNAL_ACTION_REQUIRED},
+    {'id': 'public_repository', 'status': _COMPLETED},
+    {'id': 'github_private_vulnerability_reporting', 'status': _COMPLETED},
+    {'id': 'hosted_ci', 'status': _COMPLETED},
 ]
 
 
@@ -72,8 +72,8 @@ def validate_public_alpha_profile(root: Path, profile: dict | None = None) -> li
 
     required = {
         'repository.slug': 'dyskinmel/peer-application-runtime',
-        'repository.status': _EXTERNAL_ACTION_REQUIRED,
-        'security_reporting.status': _EXTERNAL_ACTION_REQUIRED,
+        'repository.status': 'PUBLIC',
+        'security_reporting.status': 'ENABLED',
         'project.name_stability': 'CURRENT_NAME_MAY_CHANGE',
         'project.trademark_claim': False,
     }
@@ -85,6 +85,6 @@ def validate_public_alpha_profile(root: Path, profile: dict | None = None) -> li
     if profile.get('external_publish_prerequisites') != _PREREQUISITES:
         mismatches.append({
             'field': 'external_publish_prerequisites',
-            'reason': 'must exactly match required external-action prerequisites',
+            'reason': 'must exactly match completed publication prerequisites',
         })
     return mismatches

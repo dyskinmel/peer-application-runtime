@@ -58,7 +58,7 @@
   ],
   "files_requiring_notice_review": [],
   "legal_conclusion": "FACTUAL_LICENSE_REVIEW_COMPLETED_NOT_LEGAL_ADVICE",
-  "license_authorized_for_publication": false,
+  "license_authorized_for_publication": true,
   "manifest_license_declarations": [
     {
       "declared_license": "Apache-2.0",

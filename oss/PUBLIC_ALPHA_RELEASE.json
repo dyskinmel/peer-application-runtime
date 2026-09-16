@@ -12,7 +12,7 @@
   "repository": {
     "provider": "GITHUB",
     "slug": "dyskinmel/peer-application-runtime",
-    "status": "EXTERNAL_ACTION_REQUIRED",
+    "status": "PUBLIC",
     "import_source": "VERIFIED_SOURCE_ARCHIVE_CONTENTS",
     "preserve_development_git_history": false,
     "development_checkout_push_allowed": false
@@ -29,7 +29,7 @@
   "security_reporting": {
     "provider": "GITHUB_PRIVATE_VULNERABILITY_REPORTING",
     "email_published": false,
-    "status": "EXTERNAL_ACTION_REQUIRED"
+    "status": "ENABLED"
   },
   "source_only": {
     "included_artifact_types": ["source"],
@@ -41,12 +41,15 @@
     }
   },
   "external_publish_prerequisites": [
-    {"id": "public_repository", "status": "EXTERNAL_ACTION_REQUIRED"},
-    {"id": "github_private_vulnerability_reporting", "status": "EXTERNAL_ACTION_REQUIRED"},
-    {"id": "hosted_ci", "status": "EXTERNAL_ACTION_REQUIRED"}
+    {"id": "public_repository", "status": "COMPLETED"},
+    {"id": "github_private_vulnerability_reporting", "status": "COMPLETED"},
+    {"id": "hosted_ci", "status": "COMPLETED"}
   ],
   "publication": {
-    "publishable": false,
-    "release_authorized": false
+    "publishable": true,
+    "release_authorized": true,
+    "authorized_scope": "SOURCE_ONLY_ALPHA_PRERELEASE",
+    "authorized_on": "2026-09-16",
+    "authorized_by": "dyskinmel"
   }
 }

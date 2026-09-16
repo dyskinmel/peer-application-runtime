@@ -1,6 +1,6 @@
-# Peer Application Runtime (PAR) — Alpha source candidate
+# Peer Application Runtime (PAR) — Source-only Alpha
 
-> **Status: Alpha / developer preview.** `Peer Application Runtime (PAR)` is the current project name and may change later. This source-only Alpha is **not Production Qualified** and is not authorized for public release.
+> **Status: Alpha / developer preview.** `Peer Application Runtime (PAR)` is the current project name and may change later. This source-only Alpha is authorized only for the GitHub Pre-release `v0.1.0-alpha.1` and is **not Production Qualified**.
 
 PAR is an open-source-oriented runtime and protocol development kit for participant-owned application backends. The repository explores authenticated data exchange, deterministic wire formats, local durable storage, recovery semantics, authorization, synchronization boundaries, offline/host workflows, and verification evidence.
 
@@ -34,7 +34,7 @@ See [Architecture](docs/ARCHITECTURE.md), [Contributing](CONTRIBUTING.md), and [
 
 ## Release status
 
-`publishable=false` and `release_authorized=false` remain in force. Before any public release, the intended repository, GitHub private vulnerability reporting, and hosted CI are external prerequisites. The intended future pre-release tag is `v0.1.0-alpha.1`; this source candidate does not create it.
+`publishable=true` and `release_authorized=true` apply only to the source-only GitHub Pre-release `v0.1.0-alpha.1`. The public repository, GitHub private vulnerability reporting, and hosted CI prerequisites were completed and independently checked on 2026-09-16. This authorization does not extend to a stable release, binary or native distribution, production deployment, or Production Qualification.
 
 ## Next stage
 

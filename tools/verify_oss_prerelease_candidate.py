@@ -137,8 +137,8 @@ def _contract_errors(record: dict, expected: dict, prefix: str) -> list[dict]:
 
 def _decision_errors(profile: dict, decision: dict) -> list[dict]:
     expected = {
-        'publishable': False,
-        'release_authorized': False,
+        'publishable': _value_at(profile, 'publication.publishable'),
+        'release_authorized': _value_at(profile, 'publication.release_authorized'),
         'decisions.license.spdx': _value_at(profile, 'license.spdx'),
         'decisions.project_name.value': _value_at(profile, 'project.name'),
         'decisions.project_name.may_change': True,
@@ -155,7 +155,7 @@ def _decision_errors(profile: dict, decision: dict) -> list[dict]:
     for name in ('license', 'project_name', 'release_version', 'copyright_notice'):
         expected[f'decisions.{name}.status'] = 'RESOLVED_LOCAL'
     for name in ('public_repository', 'security_reporting', 'hosted_ci'):
-        expected[f'decisions.{name}.status'] = 'EXTERNAL_ACTION_REQUIRED'
+        expected[f'decisions.{name}.status'] = 'COMPLETED'
     return _contract_errors(decision, expected, 'decision')
 
 
@@ -169,7 +169,8 @@ def _inventory_errors(root: Path, profile: dict) -> list[dict]:
             errors.append({'field': path, 'reason': error})
     gate = records['oss/LICENSE_DECISION_REQUIRED.json']
     errors.extend(_contract_errors(gate, {
-        'status': 'RESOLVED_SOURCE_ONLY_ALPHA', 'publishable': False,
+        'status': 'RESOLVED_SOURCE_ONLY_ALPHA',
+        'publishable': _value_at(profile, 'publication.publishable'),
         'selected_spdx_license': 'Apache-2.0', 'final_license_text': 'LICENSE',
         'copyright_holder': 'dyskinmel', 'notice_finalized': True,
         'baseline_license_is_release_authorization': False,
@@ -178,7 +179,7 @@ def _inventory_errors(root: Path, profile: dict) -> list[dict]:
     third = records['oss/THIRD_PARTY_INVENTORY.json']
     errors.extend(_contract_errors(third, {
         'release_license_decision': 'Apache-2.0',
-        'license_authorized_for_publication': False,
+        'license_authorized_for_publication': _value_at(profile, 'publication.release_authorized'),
         'repository_license_material_complete': True,
         'third_party_compatibility': 'REVIEWED_NO_BUNDLED_THIRD_PARTY_ARTIFACTS',
         'source_only_alpha_dependency_review.status': 'COMPLETED',
@@ -338,7 +339,10 @@ def verify_candidate(archive: Path, sha256_file: Path | None = None) -> dict:
             decision, decision_error = _read_json(root, 'oss/RELEASE_DECISIONS.json')
             profile_errors = ([{'field': 'profile', 'reason': profile_error}] if profile_error else validate_public_alpha_profile(root, profile))
             prerequisites = profile.get('external_publish_prerequisites')
-            prerequisite_ids = [row.get('id') for row in prerequisites if isinstance(row, dict)] if isinstance(prerequisites, list) else []
+            unresolved_ids = [
+                row.get('id') for row in prerequisites
+                if isinstance(row, dict) and row.get('status') != 'COMPLETED'
+            ] if isinstance(prerequisites, list) else []
             inventory_errors = _inventory_errors(root, profile)
             relationship_errors = []
             if policy_error:
@@ -346,16 +350,16 @@ def verify_candidate(archive: Path, sha256_file: Path | None = None) -> dict:
             else:
                 if policy.get('release_profile') != PROFILE_RELATIVE_PATH.as_posix():
                     relationship_errors.append({'field': 'policy.release_profile'})
-                if policy.get('publishable') is not False:
+                if policy.get('publishable') is not _value_at(profile, 'publication.publishable'):
                     relationship_errors.append({'field': 'policy.publishable'})
-                if policy.get('unresolved_gates') != prerequisite_ids:
+                if policy.get('unresolved_gates') != unresolved_ids:
                     relationship_errors.append({'field': 'policy.unresolved_gates'})
             for source, record in (('manifest', manifest), ('status', status)):
                 if record.get('release_profile') != PROFILE_RELATIVE_PATH.as_posix(): relationship_errors.append({'field': f'{source}.release_profile'})
                 if record.get('external_publish_prerequisites') != profile.get('external_publish_prerequisites'): relationship_errors.append({'field': f'{source}.external_publish_prerequisites'})
-                if record.get('unresolved_gates') != prerequisite_ids: relationship_errors.append({'field': f'{source}.unresolved_gates'})
-                if record.get('publishable') is not False: relationship_errors.append({'field': f'{source}.publishable'})
-                if record.get('release_authorized') is not False: relationship_errors.append({'field': f'{source}.release_authorized'})
+                if record.get('unresolved_gates') != unresolved_ids: relationship_errors.append({'field': f'{source}.unresolved_gates'})
+                if record.get('publishable') is not _value_at(profile, 'publication.publishable'): relationship_errors.append({'field': f'{source}.publishable'})
+                if record.get('release_authorized') is not _value_at(profile, 'publication.release_authorized'): relationship_errors.append({'field': f'{source}.release_authorized'})
                 if record.get('product_qualified') is not False: relationship_errors.append({'field': f'{source}.product_qualified'})
             if decision_error:
                 relationship_errors.append({'field': 'decision', 'reason': decision_error})
@@ -419,6 +423,8 @@ def verify_candidate(archive: Path, sha256_file: Path | None = None) -> dict:
         technical = smoke['overall_result'] == 'PASS'
         report['technical_result'] = 'PASS' if technical else 'FAIL'
         report['overall_result'] = report['technical_result']
+        report['publishable'] = bool(technical and manifest.get('publishable') is True)
+        report['release_authorized'] = bool(technical and manifest.get('release_authorized') is True)
         return report
 
 

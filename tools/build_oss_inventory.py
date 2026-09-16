@@ -194,7 +194,7 @@ def build_third_party(dep:dict, profile:dict)->dict:
     return {
         'schema_version':2,
         'release_license_decision':profile['license']['spdx'],
-        'license_authorized_for_publication':False,
+        'license_authorized_for_publication':profile['publication']['release_authorized'],
         'repository_license_material_complete':True,
         'repository_license_material':material,
         'manifest_license_declarations':declarations,
@@ -221,7 +221,7 @@ def build_license_gate(profile:dict)->dict:
     return {
         'schema_version':2,
         'status':'RESOLVED_SOURCE_ONLY_ALPHA',
-        'publishable':False,
+        'publishable':profile['publication']['publishable'],
         'selected_spdx_license':profile['license']['spdx'],
         'final_license_text':profile['license']['license_file'],
         'copyright_holder':profile['copyright']['public_holder'],

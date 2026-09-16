@@ -55,6 +55,11 @@ class PublicAlphaProfileTests(unittest.TestCase):
         self.assertEqual(profile['license']['spdx'], 'Apache-2.0')
         self.assertEqual(profile['copyright']['public_holder'], 'dyskinmel')
         self.assertEqual(profile['source_only']['native_dependency_sbom']['status'], 'NOT_APPLICABLE')
+        self.assertEqual(profile['repository']['status'], 'PUBLIC')
+        self.assertEqual(profile['security_reporting']['status'], 'ENABLED')
+        self.assertTrue(profile['publication']['publishable'])
+        self.assertTrue(profile['publication']['release_authorized'])
+        self.assertTrue(all(row['status'] == 'COMPLETED' for row in profile['external_publish_prerequisites']))
 
     def test_profile_requires_clean_archive_import_without_development_history(self):
         from harness.public_alpha import load_public_alpha_profile, validate_public_alpha_profile
@@ -104,9 +109,10 @@ class PublicAlphaProfileTests(unittest.TestCase):
         self.assertEqual(rows['LICENSE']['classification'], 'PUBLIC')
         self.assertEqual(rows['NOTICE']['classification'], 'PUBLIC')
         self.assertNotIn('release/OSS_READINESS.md', rows)
-        self.assertEqual(policy['unresolved_gates'], [row['id'] for row in profile['external_publish_prerequisites']])
+        self.assertEqual(policy['unresolved_gates'], [])
+        self.assertTrue(policy['publishable'])
 
-    def test_decision_record_matches_profile_without_authorizing_publication(self):
+    def test_decision_record_matches_profile_and_authorizes_source_alpha(self):
         from harness.public_alpha import load_public_alpha_profile
 
         profile = load_public_alpha_profile(ROOT)
@@ -115,8 +121,11 @@ class PublicAlphaProfileTests(unittest.TestCase):
         self.assertEqual(decisions['decisions']['release_version']['value'], profile['version'])
         self.assertEqual(decisions['decisions']['public_repository']['slug'], profile['repository']['slug'])
         self.assertEqual(decisions['decisions']['security_reporting']['provider'], profile['security_reporting']['provider'])
-        self.assertFalse(decisions['publishable'])
-        self.assertFalse(decisions['release_authorized'])
+        self.assertTrue(decisions['publishable'])
+        self.assertTrue(decisions['release_authorized'])
+        self.assertEqual(decisions['decisions']['public_repository']['status'], 'COMPLETED')
+        self.assertEqual(decisions['decisions']['security_reporting']['status'], 'COMPLETED')
+        self.assertEqual(decisions['decisions']['hosted_ci']['status'], 'COMPLETED')
 
     def test_public_docs_state_source_only_identity_and_no_email_route(self):
         readme = (ROOT / 'README.md').read_text(encoding='utf-8')
@@ -301,8 +310,9 @@ class PublicAlphaArchiveTests(unittest.TestCase):
             self.assertTrue(report['required_legal_material_present'])
             self.assertEqual(report['source_only_result'], 'PASS')
             self.assertEqual(report['smoke_result'], 'PASS')
-            self.assertFalse(report['publishable'])
-            self.assertFalse(report['release_authorized'])
+            self.assertTrue(report['publishable'])
+            self.assertTrue(report['release_authorized'])
+            self.assertFalse(report['product_qualified'])
 
     def test_verifier_fails_when_notice_is_missing_from_archive(self):
         from harness.public_preview import build_preview_archive
@@ -358,12 +368,12 @@ class PublicAlphaArchiveContractTests(unittest.TestCase):
 
     def test_contradictory_inventory_claims_fail_with_valid_checksums(self):
         cases = (
-            ('LICENSE_DECISION_REQUIRED.json', 'publishable', True),
+            ('LICENSE_DECISION_REQUIRED.json', 'publishable', False),
             ('LICENSE_DECISION_REQUIRED.json', 'status', 'DECISION_REQUIRED'),
             ('LICENSE_DECISION_REQUIRED.json', 'selected_spdx_license', 'MIT'),
             ('LICENSE_DECISION_REQUIRED.json', 'notice_finalized', False),
             ('THIRD_PARTY_INVENTORY.json', 'release_license_decision', 'MIT'),
-            ('THIRD_PARTY_INVENTORY.json', 'license_authorized_for_publication', True),
+            ('THIRD_PARTY_INVENTORY.json', 'license_authorized_for_publication', False),
             ('THIRD_PARTY_INVENTORY.json', 'repository_license_material', []),
             ('THIRD_PARTY_INVENTORY.json', 'repository_license_material.1.sha256', '0' * 64),
             ('THIRD_PARTY_INVENTORY.json', 'repository_license_material_complete', False),
@@ -391,7 +401,7 @@ class PublicAlphaArchiveContractTests(unittest.TestCase):
                 self.assertEqual(report['dependency_inventory'], 'FAIL')
                 self.assertTrue(report['inventory_errors'])
 
-    def test_decision_statuses_cannot_claim_external_completion_or_native_sbom(self):
+    def test_decision_statuses_reject_incorrect_external_state_or_native_sbom(self):
         cases = (
             ('license', 'status', 'PASS'),
             ('project_name', 'status', 'PASS'),
@@ -402,9 +412,9 @@ class PublicAlphaArchiveContractTests(unittest.TestCase):
             ('copyright_notice', 'value', ''),
             ('final_native_dependency_sbom', 'status', 'COMPLETE'),
             ('final_native_dependency_sbom', 'scope', 'NATIVE'),
-            ('public_repository', 'status', 'PASS'),
-            ('security_reporting', 'status', 'PASS'),
-            ('hosted_ci', 'status', 'PASS'),
+            ('public_repository', 'status', 'EXTERNAL_ACTION_REQUIRED'),
+            ('security_reporting', 'status', 'EXTERNAL_ACTION_REQUIRED'),
+            ('hosted_ci', 'status', 'EXTERNAL_ACTION_REQUIRED'),
             ('release_signing', 'status', 'PASS'),
             ('hosted_attestation', 'status', 'PASS'),
         )

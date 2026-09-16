@@ -1,34 +1,34 @@
 {
-  "classification": "PERSONAL_OSS_SOURCE_ONLY_ALPHA_NOT_RELEASE_AUTHORIZATION",
+  "classification": "PERSONAL_OSS_SOURCE_ONLY_ALPHA_PRERELEASE",
   "classification_audit": {
     "classification_counts": {
       "GENERATED_EXCLUDE": 3,
-      "INTERNAL_ONLY": 76,
+      "INTERNAL_ONLY": 77,
       "PUBLIC": 951,
       "PUBLIC_DEVELOPMENT": 545
     },
     "pass": true,
-    "tracked_files": 1575,
+    "tracked_files": 1576,
     "unclassified": []
   },
   "excluded_categories": {
     "GENERATED_EXCLUDE": 3,
-    "INTERNAL_ONLY": 76,
+    "INTERNAL_ONLY": 77,
     "PUBLIC": 951,
     "PUBLIC_DEVELOPMENT": 545
   },
   "external_publish_prerequisites": [
     {
       "id": "public_repository",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     },
     {
       "id": "github_private_vulnerability_reporting",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     },
     {
       "id": "hosted_ci",
-      "status": "EXTERNAL_ACTION_REQUIRED"
+      "status": "COMPLETED"
     }
   ],
   "files": [
@@ -105,15 +105,15 @@
     {
       "classification": "PUBLIC",
       "path": "README.md",
-      "sha256": "432e41ba4ff9eef84853355c5c223243f72659d2060bb52e717c68c15c31c3fe",
-      "size_bytes": 3531,
+      "sha256": "2b1870eb8a47b347ef033e4fa91da7bd06efe9d90c1c7f8a9ba9d900f0e5046c",
+      "size_bytes": 3653,
       "source_path": "README.md"
     },
     {
       "classification": "PUBLIC",
       "path": "RELEASE_NOTES.md",
-      "sha256": "f708c3a157c0c10d2021e57f633d13a17d089ebfb5ff8b03455b1707f9963e45",
-      "size_bytes": 1152,
+      "sha256": "51652bff82e79a14cd78fd35b450f1c226b3c7973038546058d33b22f081b528",
+      "size_bytes": 1275,
       "source_path": "RELEASE_NOTES.md"
     },
     {
@@ -3717,15 +3717,15 @@
     {
       "classification": "PUBLIC",
       "path": "harness/public_alpha.py",
-      "sha256": "4b65b4b7eefe3c480e89ab85b17964b0c9d8b27912b87b2ce25267201784f499",
-      "size_bytes": 3434,
+      "sha256": "2773b1788c39f119b3ae0ee1d21179356ffd0e73246b5a46f4f2110c6205f1d3",
+      "size_bytes": 3321,
       "source_path": "harness/public_alpha.py"
     },
     {
       "classification": "PUBLIC",
       "path": "harness/public_preview.py",
-      "sha256": "dd85794d7d17d9fd2b4babfdd3fe5c31ca5c30a59e95c23a71acd55090b59fb0",
-      "size_bytes": 16716,
+      "sha256": "e9e4dfcc9efe215e4057cecfc5bd14ea68409ade80bfd3adf7ca2f19a660f7e1",
+      "size_bytes": 16970,
       "source_path": "harness/public_preview.py"
     },
     {
@@ -3759,8 +3759,8 @@
     {
       "classification": "PUBLIC",
       "path": "oss/CODEX_OSS_RELEASE_HANDOFF.md",
-      "sha256": "73cdeb6c7d03992863ae33d58ef508ccafc0dc8a5e059f60f44d43b1b2dbc2d8",
-      "size_bytes": 3156,
+      "sha256": "4ba8d32d548932c785c3c20d548a5959937cab2a11bbcf2a2f3fcf64112e5548",
+      "size_bytes": 2937,
       "source_path": "oss/CODEX_OSS_RELEASE_HANDOFF.md"
     },
     {
@@ -3780,49 +3780,49 @@
     {
       "classification": "PUBLIC",
       "path": "oss/GITHUB_RELEASE_GUIDE.md",
-      "sha256": "b6e9bf0c7b182f7deee90ff5cae8ccf8cf049d586c6fd8debe6cab2623e7a9d0",
-      "size_bytes": 3265,
+      "sha256": "b1631bafd06ad10609c86be8a4deb794f3c08f6d16c1732cb05b221ca63331af",
+      "size_bytes": 2966,
       "source_path": "oss/GITHUB_RELEASE_GUIDE.md"
     },
     {
       "classification": "PUBLIC",
       "path": "oss/INVENTORY_GENERATION_METADATA.json",
-      "sha256": "91e076456435a15f42d1f752606bdcc85275f8d9cdb54373a634bab2d041c8de",
+      "sha256": "a3074b11c03feabcb3d4af165fe19c2de0cd9f07c0bba78552e854bef068dd3a",
       "size_bytes": 442,
       "source_path": "oss/INVENTORY_GENERATION_METADATA.json"
     },
     {
       "classification": "PUBLIC",
       "path": "oss/LICENSE_DECISION_REQUIRED.json",
-      "sha256": "56b84df004d5ea9225b108aa960db62024fdb9088204faca424acefe3773a1a3",
-      "size_bytes": 607,
+      "sha256": "dd2c7c4c6c2a9d690b20154a5ad769ac70410ef2c50bb184fe65eb3abcb6fd57",
+      "size_bytes": 561,
       "source_path": "oss/LICENSE_DECISION_REQUIRED.json"
     },
     {
       "classification": "PUBLIC",
       "path": "oss/PUBLIC_ALPHA_RELEASE.json",
-      "sha256": "861e6a6aadbb03d72dd05c44517dc88d61b31bad5af20c6a2ea5a4ef91ec2b04",
-      "size_bytes": 1735,
+      "sha256": "e311edc9a18c6cc9c4d77616fa9b2e81a4487698ada2be7e8fdbdb376b87c4e7",
+      "size_bytes": 1778,
       "source_path": "oss/PUBLIC_ALPHA_RELEASE.json"
     },
     {
       "classification": "PUBLIC",
       "path": "oss/PUBLIC_SOURCE_POLICY.json",
-      "sha256": "2a35b94e29ee836f2729a248731e1cb2a6bacbad6caa396b96fa9016ce8f8934",
-      "size_bytes": 3449,
+      "sha256": "20cd544d99ba6d3ccfe7715c376dca1820b432f413322cce8342410fb590a4f7",
+      "size_bytes": 3307,
       "source_path": "oss/PUBLIC_SOURCE_POLICY.json"
     },
     {
       "classification": "PUBLIC",
       "path": "oss/RELEASE_DECISIONS.json",
-      "sha256": "9988c0537e7c93c93bb58440f7edff6b226874f3740f447f6672f5f7ceae7b20",
-      "size_bytes": 1502,
+      "sha256": "07cc0382633722f0b2b6550a5a492c0d07f50dcc584a86f2ba15791e47e6f1c7",
+      "size_bytes": 1699,
       "source_path": "oss/RELEASE_DECISIONS.json"
     },
     {
       "classification": "PUBLIC",
       "path": "oss/SBOM.spdx.json",
-      "sha256": "d32e506a38e55fd1558b472fada6155ef0f8e55a6a5ea4029f7066a438579863",
+      "sha256": "34fd6aea456eb32071eb8258cc550b05fc9d954d043f7e0f5d702e1a2acaf428",
       "size_bytes": 4638,
       "source_path": "oss/SBOM.spdx.json"
     },
@@ -3836,8 +3836,8 @@
     {
       "classification": "PUBLIC",
       "path": "oss/THIRD_PARTY_INVENTORY.json",
-      "sha256": "6bd247d8cdc44f2566b8eaabffd3de8d2cbd6d509ad7daa383cab991eec68024",
-      "size_bytes": 4278,
+      "sha256": "c70d46b73fb4bf9533195affac837a8638a75fd2182c40e1b74a5459f5d5bd30",
+      "size_bytes": 4277,
       "source_path": "oss/THIRD_PARTY_INVENTORY.json"
     },
     {
@@ -9828,15 +9828,15 @@
     {
       "classification": "PUBLIC_DEVELOPMENT",
       "path": "tests/test_oss_prerelease.py",
-      "sha256": "6ecbe83d4436ffdb0f08a9c4aeb14a9f9adf78330ad45f72298037c8b1d2bb2a",
-      "size_bytes": 31252,
+      "sha256": "0128b6b4df16887864b8c9298baf1116376d25569f4267090fdf20e34d8a67d6",
+      "size_bytes": 31271,
       "source_path": "tests/test_oss_prerelease.py"
     },
     {
       "classification": "PUBLIC_DEVELOPMENT",
       "path": "tests/test_public_alpha_release.py",
-      "sha256": "bd84919a3522610b3df2a799bf5b5dd30c2b58310270ce819405957a8cce22a3",
-      "size_bytes": 22785,
+      "sha256": "d0329e61352c74d2c21df24f324ee4e66fa5927572b5b3c0e2dc1f826f13ece2",
+      "size_bytes": 23543,
       "source_path": "tests/test_public_alpha_release.py"
     },
     {
@@ -9863,8 +9863,8 @@
     {
       "classification": "PUBLIC",
       "path": "tools/build_oss_inventory.py",
-      "sha256": "3085390dc4efa01517c9861b573d95244368c711b0abe1d105406ff67ac499a7",
-      "size_bytes": 17413,
+      "sha256": "f93bdbdffde1579799fa5946299257964d87e8a08c0c33c6ee8ca0aae76a488e",
+      "size_bytes": 17484,
       "source_path": "tools/build_oss_inventory.py"
     },
     {
@@ -10164,8 +10164,8 @@
     {
       "classification": "PUBLIC",
       "path": "tools/check_public_preview_boundary.py",
-      "sha256": "3505a98ab8f4295b86a3e8b0b5ded2ea72e5bdecd4169668848bb0794c0ea0d3",
-      "size_bytes": 2074,
+      "sha256": "b8c6bb53a784fd0270e9dc2c2368e9b86eec57e832982828e254bfcef4a323d6",
+      "size_bytes": 2120,
       "source_path": "tools/check_public_preview_boundary.py"
     },
     {
@@ -10493,8 +10493,8 @@
     {
       "classification": "PUBLIC",
       "path": "tools/verify_oss_prerelease_candidate.py",
-      "sha256": "fae315434e1bddaa15594fa6626852514f26d7d4f5e48a632fda3d2360eb7c1d",
-      "size_bytes": 23973,
+      "sha256": "275b51ef8c10adc11883f863bf51becdaa8798fa4e3cdf5a016f0b90c6917597",
+      "size_bytes": 24534,
       "source_path": "tools/verify_oss_prerelease_candidate.py"
     },
     {
@@ -10505,25 +10505,21 @@
       "source_path": "tools/verify_package.py"
     }
   ],
-  "manifest_sha256": "a0c93097d851d7ddbde42b56ebcba202e91a3edd835a9926700de26f51a28282",
+  "manifest_sha256": "e4fca773846384ddadaf24bffb07adc071085fd39b7baa4a22b1ed27bec8b6cc",
   "product_qualified": false,
   "public_file_count": 1496,
-  "publishable": false,
-  "release_authorized": false,
+  "publishable": true,
+  "release_authorized": true,
   "release_profile": "oss/PUBLIC_ALPHA_RELEASE.json",
   "schema_version": 3,
   "source": {
     "branch": "main",
     "checkpoint_tags": [],
-    "commit_time": "2026-09-16T08:08:38-05:00",
-    "head": "fc19827ec4b984c0d0907f985f5fa6722e559cdc",
-    "source_digest": "715c07d8edd6f4208f20a7e706182118a6b2f0d614942ad8fbc95688798254d0",
-    "tree": "67f81fc771673025ab0a10a5b2a2d4bd9e94de86"
+    "commit_time": "2026-09-16T09:25:34-05:00",
+    "head": "06077404b61acd3e5fd797d068c1636accfa91dd",
+    "source_digest": "0110531329b4cfc4509b50b0806224242e16a2a9dc531d0ca52d3a52e41e3280",
+    "tree": "a73169bb8933e2508640464b6885cbd4e39b20af"
   },
-  "total_bytes": 7499761,
-  "unresolved_gates": [
-    "public_repository",
-    "github_private_vulnerability_reporting",
-    "hosted_ci"
-  ]
+  "total_bytes": 7501135,
+  "unresolved_gates": []
 }
